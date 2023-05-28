@@ -14,14 +14,14 @@ final class MainTabBarControllerViewModel {
     
     @Published var selectedIndex: Int?
     
-    let indexManager = MainTabBarIndexManager()
+    private let indexManager = MainTabBarIndexManager()
     
     init() {
         viewControllers = makeViewControllers()
         selectedIndex = 0
     }
     
-    func makeViewControllers() -> [UIViewController] {
+    private func makeViewControllers() -> [UIViewController] {
         
         func navigationController(with rootViewController: UIViewController, title: String, imageName: String, selectedImageName: String) -> UINavigationController {
             let navigationController = UINavigationController(rootViewController: rootViewController)

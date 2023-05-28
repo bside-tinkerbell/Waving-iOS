@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
     
     private var subscriptions = Set<AnyCancellable>()
     
