@@ -2,7 +2,7 @@
 //  SettingViewController.swift
 //  Waving-iOS
 //
-//  Created by USER on 2023/05/28.
+//  Created by Jane Choi on 2023/05/28.
 //
 
 import UIKit
