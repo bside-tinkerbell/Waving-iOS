@@ -15,6 +15,11 @@
 		A8E0C0F42A2365E000C8696E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0F32A2365E000C8696E /* SnapKit */; };
 		A8E0C10A2A23669A00C8696E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C1092A23669A00C8696E /* Moya */; };
 		A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */; };
+		CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412AA2A23552200C790F3 /* MainTabBarController.swift */; };
+		CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */; };
+		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
+		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
+		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
 		CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E7792A17A93200BC1464 /* AppDelegate.swift */; };
 		CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */; };
 		CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E77D2A17A93200BC1464 /* ViewController.swift */; };
@@ -43,8 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = ../../../../../../Desktop/Log.swift; sourceTree = "<group>"; };
+		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
+		CE0412AA2A23552200C790F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CEE3E7762A17A93200BC1464 /* Waving-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waving-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE3E7792A17A93200BC1464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				CEE3E77D2A17A93200BC1464 /* ViewController.swift */,
+				CE0412AA2A23552200C790F3 /* MainTabBarController.swift */,
+				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
+				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
+				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
+				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -342,11 +357,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
+				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
+				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
+				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
+				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
