@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ViewController: UIViewController, SnapKitInterface{
+class ViewController: UIViewController, SnapKitInterface {
     
     private let loginButton = UIButton().then {
         $0.setTitle("로그인 버튼", for: .normal)
