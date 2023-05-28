@@ -7,6 +7,10 @@
 - `develop` : 개발자들이 작업한 코드를 합치는 브랜치입니다.
 - `feat - 기능명` : 각각의 기능을 수행하는 브랜치입니다.
 
+## Branch protection rule
+- `main`
+  - Require a pull request before merging
+  - Force pushes are not allowed
 
 # commit 메시지 규칙
 
