@@ -7,6 +7,14 @@
 - `develop` : 개발자들이 작업한 코드를 합치는 브랜치입니다.
 - `feat - 기능명` : 각각의 기능을 수행하는 브랜치입니다.
 
+## 개인 개발 전략
+- 각 개발자는 repo 를 fork 해서 작업합니다.
+- 각자의 작업 내용은 본 repo의 develop 브랜치 대상으로 PR을 생성합니다.
+
+## Branch protection rule
+- `main`
+  - Require a pull request before merging
+  - Force pushes are not allowed
 
 # commit 메시지 규칙
 
