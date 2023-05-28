@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
+		A8E0C0EA2A23659400C8696E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0E92A23659400C8696E /* RxCocoa */; };
+		A8E0C0EC2A23659400C8696E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0EB2A23659400C8696E /* RxRelay */; };
+		A8E0C0EE2A23659400C8696E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0ED2A23659400C8696E /* RxSwift */; };
+		A8E0C0F12A2365B500C8696E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0F02A2365B500C8696E /* Then */; };
+		A8E0C0F42A2365E000C8696E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0F32A2365E000C8696E /* SnapKit */; };
+		A8E0C10A2A23669A00C8696E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C1092A23669A00C8696E /* Moya */; };
+		A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */; };
 		CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412AA2A23552200C790F3 /* MainTabBarController.swift */; };
 		CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */; };
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
@@ -40,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
 		CE0412AA2A23552200C790F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +74,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E0C0EE2A23659400C8696E /* RxSwift in Frameworks */,
+				A8E0C0EC2A23659400C8696E /* RxRelay in Frameworks */,
+				A8E0C10A2A23669A00C8696E /* Moya in Frameworks */,
+				A8E0C0EA2A23659400C8696E /* RxCocoa in Frameworks */,
+				A8E0C0F12A2365B500C8696E /* Then in Frameworks */,
+				A8E0C0F42A2365E000C8696E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +100,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8E0C0B22A23636100C8696E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */,
+				CEE3E7792A17A93200BC1464 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A8E0C0B52A23639400C8696E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3E77D2A17A93200BC1464 /* ViewController.swift */,
+				CE0412AA2A23552200C790F3 /* MainTabBarController.swift */,
+				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
+				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
+				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
+				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A8E0C0B62A2363A200C8696E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3E7822A17A93300BC1464 /* Assets.xcassets */,
+				CEE3E7842A17A93300BC1464 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A8E0C0B72A23641000C8696E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A8E0C0B82A23641F00C8696E /* Log.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A8E0C10B2A23678800C8696E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A8E0C10C2A23679800C8696E /* Enitites */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A8E0C10C2A23679800C8696E /* Enitites */ = {
+			isa = PBXGroup;
+			children = (
+				A8E0C10D2A23684300C8696E /* Interface */,
+			);
+			path = Enitites;
+			sourceTree = "<group>";
+		};
+		A8E0C10D2A23684300C8696E /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		CEE3E76D2A17A93200BC1464 = {
 			isa = PBXGroup;
 			children = (
@@ -107,16 +186,11 @@
 		CEE3E7782A17A93200BC1464 /* Waving-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3E7792A17A93200BC1464 /* AppDelegate.swift */,
-				CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */,
-				CE0412AA2A23552200C790F3 /* MainTabBarController.swift */,
-				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
-				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
-				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
-				CEE3E77D2A17A93200BC1464 /* ViewController.swift */,
-				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
-				CEE3E7822A17A93300BC1464 /* Assets.xcassets */,
-				CEE3E7842A17A93300BC1464 /* LaunchScreen.storyboard */,
+				A8E0C10B2A23678800C8696E /* Domain */,
+				A8E0C0B52A23639400C8696E /* Presentation */,
+				A8E0C0B72A23641000C8696E /* Support */,
+				A8E0C0B62A2363A200C8696E /* Resources */,
+				A8E0C0B22A23636100C8696E /* Application */,
 				CEE3E7872A17A93300BC1464 /* Info.plist */,
 			);
 			path = "Waving-iOS";
@@ -155,6 +229,14 @@
 			dependencies = (
 			);
 			name = "Waving-iOS";
+			packageProductDependencies = (
+				A8E0C0E92A23659400C8696E /* RxCocoa */,
+				A8E0C0EB2A23659400C8696E /* RxRelay */,
+				A8E0C0ED2A23659400C8696E /* RxSwift */,
+				A8E0C0F02A2365B500C8696E /* Then */,
+				A8E0C0F32A2365E000C8696E /* SnapKit */,
+				A8E0C1092A23669A00C8696E /* Moya */,
+			);
 			productName = "Waving-iOS";
 			productReference = CEE3E7762A17A93200BC1464 /* Waving-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +309,12 @@
 				Base,
 			);
 			mainGroup = CEE3E76D2A17A93200BC1464;
+			packageReferences = (
+				A8E0C0E82A23659400C8696E /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A8E0C0EF2A2365B500C8696E /* XCRemoteSwiftPackageReference "Then" */,
+				A8E0C0F22A2365E000C8696E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A8E0C1082A23669A00C8696E /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = CEE3E7772A17A93200BC1464 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -272,11 +360,13 @@
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
+				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
+				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,
+				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
+				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
-				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
-				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,12 +535,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Waving-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,12 +562,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Waving-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,6 +694,74 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A8E0C0E82A23659400C8696E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+		A8E0C0EF2A2365B500C8696E /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		A8E0C0F22A2365E000C8696E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		A8E0C1082A23669A00C8696E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A8E0C0E92A23659400C8696E /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E0C0E82A23659400C8696E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A8E0C0EB2A23659400C8696E /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E0C0E82A23659400C8696E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		A8E0C0ED2A23659400C8696E /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E0C0E82A23659400C8696E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A8E0C0F02A2365B500C8696E /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E0C0EF2A2365B500C8696E /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		A8E0C0F32A2365E000C8696E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E0C0F22A2365E000C8696E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A8E0C1092A23669A00C8696E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E0C1082A23669A00C8696E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CEE3E76E2A17A93200BC1464 /* Project object */;
 }

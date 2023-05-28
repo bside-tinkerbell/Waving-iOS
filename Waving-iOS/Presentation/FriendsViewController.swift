@@ -12,7 +12,7 @@ final class FriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .cyan
     }
     
 
