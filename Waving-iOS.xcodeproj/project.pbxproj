@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
 		A8E0C0EA2A23659400C8696E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0E92A23659400C8696E /* RxCocoa */; };
 		A8E0C0EC2A23659400C8696E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0EB2A23659400C8696E /* RxRelay */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
 		CE0412AA2A23552200C790F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A82EC65F2A26340B00DABF26 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				A82EC6612A26344200DABF26 /* Font */,
+				A82EC6602A26343A00DABF26 /* Color */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		A82EC6602A26343A00DABF26 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				A82EC6622A2634B500DABF26 /* Colors.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		A82EC6612A26344200DABF26 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		A8E0C0B22A23636100C8696E /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +215,7 @@
 				A8E0C10B2A23678800C8696E /* Domain */,
 				A8E0C0B52A23639400C8696E /* Presentation */,
 				A8E0C0B72A23641000C8696E /* Support */,
+				A82EC65F2A26340B00DABF26 /* DesignSystem */,
 				A8E0C0B62A2363A200C8696E /* Resources */,
 				A8E0C0B22A23636100C8696E /* Application */,
 				CEE3E7872A17A93300BC1464 /* Info.plist */,
@@ -358,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
+				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
