@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
+		A82EC6712A26380A00DABF26 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A82EC6682A26380A00DABF26 /* Pretendard-Medium.ttf */; };
+		A82EC6732A26380A00DABF26 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A82EC66A2A26380A00DABF26 /* Pretendard-Regular.ttf */; };
+		A82EC6752A26380A00DABF26 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A82EC66C2A26380A00DABF26 /* Pretendard-Bold.ttf */; };
+		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
 		A8E0C0EA2A23659400C8696E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0E92A23659400C8696E /* RxCocoa */; };
 		A8E0C0EC2A23659400C8696E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0EB2A23659400C8696E /* RxRelay */; };
@@ -50,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A82EC6682A26380A00DABF26 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.ttf"; path = "../../../../../../../../Desktop/Pretendard-1.3.6/public/static/alternative/Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		A82EC66A2A26380A00DABF26 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.ttf"; path = "../../../../../../../../Desktop/Pretendard-1.3.6/public/static/alternative/Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		A82EC66C2A26380A00DABF26 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.ttf"; path = "../../../../../../../../Desktop/Pretendard-1.3.6/public/static/alternative/Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
 		CE0412AA2A23552200C790F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -122,8 +130,20 @@
 		A82EC6612A26344200DABF26 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				A82EC6642A2637F200DABF26 /* Pretendard */,
+				A82EC6792A263D1800DABF26 /* FontManager.swift */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		A82EC6642A2637F200DABF26 /* Pretendard */ = {
+			isa = PBXGroup;
+			children = (
+				A82EC66C2A26380A00DABF26 /* Pretendard-Bold.ttf */,
+				A82EC6682A26380A00DABF26 /* Pretendard-Medium.ttf */,
+				A82EC66A2A26380A00DABF26 /* Pretendard-Regular.ttf */,
+			);
+			path = Pretendard;
 			sourceTree = "<group>";
 		};
 		A8E0C0B22A23636100C8696E /* Application */ = {
@@ -360,6 +380,9 @@
 			files = (
 				CEE3E7862A17A93300BC1464 /* LaunchScreen.storyboard in Resources */,
 				CEE3E7832A17A93300BC1464 /* Assets.xcassets in Resources */,
+				A82EC6732A26380A00DABF26 /* Pretendard-Regular.ttf in Resources */,
+				A82EC6712A26380A00DABF26 /* Pretendard-Medium.ttf in Resources */,
+				A82EC6752A26380A00DABF26 /* Pretendard-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +417,7 @@
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
+				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
