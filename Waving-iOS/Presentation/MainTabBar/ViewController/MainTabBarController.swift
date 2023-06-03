@@ -39,7 +39,6 @@ final class MainTabBarController: UITabBarController {
             .compactMap { $0 }
             .sink { [weak self] in
                 self?.viewControllers = $0
-                print("vcs: \($0)")
             }
             .store(in: &self.subscriptions)
         

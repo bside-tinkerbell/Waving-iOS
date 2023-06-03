@@ -95,5 +95,4 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-Waving-iOS.xcodeproj/xcuserdata/user.xcuserdatad/xcschemes/xcschememanagement.plist
-Waving-iOS.xcodeproj/xcuserdata
+Waving-iOS.xcodeproj/xcuserdata/*
