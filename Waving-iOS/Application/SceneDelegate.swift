@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isLoggedin {
 //            window.rootViewController = MainTabBarController()
         } else {
-            window.rootViewController = SignupViewController()
+            window.rootViewController = IntroViewController()
         }
         window.makeKeyAndVisible()
     }
