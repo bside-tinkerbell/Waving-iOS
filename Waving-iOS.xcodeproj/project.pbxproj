@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
-		A88B18C02A26EEC50027B5FD /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88B18BF2A26EEC50027B5FD /* Pretendard-Bold.ttf */; };
-		A88B18C22A26EECF0027B5FD /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88B18C12A26EECF0027B5FD /* Pretendard-Medium.ttf */; };
-		A88B18C42A26EEDA0027B5FD /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88B18C32A26EEDA0027B5FD /* Pretendard-Regular.ttf */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
 		A8E0C0EA2A23659400C8696E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0E92A23659400C8696E /* RxCocoa */; };
 		A8E0C0EC2A23659400C8696E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0EB2A23659400C8696E /* RxRelay */; };
@@ -25,6 +22,14 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */; };
+		CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */; };
+		CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE02A2B0F270036E335 /* UIColor+.swift */; };
+		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
+		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
+		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
+		CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */; };
+		CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83AA02A2B87050031AFF0 /* LoginViewController.swift */; };
 		CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E7792A17A93200BC1464 /* AppDelegate.swift */; };
 		CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */; };
 		CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E77D2A17A93200BC1464 /* ViewController.swift */; };
@@ -55,9 +60,6 @@
 /* Begin PBXFileReference section */
 		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
-		A88B18BF2A26EEC50027B5FD /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.ttf"; path = "../../../../../../../../Downloads/Pretendard-1.3.6/public/static/alternative/Pretendard-Bold.ttf"; sourceTree = "<group>"; };
-		A88B18C12A26EECF0027B5FD /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.ttf"; path = "../../../../../../../../Downloads/Pretendard-1.3.6/public/static/alternative/Pretendard-Medium.ttf"; sourceTree = "<group>"; };
-		A88B18C32A26EEDA0027B5FD /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.ttf"; path = "../../../../../../../../Downloads/Pretendard-1.3.6/public/static/alternative/Pretendard-Regular.ttf"; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
 		CE0412AA2A23552200C790F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,17 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVButton.swift; sourceTree = "<group>"; };
+		CE9BBCE02A2B0F270036E335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
+		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
+		CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		CED83AA02A2B87050031AFF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEE3E7762A17A93200BC1464 /* Waving-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waving-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE3E7792A17A93200BC1464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,9 +153,9 @@
 		A82EC6642A2637F200DABF26 /* Pretendard */ = {
 			isa = PBXGroup;
 			children = (
-				A88B18C12A26EECF0027B5FD /* Pretendard-Medium.ttf */,
-				A88B18C32A26EEDA0027B5FD /* Pretendard-Regular.ttf */,
-				A88B18BF2A26EEC50027B5FD /* Pretendard-Bold.ttf */,
+				CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */,
+				CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */,
+				CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */,
 			);
 			path = Pretendard;
 			sourceTree = "<group>";
@@ -174,12 +187,10 @@
 		A8E0C0B52A23639400C8696E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3E77D2A17A93200BC1464 /* ViewController.swift */,
-				CE0412AA2A23552200C790F3 /* MainTabBarController.swift */,
-				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
-				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
-				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
-				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
+				CE9BBCDD2A2AF9DA0036E335 /* Common */,
+				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
+				CE9BBCD62A297FA50036E335 /* Signup */,
+				CE9BBCDB2A297FD90036E335 /* Etc */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 			children = (
 				CEE3E7822A17A93300BC1464 /* Assets.xcassets */,
 				CEE3E7842A17A93300BC1464 /* LaunchScreen.storyboard */,
+				CE9BBCE42A2B1E490036E335 /* Color.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E0C0B82A23641F00C8696E /* Log.swift */,
+				CE9BBCE02A2B0F270036E335 /* UIColor+.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -223,6 +236,78 @@
 				A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		CE9BBCD52A297F9B0036E335 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE9BBCD62A297FA50036E335 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BBCDA2A297FD10036E335 /* ViewController */,
+				CE9BBCDC2A297FED0036E335 /* ViewModel */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		CE9BBCD72A297FAE0036E335 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BBCD92A297FC70036E335 /* ViewController */,
+				CE9BBCD52A297F9B0036E335 /* ViewModel */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		CE9BBCD92A297FC70036E335 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE0412AA2A23552200C790F3 /* MainTabBarController.swift */,
+				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
+				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
+				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE9BBCDA2A297FD10036E335 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */,
+				CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */,
+				CED83AA02A2B87050031AFF0 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE9BBCDB2A297FD90036E335 /* Etc */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3E77D2A17A93200BC1464 /* ViewController.swift */,
+			);
+			path = Etc;
+			sourceTree = "<group>";
+		};
+		CE9BBCDC2A297FED0036E335 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE9BBCDD2A2AF9DA0036E335 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */,
+				CE9BBCE22A2B17880036E335 /* DesignConstants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		CEE3E76D2A17A93200BC1464 = {
@@ -396,9 +481,7 @@
 			files = (
 				CEE3E7862A17A93300BC1464 /* LaunchScreen.storyboard in Resources */,
 				CEE3E7832A17A93300BC1464 /* Assets.xcassets in Resources */,
-				A88B18C42A26EEDA0027B5FD /* Pretendard-Regular.ttf in Resources */,
-				A88B18C02A26EEC50027B5FD /* Pretendard-Bold.ttf in Resources */,
-				A88B18C22A26EECF0027B5FD /* Pretendard-Medium.ttf in Resources */,
+				CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,12 +509,19 @@
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
+				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
+				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
+				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,
+				CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
+				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
+				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
+				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,

@@ -19,9 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = MainTabBarController()
-        window.makeKeyAndVisible()
         self.window = window
+        
+        // TODO: 로그인 여부 판단 로직 구현
+        let isLoggedin = false
+        if isLoggedin {
+//            window.rootViewController = MainTabBarController()
+        } else {
+            window.rootViewController = IntroViewController()
+        }
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
