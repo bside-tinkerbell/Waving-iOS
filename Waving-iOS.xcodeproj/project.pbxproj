@@ -22,6 +22,9 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE8861F02A2CB4CB00204CBA /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */; };
+		CE8861F12A2CB4CD00204CBA /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */; };
+		CE8861F22A2CB4CF00204CBA /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */; };
 		CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */; };
 		CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */; };
 		CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE02A2B0F270036E335 /* UIColor+.swift */; };
@@ -479,8 +482,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8861F02A2CB4CB00204CBA /* Pretendard-Medium.ttf in Resources */,
 				CEE3E7862A17A93300BC1464 /* LaunchScreen.storyboard in Resources */,
+				CE8861F12A2CB4CD00204CBA /* Pretendard-Regular.ttf in Resources */,
 				CEE3E7832A17A93300BC1464 /* Assets.xcassets in Resources */,
+				CE8861F22A2CB4CF00204CBA /* Pretendard-Bold.ttf in Resources */,
 				CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
