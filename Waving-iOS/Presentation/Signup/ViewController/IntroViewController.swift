@@ -124,8 +124,7 @@ final class IntroViewController: UIViewController {
     private func binding() {
         viewModel.route
             .sink { [weak self] route in
-                let navigationController = UINavigationController(rootViewController: route.viewController)
-                self?.present(navigationController, animated: true)
+                self?.navigationController?.pushViewController(route.viewController, animated: true)
             }
             .store(in: &cancellable)
     }
