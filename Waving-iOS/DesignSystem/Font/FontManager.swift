@@ -18,7 +18,22 @@ struct FontManager{
     }
     
     func pretendard(_ type: Pretendard, _ size: CGFloat) -> UIFont {
-        let name = "Pretendared-" + type.rawValue
+        let name = "Pretendard-" + type.rawValue
         return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+}
+
+/// Pretendard Font
+extension UIFont {
+    static func p_R(_ size: CGFloat) -> UIFont {
+        FontManager.shared.pretendard(.regular, size)
+    }
+    
+    static func p_M(_ size: CGFloat) -> UIFont {
+        FontManager.shared.pretendard(.medium, size)
+    }
+    
+    static func p_B(_ size: CGFloat) -> UIFont {
+        FontManager.shared.pretendard(.bold, size)
     }
 }

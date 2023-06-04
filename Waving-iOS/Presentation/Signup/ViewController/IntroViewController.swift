@@ -101,7 +101,7 @@ final class IntroViewController: UIViewController {
         let logoLabel = UILabel()
         logoLabel.textColor = .Text.black
         logoLabel.text = "waving"
-        logoLabel.font = .systemFont(ofSize: 40, weight: .medium)
+        logoLabel.font = .p_M(40)
         logoLabel.textAlignment = .center
         
         logoStackView.alignment = .center
