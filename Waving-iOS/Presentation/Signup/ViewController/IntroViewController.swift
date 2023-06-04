@@ -101,7 +101,7 @@ final class IntroViewController: UIViewController {
         let logoLabel = UILabel()
         logoLabel.textColor = .Text.black
         logoLabel.text = "waving"
-        logoLabel.font = .systemFont(ofSize: 40, weight: .medium)
+        logoLabel.font = .p_M(40)
         logoLabel.textAlignment = .center
         
         logoStackView.alignment = .center
@@ -124,8 +124,7 @@ final class IntroViewController: UIViewController {
     private func binding() {
         viewModel.route
             .sink { [weak self] route in
-                let navigationController = UINavigationController(rootViewController: route.viewController)
-                self?.present(navigationController, animated: true)
+                self?.navigationController?.pushViewController(route.viewController, animated: true)
             }
             .store(in: &cancellable)
     }
