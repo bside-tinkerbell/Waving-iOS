@@ -8,9 +8,9 @@
 import UIKit
 
 /// 회원가입 화면에서 공통으로 사용하는 회원정보 입력 필드
-final class SignupTextField: UIView {
+final class SignupTextFieldContainer: UIView {
 
-    private(set) var textField: UITextField!
+    private(set) var textField: WVTextField!
     private var bottomSeparator: UIView!
     
     override init(frame: CGRect) {
@@ -29,7 +29,7 @@ final class SignupTextField: UIView {
         clipsToBounds = true
         
         self.textField = {
-            let textField = UITextField()
+            let textField = WVTextField()
             textField.textColor = .text090
             textField.font = .p_R(18)
             textField.translatesAutoresizingMaskIntoConstraints = false

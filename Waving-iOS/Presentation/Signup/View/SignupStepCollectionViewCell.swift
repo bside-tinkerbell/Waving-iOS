@@ -84,7 +84,12 @@ final class SignupStepCollectionViewCell: UICollectionViewCell {
             make.trailing.equalToSuperview().offset(-40)
         }
         
-        let customView = SignupStepEmailPasswordView()
+    }
+    
+    public func setup(with viewModel: SignupStepViewModel) {
+        self.viewModel = viewModel
+        
+        let customView = viewModel.type.view()
         containerView.addSubview(customView)
         customView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(40)
@@ -92,10 +97,5 @@ final class SignupStepCollectionViewCell: UICollectionViewCell {
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-        
-    }
-    
-    public func setup(with viewModel: SignupStepViewModel) {
-        self.viewModel = viewModel
     }
 }

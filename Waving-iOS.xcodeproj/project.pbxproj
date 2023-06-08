@@ -24,7 +24,7 @@
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
 		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
 		CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */; };
-		CE67983C2A31F2500078F43C /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67983B2A31F2500078F43C /* SignupTextField.swift */; };
+		CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */; };
 		CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8316DB2A318449007D3327 /* SignupStepViewModel.swift */; };
 		CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */; };
 		CE8861F02A2CB4CB00204CBA /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */; };
@@ -35,6 +35,8 @@
 		CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE02A2B0F270036E335 /* UIColor+.swift */; };
 		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
+		CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CD2A321FCE00119CE5 /* WVTextField.swift */; };
+		CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CF2A32227E00119CE5 /* SignDataStore.swift */; };
 		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
 		CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */; };
 		CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83AA02A2B87050031AFF0 /* LoginViewController.swift */; };
@@ -77,7 +79,7 @@
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepEmailPasswordView.swift; sourceTree = "<group>"; };
-		CE67983B2A31F2500078F43C /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
+		CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextFieldContainer.swift; sourceTree = "<group>"; };
 		CE8316DB2A318449007D3327 /* SignupStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepViewModel.swift; sourceTree = "<group>"; };
 		CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		CE9BBCE02A2B0F270036E335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		CED363CD2A321FCE00119CE5 /* WVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVTextField.swift; sourceTree = "<group>"; };
+		CED363CF2A32227E00119CE5 /* SignDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDataStore.swift; sourceTree = "<group>"; };
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		CED83AA02A2B87050031AFF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 			children = (
 				CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */,
 				CEE3E7792A17A93200BC1464 /* AppDelegate.swift */,
+				CED363CF2A32227E00119CE5 /* SignDataStore.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -257,7 +262,7 @@
 			children = (
 				CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */,
 				CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */,
-				CE67983B2A31F2500078F43C /* SignupTextField.swift */,
+				CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */,
+				CED363CD2A321FCE00119CE5 /* WVTextField.swift */,
 				CE9BBCE22A2B17880036E335 /* DesignConstants.swift */,
 			);
 			path = Common;
@@ -547,6 +553,7 @@
 				CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */,
 				CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
+				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
@@ -557,8 +564,9 @@
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
+				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
-				CE67983C2A31F2500078F43C /* SignupTextField.swift in Sources */,
+				CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

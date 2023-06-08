@@ -107,8 +107,6 @@ final class SignupViewController: UIViewController {
         }
         
         // test code
-        collectionView.backgroundColor = .yellow
-        
         collectionView.register(SignupStepCollectionViewCell.self, forCellWithReuseIdentifier: "SignupStepCollectionViewCell")
     }
     
@@ -123,12 +121,7 @@ final class SignupViewController: UIViewController {
         
     }
     
-    /// 특정 questionIndex로 포커스 이동 ( questionIndex는 1부터 시작하는것으로 가정 )
     func moveToSpecificSignupStep(_ stepIndex: Int, animated: Bool = true) {
-        // scrollView의 scrollViewDidScroll delegate method에서 contentOffset 변경에 따른 currentQuestionIndex를 설정하고 있기 때문에 contentOffset만 조정해 줌
-        Log.d("frame.width: \(collectionView.frame.width)")
-        Log.d("offset: \(self.collectionView.frame.width * CGFloat(stepIndex))")
-        
         collectionView.setContentOffset(CGPoint(x: self.collectionView.frame.width * CGFloat(stepIndex), y: 0), animated: animated)
     }
 }

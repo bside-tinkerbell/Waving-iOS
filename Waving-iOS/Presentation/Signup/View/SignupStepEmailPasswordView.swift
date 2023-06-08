@@ -9,6 +9,8 @@ import UIKit
 
 final class SignupStepEmailPasswordView: UIView {
 
+    var viewModel: SignupStepViewModel?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -46,17 +48,44 @@ final class SignupStepEmailPasswordView: UIView {
             make.trailing.equalToSuperview()
         }
         
-        let textField = SignupTextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.textField.delegate = self
-        containerView.addSubview(textField)
-        textField.textField.placeholder = "ex) waving@naver.com"
-        textField.snp.makeConstraints { make in
+        let textFieldContainer = SignupTextFieldContainer()
+        textFieldContainer.textField.type = .email
+        textFieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        textFieldContainer.textField.delegate = self
+        textFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        containerView.addSubview(textFieldContainer)
+        textFieldContainer.textField.placeholder = "ex) waving@naver.com"
+        textFieldContainer.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalTo(label.snp.bottom).offset(22)
             make.bottom.equalToSuperview()
         }
     }
-
+    
+    @objc
+    private func textFieldDidChange(_ textField: WVTextField) {
+        guard let text = textField.text else { return }
+        
+        switch textField.type {
+        case .email:
+            self.viewModel?.updateEmail(text)
+        default:
+            Log.d("default")
+        }
+    }
 }
+
+extension SignupStepEmailPasswordView: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        Log.d("text: \(text)")
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        Log.d("string: \(string)")
+        return true
+    }
+}
+
+

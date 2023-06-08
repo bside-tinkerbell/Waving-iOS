@@ -5,6 +5,7 @@
 //  Created by Jane Choi on 2023/06/08.
 //
 
+import UIKit
 import Foundation
 import Combine
 
@@ -43,6 +44,15 @@ enum SignupStepType: Int {
         case .complete: return .termsOfUse
         }
     }
+    
+    func view() -> UIView {
+        switch self {
+        case .emailPassword:
+            return SignupStepEmailPasswordView()
+        default:
+            return UIView()
+        }
+    }
 }
 
 final class SignupStepViewModel {
@@ -55,4 +65,10 @@ final class SignupStepViewModel {
             .wv_setFont(.p_M(24))
             .wv_setTextColor(.text090)
     }
+    
+    func updateEmail(_ email: String?) {
+        SignDataStore.shared.email = email
+    }
+    
+    
 }
