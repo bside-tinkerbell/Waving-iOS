@@ -96,7 +96,7 @@ final class WVButton: UIView {
         }
         
         self.button.snp.makeConstraints { make in
-            make.width.equalTo(model.width)
+            make.width.equalToSuperview()
             make.height.equalTo(model.height)
         }
     }
@@ -108,7 +108,7 @@ final class WVButtonModel: NSObject {
     var titleColor: UIColor
     var backgroundColor: UIColor
     var font: UIFont
-    var width: CGFloat
+//    var width: CGFloat
     var height: CGFloat
     var cornerRadius: CGFloat
     var borderColor: UIColor?
@@ -121,7 +121,7 @@ final class WVButtonModel: NSObject {
                 titleColor: UIColor = .black,
                 backgroundColor: UIColor = .white,
                 font: UIFont = .p_R(18),
-                width: CGFloat = Constants.Intro.loginButtonWidth,
+//                width: CGFloat = Constants.Intro.loginButtonWidth,
                 height: CGFloat = Constants.Intro.loginButtonHeight,
                 cornerRadius: CGFloat = Constants.Intro.loginButtonCornerRadius,
                 borderColor: UIColor? = nil,
@@ -132,7 +132,7 @@ final class WVButtonModel: NSObject {
         self.titleColor = titleColor
         self.backgroundColor = backgroundColor
         self.font = font
-        self.width = width
+//        self.width = width
         self.height = height
         self.cornerRadius = cornerRadius
         self.borderColor = borderColor

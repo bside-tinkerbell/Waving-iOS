@@ -75,6 +75,7 @@ final class IntroViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
+            make.width.equalTo(Constants.Intro.loginButtonWidth)
         }
         
         view.addSubview(containerView)
