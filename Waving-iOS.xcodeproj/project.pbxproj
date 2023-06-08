@@ -22,6 +22,9 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
+		CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */; };
+		CE67983C2A31F2500078F43C /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67983B2A31F2500078F43C /* SignupTextField.swift */; };
 		CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8316DB2A318449007D3327 /* SignupStepViewModel.swift */; };
 		CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */; };
 		CE8861F02A2CB4CB00204CBA /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */; };
@@ -72,6 +75,9 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
+		CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepEmailPasswordView.swift; sourceTree = "<group>"; };
+		CE67983B2A31F2500078F43C /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
 		CE8316DB2A318449007D3327 /* SignupStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepViewModel.swift; sourceTree = "<group>"; };
 		CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 			children = (
 				A8E0C0B82A23641F00C8696E /* Log.swift */,
 				CE9BBCE02A2B0F270036E335 /* UIColor+.swift */,
+				CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -249,6 +256,8 @@
 			isa = PBXGroup;
 			children = (
 				CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */,
+				CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */,
+				CE67983B2A31F2500078F43C /* SignupTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -535,9 +544,11 @@
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
 				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,
+				CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */,
 				CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
+				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
@@ -547,6 +558,7 @@
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
+				CE67983C2A31F2500078F43C /* SignupTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

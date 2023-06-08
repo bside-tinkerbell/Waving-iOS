@@ -11,22 +11,31 @@ final class SignupViewController: UIViewController {
 
     private var buttonForPreviousStep: WVButton?
     private var buttonForNextStep: WVButton?
-    private lazy var buttonModelForPreviousStep = WVButtonModel(title: "prev") { [weak self]
-        <#code#>
+    private lazy var buttonModelForPreviousStep = WVButtonModel(title: "prev") { [weak self] in
+        guard let self else { return }
+        let newIndex = max(self.currentSignupStepIndex - 1, 0)
+        self.moveToSpecificSignupStep(newIndex)
+        self.currentSignupStepIndex = newIndex
     }
     
-    private var buttonModelForNextStep: WVButtonModel?
+    private lazy var buttonModelForNextStep = WVButtonModel(title: "next") { [weak self] in
+        guard let self else { return }
+        
+        let newIndex = min(self.currentSignupStepIndex + 1, self.collectionViewCellModels.count - 1)
+        self.moveToSpecificSignupStep(newIndex)
+        self.currentSignupStepIndex = newIndex
+    }
     
     private lazy var collectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: self.collectionViewFlowLayout)
+        collectionView.isScrollEnabled = false
         return collectionView
     }()
     
     private lazy var collectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 0
         return flowLayout
     }()
     
@@ -48,14 +57,12 @@ final class SignupViewController: UIViewController {
         
         let buttonForPreviousStep = WVButton()
         self.buttonForPreviousStep = buttonForPreviousStep
-        let buttomModel = WVButtonModel(title: "prev")
-        buttonForPreviousStep.setup(model: buttomModel)
+        buttonForPreviousStep.setup(model: buttonModelForPreviousStep)
         stackView.addArrangedSubview(buttonForPreviousStep)
         
         let buttonForNextStep = WVButton()
         self.buttonForNextStep = buttonForNextStep
-        let buttomModel2 = WVButtonModel(title: "next")
-        buttonForNextStep.setup(model: buttomModel2)
+        buttonForNextStep.setup(model: buttonModelForNextStep)
         stackView.addArrangedSubview(buttonForNextStep)
         
         return containerView
@@ -65,6 +72,8 @@ final class SignupViewController: UIViewController {
     private var collectionViewCellModels: [SignupStepViewModel] = []
     
     private var currentSignupStep: SignupStepType = .emailPassword
+    
+    private var currentSignupStepIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +122,15 @@ final class SignupViewController: UIViewController {
                                     .init(type: .complete)]
         
     }
-
+    
+    /// 특정 questionIndex로 포커스 이동 ( questionIndex는 1부터 시작하는것으로 가정 )
+    func moveToSpecificSignupStep(_ stepIndex: Int, animated: Bool = true) {
+        // scrollView의 scrollViewDidScroll delegate method에서 contentOffset 변경에 따른 currentQuestionIndex를 설정하고 있기 때문에 contentOffset만 조정해 줌
+        Log.d("frame.width: \(collectionView.frame.width)")
+        Log.d("offset: \(self.collectionView.frame.width * CGFloat(stepIndex))")
+        
+        collectionView.setContentOffset(CGPoint(x: self.collectionView.frame.width * CGFloat(stepIndex), y: 0), animated: animated)
+    }
 }
 
 extension SignupViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

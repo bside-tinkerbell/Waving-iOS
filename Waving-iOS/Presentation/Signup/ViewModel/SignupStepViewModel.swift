@@ -47,10 +47,12 @@ enum SignupStepType: Int {
 
 final class SignupStepViewModel {
     let type: SignupStepType
-    @Published var title: String?
+    @Published var title: NSAttributedString?
     
     init(type: SignupStepType) {
         self.type = type
-        self.title = type.title
+        self.title = NSMutableAttributedString(string: type.title)
+            .wv_setFont(.p_M(24))
+            .wv_setTextColor(.text090)
     }
 }
