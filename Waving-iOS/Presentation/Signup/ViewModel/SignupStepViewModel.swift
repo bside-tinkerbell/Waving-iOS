@@ -49,20 +49,34 @@ enum SignupStepType: Int {
         }
     }
     
-    func view() -> UIView {
+    func view() -> SignupStepViewRepresentable {
         switch self {
         case .emailPassword:
             return SignupStepEmailPasswordView()
         default:
-            return UIView()
+            return SignupStepEmailPasswordView()
         }
     }
 }
 
-class SignupStepViewModel {
+protocol SignupStepViewRepresentable where Self: UIView {
+    func setup(with viewModel: SignupStepViewModelRepresentable)
+}
+
+protocol SignupStepViewModelRepresentable {
+    func updateEmail(_ email: String?)
+    func updatePassword(_ password: String?)
+    var isNextButtonEnabled: Bool { get set }
+}
+
+class SignupStepViewModel: SignupStepViewModelRepresentable {
     let type: SignupStepType
     let textFieldTypes: [SignupTextFieldType]
     @Published var title: NSAttributedString?
+    var updateNextButtonEnabled: ((Bool) -> Void)?
+    @Published var showPreviousButton = true
+    @Published var showNextButton = true
+    @Published var isNextButtonEnabled: Bool = false
     
     init(type: SignupStepType) {
         self.type = type
@@ -70,21 +84,38 @@ class SignupStepViewModel {
         self.title = NSMutableAttributedString(string: type.title)
             .wv_setFont(.p_M(24))
             .wv_setTextColor(.text090)
-    }
-}
-
-final class SignupStepEmailPasswordViewModel: SignupStepViewModel {
-    override init(type: SignupStepType) {
-        assert(type == .emailPassword)
-        super.init(type: type)
-    }
-    
-    convenience init() {
-        self.init(type: .emailPassword)
+        
+        if type == .emailPassword {
+            showPreviousButton = false
+        }
     }
     
     // MARK: - Updating SignDataStore
     func updateEmail(_ email: String?) {
         SignDataStore.shared.email = email
     }
+    
+    func updatePassword(_ password: String?) {
+        SignDataStore.shared.password = password
+    }
 }
+
+//final class SignupStepEmailPasswordViewModel: SignupStepViewModel {
+//    override init(type: SignupStepType) {
+//        assert(type == .emailPassword)
+//        super.init(type: type)
+//    }
+//
+//    convenience init() {
+//        self.init(type: .emailPassword)
+//    }
+//
+//    // MARK: - Updating SignDataStore
+//    func updateEmail(_ email: String?) {
+//        SignDataStore.shared.email = email
+//    }
+//
+//    func updatePassword(_ password: String?) {
+//        SignDataStore.shared.password = password
+//    }
+//}

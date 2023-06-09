@@ -6,15 +6,40 @@
 //
 
 import UIKit
+import Combine
 
 final class SignupStepEmailPasswordView: UIView {
-
-    let viewModel = SignupStepEmailPasswordViewModel()
+    
+    var viewModel: SignupStepViewModelRepresentable?
+    
+    private var passwordConfirmTextFieldContainer: SignupTextFieldContainer?
+    
+    private var emailText: String = ""
+    private var passwordText: String = ""
+    
+    @Published private var passwordConfirmText: String = ""
+    
+    private var cancellables = [AnyCancellable]()
+    
+    private var inValidTextfieldValues: Bool {
+        let result = isValidEmail && isValidPassword
+        Log.d("result: \(result), emali: \(emailText), password: \(passwordText)")
+        return result
+    }
+    
+    private var isValidEmail: Bool {
+        !emailText.isEmpty && emailText.isValidEmail
+    }
+    
+    private var isValidPassword: Bool {
+        passwordText.count > 5
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupView()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -46,6 +71,7 @@ final class SignupStepEmailPasswordView: UIView {
         
         let passwordTextfieldContainer = SignupTextFieldContainer(with: .password)
         passwordTextfieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextfieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         containerView.addSubview(passwordTextfieldContainer)
         passwordTextfieldContainer.snp.makeConstraints { make in
             make.top.equalTo(emailTextFieldContainer.snp.bottom)
@@ -54,7 +80,9 @@ final class SignupStepEmailPasswordView: UIView {
         }
         
         let passwordConfirmTextFieldContainer = SignupTextFieldContainer(with: .passwordConfirm)
+        self.passwordConfirmTextFieldContainer = passwordConfirmTextFieldContainer
         passwordConfirmTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        passwordConfirmTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         containerView.addSubview(passwordConfirmTextFieldContainer)
         passwordConfirmTextFieldContainer.snp.makeConstraints { make in
             make.top.equalTo(passwordTextfieldContainer.snp.bottom)
@@ -64,28 +92,52 @@ final class SignupStepEmailPasswordView: UIView {
         }
     }
     
+    private func bind() {
+        self.$passwordConfirmText
+            .sink { [weak self] passwordConfirmText in
+                guard let self else { return }
+                let isSamePasswordConfirmText = self.passwordText != passwordConfirmText
+                self.passwordConfirmTextFieldContainer?.isWarning = isSamePasswordConfirmText
+                
+                if isSamePasswordConfirmText {
+                    
+                }
+                
+            }
+            .store(in: &cancellables)
+    }
+    
     @objc
     private func textFieldDidChange(_ textField: WVTextField) {
         guard let text = textField.text else { return }
         
         switch textField.type {
         case .email:
-            self.viewModel.updateEmail(text)
+            emailText = text
+            viewModel?.updateEmail(text)
+        case .password:
+            passwordText = text
+        case .passwordConfirm:
+            passwordConfirmText = text
+            viewModel?.updatePassword(text)
         default:
             Log.d("default")
         }
+        
+        viewModel?.isNextButtonEnabled = inValidTextfieldValues
+    }
+}
+
+extension SignupStepEmailPasswordView: SignupStepViewRepresentable {
+    func setup(with viewModel: SignupStepViewModelRepresentable) {
+        self.viewModel = viewModel
     }
 }
 
 extension SignupStepEmailPasswordView: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
         Log.d("text: \(text)")
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        Log.d("string: \(string)")
-        return true
     }
 }
 

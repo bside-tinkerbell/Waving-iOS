@@ -6,29 +6,34 @@
 //
 
 import UIKit
+import Combine
 
 final class SignupViewController: UIViewController {
 
     private var buttonForPreviousStep: WVButton?
     private var buttonForNextStep: WVButton?
-    private lazy var buttonModelForPreviousStep = WVButtonModel(title: "prev") { [weak self] in
+    
+    lazy private var buttonModelForPreviousStep = WVButtonModel(title: "prev", borderColor: .Border.gray) { [weak self] in
         guard let self else { return }
         let newIndex = max(self.currentSignupStepIndex - 1, 0)
         self.moveToSpecificSignupStep(newIndex)
         self.currentSignupStepIndex = newIndex
     }
     
-    private lazy var buttonModelForNextStep = WVButtonModel(title: "next") { [weak self] in
+    lazy private var buttonModelForNextStep = WVButtonModel(title: "next", titleColor: .text010, backgroundColor: .text090) { [weak self] in
         guard let self else { return }
-        
+
         let newIndex = min(self.currentSignupStepIndex + 1, self.collectionViewCellModels.count - 1)
         self.moveToSpecificSignupStep(newIndex)
         self.currentSignupStepIndex = newIndex
     }
     
+    private var cancellables = [AnyCancellable]()
+    
     private lazy var collectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: self.collectionViewFlowLayout)
         collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -56,13 +61,13 @@ final class SignupViewController: UIViewController {
         }
         
         let buttonForPreviousStep = WVButton()
-        self.buttonForPreviousStep = buttonForPreviousStep
         buttonForPreviousStep.setup(model: buttonModelForPreviousStep)
+        self.buttonForPreviousStep = buttonForPreviousStep
         stackView.addArrangedSubview(buttonForPreviousStep)
         
         let buttonForNextStep = WVButton()
-        self.buttonForNextStep = buttonForNextStep
         buttonForNextStep.setup(model: buttonModelForNextStep)
+        self.buttonForNextStep = buttonForNextStep
         stackView.addArrangedSubview(buttonForNextStep)
         
         return containerView
@@ -75,12 +80,34 @@ final class SignupViewController: UIViewController {
     
     private var currentSignupStepIndex: Int = 0
     
+    private var currentSignupStepViewModel: SignupStepViewModel? {
+        didSet {
+            bind()
+        }
+    }
+    
+    init() {
+        self.collectionViewCellModels = [.init(type: .emailPassword),
+                                         .init(type: .username),
+                                         .init(type: .birthdate),
+                                         .init(type: .phoneNumber),
+                                         .init(type: .termsOfUse),
+                                         .init(type: .complete)]
+        self.currentSignupStepViewModel = self.collectionViewCellModels.first
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollectionView()
         setupView()
-        fetchData()
+        bind()
     }
     
     private func setupCollectionView() {
@@ -89,7 +116,7 @@ final class SignupViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .main010
+        view.backgroundColor = .white
         
         view.addSubview(buttonContainerView)
         buttonContainerView.snp.makeConstraints { make in
@@ -110,18 +137,32 @@ final class SignupViewController: UIViewController {
         collectionView.register(SignupStepCollectionViewCell.self, forCellWithReuseIdentifier: "SignupStepCollectionViewCell")
     }
     
-    private func fetchData() {
+    private func bind() {
+        currentSignupStepViewModel?.$showPreviousButton
+            .sink { [weak self] show in
+                guard let self else { return }
+                self.buttonForPreviousStep?.isHidden = !show
+            }
+            .store(in: &cancellables)
         
-        collectionViewCellModels = [.init(type: .emailPassword),
-                                    .init(type: .username),
-                                    .init(type: .birthdate),
-                                    .init(type: .phoneNumber),
-                                    .init(type: .termsOfUse),
-                                    .init(type: .complete)]
+        currentSignupStepViewModel?.$showNextButton
+            .sink { [weak self] show in
+                guard let self else { return }
+                self.buttonForNextStep?.isHidden = !show
+            }
+            .store(in: &cancellables)
+        
+        currentSignupStepViewModel?.$isNextButtonEnabled
+            .sink { [weak self] enabled in
+                guard let self else { return }
+                self.buttonForNextStep?.isEnabled = enabled
+            }
+            .store(in: &cancellables)
         
     }
     
     func moveToSpecificSignupStep(_ stepIndex: Int, animated: Bool = true) {
+        currentSignupStepViewModel = collectionViewCellModels[stepIndex]
         collectionView.setContentOffset(CGPoint(x: self.collectionView.frame.width * CGFloat(stepIndex), y: 0), animated: animated)
     }
 }

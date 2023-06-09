@@ -12,7 +12,7 @@ import UIKit
 final class WVButton: UIView {
     
     private struct Constants {
-        static let alphaForDisabledButton = 0.3
+        static let alphaForDisabledButton = 0.5
     }
     
     // MARK: - View

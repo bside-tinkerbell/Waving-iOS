@@ -90,6 +90,7 @@ final class SignupStepCollectionViewCell: UICollectionViewCell {
         self.viewModel = viewModel
         
         let customView = viewModel.type.view()
+        customView.setup(with: viewModel)
         containerView.addSubview(customView)
         customView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(40)

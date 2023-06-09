@@ -51,6 +51,13 @@ enum SignupTextFieldType {
 
 final class WVTextField: UITextField {
 
-    var type: SignupTextFieldType?
+    var type: SignupTextFieldType? {
+        didSet {
+            if type == .password || type == .passwordConfirm {
+                isSecureTextEntry = true
+                textContentType = .password
+            }
+        }
+    }
 
 }

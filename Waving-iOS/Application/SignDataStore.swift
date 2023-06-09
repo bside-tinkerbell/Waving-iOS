@@ -10,6 +10,21 @@ import Foundation
 struct SignDataStore {
     static var shared = SignDataStore()
     
-    var phoneNumber: String?
-    var email: String?
+    var phoneNumber: String? {
+        didSet {
+            
+        }
+    }
+    
+    var email: String? {
+        didSet {
+            Log.d("email: \(email!)")
+        }
+    }
+    
+    var password: String? {
+        didSet {
+            Log.d("password: \(password!)")
+        }
+    }
 }

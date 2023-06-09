@@ -11,14 +11,12 @@ import Combine
 /// 회원가입 화면에서 공통으로 사용하는 회원정보 입력 필드
 final class SignupTextFieldContainer: UIView {
 
-    @Published public var textFieldType: SignupTextFieldType? {
-        didSet {
-            textField.type = textFieldType
-        }
-    }
+    @Published var textFieldType: SignupTextFieldType?
+    @Published var isWarning = false
     
     private(set) var textField: WVTextField!
     private(set) var titleLabel: UILabel!
+    private var titleLabelContainerView: UIView!
     private var bottomSeparator: UIView!
     private var cancellables = [AnyCancellable]()
     
@@ -50,6 +48,7 @@ final class SignupTextFieldContainer: UIView {
         }
         
         let labelContainerView = UIView()
+        titleLabelContainerView = labelContainerView
         let label = UILabel().then {
             $0.font = .p_R(18)
             $0.textColor = .text090
@@ -64,7 +63,6 @@ final class SignupTextFieldContainer: UIView {
             $0.bottom.equalToSuperview()
         }
         stackView.addArrangedSubview(labelContainerView)
-        
         
         self.textField = {
             let textField = WVTextField()
@@ -98,8 +96,19 @@ final class SignupTextFieldContainer: UIView {
         self.$textFieldType
             .sink { [weak self] in
                 guard let self, let type = $0 else { return }
+                self.textField.type = type
                 self.titleLabel.text = type.textFieldTitle
+                self.titleLabelContainerView.isHidden = (type.textFieldTitle == nil)
                 self.textField.placeholder = type.placeholder
+            }
+            .store(in: &cancellables)
+        
+        self.$isWarning
+            .sink { [weak self] in
+                guard let self else { return }
+                let color: UIColor = $0 ? .caution050 : .gray090
+                self.textField.textColor = color
+                self.bottomSeparator.backgroundColor = color
             }
             .store(in: &cancellables)
     }

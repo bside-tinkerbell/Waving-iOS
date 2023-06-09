@@ -30,4 +30,22 @@ extension UIColor {
     static var caution050: UIColor { return #colorLiteral(red: 0.9215686275, green: 0.1176470588, blue: 0.1176470588, alpha: 1) }
     /// #222222 (50%)
     static var dim050: UIColor { return #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 0.5) }
+    
+    // MARK: - Gray Scale
+    /// #222222
+    static var gray090: UIColor { return #colorLiteral(red: 0.1777858436, green: 0.1777858436, blue: 0.1777858436, alpha: 1) }
+    /// #333333
+    static var gray080: UIColor { return #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1) }
+    /// #444444
+    static var gray070: UIColor { return #colorLiteral(red: 0.2666666667, green: 0.2666666667, blue: 0.2666666667, alpha: 1) }
+    /// #555555
+    static var gray060: UIColor { return #colorLiteral(red: 0.3333333333, green: 0.3333333333, blue: 0.3333333333, alpha: 1) }
+    /// #666666
+    static var gray050: UIColor { return #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1) }
+    /// #828282
+    static var gray040: UIColor { return #colorLiteral(red: 0.5098039216, green: 0.5098039216, blue: 0.5098039216, alpha: 1) }
+    /// #9E9E9E
+    static var gray030: UIColor { return #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1) }
+    /// #CFCFCF
+    static var gray020: UIColor { return #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1) }
 }
