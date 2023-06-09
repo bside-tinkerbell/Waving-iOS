@@ -34,14 +34,18 @@ enum SignupStepType: Int {
         }
     }
     
-    fileprivate var previousStep: SignupStepType? {
+    fileprivate var textFieldTypes: [SignupTextFieldType] {
         switch self {
-        case .emailPassword: return nil
-        case .username: return .emailPassword
-        case .birthdate: return .username
-        case .phoneNumber: return .birthdate
-        case .termsOfUse: return .phoneNumber
-        case .complete: return .termsOfUse
+        case .emailPassword:
+            return [.email, .password, .passwordConfirm]
+        case .username:
+            return [.username]
+        case .birthdate:
+            return [.birthdate]
+        case .phoneNumber:
+            return [.phoneNumber, .authCode]
+        default:
+            return []
         }
     }
     
@@ -55,20 +59,32 @@ enum SignupStepType: Int {
     }
 }
 
-final class SignupStepViewModel {
+class SignupStepViewModel {
     let type: SignupStepType
+    let textFieldTypes: [SignupTextFieldType]
     @Published var title: NSAttributedString?
     
     init(type: SignupStepType) {
         self.type = type
+        self.textFieldTypes = type.textFieldTypes
         self.title = NSMutableAttributedString(string: type.title)
             .wv_setFont(.p_M(24))
             .wv_setTextColor(.text090)
     }
+}
+
+final class SignupStepEmailPasswordViewModel: SignupStepViewModel {
+    override init(type: SignupStepType) {
+        assert(type == .emailPassword)
+        super.init(type: type)
+    }
     
+    convenience init() {
+        self.init(type: .emailPassword)
+    }
+    
+    // MARK: - Updating SignDataStore
     func updateEmail(_ email: String?) {
         SignDataStore.shared.email = email
     }
-    
-    
 }

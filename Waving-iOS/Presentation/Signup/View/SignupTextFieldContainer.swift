@@ -2,45 +2,76 @@
 //  SignupTextField.swift
 //  Waving-iOS
 //
-//  Created by USER on 2023/06/08.
+//  Created by Jane Choi on 2023/06/08.
 //
 
 import UIKit
+import Combine
 
 /// 회원가입 화면에서 공통으로 사용하는 회원정보 입력 필드
 final class SignupTextFieldContainer: UIView {
 
-    private(set) var textField: WVTextField!
-    private var bottomSeparator: UIView!
+    @Published public var textFieldType: SignupTextFieldType? {
+        didSet {
+            textField.type = textFieldType
+        }
+    }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private(set) var textField: WVTextField!
+    private(set) var titleLabel: UILabel!
+    private var bottomSeparator: UIView!
+    private var cancellables = [AnyCancellable]()
+    
+    init(with textFieldType: SignupTextFieldType) {
+        self.textFieldType = textFieldType
         
-        self.setupView()
+        super.init(frame: .zero)
+        
+        setupView()
+        binding()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        self.setupView()
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupView() {
-        clipsToBounds = true
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 22
+        
+        addSubview(stackView)
+        stackView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+        
+        let labelContainerView = UIView()
+        let label = UILabel().then {
+            $0.font = .p_R(18)
+            $0.textColor = .text090
+            $0.numberOfLines = 1
+        }
+        titleLabel = label
+        labelContainerView.addSubview(label)
+        label.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+        stackView.addArrangedSubview(labelContainerView)
+        
         
         self.textField = {
             let textField = WVTextField()
             textField.textColor = .text090
             textField.font = .p_R(18)
             textField.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(textField)
-            
-            NSLayoutConstraint.activate([
-                textField.topAnchor.constraint(equalTo: self.topAnchor),
-                textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                textField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                textField.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-            ])
+            stackView.addArrangedSubview(textField)
             
             return textField
         }()
@@ -51,15 +82,26 @@ final class SignupTextFieldContainer: UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(view)
             
-            NSLayoutConstraint.activate([
-                view.heightAnchor.constraint(equalToConstant: 1),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-            ])
+            view.snp.makeConstraints {
+                $0.height.equalTo(1)
+                $0.top.equalTo(textField!.snp.bottom).offset(8)
+                $0.leading.equalToSuperview()
+                $0.trailing.equalToSuperview()
+                $0.bottom.equalToSuperview()
+            }
             
             return view
         }()
+    }
+    
+    private func binding() {
+        self.$textFieldType
+            .sink { [weak self] in
+                guard let self, let type = $0 else { return }
+                self.titleLabel.text = type.textFieldTitle
+                self.textField.placeholder = type.placeholder
+            }
+            .store(in: &cancellables)
     }
 }
 

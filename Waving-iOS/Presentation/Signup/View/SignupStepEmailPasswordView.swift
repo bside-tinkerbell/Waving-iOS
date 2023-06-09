@@ -9,7 +9,7 @@ import UIKit
 
 final class SignupStepEmailPasswordView: UIView {
 
-    var viewModel: SignupStepViewModel?
+    let viewModel = SignupStepEmailPasswordViewModel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,32 +33,33 @@ final class SignupStepEmailPasswordView: UIView {
             make.bottom.equalToSuperview()
         }
         
-        let label = UILabel().then {
-            $0.text = "이메일"
-            $0.font = .p_R(18)
-            $0.textColor = .text090
-        }
-        label.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(label)
-        
-        label.numberOfLines = 1
-        label.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
+        let emailTextFieldContainer = SignupTextFieldContainer(with: .email)
+        emailTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        emailTextFieldContainer.textField.delegate = self
+        emailTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        containerView.addSubview(emailTextFieldContainer)
+        emailTextFieldContainer.snp.makeConstraints { make in
             make.top.equalToSuperview()
+            make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
         
-        let textFieldContainer = SignupTextFieldContainer()
-        textFieldContainer.textField.type = .email
-        textFieldContainer.translatesAutoresizingMaskIntoConstraints = false
-        textFieldContainer.textField.delegate = self
-        textFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        containerView.addSubview(textFieldContainer)
-        textFieldContainer.textField.placeholder = "ex) waving@naver.com"
-        textFieldContainer.snp.makeConstraints { make in
+        let passwordTextfieldContainer = SignupTextFieldContainer(with: .password)
+        passwordTextfieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(passwordTextfieldContainer)
+        passwordTextfieldContainer.snp.makeConstraints { make in
+            make.top.equalTo(emailTextFieldContainer.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.top.equalTo(label.snp.bottom).offset(22)
+        }
+        
+        let passwordConfirmTextFieldContainer = SignupTextFieldContainer(with: .passwordConfirm)
+        passwordConfirmTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(passwordConfirmTextFieldContainer)
+        passwordConfirmTextFieldContainer.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextfieldContainer.snp.bottom)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
     }
@@ -69,7 +70,7 @@ final class SignupStepEmailPasswordView: UIView {
         
         switch textField.type {
         case .email:
-            self.viewModel?.updateEmail(text)
+            self.viewModel.updateEmail(text)
         default:
             Log.d("default")
         }
