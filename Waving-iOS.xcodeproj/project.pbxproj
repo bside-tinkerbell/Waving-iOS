@@ -41,6 +41,9 @@
 		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
 		CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */; };
 		CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83AA02A2B87050031AFF0 /* LoginViewController.swift */; };
+		CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */; };
+		CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */; };
+		CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */; };
 		CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E7792A17A93200BC1464 /* AppDelegate.swift */; };
 		CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */; };
 		CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E77D2A17A93200BC1464 /* ViewController.swift */; };
@@ -97,6 +100,9 @@
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		CED83A9E2A2B86F40031AFF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		CED83AA02A2B87050031AFF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepUsernameView.swift; sourceTree = "<group>"; };
+		CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepBirthdateView.swift; sourceTree = "<group>"; };
+		CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepPhoneNumberView.swift; sourceTree = "<group>"; };
 		CEE3E7762A17A93200BC1464 /* Waving-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waving-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE3E7792A17A93200BC1464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE3E77B2A17A93200BC1464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +272,9 @@
 				CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */,
 				CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */,
 				CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */,
+				CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */,
+				CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */,
+				CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -546,7 +555,9 @@
 			files = (
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
+				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
+				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
@@ -560,6 +571,7 @@
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
+				CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,

@@ -12,7 +12,7 @@ struct SignDataStore {
     
     var phoneNumber: String? {
         didSet {
-            
+            Log.d("phoneNumber: \(phoneNumber!)")
         }
     }
     
@@ -25,6 +25,18 @@ struct SignDataStore {
     var password: String? {
         didSet {
             Log.d("password: \(password!)")
+        }
+    }
+    
+    var username: String? {
+        didSet {
+            Log.d("username: \(username!)")
+        }
+    }
+    
+    var birthdate: String? {
+        didSet {
+            Log.d("birthdate: \(birthdate!)")
         }
     }
 }

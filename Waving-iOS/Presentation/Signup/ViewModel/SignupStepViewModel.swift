@@ -49,12 +49,18 @@ enum SignupStepType: Int {
         }
     }
     
-    func view() -> SignupStepViewRepresentable {
+    func view() -> SignupStepViewRepresentable? {
         switch self {
         case .emailPassword:
             return SignupStepEmailPasswordView()
+        case .username:
+            return SignupStepUsernameView()
+        case .birthdate:
+            return SignupStepBirthdateView()
+        case .phoneNumber:
+            return SignupStepPhoneNumberView()
         default:
-            return SignupStepEmailPasswordView()
+            return nil
         }
     }
 }
@@ -66,6 +72,9 @@ protocol SignupStepViewRepresentable where Self: UIView {
 protocol SignupStepViewModelRepresentable {
     func updateEmail(_ email: String?)
     func updatePassword(_ password: String?)
+    func updateUsername(_ username: String?)
+    func updateBirthdate(_ birthdate: String?)
+    func updatePhoneNumber(_ phoneNumber: String?)
     var isNextButtonEnabled: Bool { get set }
 }
 
@@ -76,7 +85,8 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
     var updateNextButtonEnabled: ((Bool) -> Void)?
     @Published var showPreviousButton = true
     @Published var showNextButton = true
-    @Published var isNextButtonEnabled: Bool = false
+    // TODO: test 를 위해 아래 값을 true 로 설정함
+    @Published var isNextButtonEnabled: Bool = true
     
     init(type: SignupStepType) {
         self.type = type
@@ -85,7 +95,7 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
             .wv_setFont(.p_M(24))
             .wv_setTextColor(.text090)
         
-        if type == .emailPassword {
+        if type == .emailPassword, type == .complete {
             showPreviousButton = false
         }
     }
@@ -97,6 +107,18 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
     
     func updatePassword(_ password: String?) {
         SignDataStore.shared.password = password
+    }
+    
+    func updateUsername(_ username: String?) {
+        SignDataStore.shared.username = username
+    }
+    
+    func updateBirthdate(_ birthdate: String?) {
+        SignDataStore.shared.birthdate = birthdate
+    }
+    
+    func updatePhoneNumber(_ phoneNumber: String?) {
+        SignDataStore.shared.phoneNumber = phoneNumber
     }
 }
 

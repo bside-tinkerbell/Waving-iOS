@@ -41,6 +41,8 @@ enum SignupTextFieldType {
             return "실명을 입력해주세요.(2~8자)"
         case .birthdate:
             return "YYYY-MM-DD"
+        case .phoneNumber:
+            return "010-0000-0000"
         case .authCode:
             return "인증번호 입력해주세요."
         default:

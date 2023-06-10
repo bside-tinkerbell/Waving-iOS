@@ -31,6 +31,8 @@ final class SignupStepCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private var innerView: UIView?
+    
     private var cancellables: [AnyCancellable] = []
     
     private var viewModel: SignupStepViewModel? {
@@ -57,6 +59,12 @@ final class SignupStepCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
         
         setupView()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.innerView?.removeFromSuperview()
     }
     
     private func setupView() {
@@ -89,14 +97,16 @@ final class SignupStepCollectionViewCell: UICollectionViewCell {
     public func setup(with viewModel: SignupStepViewModel) {
         self.viewModel = viewModel
         
-        let customView = viewModel.type.view()
-        customView.setup(with: viewModel)
-        containerView.addSubview(customView)
-        customView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(40)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+        if let customView = viewModel.type.view() {
+            self.innerView = customView
+            customView.setup(with: viewModel)
+            containerView.addSubview(customView)
+            customView.snp.makeConstraints { make in
+                make.top.equalTo(titleLabel.snp.bottom).offset(40)
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+                make.bottom.equalToSuperview()
+            }
         }
     }
 }
