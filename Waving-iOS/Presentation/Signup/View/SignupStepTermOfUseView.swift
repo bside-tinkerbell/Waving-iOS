@@ -53,6 +53,8 @@ final class SignupStepTermOfUseView: UIView {
         }
         stackView.addArrangedSubview(labelContainerView)
         
+        let button = SignupTermsOfUseButton()
+        stackView.addArrangedSubview(button)
     }
     
     @objc

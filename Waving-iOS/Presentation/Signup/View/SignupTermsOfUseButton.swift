@@ -17,6 +17,7 @@ final class SignupTermsOfUseButton: UIControl {
             $0.font = .p_R(16)
             $0.textColor = .gray070
             $0.numberOfLines = 1
+            $0.text = "hello"
         }
         return titleLabel
     }()
@@ -76,6 +77,7 @@ final class SignupTermsOfUseButton: UIControl {
         
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.isUserInteractionEnabled = false
         addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.leading.equalToSuperview()
