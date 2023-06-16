@@ -48,4 +48,8 @@ extension UIColor {
     static var gray030: UIColor { return #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1) }
     /// #CFCFCF
     static var gray020: UIColor { return #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1) }
+    
+    // MARK: - Button color
+    /// #323232
+    static var mainButton: UIColor { return #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1) }
 }

@@ -21,7 +21,7 @@ final class SignupStepEmailPasswordView: UIView {
     
     private var cancellables = [AnyCancellable]()
     
-    private var inValidTextfieldValues: Bool {
+    private var isValidTextfieldValues: Bool {
         let result = isValidEmail && isValidPassword
         Log.d("result: \(result), emali: \(emailText), password: \(passwordText)")
         return result
@@ -124,7 +124,7 @@ final class SignupStepEmailPasswordView: UIView {
             Log.d("default")
         }
         
-        viewModel?.isNextButtonEnabled = inValidTextfieldValues
+        viewModel?.isNextButtonEnabled = isValidTextfieldValues
     }
 }
 

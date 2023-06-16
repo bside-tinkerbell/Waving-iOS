@@ -27,7 +27,7 @@ final class IntroViewController: UIViewController {
         self?.viewModel.signup()
     }
 
-    private lazy var loginButtonViewModel = WVButtonModel(title: "이메일로 로그인", backgroundColor: .clear, borderColor: .Border.gray) { [weak self] in
+    private lazy var loginButtonViewModel = WVButtonModel(title: "이메일로 로그인", titleColor: .text090, backgroundColor: .clear, borderColor: .Border.gray) { [weak self] in
         self?.viewModel.login()
     }
     

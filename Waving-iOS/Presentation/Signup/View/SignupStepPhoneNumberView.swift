@@ -12,13 +12,18 @@ final class SignupStepPhoneNumberView: UIView {
     
     var viewModel: SignupStepViewModelRepresentable?
     
+    private let authCodeButtonModel = WVButtonModel(title: "인증번호") {
+        // 인증번호 요청
+        Log.d("인증번호 요청")
+    }
+    
     private var authCodeTextFieldContainer: SignupTextFieldContainer?
     
     private var phoneNumberText: String = ""
     
     private var cancellables = [AnyCancellable]()
     
-    private var inValidTextfieldValues: Bool {
+    private var isValidTextfieldValues: Bool {
         let result = isValidPhoneNumber
         Log.d("result: \(result)")
         return result
@@ -50,13 +55,33 @@ final class SignupStepPhoneNumberView: UIView {
             make.bottom.equalToSuperview()
         }
         
-        let usernameFieldContainer = SignupTextFieldContainer(with: .phoneNumber)
-        usernameFieldContainer.translatesAutoresizingMaskIntoConstraints = false
-        usernameFieldContainer.textField.delegate = self
-        usernameFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        containerView.addSubview(usernameFieldContainer)
-        usernameFieldContainer.snp.makeConstraints { make in
+        let phoneNumberRowStackView = UIStackView()
+        phoneNumberRowStackView.axis = .horizontal
+        phoneNumberRowStackView.spacing = 16
+        containerView.addSubview(phoneNumberRowStackView)
+        
+        let phoneNumberFieldContainer = SignupTextFieldContainer(with: .phoneNumber)
+        phoneNumberFieldContainer.translatesAutoresizingMaskIntoConstraints = false
+        phoneNumberFieldContainer.textField.delegate = self
+        phoneNumberFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        phoneNumberFieldContainer.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        phoneNumberRowStackView.addArrangedSubview(phoneNumberFieldContainer)
+
+        phoneNumberRowStackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        let authCodeRequestButtonContainerView = UIView()
+        let authCodeRequestButton = WVButton()
+        authCodeRequestButtonContainerView.addSubview(authCodeRequestButton)
+        authCodeRequestButton.setup(model: authCodeButtonModel)
+        authCodeRequestButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        phoneNumberRowStackView.addArrangedSubview(authCodeRequestButtonContainerView)
+        authCodeRequestButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().priority(.low)
+            make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
@@ -67,7 +92,7 @@ final class SignupStepPhoneNumberView: UIView {
         authCodeTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         containerView.addSubview(authCodeTextFieldContainer)
         authCodeTextFieldContainer.snp.makeConstraints { make in
-            make.top.equalTo(usernameFieldContainer.snp.bottom)
+            make.top.equalTo(phoneNumberRowStackView.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -87,7 +112,7 @@ final class SignupStepPhoneNumberView: UIView {
             Log.d("default")
         }
         
-        viewModel?.isNextButtonEnabled = inValidTextfieldValues
+        viewModel?.isNextButtonEnabled = isValidTextfieldValues
     }
 }
 

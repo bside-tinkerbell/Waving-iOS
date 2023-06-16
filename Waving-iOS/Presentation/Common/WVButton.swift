@@ -28,7 +28,7 @@ final class WVButton: UIView {
             self.backgroundColor = isEnabled ? self.model?.backgroundColor : .darkText
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -45,7 +45,7 @@ final class WVButton: UIView {
         clipsToBounds = true
         
         self.button = {
-            let button = UIButton()
+            let button = UIButton(type: .custom)
             
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.titleLabel?.minimumScaleFactor = 0.6
@@ -118,8 +118,8 @@ final class WVButtonModel: NSObject {
     
     public init(title: String? = "Done",
                 isEnabled: Bool = true,
-                titleColor: UIColor = .black,
-                backgroundColor: UIColor = .white,
+                titleColor: UIColor = .white,
+                backgroundColor: UIColor = .mainButton,
                 font: UIFont = .p_R(18),
 //                width: CGFloat = Constants.Intro.loginButtonWidth,
                 height: CGFloat = Constants.Intro.loginButtonHeight,

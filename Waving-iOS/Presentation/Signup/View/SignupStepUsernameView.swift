@@ -16,7 +16,7 @@ final class SignupStepUsernameView: UIView {
     
     private var cancellables = [AnyCancellable]()
     
-    private var inValidTextfieldValues: Bool {
+    private var isValidTextfieldValues: Bool {
         isValidUsername
     }
     

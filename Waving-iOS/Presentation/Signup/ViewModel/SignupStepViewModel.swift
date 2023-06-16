@@ -59,6 +59,9 @@ enum SignupStepType: Int {
             return SignupStepBirthdateView()
         case .phoneNumber:
             return SignupStepPhoneNumberView()
+        case .termsOfUse:
+            return SignupStepTermOfUseView()
+
         default:
             return nil
         }

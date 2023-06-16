@@ -16,7 +16,7 @@ final class SignupStepBirthdateView: UIView {
     
     private var cancellables = [AnyCancellable]()
     
-    private var inValidTextfieldValues: Bool {
+    private var isValidTextfieldValues: Bool {
         let result = isValidBirthdate
         Log.d("result: \(result)")
         return result
@@ -72,7 +72,7 @@ final class SignupStepBirthdateView: UIView {
             Log.d("default")
         }
         
-        viewModel?.isNextButtonEnabled = inValidTextfieldValues
+        viewModel?.isNextButtonEnabled = isValidTextfieldValues
     }
 }
 
