@@ -8,35 +8,17 @@
 import UIKit
 import Combine
 
-final class SignupStepTermOfUseView: UIView {
+final class SignupStepTermOfUseView: UIView, SnapKitInterface {
     
-    var viewModel: SignupStepViewModelRepresentable?
-    
-    private var cancellables = [AnyCancellable]()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8
-        
-        addSubview(stackView)
-        stackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(20)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
-        }
-        
+        return stackView
+    }()
+    
+    private lazy var titleLabelContainerView: UIView = {
         let labelContainerView = UIView()
         let label = UILabel().then {
             $0.font = .p_R(18)
@@ -51,32 +33,68 @@ final class SignupStepTermOfUseView: UIView {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-        stackView.addArrangedSubview(labelContainerView)
-        
+        return labelContainerView
+    }()
+    
+    private lazy var firstButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 이용약관(만 14세 이상 이용가능)")
+    private lazy var secondButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 개인정보 수집 및 이용")
+    private lazy var agreeAllButtonModel: SignupTermsOfUseButtonModel = .init(title: "약관 전체동의", showBottomSeparator: true, didTouchUpInside: { [weak self] _ in
+        guard let self else { return }
+        self.firstButtonModel.isSelected = !self.firstButtonModel.isSelected
+        self.secondButtonModel.isSelected = !self.secondButtonModel.isSelected
+    })
+    
+    private lazy var firstButton: SignupTermsOfUseButton = {
         let button = SignupTermsOfUseButton()
-        stackView.addArrangedSubview(button)
+        button.setup(model: firstButtonModel)
+        return button
+    }()
+    private lazy var secondButton: SignupTermsOfUseButton = {
+        let button = SignupTermsOfUseButton()
+        button.setup(model: secondButtonModel)
+        return button
+    }()
+    private lazy var agreeAllButton: SignupTermsOfUseButton = {
+        let button = SignupTermsOfUseButton()
+        button.setup(model: agreeAllButtonModel)
+        return button
+    }()
+    
+    var viewModel: SignupStepViewModelRepresentable?
+    
+    private var cancellables = [AnyCancellable]()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addComponents()
+        setConstraints()
     }
     
-    @objc
-    private func textFieldDidChange(_ textField: WVTextField) {
-//        guard let text = textField.text else { return }
-//        
-//        switch textField.type {
-//        default:
-//            Log.d("default")
-//        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addComponents() {
+        addSubview(stackView)
+        
+        stackView.addArrangedSubview(titleLabelContainerView)
+        stackView.addArrangedSubview(agreeAllButton)
+        stackView.addArrangedSubview(firstButton)
+        stackView.addArrangedSubview(secondButton)
+    }
+    
+    func setConstraints() {
+        stackView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
     }
 }
 
 extension SignupStepTermOfUseView: SignupStepViewRepresentable {
     func setup(with viewModel: SignupStepViewModelRepresentable) {
         self.viewModel = viewModel
-    }
-}
-
-extension SignupStepTermOfUseView: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        Log.d("text: \(text)")
     }
 }
