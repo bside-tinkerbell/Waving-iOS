@@ -12,7 +12,7 @@ import UIKit
 final class WVButton: UIView {
     
     private struct Constants {
-        static let alphaForDisabledButton = 0.3
+        static let alphaForDisabledButton = 0.5
     }
     
     // MARK: - View
@@ -28,7 +28,7 @@ final class WVButton: UIView {
             self.backgroundColor = isEnabled ? self.model?.backgroundColor : .darkText
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -45,7 +45,7 @@ final class WVButton: UIView {
         clipsToBounds = true
         
         self.button = {
-            let button = UIButton()
+            let button = UIButton(type: .custom)
             
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.titleLabel?.minimumScaleFactor = 0.6
@@ -96,7 +96,7 @@ final class WVButton: UIView {
         }
         
         self.button.snp.makeConstraints { make in
-            make.width.equalTo(model.width)
+            make.width.equalToSuperview()
             make.height.equalTo(model.height)
         }
     }
@@ -108,7 +108,7 @@ final class WVButtonModel: NSObject {
     var titleColor: UIColor
     var backgroundColor: UIColor
     var font: UIFont
-    var width: CGFloat
+//    var width: CGFloat
     var height: CGFloat
     var cornerRadius: CGFloat
     var borderColor: UIColor?
@@ -118,10 +118,10 @@ final class WVButtonModel: NSObject {
     
     public init(title: String? = "Done",
                 isEnabled: Bool = true,
-                titleColor: UIColor = .black,
-                backgroundColor: UIColor = .white,
+                titleColor: UIColor = .white,
+                backgroundColor: UIColor = .mainButton,
                 font: UIFont = .p_R(18),
-                width: CGFloat = Constants.Intro.loginButtonWidth,
+//                width: CGFloat = Constants.Intro.loginButtonWidth,
                 height: CGFloat = Constants.Intro.loginButtonHeight,
                 cornerRadius: CGFloat = Constants.Intro.loginButtonCornerRadius,
                 borderColor: UIColor? = nil,
@@ -132,7 +132,7 @@ final class WVButtonModel: NSObject {
         self.titleColor = titleColor
         self.backgroundColor = backgroundColor
         self.font = font
-        self.width = width
+//        self.width = width
         self.height = height
         self.cornerRadius = cornerRadius
         self.borderColor = borderColor
