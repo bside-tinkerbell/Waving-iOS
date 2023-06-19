@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ErrorMessageCase: String{
+enum ErrorMessageCase: String {
     case passwordCombination = "영문/숫자/특수문자 2가지 이상 조합하세요.(8~20자)"
     case passwordCheck = "비밀번호가 일치하지 않습니다."
     case nameCheck = "2~8자 사이로 입력하세요."
