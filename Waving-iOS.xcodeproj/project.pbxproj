@@ -228,6 +228,7 @@
 		A8A45CC32A43C582001F02C7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -355,7 +356,6 @@
 			children = (
 				CE0412AA2A23552200C790F3 /* MainTabBarController.swift */,
 				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
-				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
 				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
 			);
 			path = ViewController;
