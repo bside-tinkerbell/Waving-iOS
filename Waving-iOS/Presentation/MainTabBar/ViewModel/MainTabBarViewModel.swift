@@ -32,11 +32,11 @@ final class MainTabBarControllerViewModel {
         return indexManager.menus.compactMap {
             switch $0 {
             case .home:
-                return navigationController(with: HomeViewController(), title: "Home", imageName: "house", selectedImageName: "house.fill")
+                return navigationController(with: HomeViewController(), title: "홈", imageName: "house", selectedImageName: "house.fill")
             case .friends:
-                return navigationController(with: FriendsViewController(), title: "Friends", imageName: "person.2", selectedImageName: "person.2.fill")
+                return navigationController(with: FriendsViewController(), title: "나의지인", imageName: "person.2", selectedImageName: "person.2.fill")
             case .setting:
-                return navigationController(with: SettingViewController(), title: "Setting", imageName: "gearshape", selectedImageName: "gearshape.fill")
+                return navigationController(with: SettingViewController(), title: "마이페이지", imageName: "gearshape", selectedImageName: "gearshape.fill")
             }
         }
     }
