@@ -26,8 +26,8 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-//        tabBar.tintColor = .systemBlue
-//        tabBar.unselectedItemTintColor = .white
+        tabBar.unselectedItemTintColor = .black
+        tabBar.tintColor = .black
         
         UITabBar.clearShadow()
         tabBar.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: -1, blur: 8)
