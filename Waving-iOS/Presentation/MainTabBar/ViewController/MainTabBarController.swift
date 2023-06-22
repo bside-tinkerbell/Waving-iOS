@@ -26,11 +26,11 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        UITabBar.appearance().backgroundColor = .lightGray
-        tabBar.backgroundImage = UIImage()
-         
-        tabBar.tintColor = .systemBlue
-        tabBar.unselectedItemTintColor = .white
+//        tabBar.tintColor = .systemBlue
+//        tabBar.unselectedItemTintColor = .white
+        
+        UITabBar.clearShadow()
+        tabBar.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: -1, blur: 8)
     }
     
     private func bind() {
