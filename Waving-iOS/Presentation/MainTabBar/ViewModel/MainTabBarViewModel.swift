@@ -25,18 +25,18 @@ final class MainTabBarControllerViewModel {
         
         func navigationController(with rootViewController: UIViewController, title: String, imageName: String, selectedImageName: String) -> UINavigationController {
             let navigationController = UINavigationController(rootViewController: rootViewController)
-            navigationController.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: imageName), selectedImage: UIImage(systemName: selectedImageName))
+            navigationController.tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: selectedImageName)?.withRenderingMode(.alwaysOriginal))
             return navigationController
         }
         
         return indexManager.menus.compactMap {
             switch $0 {
             case .home:
-                return navigationController(with: HomeViewController(), title: "Home", imageName: "house", selectedImageName: "house.fill")
+                return navigationController(with: HomeViewController(), title: "홈", imageName: "icn_home", selectedImageName: "icn_home")
             case .friends:
-                return navigationController(with: FriendsViewController(), title: "Friends", imageName: "person.2", selectedImageName: "person.2.fill")
+                return navigationController(with: FriendsViewController(), title: "나의지인", imageName: "icn_friends", selectedImageName: "icn_friends")
             case .setting:
-                return navigationController(with: SettingViewController(), title: "Setting", imageName: "gearshape", selectedImageName: "gearshape.fill")
+                return navigationController(with: SettingViewController(), title: "마이페이지", imageName: "icn_mypage", selectedImageName: "icn_mypage")
             }
         }
     }
