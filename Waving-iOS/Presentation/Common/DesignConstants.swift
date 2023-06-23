@@ -16,4 +16,9 @@ struct Constants {
         static let loginButtonHeight: CGFloat = 50
         static let loginButtonCornerRadius: CGFloat = 4
     }
+    
+    enum Navi {
+        static let commonPadding: CGFloat = 16
+        static let itemSpacing: CGFloat = 14
+    }
 }
