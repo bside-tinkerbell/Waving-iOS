@@ -1,17 +1,18 @@
 //
-//  SettingViewController.swift
+//  FriendsListViewController.swift
 //  Waving-iOS
 //
-//  Created by Jane Choi on 2023/05/28.
+//  Created by Joy on 2023/06/22.
 //
 
 import UIKit
 
-final class SettingViewController: UIViewController {
+class FriendsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGreen
+
+        // Do any additional setup after loading the view.
     }
     
 

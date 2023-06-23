@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
+		A86476E72A43D9BF00671FC9 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86476E62A43D9BF00671FC9 /* FriendsListViewController.swift */; };
 		A8A45CC62A43CBC6001F02C7 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CC52A43CBC6001F02C7 /* CALayer+.swift */; };
 		A8A45CC82A43CBE6001F02C7 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CC72A43CBE6001F02C7 /* UITabBar+.swift */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		A86476E62A43D9BF00671FC9 /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		A8A45CC52A43CBC6001F02C7 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		A8A45CC72A43CBE6001F02C7 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
+				A86476E62A43D9BF00671FC9 /* FriendsListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 			files = (
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
+				A86476E72A43D9BF00671FC9 /* FriendsListViewController.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
@@ -802,6 +806,7 @@
 				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Waving-iOS/Info.plist";
+				INFOPLIST_KEY_NSContactsUsageDescription = "이 앱에서 연락처를 불러오는 것을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -829,6 +834,7 @@
 				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Waving-iOS/Info.plist";
+				INFOPLIST_KEY_NSContactsUsageDescription = "이 앱에서 연락처를 불러오는 것을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
