@@ -19,6 +19,8 @@
 		A8E0C0F42A2365E000C8696E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0F32A2365E000C8696E /* SnapKit */; };
 		A8E0C10A2A23669A00C8696E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C1092A23669A00C8696E /* Moya */; };
 		A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */; };
+		A8F4DD422A4660560045C179 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4DD412A4660560045C179 /* CALayer+.swift */; };
+		A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4DD432A4660640045C179 /* UITabBar+.swift */; };
 		CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412AA2A23552200C790F3 /* MainTabBarController.swift */; };
 		CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */; };
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
@@ -82,6 +84,8 @@
 		A8A45CBF2A409B75001F02C7 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
+		A8F4DD412A4660560045C179 /* CALayer+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		A8F4DD432A4660640045C179 /* UITabBar+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		CE0412AA2A23552200C790F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 		A8E0C0B72A23641000C8696E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A8F4DD432A4660640045C179 /* UITabBar+.swift */,
+				A8F4DD412A4660560045C179 /* CALayer+.swift */,
 				A8E0C0B82A23641F00C8696E /* Log.swift */,
 				CE9BBCE02A2B0F270036E335 /* UIColor+.swift */,
 				CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */,
@@ -601,8 +607,10 @@
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
 				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
+				A8F4DD422A4660560045C179 /* CALayer+.swift in Sources */,
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
+				A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
 				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
