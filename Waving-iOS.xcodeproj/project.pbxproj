@@ -58,6 +58,7 @@
 		CEE3E7912A17A93300BC1464 /* Waving_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E7902A17A93300BC1464 /* Waving_iOSTests.swift */; };
 		CEE3E79B2A17A93300BC1464 /* Waving_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E79A2A17A93300BC1464 /* Waving_iOSUITests.swift */; };
 		CEE3E79D2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E79C2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift */; };
+		CEF2E5882A470F6300128C55 /* SignupStepCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2E5872A470F6300128C55 /* SignupStepCompleteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		CEE3E7962A17A93300BC1464 /* Waving-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waving-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE3E79A2A17A93300BC1464 /* Waving_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waving_iOSUITests.swift; sourceTree = "<group>"; };
 		CEE3E79C2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waving_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEF2E5872A470F6300128C55 /* SignupStepCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepCompleteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 				CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */,
 				CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */,
 				CED9EAB32A3C3C5700BA8737 /* SignupStepTermOfUseView.swift */,
+				CEF2E5872A470F6300128C55 /* SignupStepCompleteView.swift */,
 				CED9EAB52A3C414B00BA8737 /* SignupTermsOfUseButton.swift */,
 			);
 			path = View;
@@ -599,6 +602,7 @@
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */,
+				CEF2E5882A470F6300128C55 /* SignupStepCompleteView.swift in Sources */,
 				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
 				CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
