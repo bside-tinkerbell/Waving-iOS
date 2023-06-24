@@ -48,7 +48,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
     
     let friendsAddButton = WVButton()
     private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
-        self?.viewModel?.friendsAdd()
+        self?.viewModel?.addFriends()
     }
     
     override init(frame: CGRect) {

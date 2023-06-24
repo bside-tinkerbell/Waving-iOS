@@ -14,10 +14,16 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     private var cancellable = Set<AnyCancellable>()
     private var friendsRoute: Int = 0
     
-    let navigationView = NavigationView(frame: .zero, type: .none_icon).then {
-        $0.titleLabel.text = "나의 지인"
-        $0.favoriteButton.setImage(UIImage(named: "icn_plus"), for:.normal)
-    }
+    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "회원가입", didTouchBack: {[weak self] in
+        self?.viewModel.didTapBackButton()
+    })
+    
+    private lazy var navigationView: NavigationView = {
+        let view = NavigationView()
+        view.setup(model: navigationViewModel)
+    
+        return view
+    }()
     
     let scrollView = UIScrollView()
 

@@ -30,7 +30,8 @@ protocol FriendViewRepresentable where Self: UIView {
 }
 
 protocol FriendsViewModelRepresentable {
-    func friendsAdd()
+    func addFriends()
+    func didTapBackButton()
 }
 
 class FriendsViewModel: FriendsViewModelRepresentable {
@@ -38,10 +39,13 @@ class FriendsViewModel: FriendsViewModelRepresentable {
     
     init(type: FriendType) {
         self.type = type
-        
     }
     
-    func friendsAdd() {
+    func addFriends() {
         Log.d("친구 추가")
+    }
+    
+    func didTapBackButton() {
+        Log.d("뒤로 가기")
     }
 }
