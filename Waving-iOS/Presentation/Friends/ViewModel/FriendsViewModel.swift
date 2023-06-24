@@ -48,4 +48,9 @@ class FriendsViewModel: FriendsViewModelRepresentable {
     func didTapBackButton() {
         Log.d("뒤로 가기")
     }
+    
+    func didTapForwardButton() {
+        Log.d("플러스 버튼")
+    }
+
 }
