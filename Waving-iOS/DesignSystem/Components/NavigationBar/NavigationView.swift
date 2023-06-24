@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-// _ 를 사이에 두고 왼쪽, 오른쪽의 item 들에 관한 정보로 네이밍함
+// _ 를 사이에 두고 왼쪽, 오른쪽의 item 들에 관한 정보로 네이밍 함
 enum NaviType {
     case button_text
     case button_iconImage

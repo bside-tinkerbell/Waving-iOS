@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8253D4E2A46A5E600AE8101 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D4D2A46A5E600AE8101 /* FriendsListViewController.swift */; };
+		A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */; };
+		A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */; };
+		A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */; };
 		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
 		A8A45CBE2A409856001F02C7 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */; };
@@ -78,6 +82,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8253D4D2A46A5E600AE8101 /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsListViewController.swift; path = "../../../../../../../../.Trash/Waving-iOS 오후 1.15.13/Waving-iOS/Presentation/Friends/ViewController/FriendsListViewController.swift"; sourceTree = "<group>"; };
+		A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
+		A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsIntroView.swift; sourceTree = "<group>"; };
+		A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
 		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -160,6 +168,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8253D4B2A46A5CB00AE8101 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				A8253D552A46AF6600AE8101 /* View */,
+				A8253D522A46A75B00AE8101 /* ViewModel */,
+				A8253D4C2A46A5D400AE8101 /* ViewController */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		A8253D4C2A46A5D400AE8101 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8253D4D2A46A5E600AE8101 /* FriendsListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8253D522A46A75B00AE8101 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A8253D552A46AF6600AE8101 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */,
+				A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8253D582A46DD8C00AE8101 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A82EC65F2A26340B00DABF26 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +288,7 @@
 				CE9BBCDD2A2AF9DA0036E335 /* Common */,
 				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
 				CE9BBCD62A297FA50036E335 /* Signup */,
+				A8253D4B2A46A5CB00AE8101 /* Friends */,
 				CE9BBCDB2A297FD90036E335 /* Etc */,
 			);
 			path = Presentation;
@@ -326,6 +377,7 @@
 		CE9BBCD72A297FAE0036E335 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				A8253D582A46DD8C00AE8101 /* View */,
 				CE9BBCD92A297FC70036E335 /* ViewController */,
 				CE9BBCD52A297F9B0036E335 /* ViewModel */,
 			);
@@ -581,6 +633,7 @@
 			files = (
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
+				A8253D4E2A46A5E600AE8101 /* FriendsListViewController.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */,
@@ -589,6 +642,7 @@
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
+				A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */,
 				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,
 				CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */,
@@ -611,9 +665,11 @@
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
 				A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */,
+				A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
 				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
+				A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */,
 				CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

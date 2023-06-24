@@ -6,57 +6,74 @@
 //
 
 import UIKit
-import Contacts
+import Combine
 
-final class FriendsViewController: UIViewController {
+final class FriendsViewController: UIViewController, SnapKitInterface {
+
+    private let viewModel = FriendsViewModel(type: .intro)
+    private var cancellable = Set<AnyCancellable>()
+    private var friendsRoute: Int = 0
     
-    private let contactButton: UIButton = {
-          let button = UIButton()
-          button.setTitle("지인 불러오기", for: .normal)
-          button.backgroundColor = .black
-          button.setTitleColor(.white, for: .normal)
-          button.titleLabel?.textAlignment = .center
-          return button
-      }()
+    let navigationView = NavigationView(frame: .zero, type: .none_icon).then {
+        $0.titleLabel.text = "나의 지인"
+        $0.favoriteButton.setImage(UIImage(named: "icn_plus"), for:.normal)
+    }
+    
+    let scrollView = UIScrollView()
 
+    private lazy var containerView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private var innerView: UIView?
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        addComponents()
+        setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchData()
+    }
+    
+    func addComponents() {
         view.backgroundColor = .systemBackground
-        setupViews()
+        self.navigationController?.navigationBar.isHidden = true
+        [navigationView, scrollView].forEach { view.addSubview($0) }
+        scrollView.addSubview(containerView)
     }
     
-
-    private func setupViews() {
-        view.addSubview(contactButton)
-        contactButton.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
+    func setConstraints() {
+        navigationView.snp.makeConstraints {
+            $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(50)
         }
-        contactButton.addTarget(self, action: #selector(didTapContact), for: .touchUpInside)
+        
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(navigationView.snp.bottom)
+            $0.left.right.bottom.equalToSuperview()
+        }
+        
+        containerView.snp.makeConstraints{
+            $0.leading.trailing.top.bottom.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView)
+            $0.height.equalTo(scrollView).priority(.low)
+        }
+
+        if let customView = viewModel.type.view() {
+            self.innerView = customView
+            customView.setup(with: viewModel)
+            containerView.addSubview(customView)
+            customView.snp.makeConstraints { make in
+                make.top.leading.trailing.bottom.equalToSuperview()
+            }
+        }
     }
     
-    @objc func didTapContact() {
-        Task.init {
-            await fetchAllContacts()
-        }
-        // TODO: API POST로 보내도록 하기
+    func fetchData(){
+        //TODO: API 호출에 따른 Switch 문으로 viewModel의 type 바꾸도록 하기 
     }
-    
-    func fetchAllContacts() async {
-        let store = CNContactStore()
-        let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
-  
-        let fetchRequest = CNContactFetchRequest(keysToFetch: keys)
-
-        do {
-            try store.enumerateContacts(with: fetchRequest, usingBlock: { contact, result in
-                let name = contact.familyName + contact.givenName
-                let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile}.map {$0.value.stringValue}.joined(separator:"")
-                Log.i(name)
-                Log.d(phoneNumber)
-            })
-        } catch {
-            Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
-        }
-    }
-
 }
