@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A8253D4E2A46A5E600AE8101 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D4D2A46A5E600AE8101 /* FriendsListViewController.swift */; };
 		A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */; };
 		A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */; };
 		A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */; };
@@ -82,7 +81,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A8253D4D2A46A5E600AE8101 /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsListViewController.swift; path = "../../../../../../../../.Trash/Waving-iOS 오후 1.15.13/Waving-iOS/Presentation/Friends/ViewController/FriendsListViewController.swift"; sourceTree = "<group>"; };
 		A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsIntroView.swift; sourceTree = "<group>"; };
 		A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 		A8253D4C2A46A5D400AE8101 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A8253D4D2A46A5E600AE8101 /* FriendsListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -633,7 +630,6 @@
 			files = (
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
-				A8253D4E2A46A5E600AE8101 /* FriendsListViewController.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */,

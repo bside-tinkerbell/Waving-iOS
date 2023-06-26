@@ -12,8 +12,8 @@ class FriendsIntroView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
     
-    private let containerView: UIStackView = {
-        let view = UIStackView()
+    private let containerView: UIView = {
+        let view = UIView()
         view.backgroundColor = .systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
