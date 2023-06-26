@@ -64,7 +64,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
     
     func addComponents() {
         addSubview(containerView)
-        [titleLabel, subLabel, vingvingImage, friendsAddButton].forEach {containerView.addSubview($0) }
+        [titleLabel, subLabel, vingvingImage, friendsAddButton].forEach { containerView.addSubview($0) }
     }
     
     func setConstraints() {
