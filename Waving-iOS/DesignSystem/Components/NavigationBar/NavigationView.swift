@@ -7,103 +7,165 @@
 
 import UIKit
 import SnapKit
-import Then
+import Combine
 
-// _ 를 사이에 두고 왼쪽, 오른쪽의 item 들에 관한 정보로 네이밍함
-enum NaviType {
-    case button_text
-    case button_iconImage
-    case button_iconText
-    case none_icon
-    case button_twoicon
-}
+final class NavigationView: UIView, SnapKitInterface {
+    
+    // MARK: - View
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
 
-class NavigationView: UIView {
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "title"
+        label.font = .p_R(18)
+        return label
+    }()
     
-    let backButton = UIButton().then {
-        $0.setImage(UIImage(named: "icn_back"), for: .normal)
-    }
+    private lazy var favoriteButton: UIButton = {
+       let button = UIButton()
+        return button
+    }()
     
-    let titleLabel = UILabel().then {
-        $0.text = "title"
-        $0.font = .p_R(18)
-    }
-    
-    let favoriteButton = UIButton().then {
-        $0.setImage(UIImage(named: "icn_favorites_off"), for: .normal)
-        $0.isHidden = true
-    }
-    
-    let rightButton = UIButton().then { //텍스트, 이미지
-        $0.isHidden = true
-    }
+    private lazy var forwardButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+
+
+    // MARK: - Model
+    private var model: NavigationModel?
+    private var cancellables = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [backButton, titleLabel, favoriteButton, rightButton].forEach { addSubview($0) }
-        
+        addComponents()
+        setConstraints()
+        actions()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addComponents() {
+        [backButton, titleLabel, favoriteButton, forwardButton].forEach { addSubview($0) }
+    }
+    
+    func setConstraints() {
         backButton.snp.makeConstraints {
             $0.left.equalToSuperview().inset(Constants.Navi.commonPadding)
             $0.centerY.equalToSuperview()
             $0.size.equalTo(24)
         }
-        
+
         titleLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-        
+
         favoriteButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.right.equalTo(rightButton.snp.left).offset(-Constants.Navi.itemSpacing)
+            $0.right.equalTo(forwardButton.snp.left).offset(-Constants.Navi.itemSpacing)
         }
-        
-        rightButton.snp.makeConstraints {
+
+        forwardButton.snp.makeConstraints {
             $0.right.equalToSuperview().inset(Constants.Navi.commonPadding)
             $0.centerY.equalToSuperview()
             $0.size.equalTo(24)
         }
     }
     
-    convenience init(frame: CGRect, type: NaviType) {
-        self.init(frame: frame)
-
-        switch type {
-        case .button_text:
-            backButton.isHidden = false
-            favoriteButton.isHidden = true
-            rightButton.isHidden = false
-        case .button_iconImage:
-            backButton.isHidden = false
-            favoriteButton.isHidden = true
-            rightButton.isHidden = false
-            rightButton.setImage(UIImage(named: "icn_plus"), for: .normal)
-        case .button_iconText:
-            backButton.isHidden = false
-            favoriteButton.isHidden = true
-            rightButton.isHidden = false
-            rightButton.setTitle("전체선택", for: .normal) //전체선택, 건너뛰기
-            rightButton.setTitleColor(.black, for: .normal)
-            rightButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
-            rightButton.snp.remakeConstraints {
-                $0.right.equalToSuperview().inset(Constants.Navi.commonPadding)
-                $0.centerY.equalToSuperview()
-                $0.size.equalTo(CGSize(width: 50, height: 22))
-            }
-        case .none_icon:
-            backButton.isHidden = true
-            favoriteButton.isHidden = true
-            rightButton.isHidden = false
-            rightButton.setImage(UIImage(named: "icn_plus"), for: .normal)
-        case .button_twoicon:
-            backButton.isHidden = false
-            favoriteButton.isHidden = false
-            favoriteButton.setImage(UIImage(named: "icn_favorites_off"), for: .normal)
-            rightButton.isHidden = false
-            rightButton.setImage(UIImage(named: "icn_edit"), for: .normal)
-        }
+    func actions() {
+        backButton.addTarget(self, action: #selector(self.touchBack), for: .touchUpInside)
+        favoriteButton.addTarget(self, action:#selector(self.touchFavorite), for: .touchUpInside)
+        forwardButton.addTarget(self, action: #selector(self.touchForward), for: .touchUpInside)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: -Actions
+    @objc
+    private func touchBack() {
+        self.model?.didTouchBack?()
+    }
+    
+    @objc
+    private func touchFavorite() {
+        self.model?.didTouchFavorite?()
+    }
+    
+    @objc
+    private func touchForward() {
+        self.model?.didTouchForward?()
+    }
+}
+
+extension NavigationView {
+    public func setup(model: NavigationModel) {
+        self.model = model
+        
+        model.$backButtonImage
+            .sink { [weak self] image in
+                self?.backButton.setImage(image, for: .normal)
+            }
+            .store(in: &cancellables)
+        
+        model.$favoriteButtonImage
+            .sink { [weak self] image in
+                self?.favoriteButton.setImage(image, for: .normal)
+            }
+            .store(in: &cancellables)
+        
+        model.$forwardButtonImage
+            .sink { [weak self] image in
+                self?.forwardButton.setImage(image, for: .normal)
+            }
+            .store(in: &cancellables)
+
+        model.$forwardButtonText
+            .sink { [weak self] in
+                self?.forwardButton.setTitle($0, for: .normal)
+            }
+            .store(in: &cancellables)
+        
+        model.$title
+            .sink { [weak self] in
+                self?.titleLabel.text = $0
+            }
+            .store(in: &cancellables)
+    }
+}
+
+
+final class NavigationModel: NSObject {
+    
+    @Published public var backButtonImage: UIImage?
+    @Published public var favoriteButtonImage: UIImage?
+    @Published public var forwardButtonImage: UIImage?
+    @Published public var forwardButtonText: String?
+    @Published public var title: String
+
+    let didTouchBack: (() -> Void)?
+    let didTouchFavorite: (() -> Void)?
+    let didTouchForward: (() -> Void)?
+    
+    public init(
+        backButtonImage: UIImage? = nil,
+        favoriteButtonImage: UIImage? = nil,
+        forwaredButtonImage: UIImage? = nil,
+        forwaredButtonText: String? = "",
+        title: String,
+        didTouchBack: (() -> Void)? = nil,
+        didTouchFavorite: (() -> Void)? = nil,
+        didTouchForwared: (() -> Void)? = nil) {
+        
+        self.backButtonImage = backButtonImage
+        self.favoriteButtonImage = favoriteButtonImage
+        self.forwardButtonImage = forwaredButtonImage
+        self.forwardButtonText = forwaredButtonText
+        self.title = title
+        self.didTouchBack = didTouchBack
+        self.didTouchFavorite = didTouchFavorite
+        self.didTouchForward = didTouchForwared
     }
 }
