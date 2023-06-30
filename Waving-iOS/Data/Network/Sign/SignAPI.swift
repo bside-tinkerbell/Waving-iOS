@@ -14,7 +14,7 @@ struct SignAPI: Networkable {
     /// - Parameter request: TestModel
     /// - Returns: TestModel, Fail: Error
     static func getDataList(completion: @escaping(_ succeed: TestModel?, _ failed: Error?) -> Void) {
-        makeProvider().request(.signIn) { result in
+        makeProvider().request(.sample) { result in
             switch ResponseData<TestModel>.getModelResponse(result) {
             case .success(let model):
                 return completion(model, nil)
