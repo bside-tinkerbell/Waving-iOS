@@ -23,7 +23,6 @@ struct ResponseData<Model: Codable> {
             return .failure(error)
         }
     }
-
 }
 
 

@@ -6,6 +6,8 @@
 //
 
 import Moya
+import Foundation
+import UIKit
 
 protocol Networkable {
     /// provider객체 생성 시 Moya에서 제공하는 TargetType을 명시해야 하므로 타입 필요
@@ -24,5 +26,17 @@ extension Networkable {
 
       /// plugin객체를 주입하여 provider 객체 생성
         return MoyaProvider<Target>(plugins: [authPlugin])
+    }
+    
+    static func makeToast() {
+        let toast = Toast()
+        if let vc = UIApplication.getMostTopViewController() {
+            if let navi = vc.navigationController {
+                navi.view.addSubview(toast)
+                toast.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
+            }
+        }
     }
 }

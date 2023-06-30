@@ -19,10 +19,9 @@ struct SignAPI: Networkable {
             case .success(let model):
                 return completion(model, nil)
             case .failure(let error):
+                makeToast()
                 return completion(nil, error)
             }
-
         }
-
     }
 }
