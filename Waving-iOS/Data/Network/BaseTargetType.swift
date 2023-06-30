@@ -15,7 +15,7 @@ protocol BaseTargetType: TargetType {
 extension BaseTargetType {
     
     public var baseURL: URL {
-        return URL(string: Server.RootURL)!
+        return URL(string: Server.baseURL)!
     }
     
     // HTTP header
