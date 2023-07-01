@@ -22,12 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         
         // TODO: 로그인 여부 판단 로직 구현
-        let isLoggedin = false
+        /*
+        let isLoggedin = true
         if isLoggedin {
-//            window.rootViewController = MainTabBarController()
+            window.rootViewController = MainTabBarController()
         } else {
             window.rootViewController = UINavigationController(rootViewController: IntroViewController())
         }
+         */
+        
+        let childViewControllers: [UIViewController & TopTabBarRepresentable] = [ViewController()]
+        let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
+        window.rootViewController = topTabBarViewController
         window.makeKeyAndVisible()
     }
 
