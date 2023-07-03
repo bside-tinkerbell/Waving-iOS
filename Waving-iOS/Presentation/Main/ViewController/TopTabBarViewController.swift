@@ -13,11 +13,6 @@ import UIKit
 /// 장점 1. 구현하기 쉽다.
 /// 장점 2. Scroll View Paging이 적용된다.
 /// 장점 3. 보이지 않는 Child View Controller의 View를 미리 불러오지 않는다. ( 보이는 시점에 viewDidLoad 호출됨 )
-// 페이지(운영자 권한) > 설정 > 부운영자 관리, 활동보기 > 페이지 작성글 보기 (삭제 모드)
-// 개별 밴드 > 파일탭 (아무 모드 아님)
-// 밴드 글 > 다른 밴드에 올리기 (멀티 선택)
-// 그외 다수
-@objc
 final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, TabViewDelegate, SnapKitInterface {
     
     //  Views > Top Buttons
@@ -42,7 +37,6 @@ final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, Tab
     var initiallyHideTopButtons = false
     /// View Controller가 로딩될 때 가장 먼저 보이고자 하는 Child View Controller를 index로 결정할 수 있다.
     var selectedPageIndex = 0
-    var isGroupCallTargetSelectable = false
     
     private weak var contentView: UIView?
     private var dummyViews: [UIView] = []
@@ -86,14 +80,8 @@ final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, Tab
         
         self.topTabBarHeight = 48.0
         self.isHideShadowBottomLine = true
-        self.isGroupCallTargetSelectable = false
         
         super.init(nibName: nil, bundle: nil)
-    }
-
-    convenience init(bandsGroupCallTargetableChildViewControllers childViewControllers: [UIViewController & TopTabBarRepresentable]) {
-        self.init(childViewControllers: childViewControllers)
-        self.isGroupCallTargetSelectable = true
     }
     
     required init?(coder: NSCoder) {
@@ -104,12 +92,20 @@ final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, Tab
     
     func addComponents() {
         view.addSubview(tabView)
+        view.addSubview(scrollView)
     }
     
     func setConstraints() {
         tabView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(topTabBarHeight)
+        }
+        
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(tabView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -452,3 +448,13 @@ protocol TopTabBarRepresentable: NSObjectProtocol {
     optional func didSelectGroupCallTargetSelection()
 }
 
+extension TopTabBarViewController {
+    
+    static func makeGreetingListViewController() -> TopTabBarViewController {
+        
+        
+        let childViewControllers: [UIViewController & TopTabBarRepresentable] = [ViewController(), ViewController()]
+        let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
+        return topTabBarViewController
+    }
+}

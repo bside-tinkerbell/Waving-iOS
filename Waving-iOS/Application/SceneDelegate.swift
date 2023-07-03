@@ -31,9 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
          */
         
-        let childViewControllers: [UIViewController & TopTabBarRepresentable] = [ViewController()]
-        let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
-        window.rootViewController = topTabBarViewController
+        window.rootViewController = TopTabBarViewController.makeGreetingListViewController()
         window.makeKeyAndVisible()
     }
 

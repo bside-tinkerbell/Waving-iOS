@@ -347,6 +347,7 @@
 		A8E0C0B52A23639400C8696E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CE3A48A22A52E0AD00893E7E /* Main */,
 				CE9BBCDD2A2AF9DA0036E335 /* Common */,
 				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
 				CE9BBCD62A297FA50036E335 /* Signup */,
@@ -406,6 +407,23 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		CE3A48A22A52E0AD00893E7E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC400B2A486C26001A5934 /* TabView */,
+				CE3A48A32A52E0BF00893E7E /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CE3A48A32A52E0BF00893E7E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		CE8316DD2A319FA0007D3327 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +475,6 @@
 				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
 				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
 				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
-				CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -492,7 +509,6 @@
 		CE9BBCDD2A2AF9DA0036E335 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CEBC400B2A486C26001A5934 /* TabView */,
 				CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */,
 				CED363CD2A321FCE00119CE5 /* WVTextField.swift */,
 				CE9BBCE22A2B17880036E335 /* DesignConstants.swift */,
