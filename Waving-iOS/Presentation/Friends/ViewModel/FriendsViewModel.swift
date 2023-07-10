@@ -38,15 +38,18 @@ protocol FriendsViewModelRepresentable {
 class FriendsViewModel: FriendsViewModelRepresentable {
     let type: FriendType
     
+    var sendRoute: PassthroughSubject<Void, Never> = .init()
+    
     init(type: FriendType) {
         self.type = type
     }
     
     func addFriends() {
         Log.d("친구 추가")
-        Task.init {
-            await fetchAllContacts()
-        }
+        sendRoute.send()
+//        Task.init {
+//            await fetchAllContacts()
+//        }
         
         @Sendable func fetchAllContacts() async {
             let store = CNContactStore()
