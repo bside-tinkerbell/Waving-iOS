@@ -39,10 +39,7 @@ final class GreetingTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var paddingView = {
-        let view = UIView()
-        return view
-    }()
+    private lazy var paddingView = UIView()
     
     private lazy var favoriteButton = {
         let button = UIButton()
