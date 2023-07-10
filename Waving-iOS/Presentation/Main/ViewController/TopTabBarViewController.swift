@@ -453,7 +453,7 @@ extension TopTabBarViewController {
     static func makeGreetingListViewController() -> TopTabBarViewController {
         
         
-        let childViewControllers: [UIViewController & TopTabBarRepresentable] = [ViewController(), ViewController()]
+        let childViewControllers: [UIViewController & TopTabBarRepresentable] = [GreetingListViewController(), GreetingListViewController()]
         let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
         return topTabBarViewController
     }

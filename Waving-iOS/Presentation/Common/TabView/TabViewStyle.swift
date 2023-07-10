@@ -78,7 +78,7 @@ public enum TabViewStyle: Equatable {
         private var underBarViewNormalStateColor: UIColor { .clear }
         
         private var underBarViewSelectionStateColor: UIColor {
-            .red
+            .black
         }
         
         public func attributedName(_ name: TabViewItemName, isSelectedState: Bool, isEnabledState: Bool) -> NSAttributedString {
@@ -143,7 +143,7 @@ public enum TabViewStyle: Equatable {
         }
     }
     
-    public var backgroundColor: UIColor { .yellow }
+    public var backgroundColor: UIColor { .clear }
     
     public var bottomSeparatorViewColor: UIColor {
         switch self {
