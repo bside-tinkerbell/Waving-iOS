@@ -94,7 +94,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
             $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16)
         }
         friendsAddButton.setup(model: friendAddButtonViewModel)
-        bringSubviewToFront(friendsAddButton)
+       // bringSubviewToFront(friendsAddButton)
     }
 }
 
