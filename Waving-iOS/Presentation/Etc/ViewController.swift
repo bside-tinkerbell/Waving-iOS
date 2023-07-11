@@ -48,3 +48,14 @@ class ViewController: UIViewController, SnapKitInterface {
     }
 }
 
+// MARK: - TopTabBarRepresentable
+extension ViewController: TopTabBarRepresentable {
+    
+    func underlineButtonTopTabBarTitle() -> String {
+        "카테고리 1"
+    }
+    
+    func parentViewNavigationTitle() -> String {
+        "카테고리 1"
+    }
+}

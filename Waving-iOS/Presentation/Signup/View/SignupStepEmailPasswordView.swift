@@ -39,11 +39,16 @@ final class SignupStepEmailPasswordView: UIView {
         super.init(frame: frame)
         
         setupView()
+        setupNotification()
         bind()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupNotification() {
+        
     }
     
     private func setupView() {
