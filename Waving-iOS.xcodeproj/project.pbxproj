@@ -53,6 +53,13 @@
 		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
 		CEA32DD22A3357540006FA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA32DD12A3357540006FA31 /* String+.swift */; };
+		CEBC40082A486B9D001A5934 /* TopTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */; };
+		CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40092A486BEF001A5934 /* TabView.swift */; };
+		CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC400C2A486C32001A5934 /* TabViewStyle.swift */; };
+		CEBC400F2A486D09001A5934 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC400E2A486D09001A5934 /* TabViewModel.swift */; };
+		CEBC40112A486D33001A5934 /* TabViewCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40102A486D33001A5934 /* TabViewCollectionViewCellModel.swift */; };
+		CEBC40132A486D78001A5934 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40122A486D78001A5934 /* Array+.swift */; };
+		CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40142A486F55001A5934 /* TabViewCollectionViewCell.swift */; };
 		CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CD2A321FCE00119CE5 /* WVTextField.swift */; };
 		CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CF2A32227E00119CE5 /* SignDataStore.swift */; };
 		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
@@ -71,6 +78,10 @@
 		CEE3E7912A17A93300BC1464 /* Waving_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E7902A17A93300BC1464 /* Waving_iOSTests.swift */; };
 		CEE3E79B2A17A93300BC1464 /* Waving_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E79A2A17A93300BC1464 /* Waving_iOSUITests.swift */; };
 		CEE3E79D2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3E79C2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift */; };
+		CEF2E5882A470F6300128C55 /* SignupStepCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2E5872A470F6300128C55 /* SignupStepCompleteView.swift */; };
+		CEF347C62A5BF5A800ED012E /* GreetingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF347C52A5BF5A800ED012E /* GreetingListViewController.swift */; };
+		CEF347EB2A5C37DB00ED012E /* GreetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF347EA2A5C37DA00ED012E /* GreetingTableViewCell.swift */; };
+		CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF347ED2A5C38BD00ED012E /* GreetingCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +142,13 @@
 		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		CEA32DD12A3357540006FA31 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarViewController.swift; sourceTree = "<group>"; };
+		CEBC40092A486BEF001A5934 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		CEBC400C2A486C32001A5934 /* TabViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewStyle.swift; sourceTree = "<group>"; };
+		CEBC400E2A486D09001A5934 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		CEBC40102A486D33001A5934 /* TabViewCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewCollectionViewCellModel.swift; sourceTree = "<group>"; };
+		CEBC40122A486D78001A5934 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		CEBC40142A486F55001A5934 /* TabViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		CED363CD2A321FCE00119CE5 /* WVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVTextField.swift; sourceTree = "<group>"; };
 		CED363CF2A32227E00119CE5 /* SignDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDataStore.swift; sourceTree = "<group>"; };
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +171,10 @@
 		CEE3E7962A17A93300BC1464 /* Waving-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waving-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE3E79A2A17A93300BC1464 /* Waving_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waving_iOSUITests.swift; sourceTree = "<group>"; };
 		CEE3E79C2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waving_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEF2E5872A470F6300128C55 /* SignupStepCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepCompleteView.swift; sourceTree = "<group>"; };
+		CEF347C52A5BF5A800ED012E /* GreetingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingListViewController.swift; sourceTree = "<group>"; };
+		CEF347EA2A5C37DA00ED012E /* GreetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingTableViewCell.swift; sourceTree = "<group>"; };
+		CEF347ED2A5C38BD00ED012E /* GreetingCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +353,7 @@
 		A8E0C0B52A23639400C8696E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CE3A48A22A52E0AD00893E7E /* Main */,
 				CE9BBCDD2A2AF9DA0036E335 /* Common */,
 				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
 				CE9BBCD62A297FA50036E335 /* Signup */,
@@ -360,6 +383,7 @@
 				CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */,
 				CEA32DD12A3357540006FA31 /* String+.swift */,
 				A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */,
+				CEBC40122A486D78001A5934 /* Array+.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -389,6 +413,25 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		CE3A48A22A52E0AD00893E7E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CEF347EC2A5C38AC00ED012E /* ViewModel */,
+				CEF347E92A5C379300ED012E /* View */,
+				CE3A48A32A52E0BF00893E7E /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CE3A48A32A52E0BF00893E7E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */,
+				CEF347C52A5BF5A800ED012E /* GreetingListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		CE8316DD2A319FA0007D3327 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +442,7 @@
 				CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */,
 				CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */,
 				CED9EAB32A3C3C5700BA8737 /* SignupStepTermOfUseView.swift */,
+				CEF2E5872A470F6300128C55 /* SignupStepCompleteView.swift */,
 				CED9EAB52A3C414B00BA8737 /* SignupTermsOfUseButton.swift */,
 			);
 			path = View;
@@ -473,6 +517,7 @@
 		CE9BBCDD2A2AF9DA0036E335 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CEBC400B2A486C26001A5934 /* TabView */,
 				CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */,
 				CED363CD2A321FCE00119CE5 /* WVTextField.swift */,
 				CE9BBCE22A2B17880036E335 /* DesignConstants.swift */,
@@ -480,6 +525,18 @@
 				A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CEBC400B2A486C26001A5934 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC40092A486BEF001A5934 /* TabView.swift */,
+				CEBC400C2A486C32001A5934 /* TabViewStyle.swift */,
+				CEBC400E2A486D09001A5934 /* TabViewModel.swift */,
+				CEBC40102A486D33001A5934 /* TabViewCollectionViewCellModel.swift */,
+				CEBC40142A486F55001A5934 /* TabViewCollectionViewCell.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 		CEE3E76D2A17A93200BC1464 = {
@@ -532,6 +589,22 @@
 				CEE3E79C2A17A93300BC1464 /* Waving_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Waving-iOSUITests";
+			sourceTree = "<group>";
+		};
+		CEF347E92A5C379300ED012E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEF347EA2A5C37DA00ED012E /* GreetingTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEF347EC2A5C38AC00ED012E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEF347ED2A5C38BD00ED012E /* GreetingCellModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -682,6 +755,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */,
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
@@ -689,9 +763,11 @@
 				A8C792842A4CE8570032FDFC /* SignAPI.swift in Sources */,
 				A8C7927D2A4CDD390032FDFC /* URLString.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
+				CEF347C62A5BF5A800ED012E /* GreetingListViewController.swift in Sources */,
 				A8C792822A4CE6D60032FDFC /* TestModel.swift in Sources */,
 				A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */,
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
+				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
@@ -707,29 +783,37 @@
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
 				A8C792902A4E5F5C0032FDFC /* BasePaddingLabel.swift in Sources */,
 				A8C7927B2A4CDAA40032FDFC /* BaseTargetType.swift in Sources */,
+				CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */,
 				A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */,
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */,
 				A8C792792A4CD7EF0032FDFC /* ResponseData.swift in Sources */,
+				CEF2E5882A470F6300128C55 /* SignupStepCompleteView.swift in Sources */,
 				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
 				CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
 				CED9EAB62A3C414B00BA8737 /* SignupTermsOfUseButton.swift in Sources */,
+				CEBC40112A486D33001A5934 /* TabViewCollectionViewCellModel.swift in Sources */,
+				CEBC40132A486D78001A5934 /* Array+.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
 				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
+				CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
 				A8F4DD422A4660560045C179 /* CALayer+.swift in Sources */,
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
+				CEBC400F2A486D09001A5934 /* TabViewModel.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
 				A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */,
 				A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */,
+				CEF347EB2A5C37DB00ED012E /* GreetingTableViewCell.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
 				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,
 				A8C7928E2A4E5A390032FDFC /* UIApplication+.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
 				A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */,
+				CEBC40082A486B9D001A5934 /* TopTabBarViewController.swift in Sources */,
 				CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
