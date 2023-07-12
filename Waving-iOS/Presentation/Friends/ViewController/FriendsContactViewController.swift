@@ -51,22 +51,35 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         return label
     }()
     
-    private var innerView: UIView? //MARK: CollectionView => 따로 View로 빼도록 하기
+    private lazy var friendscontactCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = .zero
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(FriendsContactCollectionViewCell.self, forCellWithReuseIdentifier: FriendsContactCollectionViewCell.identifier)
+        view.dataSource = self
+        view.delegate = self
+        return view
+    }()
+    
+    let friendSelectionButton = WVButton()
+    private lazy var friendSelectionButtonViewModel = WVButtonModel(title: "총 0 명 선택", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+        self?.viewModel.selectFriends()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addComponents()
         setConstraints()
+        binding()
     }
 
     func addComponents() {
         view.backgroundColor = .systemBackground
         [navigationView, scrollView].forEach { view.addSubview($0) }
         scrollView.addSubview(containerView)
-        containerView.addSubview(menuStackView)
-        [menuContactLabel, menuSelectLabel].forEach {
-            menuStackView.addArrangedSubview($0)
-        }
+        [menuContactLabel, menuSelectLabel].forEach { menuStackView.addArrangedSubview($0)}
+        [menuStackView, friendscontactCollectionView, friendSelectionButton].forEach { containerView.addSubview($0) }
     }
     
     func setConstraints() {
@@ -92,5 +105,46 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
             $0.trailing.equalToSuperview().offset(-18)
             $0.height.equalTo(24)
         }
+        
+        friendscontactCollectionView.snp.makeConstraints {
+            $0.top.equalTo(menuStackView.snp.bottom).offset(20)
+            $0.leading.trailing.bottom.equalTo(containerView)
+        }
+        
+        friendSelectionButton.snp.makeConstraints {
+            $0.size.equalTo(CGSize(width: Constants.Intro.loginButtonWidth, height: Constants.Intro.loginButtonHeight))
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
+        }
+        
+        friendSelectionButton.setup(model: friendSelectionButtonViewModel)
+        view.bringSubviewToFront(friendSelectionButton)
+    }
+    
+    func binding() {
+        
+    }
+}
+
+extension FriendsContactViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
+        cell.configUI(.checkBox)
+        return cell
+    }
+}
+
+extension FriendsContactViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = collectionView.frame.size.width
+        return CGSize(width: cellWidth, height: cellWidth/5.9)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0
     }
 }
