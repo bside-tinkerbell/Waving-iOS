@@ -246,7 +246,7 @@ public class TabView: UIView {
         
         self.scrollToItem(at: indexPath, animated: animated) { [weak self] in
             
-            guard let self = self else { return }
+            guard let self else { return }
             
             self.delegate?.tabView?(self, didSelectItemAt: indexPath)
             

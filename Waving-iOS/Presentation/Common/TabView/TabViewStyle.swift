@@ -17,7 +17,7 @@ public enum TabViewStyle: Equatable {
         private var nameLabelNormalStateFont: UIFont {
             switch self {
             case .Legacy:
-                return .p_R(15)
+                return .p_R(16)
             case .Tier1:
                 return .p_R(16)
             case .Tier2:
@@ -30,7 +30,7 @@ public enum TabViewStyle: Equatable {
             case .Legacy:
                 return .red
             case .Tier1, .Tier2:
-                return .black
+                return .gray030
             }
         }
         
@@ -39,7 +39,7 @@ public enum TabViewStyle: Equatable {
         }
         
         private var nameLabelSelectionStateTextColor: UIColor {
-            .blue
+            .white
         }
         
         public var nameLabelHeight: CGFloat {
@@ -75,11 +75,9 @@ public enum TabViewStyle: Equatable {
             }
         }
         
-        private var underBarViewNormalStateColor: UIColor { .clear }
+        private var underBarViewNormalStateColor: UIColor { UIColor(hex: "f2f2f2") }
         
-        private var underBarViewSelectionStateColor: UIColor {
-            .black
-        }
+        private var underBarViewSelectionStateColor: UIColor { .gray090 }
         
         public func attributedName(_ name: TabViewItemName, isSelectedState: Bool, isEnabledState: Bool) -> NSAttributedString {
             let font = (isSelectedState ? self.nameLabelSelectionStateFont : self.nameLabelNormalStateFont)
