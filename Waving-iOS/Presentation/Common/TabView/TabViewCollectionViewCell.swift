@@ -74,8 +74,10 @@ final class TabViewCollectionViewCell: UICollectionViewCell {
         addComponents()
         setConstraints()
         
-        contentView.backgroundColor = .cyan
-        contentView.layer.borderColor = UIColor.red.cgColor
+        // test code
+//        contentView.backgroundColor = .cyan
+//        contentView.layer.borderColor = UIColor.red.cgColor
+        // end of test code
         
         self.coloredBackgroundView.layer.cornerRadius = 18
         

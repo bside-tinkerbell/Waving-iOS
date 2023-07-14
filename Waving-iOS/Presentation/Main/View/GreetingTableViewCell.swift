@@ -17,7 +17,13 @@ final class GreetingTableViewCell: UITableViewCell {
         static let topSpaceOverButtonStackViewToMainLabel: CGFloat = 32
     }
     
-    private lazy var containerView = UIView()
+    private lazy var containerView: UIView = {
+        let containerView = UIView()
+        containerView.layer.borderColor = UIColor.Border.gray.cgColor
+        containerView.layer.borderWidth = 1
+        containerView.layer.cornerRadius = 8
+        return containerView
+    }()
     
     private lazy var buttonStackView: UIStackView = {
         let stackView = UIStackView()
@@ -79,18 +85,20 @@ final class GreetingTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // test code
-        contentView.backgroundColor = .green
-        containerView.backgroundColor = .yellow
-        buttonStackView.backgroundColor = .yellow
-        // end of test code
-        
+        setupView()
         addComponents()
         setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
+        // test code
+//        contentView.backgroundColor = .green
+//        buttonStackView.backgroundColor = .yellow
+        // end of test code
     }
     
     public func setup(with viewModel: GreetingCellModel) {
@@ -117,24 +125,27 @@ extension GreetingTableViewCell: SnapKitInterface {
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalToSuperview().offset(16)
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview().offset(-10)
         }
         
         quotationMarkImageView.snp.makeConstraints {
             $0.width.height.equalTo(Constants.quotationMarkDimension)
-            $0.top.leading.equalToSuperview()
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(20)
         }
         
         mainLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalTo(quotationMarkImageView.snp.bottom).offset(Constants.topSpaceOverMainLableToImageView)
         }
         
         buttonStackView.snp.makeConstraints {
             $0.height.equalTo(Constants.buttonDimension)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalTo(mainLabel.snp.bottom).offset(Constants.topSpaceOverButtonStackViewToMainLabel)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-16)
         }
         
         favoriteButton.snp.makeConstraints {

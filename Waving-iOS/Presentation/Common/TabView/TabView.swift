@@ -12,7 +12,6 @@ public class TabView: UIView {
     // MARK: - Properties
     
     private var collectionView: UICollectionView!
-    public var bottomSeparatorView: UIView!
     
     public var style: TabViewStyle = .Legacy(nil) {
         didSet {
@@ -194,10 +193,6 @@ public class TabView: UIView {
         flowLayout.minimumInteritemSpacing = 0.0
         flowLayout.minimumLineSpacing = 0.0
         
-        self.bottomSeparatorView = UIView(frame: .zero)
-        self.bottomSeparatorView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(self.bottomSeparatorView)
-        
         self.collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowLayout)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.collectionView)
@@ -206,11 +201,6 @@ public class TabView: UIView {
     private func initDefaultConstraints() {
         
         NSLayoutConstraint.activate([
-            self.bottomSeparatorView.heightAnchor.constraint(equalToConstant: 1),
-            self.bottomSeparatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.bottomSeparatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.bottomSeparatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
             self.topAnchor.constraint(equalTo: self.collectionView.topAnchor),
             self.leadingAnchor.constraint(equalTo: self.collectionView.leadingAnchor),
             self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
@@ -255,7 +245,6 @@ public class TabView: UIView {
     
     private func adjustViewState() {
         self.backgroundColor = self.style.backgroundColor
-        self.bottomSeparatorView.backgroundColor = self.style.bottomSeparatorViewColor
     }
 }
 

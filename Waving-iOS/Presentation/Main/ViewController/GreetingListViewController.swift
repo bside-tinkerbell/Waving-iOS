@@ -61,6 +61,7 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
 
         // end of test code
         
+        tableView.separatorStyle = .none
         tableView.register(GreetingTableViewCell.self, forCellReuseIdentifier: "GreetingTableViewCell")
     }
 
