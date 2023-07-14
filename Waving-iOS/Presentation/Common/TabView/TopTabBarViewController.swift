@@ -453,7 +453,7 @@ extension TopTabBarViewController {
     static func makeGreetingListViewController() -> TopTabBarViewController {
         // test code
         // TODO: api 호출
-        let categoryNames = ["잘지내?", "명언/명대사", "응원의 마음", "고마워요", "축하해요", "위로해요"]
+        let categoryNames = ["명언/명대사", "고마워요", "응원해요"]
         // end of test code
         
         var childViewControllers = [UIViewController & TopTabBarRepresentable]()
