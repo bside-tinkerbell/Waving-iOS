@@ -20,5 +20,11 @@ struct Constants {
     enum Navi {
         static let commonPadding: CGFloat = 16
         static let itemSpacing: CGFloat = 14
+        static let defaultHeight: CGFloat = 50
+    }
+    
+    enum Home {
+        static let logoSize: CGSize = .init(width: 91, height: 21)
+        static let rightButtonSize: CGSize = .init(width: 24, height: 24)
     }
 }

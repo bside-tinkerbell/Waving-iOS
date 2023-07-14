@@ -61,6 +61,8 @@
 		CEBC40132A486D78001A5934 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40122A486D78001A5934 /* Array+.swift */; };
 		CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40142A486F55001A5934 /* TabViewCollectionViewCell.swift */; };
 		CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF7E2A61147500175391 /* GreetingModel.swift */; };
+		CEC6CF812A6184A100175391 /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF802A6184A100175391 /* HomeNavigationView.swift */; };
+		CEC6CF942A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */; };
 		CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CD2A321FCE00119CE5 /* WVTextField.swift */; };
 		CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CF2A32227E00119CE5 /* SignDataStore.swift */; };
 		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
@@ -153,6 +155,8 @@
 		CEBC40122A486D78001A5934 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CEBC40142A486F55001A5934 /* TabViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEC6CF7E2A61147500175391 /* GreetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingModel.swift; sourceTree = "<group>"; };
+		CEC6CF802A6184A100175391 /* HomeNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
+		CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingCategoryCollectionViewCell.swift; path = "Waving-iOS/Presentation/MainTabBar/View/GreetingCategoryCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CED363CD2A321FCE00119CE5 /* WVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVTextField.swift; sourceTree = "<group>"; };
 		CED363CF2A32227E00119CE5 /* SignDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDataStore.swift; sourceTree = "<group>"; };
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -248,13 +252,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A8253D582A46DD8C00AE8101 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		A82EC65F2A26340B00DABF26 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				A8A45CBF2A409B75001F02C7 /* NavigationView.swift */,
+				CEC6CF802A6184A100175391 /* HomeNavigationView.swift */,
 			);
 			path = NavigationBar;
 			sourceTree = "<group>";
@@ -476,7 +474,7 @@
 		CE9BBCD72A297FAE0036E335 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				A8253D582A46DD8C00AE8101 /* View */,
+				CEC6CF952A618F8D00175391 /* View */,
 				CE9BBCD92A297FC70036E335 /* ViewController */,
 				CE9BBCD52A297F9B0036E335 /* ViewModel */,
 			);
@@ -554,6 +552,14 @@
 				CEF31EE72A5FC77300534D44 /* GreetingTarget.swift */,
 			);
 			path = Greeting;
+			sourceTree = "<group>";
+		};
+		CEC6CF952A618F8D00175391 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CEE3E76D2A17A93200BC1464 = {
@@ -783,6 +789,7 @@
 				CEF347C62A5BF5A800ED012E /* GreetingListViewController.swift in Sources */,
 				A8C792822A4CE6D60032FDFC /* TestModel.swift in Sources */,
 				A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */,
+				CEC6CF942A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift in Sources */,
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */,
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
@@ -811,6 +818,7 @@
 				CEF2E5882A470F6300128C55 /* SignupStepCompleteView.swift in Sources */,
 				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
 				CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */,
+				CEC6CF812A6184A100175391 /* HomeNavigationView.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CEF31EE82A5FC77300534D44 /* GreetingTarget.swift in Sources */,
 				CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */,
