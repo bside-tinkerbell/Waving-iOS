@@ -39,6 +39,7 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */; };
 		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
 		CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */; };
 		CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */; };
@@ -133,6 +134,7 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepEmailPasswordView.swift; sourceTree = "<group>"; };
 		CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextFieldContainer.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */,
+				CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */,
+				CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */,
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
