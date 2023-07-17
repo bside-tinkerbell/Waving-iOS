@@ -8,6 +8,12 @@
 import UIKit
 
 extension UIColor {
+    
+    enum Main {
+        static let main050 = UIColor(hex: "F8D749")
+        static let main010 = UIColor(hex: "FFFAD9")
+    }
+    
     enum Text {
         static let black = UIColor.black
         static let white = UIColor.white

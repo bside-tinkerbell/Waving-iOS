@@ -451,9 +451,16 @@ protocol TopTabBarRepresentable: NSObjectProtocol {
 extension TopTabBarViewController {
     
     static func makeGreetingListViewController() -> TopTabBarViewController {
+        // test code
+        // TODO: api 호출
+        let categoryNames = ["명언/명대사", "고마워요", "응원해요"]
+        // end of test code
         
+        var childViewControllers = [UIViewController & TopTabBarRepresentable]()
+        for name in categoryNames {
+            childViewControllers.append(GreetingListViewController(categoryName: name))
+        }
         
-        let childViewControllers: [UIViewController & TopTabBarRepresentable] = [GreetingListViewController(), GreetingListViewController()]
         let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
         return topTabBarViewController
     }

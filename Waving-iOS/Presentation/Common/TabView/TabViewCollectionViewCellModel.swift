@@ -24,21 +24,20 @@ public final class TabViewCollectionViewCellModel {
     
     public convenience init(with nameText: String, numberOfItems items: Int = 0, numberOfNews news: Int = 0, isNewMarkHidden: Bool = true) {
         
-        let name = TabViewItemName(forNormalState: NSMutableAttributedString(string: nameText), forSelectionState: NSMutableAttributedString(string: nameText))
+        let normalStateName = NSMutableAttributedString(string: nameText)
+            .wv_setFont(.p_B(15))
+            .wv_setTextColor(.green)
+        let selectionStateName = NSMutableAttributedString(string: nameText)
+            .wv_setFont(.p_B(15))
+            .wv_setTextColor(.orange)
+        let name = TabViewItemName(forNormalState: normalStateName, forSelectionState: selectionStateName)
         
         self.init(with: name, numberOfItems: items, numberOfNews: news, isNewMarkHidden: isNewMarkHidden)
     }
     
     public init(with name: TabViewItemName, numberOfItems items: Int = 0, numberOfNews news: Int = 0, isNewMarkHidden: Bool = true) {
-
-        let normalStateName = NSMutableAttributedString(string: "normal")
-            .wv_setFont(.p_B(15))
-            .wv_setTextColor(.green)
-        let selectionStateName = NSMutableAttributedString(string: "selection")
-            .wv_setFont(.p_B(15))
-            .wv_setTextColor(.orange)
         
-        self.name = TabViewItemName(forNormalState: normalStateName, forSelectionState: selectionStateName)
+        self.name = name
         
         self.newCountText = ((news > 0) ? ((news > 99) ? "99+" : "\(news)") : nil)
         self.isNewCountTextHidden = (self.newCountText == nil)
