@@ -1,14 +1,13 @@
 //
-//  FriendsListView.swift
+//  FriendsContactView.swift
 //  Waving-iOS
 //
-//  Created by Joy on 2023/06/24.
+//  Created by Joy on 2023/07/11.
 //
-// MARK: - 나의 지인 화면
 
 import UIKit
 
-class FriendsListView: UIView {
+class FriendsContactView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
