@@ -9,8 +9,10 @@ import UIKit
 import SnapKit
 
 enum CellState {
-    case checkBox
-    case star
+    case checkBoxSelected
+    case checkBoxUnselected
+    case starSelected
+    case starUnselected
 }
 
 class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
@@ -22,6 +24,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.alignment = .center
+        stackView.backgroundColor = .systemGreen
         return stackView
     }()
     
@@ -57,11 +60,19 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
         return label
     }()
     
+//    let checkButtonView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .systemBlue
+//        return view
+//    }()
+    
     let checkButton: UIButton = {
        let button = UIButton()
-        button.setImage(UIImage(named: "icn_unchecked"), for: .normal)
+        button.backgroundColor = .systemYellow
+        //button.setImage(UIImage(named: "icn_unchecked"), for: .normal)
         return button
     }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,6 +98,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
             $0.size.equalTo(CGSize(width: 50, height: 50))
         }
         
+        //TODO: 버튼 영역 넓혀서 클릭 잘되도록 하기 - UI 버튼 안에 이미지 작게 들어가도록 하기
         checkButton.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.size.equalTo(CGSize(width: 24, height: 24))
@@ -101,12 +113,18 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
 
     func configUI(_ type: CellState) {
         switch type {
-        case .checkBox:
+        case .checkBoxUnselected:
             numberLabel.isHidden = false
             checkButton.setImage(UIImage(named: "icn_unchecked"), for: .normal)
-        case .star:
+        case .checkBoxSelected:
+            numberLabel.isHidden = false
+            checkButton.setImage(UIImage(named: "icn_checked"), for: .normal)
+        case .starUnselected:
             numberLabel.isHidden = true
             checkButton.setImage(UIImage(named: "icn_favorites_off"), for: .normal)
+        case .starSelected:
+            numberLabel.isHidden = true
+            checkButton.setImage(UIImage(named: "icn_favorites_on"), for: .normal)
         }
     }
 }

@@ -44,6 +44,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         return label
     }()
     
+    //TODO: Label이 아닌 버튼으로 바꾸기, multipleSelection 가능하도록 하기
     private let menuSelectLabel: UILabel = {
        let label = UILabel()
         label.text = "전체선택"
@@ -133,10 +134,24 @@ extension FriendsContactViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
-        cell.configUI(.checkBox)
+        cell.configUI(.checkBoxUnselected)
         return cell
     }
 }
+
+//TODO: MultipleSelection 허용해 주어야 함
+extension FriendsContactViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        cell.configUI(.checkBoxSelected)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        cell.configUI(.checkBoxUnselected)
+    }
+}
+
 
 extension FriendsContactViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
