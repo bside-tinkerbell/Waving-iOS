@@ -23,7 +23,7 @@ class FriendsListView: UIView, SnapKitInterface {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "연락처를 가져올 수 없습니다")
+        label.attributedText = NSMutableAttributedString(string: "연락처")
             .wv_setFont(.p_B(24))
             .wv_setTextColor(UIColor(hex: "1B1B1B"))
         return label

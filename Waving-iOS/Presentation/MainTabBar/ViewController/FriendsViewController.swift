@@ -10,8 +10,8 @@ import Combine
 //currentValueSubject
 
 final class FriendsViewController: UIViewController, SnapKitInterface {
-
-    private var viewModel = FriendsViewModel(type: .disconnect)
+    
+    private var viewModel = FriendsViewModel(type: .intro)
     private var cancellable = Set<AnyCancellable>()
     
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
@@ -36,14 +36,14 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     private var innerView: UIView?
     
     override func viewDidLoad() {
-        binding()
         addComponents()
-        setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchData()
+        //여기서 viewModel 바꾸면 바뀌긴 함
+        binding()
+        setConstraints()
     }
     
     func addComponents() {
@@ -54,6 +54,9 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     }
     
     func setConstraints() {
+        //viewModel = FriendsViewModel(type: .disconnect) //MARK: 여기서 바꾸면 바뀌긴 함
+        
+        
         navigationView.snp.makeConstraints {
             $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)
@@ -69,10 +72,10 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
             $0.width.equalTo(scrollView)
             $0.height.equalTo(scrollView).priority(.low)
         }
-
+        
+        
         if let customView = viewModel.type.view() {
             self.innerView = customView
-            
             customView.setup(with: viewModel)
             containerView.addSubview(customView)
             customView.snp.makeConstraints { make in
@@ -93,6 +96,11 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
 //                self?.present(vc, animated: false)
 //            }
 //            .store(in: &cancellable)
+        viewModel.sendRoute
+            .sink { [weak self] type in
+                self?.viewModel =  FriendsViewModel(type: type) // TODO: 화면이 완벽 업뎃 
+            }
+            .store(in: &cancellable)
         
     }
 }

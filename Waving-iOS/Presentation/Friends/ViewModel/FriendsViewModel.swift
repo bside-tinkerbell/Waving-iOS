@@ -38,15 +38,9 @@ protocol FriendsViewModelRepresentable {
     func didTapBackButton()
 }
 
-class FriendsViewModel: FriendsViewModelRepresentable {
-    let type: FriendType
-    
-    var route: AnyPublisher<FriendType, Never> {
-        self.sendRoute.eraseToAnyPublisher()
-    }
-    
+class FriendsViewModel: FriendsViewModelRepresentable, ObservableObject {
+    var type: FriendType
     var sendRoute: PassthroughSubject<FriendType, Never> = .init()
-    var move: Bool = true
     
     init(type: FriendType) {
         self.type = type
@@ -57,15 +51,6 @@ class FriendsViewModel: FriendsViewModelRepresentable {
      
         Task.init {
             await fetchAllContacts()
-            
-            switch move {
-            case true:
-                sendRoute.send(.list)
-            case false:
-                sendRoute.send(.disconnect)
-            default:
-                sendRoute.send(.disconnect)
-            }
         }
         
         @Sendable func fetchAllContacts() async {
@@ -80,12 +65,12 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile}.map {$0.value.stringValue}.joined(separator:"")
                     Log.i(name)
                     Log.d(phoneNumber)
+                    sendRoute.send(.list)
                     //TODO: 프로필 이미지 정보 API 보낼 수 있게 String화 하기 (contact.imageData) - decoding?
                     //TODO: MODEL array로 만들어 서버에 보낼 수 있게 준비하도록 하기
-                    move = true
                 })
             } catch {
-                move = false
+                sendRoute.send(.disconnect)
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
             }
         }
