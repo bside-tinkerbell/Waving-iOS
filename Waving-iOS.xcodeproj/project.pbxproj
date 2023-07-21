@@ -12,8 +12,9 @@
 		A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */; };
 		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
+		A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */; };
+		A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1872A6A04DD00D9F02F /* FriendAddView.swift */; };
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
-		A89871AE2A5D8037008F0FAA /* FriendsContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AD2A5D8037008F0FAA /* FriendsContactView.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
 		A8A45CBE2A409856001F02C7 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */; };
@@ -117,8 +118,9 @@
 		A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
 		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDisconnectView.swift; sourceTree = "<group>"; };
+		A836B1872A6A04DD00D9F02F /* FriendAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAddView.swift; sourceTree = "<group>"; };
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
-		A89871AD2A5D8037008F0FAA /* FriendsContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactView.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -251,8 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */,
+				A836B1872A6A04DD00D9F02F /* FriendAddView.swift */,
+				A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */,
 				A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */,
-				A89871AD2A5D8037008F0FAA /* FriendsContactView.swift */,
 				A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */,
 			);
 			path = View;
@@ -799,7 +802,7 @@
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
-				A89871AE2A5D8037008F0FAA /* FriendsContactView.swift in Sources */,
+				A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */,
 				A8C792842A4CE8570032FDFC /* SignAPI.swift in Sources */,
 				A8C7927D2A4CDD390032FDFC /* URLString.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
@@ -854,6 +857,7 @@
 				A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */,
 				A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */,
 				A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */,
+				A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */,
 				CEF347EB2A5C37DB00ED012E /* GreetingTableViewCell.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
 				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,

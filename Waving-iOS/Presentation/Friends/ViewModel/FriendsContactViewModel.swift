@@ -23,11 +23,11 @@ final class FriendsContactViewModel: FriendsContactViewModelRepresentable {
         Log.d("친구 선택하기")
     }
     
-    var route: AnyPublisher<IntroRoute, Never> {
-        self.sendRoute.eraseToAnyPublisher()
-    }
-    
-    var sendRoute: PassthroughSubject<IntroRoute, Never> = .init()
+//    var route: AnyPublisher<IntroRoute, Never> {
+//        self.sendRoute.eraseToAnyPublisher()
+//    }
+//    
+//    var sendRoute: PassthroughSubject<IntroRoute, Never> = .init()
     
     func checkboxSelected() {
         Log.d("체크박스 선택됨")

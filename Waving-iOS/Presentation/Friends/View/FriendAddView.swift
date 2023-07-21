@@ -1,14 +1,14 @@
 //
-//  FriendsListView.swift
+//  FriendAddView.swift
 //  Waving-iOS
 //
-//  Created by Joy on 2023/06/24.
+//  Created by Joy on 2023/07/21.
 //
 
 import UIKit
 import Combine
 
-class FriendsListView: UIView, SnapKitInterface {
+class FriendsAddView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
     
@@ -98,7 +98,7 @@ class FriendsListView: UIView, SnapKitInterface {
     }
 }
 
-extension FriendsListView: FriendViewRepresentable {
+extension FriendsAddView: FriendViewRepresentable {
     func setup(with viewModel: FriendsViewModelRepresentable) {
         self.viewModel = viewModel
     }

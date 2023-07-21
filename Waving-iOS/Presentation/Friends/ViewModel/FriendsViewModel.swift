@@ -10,16 +10,19 @@ import Combine
 import UIKit
 import Contacts
 
-enum FriendType: Int {
+enum FriendType {
     case intro
+    case disconnect
     case list
     
     func view() -> FriendViewRepresentable? {
         switch self {
-        case .intro:
+        case .intro: /// 지인 추가 : 소중한 지인을~
             return FriendsIntroView()
-        case .list:
-            return FriendsIntroView()
+        case .disconnect: /// 연락처를 가져올 수 없습니다.
+            return FriendsDisconnectView()
+        case .list: /// 지인 리스트
+            return FriendsListView()
         default:
             return nil
         }
@@ -38,7 +41,12 @@ protocol FriendsViewModelRepresentable {
 class FriendsViewModel: FriendsViewModelRepresentable {
     let type: FriendType
     
-    var sendRoute: PassthroughSubject<Void, Never> = .init()
+    var route: AnyPublisher<FriendType, Never> {
+        self.sendRoute.eraseToAnyPublisher()
+    }
+    
+    var sendRoute: PassthroughSubject<FriendType, Never> = .init()
+    var move: Bool = true
     
     init(type: FriendType) {
         self.type = type
@@ -46,10 +54,19 @@ class FriendsViewModel: FriendsViewModelRepresentable {
     
     func addFriends() {
         Log.d("친구 추가")
-        sendRoute.send()
-//        Task.init {
-//            await fetchAllContacts()
-//        }
+     
+        Task.init {
+            await fetchAllContacts()
+            
+            switch move {
+            case true:
+                sendRoute.send(.list)
+            case false:
+                sendRoute.send(.disconnect)
+            default:
+                sendRoute.send(.disconnect)
+            }
+        }
         
         @Sendable func fetchAllContacts() async {
             let store = CNContactStore()
@@ -64,8 +81,11 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     Log.i(name)
                     Log.d(phoneNumber)
                     //TODO: 프로필 이미지 정보 API 보낼 수 있게 String화 하기 (contact.imageData) - decoding?
+                    //TODO: MODEL array로 만들어 서버에 보낼 수 있게 준비하도록 하기
+                    move = true
                 })
             } catch {
+                move = false
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
             }
         }

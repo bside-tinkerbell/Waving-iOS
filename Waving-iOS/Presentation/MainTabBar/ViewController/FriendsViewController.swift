@@ -7,10 +7,11 @@
 
 import UIKit
 import Combine
+//currentValueSubject
 
 final class FriendsViewController: UIViewController, SnapKitInterface {
 
-    private var viewModel = FriendsViewModel(type: .intro)
+    private var viewModel = FriendsViewModel(type: .disconnect)
     private var cancellable = Set<AnyCancellable>()
     
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
@@ -35,9 +36,9 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     private var innerView: UIView?
     
     override func viewDidLoad() {
+        binding()
         addComponents()
         setConstraints()
-        binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +72,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
 
         if let customView = viewModel.type.view() {
             self.innerView = customView
+            
             customView.setup(with: viewModel)
             containerView.addSubview(customView)
             customView.snp.makeConstraints { make in
@@ -80,16 +82,17 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     }
     
     func fetchData(){
-        //TODO: API 호출에 따른 Switch 문으로 viewModel의 type 바꾸도록 하기 
+        //TODO: API 호출에 따른 Switch 문으로 viewModel의 type 바꾸도록 하기
     }
     
     func binding(){
-        viewModel.sendRoute
-            .sink { [weak self] _ in
-                let vc = FriendsContactViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: false)
-            }
-            .store(in: &cancellable)
+//        viewModel.sendRoute
+//            .sink { [weak self] _ in
+//                let vc = FriendsContactViewController()
+//                vc.modalPresentationStyle = .fullScreen
+//                self?.present(vc, animated: false)
+//            }
+//            .store(in: &cancellable)
+        
     }
 }
