@@ -37,13 +37,13 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     
     override func viewDidLoad() {
         addComponents()
+        binding()
+        setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //여기서 viewModel 바꾸면 바뀌긴 함
-        binding()
-        setConstraints()
+        fetchData()
     }
     
     func addComponents() {
@@ -54,9 +54,6 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     }
     
     func setConstraints() {
-        //viewModel = FriendsViewModel(type: .disconnect) //MARK: 여기서 바꾸면 바뀌긴 함
-        
-        
         navigationView.snp.makeConstraints {
             $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)
@@ -89,18 +86,18 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     }
     
     func binding(){
-//        viewModel.sendRoute
-//            .sink { [weak self] _ in
-//                let vc = FriendsContactViewController()
-//                vc.modalPresentationStyle = .fullScreen
-//                self?.present(vc, animated: false)
-//            }
-//            .store(in: &cancellable)
         viewModel.sendRoute
-            .sink { [weak self] type in
-                self?.viewModel =  FriendsViewModel(type: type) // TODO: 화면이 완벽 업뎃 
+            .sink { [weak self] _ in
+                let vc = FriendsContactViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: false)
             }
             .store(in: &cancellable)
+//        viewModel.sendRoute
+//            .sink { [weak self] type in
+//                self?.viewModel =  FriendsViewModel(type: type) // TODO: 화면이 완벽 업뎃
+//            }
+//            .store(in: &cancellable)
         
     }
 }
