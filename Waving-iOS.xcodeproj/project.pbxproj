@@ -54,6 +54,9 @@
 		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
 		CEA32DD22A3357540006FA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA32DD12A3357540006FA31 /* String+.swift */; };
+		CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */; };
+		CEB518242A654100009B88BB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518232A654100009B88BB /* NoticeTableViewCell.swift */; };
+		CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518252A65410D009B88BB /* NoticeCellModel.swift */; };
 		CEBC40082A486B9D001A5934 /* TopTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */; };
 		CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40092A486BEF001A5934 /* TabView.swift */; };
 		CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC400C2A486C32001A5934 /* TabViewStyle.swift */; };
@@ -149,6 +152,9 @@
 		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		CEA32DD12A3357540006FA31 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		CEB518232A654100009B88BB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		CEB518252A65410D009B88BB /* NoticeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCellModel.swift; sourceTree = "<group>"; };
 		CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarViewController.swift; sourceTree = "<group>"; };
 		CEBC40092A486BEF001A5934 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CEBC400C2A486C32001A5934 /* TabViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewStyle.swift; sourceTree = "<group>"; };
@@ -360,6 +366,7 @@
 		A8E0C0B52A23639400C8696E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CEB5181E2A6540AF009B88BB /* Notice */,
 				CE3A48A22A52E0AD00893E7E /* Main */,
 				CE9BBCDD2A2AF9DA0036E335 /* Common */,
 				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
@@ -532,6 +539,40 @@
 				A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CEB5181E2A6540AF009B88BB /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				CEB518212A6540BD009B88BB /* View */,
+				CEB518202A6540B9009B88BB /* ViewModel */,
+				CEB5181F2A6540B4009B88BB /* ViewController */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		CEB5181F2A6540B4009B88BB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CEB518202A6540B9009B88BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEB518252A65410D009B88BB /* NoticeCellModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEB518212A6540BD009B88BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB518232A654100009B88BB /* NoticeTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CEBC400B2A486C26001A5934 /* TabView */ = {
@@ -799,6 +840,7 @@
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
+				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				CEF31EE62A5FC74E00534D44 /* GreetingAPI.swift in Sources */,
 				A8C792802A4CE0930032FDFC /* SignTarget.swift in Sources */,
@@ -816,6 +858,7 @@
 				CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */,
 				A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */,
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
+				CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */,
 				A8C792792A4CD7EF0032FDFC /* ResponseData.swift in Sources */,
@@ -841,6 +884,7 @@
 				A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */,
 				CEF347EB2A5C37DB00ED012E /* GreetingTableViewCell.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
+				CEB518242A654100009B88BB /* NoticeTableViewCell.swift in Sources */,
 				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,
 				A8C7928E2A4E5A390032FDFC /* UIApplication+.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,

@@ -9,9 +9,12 @@ import UIKit
 
 final class HomeViewController: UIViewController, SnapKitInterface {
     
+    // MARK: - View Model
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
 //        self?.viewModel.didTapForwardButton()
     })
+    
+    private lazy var collectionHeaderTitles: [String] = ["이런 인사는 어때요?", "원하는 인사말을 찾아보세요."]
     
     private lazy var navigationView: HomeNavigationView = {
         HomeNavigationView()
@@ -63,11 +66,9 @@ final class HomeViewController: UIViewController, SnapKitInterface {
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumInteritemSpacing = 0.0
         flowLayout.minimumLineSpacing = 0.0
-//        flowLayout.itemSize = .init(width: 100, height: 110)
         flowLayout.sectionInset = .init(top: 20, left: 20, bottom: 20, right: 20)
         flowLayout.minimumInteritemSpacing = 26
         flowLayout.minimumLineSpacing = 16
-//        flowLayout.headerReferenceSize = .init(width: self.view.frame.width, height: 70)
         
         let collectionView = UICollectionView(frame: containerView.bounds, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -165,6 +166,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GreetingCategoryCollectionViewCell", for: indexPath) as! GreetingCategoryCollectionViewCell
+//            cell.setup(with: <#T##SignupStepViewModel#>)
             return cell
         }
     }
@@ -181,10 +183,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeCollectionHeaderView", for: indexPath)
-            headerView.backgroundColor = .green
             return headerView
         default:
-            assert(false, "no other supplementary view")
+            return UICollectionReusableView()
         }
     }
     
@@ -200,6 +201,8 @@ extension HomeViewController: UICollectionViewDelegate {
 }
 
 final class HomeCollectionHeaderView: UICollectionReusableView, SnapKitInterface {
+    
+    var title: String
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()

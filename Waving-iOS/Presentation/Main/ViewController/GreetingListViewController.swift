@@ -95,8 +95,6 @@ extension GreetingListViewController: UITableViewDataSource {
         }
         fatalError("GreetingTableViewCell is not dequeueable")
     }
-    
-    
 }
 
 // MARK: - TopTabBarRepresentable

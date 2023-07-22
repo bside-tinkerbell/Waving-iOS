@@ -15,6 +15,7 @@ struct FontManager{
         case bold = "Bold"
         case medium = "Medium"
         case regular = "Regular"
+        case semibold = "SemiBold"
     }
     
     func pretendard(_ type: Pretendard, _ size: CGFloat) -> UIFont {
@@ -35,5 +36,9 @@ extension UIFont {
     
     static func p_B(_ size: CGFloat) -> UIFont {
         FontManager.shared.pretendard(.bold, size)
+    }
+    
+    static func p_SB(_ size: CGFloat) -> UIFont {
+        FontManager.shared.pretendard(.semibold, size)
     }
 }
