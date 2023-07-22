@@ -39,7 +39,7 @@ protocol FriendsViewModelRepresentable {
 }
 
 class FriendsViewModel: FriendsViewModelRepresentable {
-    @Published private(set) var type: FriendType = .intro
+    @Published var type: FriendType?
     
     func addFriends() {
         Log.d("친구 추가")
@@ -63,7 +63,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     Log.d(phoneNumber)
 
                     //TODO: 프로필 이미지 정보 API 보낼 수 있게 String화 하기 (contact.imageData) - decoding?
-                    //TODO: MODEL array로 만들어 서버에 보낼 수 있게 준비하도록 하기
+                    //TODO: MODEL array/dictionary/tuple로 만들어 서버에 보낼 수 있게 준비하기
                 })
             } catch {
                 type = .disconnect

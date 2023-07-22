@@ -41,7 +41,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         self.viewModel.$type
             .receive(on: DispatchQueue.main)
             .sink { [weak self] friendtype in
-                if let customView = friendtype.view() {
+                if let customView = friendtype?.view() {
                     self?.innerView = customView
                     guard let viewModel = self?.viewModel else {return}
                     customView.setup(with: viewModel)
@@ -52,6 +52,15 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
                 }
             }
             .store(in: &cancellable)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //TODO: 데이터 호출 (fetchData) 후 switch문 통해 바꾸도록 하기
+        /// 데이터 있다면 .list 로
+        /// 데이터 없다면 .intro가 나오도록 하기
+        self.viewModel.type = .intro
     }
     
     func addComponents() {
