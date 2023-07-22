@@ -1,14 +1,15 @@
 //
-//  FriendsIntroView.swift
+//  FriendsDisconnectView.swift
 //  Waving-iOS
 //
-//  Created by Joy on 2023/06/24.
+//  Created by Joy on 2023/07/21.
 //
+
 
 import UIKit
 import Combine
 
-class FriendsIntroView: UIView, SnapKitInterface {
+class FriendsDisconnectView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
     
@@ -19,31 +20,23 @@ class FriendsIntroView: UIView, SnapKitInterface {
         return view
     }()
     
-    private let titleLabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "소중한 지인을 추가하고,\n연락해보세요.")
-            .wv_setFont(.p_B(24))
-            .wv_setTextColor(UIColor(hex: "1B1B1B"))
-        return label
-    }()
-    
-    private let subLabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "소중한 지인과의 연락을 기록하고,\n상황에 맞는 인사말을 추천해드려요.")
-            .wv_setFont(.p_R(16))
-            .wv_setTextColor(.text050)
-        return label
-    }()
     
     private let vingvingImage = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "doordog")
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private let subLabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center 
+        label.attributedText = NSMutableAttributedString(string: "연락처를 가져올 수 없습니다.\n[설정] > [연락처 허용]을 해주세요.")
+            .wv_setFont(.p_R(16))
+            .wv_setTextColor(.text050)
+        return label
     }()
     
     let friendsAddButton = WVButton()
@@ -64,7 +57,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
     
     func addComponents() {
         addSubview(containerView)
-        [titleLabel, subLabel, vingvingImage, friendsAddButton].forEach { containerView.addSubview($0) }
+        [subLabel, vingvingImage, friendsAddButton].forEach { containerView.addSubview($0) }
     }
     
     func setConstraints() {
@@ -72,20 +65,17 @@ class FriendsIntroView: UIView, SnapKitInterface {
             $0.top.leading.trailing.bottom.equalToSuperview()
         }
         
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
-            $0.left.right.equalToSuperview().offset(24)
+
+        vingvingImage.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(228)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo(180)
         }
         
         subLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(15)
-            $0.left.right.equalToSuperview().offset(24)
-        }
-        
-        vingvingImage.snp.makeConstraints {
-            $0.top.equalTo(subLabel.snp.bottom).offset(134)
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(194)
+            $0.top.equalTo(vingvingImage.snp.bottom).offset(30)
+            $0.left.equalToSuperview().offset(24)
+            $0.right.equalToSuperview().offset(-24)
         }
 
         friendsAddButton.snp.makeConstraints {
@@ -98,7 +88,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
     }
 }
 
-extension FriendsIntroView: FriendViewRepresentable {
+extension FriendsDisconnectView: FriendViewRepresentable {
     func setup(with viewModel: FriendsViewModelRepresentable) {
         self.viewModel = viewModel
     }

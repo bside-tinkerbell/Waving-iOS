@@ -207,7 +207,7 @@ final class HomeCollectionHeaderView: UICollectionReusableView, SnapKitInterface
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.attributedText = NSMutableAttributedString(string: "이런 인사는 어때요?")
-            .wv_setFont(.p_SB(20))
+            .wv_setFont(.p_B(20))
             .wv_setTextColor(.gray090)
         return label
     }()

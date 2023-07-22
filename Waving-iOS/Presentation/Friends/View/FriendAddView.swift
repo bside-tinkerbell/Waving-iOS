@@ -1,14 +1,14 @@
 //
-//  FriendsIntroView.swift
+//  FriendAddView.swift
 //  Waving-iOS
 //
-//  Created by Joy on 2023/06/24.
+//  Created by Joy on 2023/07/21.
 //
 
 import UIKit
 import Combine
 
-class FriendsIntroView: UIView, SnapKitInterface {
+class FriendsAddView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
     
@@ -23,7 +23,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "소중한 지인을 추가하고,\n연락해보세요.")
+        label.attributedText = NSMutableAttributedString(string: "연락처를 가져올 수 없습니다")
             .wv_setFont(.p_B(24))
             .wv_setTextColor(UIColor(hex: "1B1B1B"))
         return label
@@ -46,7 +46,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
         return imageView
     }()
     
-    let friendsAddButton = WVButton()
+    private let friendsAddButton = WVButton()
     private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
         self?.viewModel?.addFriends()
     }
@@ -98,7 +98,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
     }
 }
 
-extension FriendsIntroView: FriendViewRepresentable {
+extension FriendsAddView: FriendViewRepresentable {
     func setup(with viewModel: FriendsViewModelRepresentable) {
         self.viewModel = viewModel
     }
