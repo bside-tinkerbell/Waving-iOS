@@ -46,7 +46,7 @@ class FriendsAddView: UIView, SnapKitInterface {
         return imageView
     }()
     
-    let friendsAddButton = WVButton()
+    private let friendsAddButton = WVButton()
     private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
         self?.viewModel?.addFriends()
     }
