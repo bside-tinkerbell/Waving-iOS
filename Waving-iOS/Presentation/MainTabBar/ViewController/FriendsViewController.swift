@@ -8,9 +8,24 @@
 import UIKit
 import Combine
 
-final class FriendsViewController: UIViewController, SnapKitInterface {
 
-    private var viewModel = FriendsViewModel(type: .intro)
+extension FriendType {
+    fileprivate var viewController: UIViewController {
+        switch self {
+        case .intro, .disconnect, .list:
+            return ViewController()
+        case .addFriend:
+            return FriendsContactViewController()
+        default:
+            return ViewController()
+        }
+    }
+}
+
+
+final class FriendsViewController: UIViewController, SnapKitInterface {
+    
+    var viewModel = FriendsViewModel()
     private var cancellable = Set<AnyCancellable>()
     
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
@@ -20,12 +35,12 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()
         view.setup(model: navigationViewModel)
-    
+        
         return view
     }()
     
     let scrollView = UIScrollView()
-
+    
     private lazy var containerView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -38,11 +53,30 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         addComponents()
         setConstraints()
         binding()
+        
+        self.viewModel.$type
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] friendtype in
+                if let customView = friendtype?.view() {
+                    self?.innerView = customView
+                    guard let viewModel = self?.viewModel else {return}
+                    customView.setup(with: viewModel)
+                    self?.containerView.addSubview(customView)
+                    customView.snp.makeConstraints { make in
+                        make.top.leading.trailing.bottom.equalToSuperview()
+                    }
+                }
+            }
+            .store(in: &cancellable)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchData()
+        
+        //TODO: 데이터 호출 (fetchData) 후 switch문 통해 바꾸도록 하기
+        /// 데이터 있다면 .list 로
+        /// 데이터 없다면 .intro가 나오도록 하기
+        self.viewModel.type = .intro
     }
     
     func addComponents() {
@@ -68,27 +102,13 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
             $0.width.equalTo(scrollView)
             $0.height.equalTo(scrollView).priority(.low)
         }
-
-        if let customView = viewModel.type.view() {
-            self.innerView = customView
-            customView.setup(with: viewModel)
-            containerView.addSubview(customView)
-            customView.snp.makeConstraints { make in
-                make.top.leading.trailing.bottom.equalToSuperview()
-            }
-        }
     }
     
-    func fetchData(){
-        //TODO: API 호출에 따른 Switch 문으로 viewModel의 type 바꾸도록 하기 
-    }
-    
-    func binding(){
-        viewModel.sendRoute
-            .sink { [weak self] _ in
-                let vc = FriendsContactViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: false)
+    func binding() {
+        viewModel.route
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] route in
+                self?.navigationController?.pushViewController(route.viewController, animated: true)
             }
             .store(in: &cancellable)
     }

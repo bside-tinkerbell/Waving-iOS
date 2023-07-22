@@ -44,6 +44,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         return label
     }()
     
+    //TODO: Label이 아닌 버튼으로 바꾸기, multipleSelection 가능하도록 하기
     private let menuSelectLabel: UILabel = {
        let label = UILabel()
         label.text = "전체선택"
@@ -108,7 +109,9 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         
         friendscontactCollectionView.snp.makeConstraints {
             $0.top.equalTo(menuStackView.snp.bottom).offset(20)
-            $0.leading.trailing.bottom.equalTo(containerView)
+            $0.leading.equalTo(containerView).offset(20)
+            $0.trailing.equalTo(containerView).offset(-20)
+            $0.bottom.equalTo(containerView)
         }
         
         friendSelectionButton.snp.makeConstraints {
@@ -128,13 +131,26 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
 
 extension FriendsContactViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
-        cell.configUI(.checkBox)
+        cell.configUI(.checkBoxUnselected)
         return cell
+    }
+}
+
+//TODO: MultipleSelection 허용해 주어야 함
+extension FriendsContactViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        cell.configUI(.checkBoxSelected)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        cell.configUI(.checkBoxUnselected)
     }
 }
 
