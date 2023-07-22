@@ -109,7 +109,9 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         
         friendscontactCollectionView.snp.makeConstraints {
             $0.top.equalTo(menuStackView.snp.bottom).offset(20)
-            $0.leading.trailing.bottom.equalTo(containerView)
+            $0.leading.equalTo(containerView).offset(20)
+            $0.trailing.equalTo(containerView).offset(-20)
+            $0.bottom.equalTo(containerView)
         }
         
         friendSelectionButton.snp.makeConstraints {
@@ -129,7 +131,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
 
 extension FriendsContactViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -151,7 +153,6 @@ extension FriendsContactViewController: UICollectionViewDelegate {
         cell.configUI(.checkBoxUnselected)
     }
 }
-
 
 extension FriendsContactViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

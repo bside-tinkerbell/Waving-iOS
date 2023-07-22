@@ -12,45 +12,27 @@ class FriendsListView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
     
-    private let containerView: UIView = {
+    let scrollView = UIScrollView()
+    
+    private lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private let titleLabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "연락처")
-            .wv_setFont(.p_B(24))
-            .wv_setTextColor(UIColor(hex: "1B1B1B"))
-        return label
+    private lazy var friendscontactCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = .zero
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(FriendsContactCollectionViewCell.self, forCellWithReuseIdentifier: FriendsContactCollectionViewCell.identifier)
+
+        view.dataSource = self
+        view.delegate = self
+        return view
     }()
     
-    private let subLabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "소중한 지인과의 연락을 기록하고,\n상황에 맞는 인사말을 추천해드려요.")
-            .wv_setFont(.p_R(16))
-            .wv_setTextColor(.text050)
-        return label
-    }()
-    
-    private let vingvingImage = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "doordog")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    let friendsAddButton = WVButton()
-    private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
-        self?.viewModel?.addFriends()
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addComponents()
@@ -61,45 +43,74 @@ class FriendsListView: UIView, SnapKitInterface {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func addComponents() {
-        addSubview(containerView)
-        [titleLabel, subLabel, vingvingImage, friendsAddButton].forEach { containerView.addSubview($0) }
+        backgroundColor = .systemBackground
+        addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(friendscontactCollectionView)
     }
     
     func setConstraints() {
-        containerView.snp.makeConstraints {
-            $0.top.leading.trailing.bottom.equalToSuperview()
+        scrollView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalToSuperview()
         }
         
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
-            $0.left.right.equalToSuperview().offset(24)
+        containerView.snp.makeConstraints{
+            $0.leading.trailing.top.bottom.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView)
+            $0.height.equalTo(scrollView).priority(.low)
         }
         
-        subLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(15)
-            $0.left.right.equalToSuperview().offset(24)
+        friendscontactCollectionView.snp.makeConstraints {
+            $0.top.equalTo(containerView)
+            $0.leading.equalTo(containerView).offset(20)
+            $0.trailing.equalTo(containerView).offset(-20)
+            $0.bottom.equalTo(containerView)
         }
         
-        vingvingImage.snp.makeConstraints {
-            $0.top.equalTo(subLabel.snp.bottom).offset(134)
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(194)
-        }
-
-        friendsAddButton.snp.makeConstraints {
-            $0.size.equalTo(CGSize(width: Constants.Intro.loginButtonWidth, height: Constants.Intro.loginButtonHeight))
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16)
-        }
-        friendsAddButton.setup(model: friendAddButtonViewModel)
-       // bringSubviewToFront(friendsAddButton)
     }
+
 }
 
 extension FriendsListView: FriendViewRepresentable {
     func setup(with viewModel: FriendsViewModelRepresentable) {
         self.viewModel = viewModel
+    }
+}
+
+
+extension FriendsListView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
+        cell.configUI(.checkBoxUnselected)
+        return cell
+    }
+}
+
+extension FriendsListView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        cell.configUI(.checkBoxSelected)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        cell.configUI(.checkBoxUnselected)
+    }
+}
+
+
+extension FriendsListView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = collectionView.frame.size.width
+        return CGSize(width: cellWidth, height: cellWidth/5.9)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0
     }
 }
