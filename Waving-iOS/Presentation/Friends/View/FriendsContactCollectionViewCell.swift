@@ -49,7 +49,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
     }()
 
     /// 텍스트
-    lazy var textStackView: UIStackView = {
+    private lazy var textStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
 
-    var nameLabel: UILabel = {
+    private var nameLabel: UILabel = {
        let label = UILabel()
         label.text = "이름 텍스트 전체 노출"
         label.numberOfLines = 0
@@ -67,7 +67,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    var numberLabel: UILabel = {
+    private var numberLabel: UILabel = {
        let label = UILabel()
         label.text = "010-8699-7777"
         label.font = .p_R(12)
@@ -77,12 +77,12 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
     }()
 
     //TODO: 버튼 - 클릭 잘 되도록 조정하기
-    let buttonContainerView: UIView = {
+    private let buttonContainerView: UIView = {
        let view = UIView()
         return view
     }()
     
-    let checkButton: UIButton = {
+    private let checkButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .systemYellow
         //button.setImage(UIImage(named: "icn_unchecked"), for: .normal)
