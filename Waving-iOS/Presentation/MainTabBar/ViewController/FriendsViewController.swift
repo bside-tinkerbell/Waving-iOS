@@ -8,6 +8,21 @@
 import UIKit
 import Combine
 
+
+extension FriendType {
+    fileprivate var viewController: UIViewController {
+        switch self {
+        case .intro, .disconnect, .list:
+            return ViewController()
+        case .addFriend:
+            return FriendsContactViewController()
+        default:
+            return ViewController()
+        }
+    }
+}
+
+
 final class FriendsViewController: UIViewController, SnapKitInterface {
     
     var viewModel = FriendsViewModel()
@@ -37,6 +52,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     override func viewDidLoad() {
         addComponents()
         setConstraints()
+        binding()
         
         self.viewModel.$type
             .receive(on: DispatchQueue.main)
@@ -86,5 +102,14 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
             $0.width.equalTo(scrollView)
             $0.height.equalTo(scrollView).priority(.low)
         }
+    }
+    
+    func binding() {
+        viewModel.route
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] route in
+                self?.navigationController?.pushViewController(route.viewController, animated: true)
+            }
+            .store(in: &cancellable)
     }
 }
