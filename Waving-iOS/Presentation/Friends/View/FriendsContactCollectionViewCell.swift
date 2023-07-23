@@ -20,6 +20,13 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "FriendsContactCollectionViewCell"
     
+    var contact: ContactModel {
+        didSet {
+            nameLabel.text = contact.name
+            numberLabel.text = contact.phoneNumber
+        }
+    }
+    
     /// 전체 컨테이너
     private lazy var containerStackView: UIStackView = {
        let stackView = UIStackView()
@@ -91,8 +98,9 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
 
     
     override init(frame: CGRect) {
+        self.contact = ContactModel(name: "", phoneNumber: "")
+        
         super.init(frame: frame)
-
         addSubview(containerStackView)
         containerStackView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
@@ -100,13 +108,13 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
         
         [nameLabel, numberLabel].forEach { textStackView.addArrangedSubview($0) }
         [profileContainerView, textStackView].forEach { containerStackView.addArrangedSubview($0) }
-        
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func configUI(_ type: CellState) {
         switch type {
         case .checkBoxUnselected:
