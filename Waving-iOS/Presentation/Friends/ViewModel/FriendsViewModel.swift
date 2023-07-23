@@ -74,12 +74,6 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile}.map {$0.value.stringValue}.joined(separator:"")
                     type = .addFriend
                     myContactList.append(ContactModel(name: name, phoneNumber: phoneNumber))
-                    
-//                    Log.i(name)
-//                    Log.d(phoneNumber)
-                    //TODO: 프로필 이미지 정보 API 보낼 수 있게 String화 하기 (contact.imageData) - decoding?
-                    //TODO: MODEL array/dictionary/tuple로 만들어 서버에 보낼 수 있게 준비하기
-                    // 폰 넘버가 키 값인 dictionary 만들기
                 })
             } catch {
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
