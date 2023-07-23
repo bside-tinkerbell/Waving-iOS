@@ -24,7 +24,7 @@ enum FriendType {
             return FriendsDisconnectView()
         case .list: /// 지인 리스트
             return FriendsListView()///지인 추가 화면
-        case .addFriend:
+        case .addFriend: /// 지인 선택하기 화면
             return nil
         default:
             return nil
@@ -73,11 +73,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     let name = contact.familyName + contact.givenName 
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile}.map {$0.value.stringValue}.joined(separator:"")
                     type = .addFriend
-                    Log.i(name)
-                    Log.d(phoneNumber)
-                    //TODO: 프로필 이미지 정보 API 보낼 수 있게 String화 하기 (contact.imageData) - decoding?
-                    //TODO: MODEL array/dictionary/tuple로 만들어 서버에 보낼 수 있게 준비하기
-                    // 폰 넘버가 키 값인 dictionary 만들기
+                    myContactList.append(ContactModel(name: name, phoneNumber: phoneNumber))
                 })
             } catch {
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
