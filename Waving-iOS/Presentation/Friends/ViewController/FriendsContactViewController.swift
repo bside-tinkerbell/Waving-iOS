@@ -73,6 +73,12 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         addComponents()
         setConstraints()
         binding()
+        Log.s(myContactList)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
     }
 
     func addComponents() {
@@ -125,6 +131,10 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
     }
     
     func binding() {
+        
+    }
+    
+    func fetchData() {
         
     }
 }
