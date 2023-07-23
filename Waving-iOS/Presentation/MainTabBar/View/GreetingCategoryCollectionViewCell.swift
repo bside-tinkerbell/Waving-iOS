@@ -27,25 +27,47 @@ final class GreetingCategoryCollectionViewCell: UICollectionViewCell, SnapKitInt
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.attributedText = NSMutableAttributedString(string: "궁금해요")
-            .wv_setFont(.p_M(14))
-            .wv_setTextColor(.gray070)
-            .wv_setParagraphStyle(alignment: .center)
         return label
     }()
     
     private var cancellables: [AnyCancellable] = []
     
-    private var viewModel: SignupStepViewModel? {
+    private var viewModel: GreetingCategoryCellModel? {
         didSet {
             guard let viewModel = viewModel else { return }
             
             self.cancellables.removeAll()
+            
             viewModel.$title
                 .sink { [weak self] in
-                    self?.titleLabel.attributedText = $0
+                    self?.titleLabel.attributedText = NSMutableAttributedString(string: $0)
+                        .wv_setFont(.p_M(14))
+                        .wv_setTextColor(.gray070)
+                        .wv_setParagraphStyle(alignment: .center)
                 }
-                .store(in: &self.cancellables)
+                .store(in: &cancellables)
+            
+            viewModel.$category
+                .sink { [weak self] in
+                    var imageName = ""
+                    switch $0 {
+                    case .type1:
+                        imageName = "img_category_01"
+                    case .type2:
+                        imageName = "img_category_02"
+                    case .type3:
+                        imageName = "img_category_03"
+                    case .type4:
+                        imageName = "img_category_04"
+                    case .type5:
+                        imageName = "img_category_05"
+                    case .type6:
+                        imageName = "img_category_06"
+                    }
+                    self?.imageView.image = .init(named: imageName)
+                }
+                .store(in: &cancellables)
+            
         }
 
     }
@@ -91,7 +113,7 @@ final class GreetingCategoryCollectionViewCell: UICollectionViewCell, SnapKitInt
         }
     }
     
-    public func setup(with viewModel: SignupStepViewModel) {
+    public func setup(with viewModel: GreetingCategoryCellModel) {
         self.viewModel = viewModel
     }
 }

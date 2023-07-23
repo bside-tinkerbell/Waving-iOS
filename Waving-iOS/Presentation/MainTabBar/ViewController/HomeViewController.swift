@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: UIViewController, SnapKitInterface {
     
@@ -14,7 +15,10 @@ final class HomeViewController: UIViewController, SnapKitInterface {
 //        self?.viewModel.didTapForwardButton()
     })
     
-    private lazy var collectionHeaderTitles: [String] = ["이런 인사는 어때요?", "원하는 인사말을 찾아보세요."]
+    private lazy var headerViewModels: [HomeCollectionHeaderViewModel] = [.init(title: "이런 인사는 어때요?"),
+        .init(title: "원하는 인사말을 찾아보세요.")]
+    
+    private lazy var greetingCategoryCellModels: [GreetingCategoryCellModel] = [.init(category: .type1), .init(category: .type2), .init(category: .type3), .init(category: .type4), .init(category: .type5), .init(category: .type6)]
     
     private lazy var navigationView: HomeNavigationView = {
         HomeNavigationView()
@@ -165,8 +169,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GreetingSuggestionCollectionViewCell", for: indexPath) as! GreetingSuggestionCollectionViewCell
             return cell
         } else {
+            guard let cellModel = greetingCategoryCellModels.wv_get(index: indexPath.row) else { return UICollectionViewCell() }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GreetingCategoryCollectionViewCell", for: indexPath) as! GreetingCategoryCollectionViewCell
-//            cell.setup(with: <#T##SignupStepViewModel#>)
+            cell.setup(with: cellModel)
             return cell
         }
     }
@@ -182,7 +187,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeCollectionHeaderView", for: indexPath)
+            guard let viewModel = headerViewModels.wv_get(index: indexPath.section) else { return UICollectionReusableView() }
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeCollectionHeaderView", for: indexPath) as! HomeCollectionHeaderView
+            headerView.setup(with: viewModel)
             return headerView
         default:
             return UICollectionReusableView()
@@ -197,53 +204,5 @@ extension HomeViewController: UICollectionViewDelegate {
             let width: CGFloat = collectionView.frame.width
             let height: CGFloat = 70
             return CGSize(width: width, height: height)
-    }
-}
-
-final class HomeCollectionHeaderView: UICollectionReusableView, SnapKitInterface {
-    
-    var title: String
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.attributedText = NSMutableAttributedString(string: "이런 인사는 어때요?")
-            .wv_setFont(.p_B(20))
-            .wv_setTextColor(.gray090)
-        return label
-    }()
-    
-    // MARK: - Initializers
-    
-    override init(frame: CGRect) {
-        
-        super.init(frame: frame)
-        
-        self.setupViews()
-     
-        addComponents()
-        setConstraints()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    // MARK: - Private
-    
-    func addComponents() {
-        addSubview(titleLabel)
-    }
-    
-    func setConstraints() {
-        titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalToSuperview().offset(26)
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.bottom.equalToSuperview().offset(-16)
-        }
-    }
-    
-    private func setupViews() {
-        self.backgroundColor = .clear
     }
 }

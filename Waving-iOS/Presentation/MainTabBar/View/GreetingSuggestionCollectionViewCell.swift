@@ -13,6 +13,7 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
+        view.layer.borderWidth = 1
         
         var shadows = UIView()
         shadows.frame = view.frame
@@ -28,6 +29,24 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
         layer0.shadowOffset = CGSize(width: 0, height: 4)
         
         return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+       UILabel()
+    }()
+    
+    private lazy var buttonContainerView: UIView = {
+       UIView()
+    }()
+    
+    private lazy var copyButton: UIButton = {
+       UIButton()
     }()
     
     override init(frame: CGRect) {

@@ -79,6 +79,9 @@
 		CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83AA02A2B87050031AFF0 /* LoginViewController.swift */; };
 		CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9EAB32A3C3C5700BA8737 /* SignupStepTermOfUseView.swift */; };
 		CED9EAB62A3C414B00BA8737 /* SignupTermsOfUseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9EAB52A3C414B00BA8737 /* SignupTermsOfUseButton.swift */; };
+		CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */; };
+		CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */; };
+		CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */; };
 		CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */; };
 		CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */; };
 		CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */; };
@@ -182,6 +185,9 @@
 		CED83AA02A2B87050031AFF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CED9EAB32A3C3C5700BA8737 /* SignupStepTermOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepTermOfUseView.swift; sourceTree = "<group>"; };
 		CED9EAB52A3C414B00BA8737 /* SignupTermsOfUseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTermsOfUseButton.swift; sourceTree = "<group>"; };
+		CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionReusableView.swift; sourceTree = "<group>"; };
+		CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderViewModel.swift; sourceTree = "<group>"; };
+		CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCategoryCellModel.swift; sourceTree = "<group>"; };
 		CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepUsernameView.swift; sourceTree = "<group>"; };
 		CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepBirthdateView.swift; sourceTree = "<group>"; };
 		CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepPhoneNumberView.swift; sourceTree = "<group>"; };
@@ -481,6 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
+				CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */,
+				CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -617,6 +625,7 @@
 			children = (
 				CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */,
 				CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */,
+				CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -841,6 +850,7 @@
 				CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */,
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
+				CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */,
@@ -854,6 +864,7 @@
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */,
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
+				CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
@@ -894,6 +905,7 @@
 				CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
 				A8F4DD422A4660560045C179 /* CALayer+.swift in Sources */,
+				CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */,
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CEBC400F2A486D09001A5934 /* TabViewModel.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
