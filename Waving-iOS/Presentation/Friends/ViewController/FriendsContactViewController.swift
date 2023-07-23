@@ -58,6 +58,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         layout.estimatedItemSize = .zero
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(FriendsContactCollectionViewCell.self, forCellWithReuseIdentifier: FriendsContactCollectionViewCell.identifier)
+        view.allowsMultipleSelection = true
         view.dataSource = self
         view.delegate = self
         return view
@@ -111,7 +112,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
             $0.top.equalTo(menuStackView.snp.bottom).offset(20)
             $0.leading.equalTo(containerView).offset(20)
             $0.trailing.equalTo(containerView).offset(-20)
-            $0.bottom.equalTo(containerView)
+            $0.bottom.equalTo(containerView).offset(-150)
         }
         
         friendSelectionButton.snp.makeConstraints {
