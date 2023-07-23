@@ -73,14 +73,8 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         addComponents()
         setConstraints()
         binding()
-        Log.s(myContactList)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-    }
-
     func addComponents() {
         view.backgroundColor = .systemBackground
         [navigationView, scrollView].forEach { view.addSubview($0) }
@@ -133,19 +127,16 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
     func binding() {
         
     }
-    
-    func fetchData() {
-        
-    }
 }
 
 extension FriendsContactViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return myContactList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
+        cell.contact = myContactList[indexPath.row]
         cell.configUI(.checkBoxUnselected)
         return cell
     }
