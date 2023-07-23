@@ -8,50 +8,50 @@
 import Foundation
 
 struct FriendsModel: Codable {
-    var contact_id: Int
-    var user_id: Int
-    var profile_list: [PersonModel]
+    var contactId: Int
+    var userId: Int
+    var profileList: [PersonModel]
     
     enum CodingKeys: String, CodingKey {
-        case contact_id
-        case user_id
-        case profile_list
+        case contactId = "contact_id"
+        case userId = "user_id"
+        case profileList = "profile_list"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.contact_id = try container.decode(Int.self, forKey: .contact_id)
-        self.user_id = try container.decode(Int.self, forKey: .user_id)
-        self.profile_list = try container.decode([PersonModel].self, forKey: .profile_list)
+        self.contactId = try container.decode(Int.self, forKey: .contactId)
+        self.userId = try container.decode(Int.self, forKey: .userId)
+        self.profileList = try container.decode([PersonModel].self, forKey: .profileList)
     }
 }
 
 
 struct PersonModel: Codable {
-    var contact_id: Int
-    var friend_profile_id: Int
+    var contactId: Int
+    var friendProfileId: Int
     var name: String
-    var phone_number: String
+    var phoneNumber: String
     var birthday: String
-    var is_favorite: Int
+    var isFavorite: Int
     
     enum CodingKeys: String, CodingKey {
-        case contact_id
-        case friend_profile_id
+        case contactId = "contact_id"
+        case friendProfileId = "friend_profile_id"
         case name
-        case phone_number
+        case phoneNumber = "phone_number"
         case birthday
-        case is_favorite
+        case isFavorite = "is_favorite"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.contact_id = try container.decode(Int.self, forKey: .contact_id)
-        self.friend_profile_id = try container.decode(Int.self, forKey: .friend_profile_id)
+        self.contactId = try container.decode(Int.self, forKey: .contactId)
+        self.friendProfileId = try container.decode(Int.self, forKey: .friendProfileId)
         self.name = try container.decode(String.self, forKey: .name)
-        self.phone_number = try container.decode(String.self, forKey: .phone_number)
+        self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
         self.birthday = try container.decode(String.self, forKey: .birthday)
-        self.is_favorite = try container.decode(Int.self, forKey: .is_favorite)
+        self.isFavorite = try container.decode(Int.self, forKey: .isFavorite)
     }
 }
 
