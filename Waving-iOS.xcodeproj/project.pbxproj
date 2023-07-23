@@ -316,6 +316,21 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		A836B1952A6CE8BE00D9F02F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A8F4DD432A4660640045C179 /* UITabBar+.swift */,
+				A8F4DD412A4660560045C179 /* CALayer+.swift */,
+				A8E0C0B82A23641F00C8696E /* Log.swift */,
+				CE9BBCE02A2B0F270036E335 /* UIColor+.swift */,
+				CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */,
+				CEA32DD12A3357540006FA31 /* String+.swift */,
+				A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */,
+				CEBC40122A486D78001A5934 /* Array+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A89871A42A5B9514008F0FAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,14 +413,7 @@
 		A8E0C0B72A23641000C8696E /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A8F4DD432A4660640045C179 /* UITabBar+.swift */,
-				A8F4DD412A4660560045C179 /* CALayer+.swift */,
-				A8E0C0B82A23641F00C8696E /* Log.swift */,
-				CE9BBCE02A2B0F270036E335 /* UIColor+.swift */,
-				CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */,
-				CEA32DD12A3357540006FA31 /* String+.swift */,
-				A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */,
-				CEBC40122A486D78001A5934 /* Array+.swift */,
+				A836B1952A6CE8BE00D9F02F /* Extension */,
 			);
 			path = Support;
 			sourceTree = "<group>";
