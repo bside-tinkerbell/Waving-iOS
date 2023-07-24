@@ -8,8 +8,8 @@
 import Foundation
 
 struct FriendsModel: Codable {
-    var contactId: Int
     var userId: Int
+    var contactId: Int
     var profileList: [PersonModel]
     
     enum CodingKeys: String, CodingKey {
@@ -28,30 +28,22 @@ struct FriendsModel: Codable {
 
 
 struct PersonModel: Codable {
-    var contactId: Int
-    var friendProfileId: Int
     var name: String
     var phoneNumber: String
-    var birthday: String
-    var isFavorite: Int
+    var contactCycle: Int
+
     
     enum CodingKeys: String, CodingKey {
-        case contactId = "contact_id"
-        case friendProfileId = "friend_profile_id"
         case name
         case phoneNumber = "phone_number"
-        case birthday
-        case isFavorite = "is_favorite"
+        case contactCycle = "contact_cycle"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.contactId = try container.decode(Int.self, forKey: .contactId)
-        self.friendProfileId = try container.decode(Int.self, forKey: .friendProfileId)
         self.name = try container.decode(String.self, forKey: .name)
         self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
-        self.birthday = try container.decode(String.self, forKey: .birthday)
-        self.isFavorite = try container.decode(Int.self, forKey: .isFavorite)
+        self.contactCycle = try container.decode(Int.self, forKey: .contactCycle)
     }
 }
 
