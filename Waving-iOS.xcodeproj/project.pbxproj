@@ -31,6 +31,8 @@
 		A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7928B2A4E4E400032FDFC /* Toast.swift */; };
 		A8C7928E2A4E5A390032FDFC /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */; };
 		A8C792902A4E5F5C0032FDFC /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */; };
+		A8C874342A6E95A20057EEEA /* FriendsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C874332A6E95A20057EEEA /* FriendsTarget.swift */; };
+		A8C874362A6E95AB0057EEEA /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C874352A6E95AB0057EEEA /* FriendsAPI.swift */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
 		A8E0C0EA2A23659400C8696E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0E92A23659400C8696E /* RxCocoa */; };
 		A8E0C0EC2A23659400C8696E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0EB2A23659400C8696E /* RxRelay */; };
@@ -139,6 +141,8 @@
 		A8C7928B2A4E4E400032FDFC /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		A8C874332A6E95A20057EEEA /* FriendsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTarget.swift; sourceTree = "<group>"; };
+		A8C874352A6E95AB0057EEEA /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
 		A8F4DD412A4660560045C179 /* CALayer+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 			children = (
 				CEBD75322A5EC58D00629852 /* Greeting */,
 				A8C7927E2A4CE03D0032FDFC /* Sign */,
+				A8C874322A6E95800057EEEA /* Friends */,
 				A8C792742A4CC0060032FDFC /* Networkable.swift */,
 				A8C792782A4CD7EF0032FDFC /* ResponseData.swift */,
 				A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */,
@@ -387,6 +392,15 @@
 				A8C792832A4CE8570032FDFC /* SignAPI.swift */,
 			);
 			path = Sign;
+			sourceTree = "<group>";
+		};
+		A8C874322A6E95800057EEEA /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				A8C874332A6E95A20057EEEA /* FriendsTarget.swift */,
+				A8C874352A6E95AB0057EEEA /* FriendsAPI.swift */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		A8E0C0B22A23636100C8696E /* Application */ = {
@@ -830,6 +844,7 @@
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
 				CEF347C62A5BF5A800ED012E /* GreetingListViewController.swift in Sources */,
 				A8C792822A4CE6D60032FDFC /* TestModel.swift in Sources */,
+				A8C874342A6E95A20057EEEA /* FriendsTarget.swift in Sources */,
 				A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */,
 				CEC6CF942A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift in Sources */,
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
@@ -878,6 +893,7 @@
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
 				A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */,
 				A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */,
+				A8C874362A6E95AB0057EEEA /* FriendsAPI.swift in Sources */,
 				A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */,
 				A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */,
 				CEF347EB2A5C37DB00ED012E /* GreetingTableViewCell.swift in Sources */,
