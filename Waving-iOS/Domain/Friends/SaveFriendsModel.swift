@@ -9,7 +9,7 @@ import Foundation
 
 struct SaveFriendsModel: Codable {
     var code: Int
-    var result: [SaveFriendsListModel]
+    var result: SaveFriendsListModel
 }
 
 struct SaveFriendsListModel: Codable {
@@ -55,10 +55,10 @@ struct ProfileListModel: Codable {
         self.friendProfileId = try container.decode(Int.self, forKey: .friendProfileId)
         self.isFavorite = try container.decode(Int.self, forKey: .isFavorite)
         self.name = try container.decode(String.self, forKey: .name)
-        self.birthday = try container.decode(String.self, forKey: .birthday)
-        self.contactCycle = try container.decode(Int.self, forKey: .contactCycle)
+        self.birthday = (try? container.decode(String.self, forKey: .birthday)) ?? ""
+        self.contactCycle = (try? container.decode(Int.self, forKey: .contactCycle)) ?? 0
         self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
-        self.recentContactDate = try container.decode(String.self, forKey: .recentContactDate)
+        self.recentContactDate = (try? container.decode(String.self, forKey: .recentContactDate)) ?? ""
     }
 }
 
