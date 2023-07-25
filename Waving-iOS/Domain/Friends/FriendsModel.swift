@@ -17,12 +17,18 @@ struct FriendsModel: Codable {
         case userId = "user_id"
         case profileList = "profile_list"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.contactId = try container.decode(Int.self, forKey: .contactId)
         self.userId = try container.decode(Int.self, forKey: .userId)
         self.profileList = try container.decode([PersonModel].self, forKey: .profileList)
+    }
+    
+    init(userId: Int, contactId: Int, profileList: [PersonModel]){
+        self.userId = userId
+        self.contactId = contactId
+        self.profileList = profileList
     }
 }
 
@@ -44,6 +50,12 @@ struct PersonModel: Codable {
         self.name = try container.decode(String.self, forKey: .name)
         self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
         self.contactCycle = try container.decode(Int.self, forKey: .contactCycle)
+    }
+    
+    init(name: String, phoneNumber: String, contactCycle: Int) {
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.contactCycle = contactCycle
     }
 }
 
