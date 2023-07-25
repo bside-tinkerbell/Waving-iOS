@@ -7,6 +7,8 @@
 
 import Foundation
 
+var personList = [PersonModel]()
+
 struct FriendsModel: Codable {
     var userId: Int
     var contactId: Int

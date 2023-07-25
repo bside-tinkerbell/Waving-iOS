@@ -74,6 +74,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile}.map {$0.value.stringValue}.joined(separator:"")
                     type = .addFriend
                     myContactList.append(ContactModel(name: name, phoneNumber: phoneNumber))
+                    personList.append(PersonModel(name: name, phoneNumber: phoneNumber, contactCycle: 4))
                 })
             } catch {
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
