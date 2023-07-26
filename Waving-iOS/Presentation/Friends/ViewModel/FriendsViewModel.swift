@@ -71,7 +71,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
             do {
                 try store.enumerateContacts(with: fetchRequest, usingBlock: { contact, result in
                     let name = contact.familyName + contact.givenName 
-                    let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile}.map {$0.value.stringValue}.joined(separator:"")
+                    let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
                     myContactList.append(ContactModel(name: name, phoneNumber: phoneNumber))
                     personList.append(PersonModel(name: name, phoneNumber: phoneNumber, contactCycle: 4))
