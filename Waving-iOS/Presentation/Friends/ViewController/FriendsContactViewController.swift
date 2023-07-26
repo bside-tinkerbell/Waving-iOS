@@ -58,6 +58,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         layout.estimatedItemSize = .zero
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(FriendsContactCollectionViewCell.self, forCellWithReuseIdentifier: FriendsContactCollectionViewCell.identifier)
+        view.allowsMultipleSelection = true
         view.dataSource = self
         view.delegate = self
         return view
@@ -74,7 +75,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         setConstraints()
         binding()
     }
-
+    
     func addComponents() {
         view.backgroundColor = .systemBackground
         [navigationView, scrollView].forEach { view.addSubview($0) }
@@ -111,7 +112,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
             $0.top.equalTo(menuStackView.snp.bottom).offset(20)
             $0.leading.equalTo(containerView).offset(20)
             $0.trailing.equalTo(containerView).offset(-20)
-            $0.bottom.equalTo(containerView)
+            $0.bottom.equalTo(containerView).offset(-150)
         }
         
         friendSelectionButton.snp.makeConstraints {
@@ -131,11 +132,12 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
 
 extension FriendsContactViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return myContactList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
+        cell.contact = myContactList[indexPath.row]
         cell.configUI(.checkBoxUnselected)
         return cell
     }

@@ -16,36 +16,40 @@ enum CellState {
     case none
 }
 
-class FriendsContactCollectionViewCell: UICollectionViewCell {
-    
+class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
+
     static let identifier = "FriendsContactCollectionViewCell"
     
+    // MARK: - Model (data)
+    var contact: ContactModel {
+        didSet {
+            nameLabel.text = contact.name
+            numberLabel.text = contact.phoneNumber
+        }
+    }
+    
+    
+    // MARK: - Components
     /// 전체 컨테이너
-    private lazy var containerStackView: UIStackView = {
-       let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 16
-        stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
+    private let containerView: UIView = {
+       let view = UIView()
+        return view
     }()
     
     /// 이미지
-    private lazy var profileContainerView: UIView = {
-       let imageContainerView = UIView()
+    private lazy var profileStackView: UIStackView = {
+       let imageStackView = UIStackView()
+        imageStackView.alignment = .center
+  
         let imageView: UIImageView = {
             let image = UIImageView()
             image.image = UIImage(named: "img_profile_small")
             return image
         }()
         
-        imageContainerView.addSubview(imageView)
-        imageView.snp.makeConstraints{
-            $0.centerY.equalToSuperview()
-            $0.width.equalTo(50)
-        }
-        return imageContainerView
+        imageStackView.addArrangedSubview(imageView)
+
+        return imageStackView
     }()
 
     /// 텍스트
@@ -56,8 +60,8 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
         stackView.distribution = .fillEqually
         return stackView
     }()
-
-    private var nameLabel: UILabel = {
+    
+    private let nameLabel: UILabel = {
        let label = UILabel()
         label.text = "이름 텍스트 전체 노출"
         label.numberOfLines = 0
@@ -67,7 +71,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private var numberLabel: UILabel = {
+    private let numberLabel: UILabel = {
        let label = UILabel()
         label.text = "010-8699-7777"
         label.font = .p_R(12)
@@ -75,55 +79,81 @@ class FriendsContactCollectionViewCell: UICollectionViewCell {
         label.textColor = .text030
         return label
     }()
-
-    //TODO: 버튼 - 클릭 잘 되도록 조정하기
-    private let buttonContainerView: UIView = {
+    
+    /// 버튼
+    private lazy var buttonView: UIView = {
        let view = UIView()
         return view
     }()
     
-    private let checkButton: UIButton = {
+    private let selectButton: UIButton = {
        let button = UIButton()
-        button.backgroundColor = .systemYellow
-        //button.setImage(UIImage(named: "icn_unchecked"), for: .normal)
+        button.setImage(UIImage(named: "icn_unchecked"), for: .normal)
         return button
     }()
 
-    
+    // MARK: - init
     override init(frame: CGRect) {
+        self.contact = ContactModel(name: "", phoneNumber: "")
         super.init(frame: frame)
-
-        addSubview(containerStackView)
-        containerStackView.snp.makeConstraints {
-            $0.top.left.right.bottom.equalToSuperview()
-        }
-        
-        [nameLabel, numberLabel].forEach { textStackView.addArrangedSubview($0) }
-        [profileContainerView, textStackView].forEach { containerStackView.addArrangedSubview($0) }
-        
+        addComponents()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    func addComponents() {
+        addSubview(containerView)
+        [nameLabel, numberLabel].forEach { textStackView.addArrangedSubview($0) }
+        buttonView.addSubview(selectButton)
+        [profileStackView, textStackView, buttonView].forEach { containerView.addSubview($0) }
+    }
+    
+    func setConstraints() {
+        containerView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalToSuperview()
+        }
+        
+        profileStackView.snp.makeConstraints{
+            $0.centerY.equalToSuperview()
+            $0.left.equalToSuperview()
+        }
+        
+        textStackView.snp.makeConstraints {
+            $0.left.equalTo(profileStackView.snp.right).offset(16)
+            $0.centerY.equalToSuperview()
+        }
+        
+        buttonView.snp.makeConstraints {
+            $0.width.equalTo(66)
+            $0.top.bottom.equalToSuperview()
+            $0.right.equalToSuperview()
+        }
+        
+        selectButton.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+    }
+    
     func configUI(_ type: CellState) {
         switch type {
         case .checkBoxUnselected:
             numberLabel.isHidden = false
-            //checkButton.setImage(UIImage(named: "icn_unchecked"), for: .normal)
+            selectButton.setImage(UIImage(named: "icn_unchecked"), for: .normal)
         case .checkBoxSelected:
             numberLabel.isHidden = false
-            //checkButton.setImage(UIImage(named: "icn_checked"), for: .normal)
+            selectButton.setImage(UIImage(named: "icn_checked"), for: .normal)
         case .starUnselected:
            numberLabel.isHidden = true
-            //checkButton.setImage(UIImage(named: "icn_favorites_off"), for: .normal)
+            selectButton.setImage(UIImage(named: "icn_favorites_off"), for: .normal)
         case .starSelected:
             numberLabel.isHidden = true
-            //checkButton.setImage(UIImage(named: "icn_favorites_on"), for: .normal)
+            selectButton.setImage(UIImage(named: "icn_favorites_on"), for: .normal)
         case .none:
             numberLabel.isHidden = false
-            //checkButton.setImage(UIImage(named: "icn_favorites_on"), for: .normal)
+            selectButton.setImage(UIImage(named: ""), for: .normal)
         }
     }
 }
