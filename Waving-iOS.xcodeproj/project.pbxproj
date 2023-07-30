@@ -77,6 +77,9 @@
 		CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF7E2A61147500175391 /* GreetingModel.swift */; };
 		CEC6CF812A6184A100175391 /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF802A6184A100175391 /* HomeNavigationView.swift */; };
 		CEC6CF942A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */; };
+		CEC778A72A74F42600C42A01 /* GreetingSuggestionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */; };
+		CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */; };
+		CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC778CC2A768B6000C42A01 /* UIWindow+.swift */; };
 		CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CD2A321FCE00119CE5 /* WVTextField.swift */; };
 		CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CF2A32227E00119CE5 /* SignDataStore.swift */; };
 		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
@@ -188,6 +191,9 @@
 		CEC6CF7E2A61147500175391 /* GreetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingModel.swift; sourceTree = "<group>"; };
 		CEC6CF802A6184A100175391 /* HomeNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
 		CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingCategoryCollectionViewCell.swift; path = "Waving-iOS/Presentation/MainTabBar/View/GreetingCategoryCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCellModel.swift; sourceTree = "<group>"; };
+		CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
+		CEC778CC2A768B6000C42A01 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		CED363CD2A321FCE00119CE5 /* WVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVTextField.swift; sourceTree = "<group>"; };
 		CED363CF2A32227E00119CE5 /* SignDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDataStore.swift; sourceTree = "<group>"; };
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -348,6 +354,8 @@
 				CEA32DD12A3357540006FA31 /* String+.swift */,
 				A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */,
 				CEBC40122A486D78001A5934 /* Array+.swift */,
+				CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */,
+				CEC778CC2A768B6000C42A01 /* UIWindow+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
 				CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */,
 				CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */,
+				CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -892,6 +901,7 @@
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
+				CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */,
 				A8C792842A4CE8570032FDFC /* SignAPI.swift in Sources */,
@@ -943,9 +953,11 @@
 				CEBC40112A486D33001A5934 /* TabViewCollectionViewCellModel.swift in Sources */,
 				CEBC40132A486D78001A5934 /* Array+.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
+				CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */,
 				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
 				CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
+				CEC778A72A74F42600C42A01 /* GreetingSuggestionCellModel.swift in Sources */,
 				A8F4DD422A4660560045C179 /* CALayer+.swift in Sources */,
 				CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */,
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,

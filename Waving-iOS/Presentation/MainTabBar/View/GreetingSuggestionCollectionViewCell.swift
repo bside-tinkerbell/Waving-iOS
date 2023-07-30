@@ -6,8 +6,25 @@
 //
 
 import UIKit
+import Combine
 
 final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitInterface {
+    
+    private var cancellables: [AnyCancellable] = []
+    
+    private var viewModel: GreetingSuggestionCellModel? {
+        didSet {
+            guard let viewModel = viewModel else { return }
+            
+            self.cancellables.removeAll()
+            viewModel.$titleAttributedText
+                .sink { [weak self] in
+                    self?.titleLabel.attributedText = $0
+                }
+                .store(in: &self.cancellables)
+        }
+
+    }
     
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -34,19 +51,26 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.spacing = 20
         return stackView
     }()
     
     private lazy var titleLabel: UILabel = {
-       UILabel()
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
     }()
     
     private lazy var buttonContainerView: UIView = {
-       UIView()
+        let view = UIView()
+        view.backgroundColor = .green
+        return view
     }()
     
     private lazy var copyButton: UIButton = {
-       UIButton()
+        let button = UIButton()
+        button.setImage(UIImage(named: "icn_copy"), for: .normal)
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -68,14 +92,36 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
     
     func addComponents() {
         addSubview(containerView)
+        containerView.addSubview(stackView)
+        [titleLabel, buttonContainerView].forEach { stackView.addArrangedSubview($0) }
+        buttonContainerView.addSubview(copyButton)
     }
     
     func setConstraints() {
         containerView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.bottom.equalToSuperview().offset(-28)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
+        
+        stackView.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().offset(20)
+            $0.trailing.bottom.equalToSuperview().offset(-20)
+        }
+        
+        buttonContainerView.snp.makeConstraints {
+            $0.width.equalTo(24)
+        }
+        
+        copyButton.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    public func setup(with viewModel: GreetingSuggestionCellModel) {
+        self.viewModel = viewModel
     }
 }
