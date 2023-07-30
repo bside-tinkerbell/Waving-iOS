@@ -194,6 +194,7 @@
 		CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCellModel.swift; sourceTree = "<group>"; };
 		CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 		CEC778CC2A768B6000C42A01 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		CED363CD2A321FCE00119CE5 /* WVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVTextField.swift; sourceTree = "<group>"; };
 		CED363CF2A32227E00119CE5 /* SignDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDataStore.swift; sourceTree = "<group>"; };
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -323,6 +324,7 @@
 				CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */,
 				CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */,
 				CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */,
+				CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */,
 			);
 			path = Pretendard;
 			sourceTree = "<group>";
