@@ -63,7 +63,8 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
     
     private lazy var buttonContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
+        // test code
+//        view.backgroundColor = .green
         return view
     }()
     

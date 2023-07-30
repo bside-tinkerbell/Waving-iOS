@@ -23,8 +23,6 @@ final class GreetingSuggestionCellModel {
     
     lazy var size: CGSize = {
         
-        Log.d("[jane] title: \(titleAttributedText)")
-        
         if titleAttributedText.isEmpty {
             return .zero
         }
@@ -40,9 +38,6 @@ final class GreetingSuggestionCellModel {
         height += 20.0 // top padding
         height += 20.0 // bottom padding
         
-        Log.d("[jane] labelWidth: \(labelWidth)")
-        Log.d("[jane] boundingSize: \(boundingSize)")
-        Log.d("[jane] width: \(width), height: \(height)")
         return .init(width: width, height: height)
     }()
     

@@ -19,8 +19,7 @@ final class HomeCollectionHeaderView: UICollectionReusableView, SnapKitInterface
     private var cancellables = [AnyCancellable]()
     
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        return label
+        UILabel()
     }()
     
     // MARK: - Initializers

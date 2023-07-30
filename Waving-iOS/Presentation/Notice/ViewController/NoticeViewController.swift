@@ -12,7 +12,6 @@ final class NoticeViewController: UIViewController, SnapKitInterface {
     // MARK: - Views
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
@@ -64,8 +63,4 @@ extension NoticeViewController: UITableViewDataSource {
         }
         fatalError("NoticeTableViewCell is not dequeueable")
     }
-}
-
-extension NoticeViewController: UITableViewDelegate {
-    
 }
