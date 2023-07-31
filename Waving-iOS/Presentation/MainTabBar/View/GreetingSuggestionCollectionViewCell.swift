@@ -100,10 +100,7 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
     
     func setConstraints() {
         containerView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.top.leading.trailing.bottom.equalToSuperview()
         }
         
         stackView.snp.makeConstraints {
@@ -117,8 +114,7 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
         
         copyButton.snp.makeConstraints {
             $0.width.height.equalTo(24)
-            $0.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
