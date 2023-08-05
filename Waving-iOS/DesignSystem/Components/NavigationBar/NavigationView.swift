@@ -123,8 +123,17 @@ extension NavigationView {
             .store(in: &cancellables)
 
         model.$forwardButtonText
-            .sink { [weak self] in
-                self?.forwardButton.setTitle($0, for: .normal)
+            .sink { [weak self] text in
+                self?.forwardButton.setTitle(text, for: .normal)
+                self?.forwardButton.titleLabel?.font = .p_R(14)
+                self?.forwardButton.setTitleColor(.black, for: .normal)                
+                if text != "" {
+                    self?.forwardButton.snp.remakeConstraints {
+                        $0.right.equalToSuperview().inset(Constants.Navi.commonPadding)
+                        $0.centerY.equalToSuperview()
+                        $0.size.equalTo(CGSize(width: 50, height: 24))
+                    }
+                }
             }
             .store(in: &cancellables)
         
