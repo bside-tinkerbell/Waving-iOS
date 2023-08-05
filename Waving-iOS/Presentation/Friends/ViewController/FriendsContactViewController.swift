@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class FriendsContactViewController: UIViewController, SnapKitInterface {
+final class FriendsContactViewController: UIViewController, SnapKitInterface {
     
     private let viewModel = FriendsContactViewModel()
     private var cancellable = Set<AnyCancellable>()
