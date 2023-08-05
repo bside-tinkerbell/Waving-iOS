@@ -14,11 +14,15 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Components
-    private lazy var navigationViewModel: NavigationModel = .init(title: "지인 선택하기")
-    
+    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "지인 선택하기", didTouchBack: { [weak self] in
+       // self?.viewModel.backButtonClicked()
+        self?.navigationController?.popToRootViewController(animated: true) // TODO: 로직 분리
+    })
+ 
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()
         view.setup(model: navigationViewModel)
+
         return view
     }()
     
@@ -44,7 +48,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         return label
     }()
     
-    //TODO: Label이 아닌 버튼으로 바꾸기, multipleSelection 가능하도록 하기
+    //TODO: Label이 아닌 버튼으로 바꾸기
     private let menuSelectLabel: UILabel = {
        let label = UILabel()
         label.text = "전체선택"
@@ -126,7 +130,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
     }
     
     func binding() {
-        
+
     }
 }
 

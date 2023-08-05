@@ -15,6 +15,7 @@ protocol FriendContactViewRepresentable where Self: UIView {
 protocol FriendsContactViewModelRepresentable {
     func selectFriends()
     func checkboxSelected()
+    func backButtonClicked()
 }
 
 
@@ -23,13 +24,11 @@ final class FriendsContactViewModel: FriendsContactViewModelRepresentable {
         Log.d("친구 선택하기")
     }
     
-//    var route: AnyPublisher<IntroRoute, Never> {
-//        self.sendRoute.eraseToAnyPublisher()
-//    }
-//    
-//    var sendRoute: PassthroughSubject<IntroRoute, Never> = .init()
-    
     func checkboxSelected() {
         Log.d("체크박스 선택됨")
+    }
+    
+    func backButtonClicked() {
+        Log.d("뒤로 가기 버튼 선택")
     }
 }
