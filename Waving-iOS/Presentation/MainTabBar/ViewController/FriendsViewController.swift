@@ -13,11 +13,9 @@ extension FriendType {
     fileprivate var viewController: UIViewController {
         switch self {
         case .intro, .disconnect, .list:
-            return ViewController()
+            return UIViewController.init()
         case .addFriend:
             return FriendsContactViewController()
-        default:
-            return ViewController()
         }
     }
 }
