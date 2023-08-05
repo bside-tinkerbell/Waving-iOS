@@ -8,8 +8,9 @@
 import UIKit
 import Combine
 
-protocol FriendContactViewRepresentable where Self: UIView {
-    func setup(with viewModel: FriendsContactViewModelRepresentable)
+enum ContactType {
+    case person
+    case people
 }
 
 protocol FriendsContactViewModelRepresentable {
@@ -18,10 +19,14 @@ protocol FriendsContactViewModelRepresentable {
     func backButtonClicked()
 }
 
-
 final class FriendsContactViewModel: FriendsContactViewModelRepresentable {
+    
+    var route: AnyPublisher<ContactType, Never> { self.sendRoute.eraseToAnyPublisher() }
+    var sendRoute: PassthroughSubject<ContactType, Never> = .init()
+    
     func selectFriends() {
-        Log.d("친구 선택하기")
+        // 숫자에 따라 people인지 person인지 결정됨
+        sendRoute.send(.person)
     }
     
     func checkboxSelected() {

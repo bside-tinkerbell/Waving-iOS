@@ -130,7 +130,17 @@ final class FriendsContactViewController: UIViewController, SnapKitInterface {
     }
     
     func binding() {
-
+        viewModel.route
+            .sink { [weak self] route in
+                if route == .people {
+                    // TODO: 토스트 추가
+                    // API에 연락처 사람들 POST로 보내져야 함 
+                    self?.navigationController?.popViewController(animated: true)
+                } else {
+                    self?.navigationController?.pushViewController(CycleViewController(), animated: true)
+                }
+            }
+            .store(in: &cancellable)
     }
 }
 
