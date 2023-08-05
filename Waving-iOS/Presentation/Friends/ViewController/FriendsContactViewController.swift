@@ -161,11 +161,13 @@ extension FriendsContactViewController: UICollectionViewDataSource {
 extension FriendsContactViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        self.viewModel.count += 1
         cell.configUI(.checkBoxSelected)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        self.viewModel.count -= 1
         cell.configUI(.checkBoxUnselected)
     }
 }
