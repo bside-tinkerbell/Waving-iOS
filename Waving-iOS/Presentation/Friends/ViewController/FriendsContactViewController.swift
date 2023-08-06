@@ -8,6 +8,17 @@
 import UIKit
 import Combine
 
+extension ContactType {
+    fileprivate var viewController: UITabBarController {
+        switch self {
+        case .people:
+            return MainTabBarController()
+        case .person:
+            return UITabBarController()
+        }
+    }
+}
+
 final class FriendsContactViewController: UIViewController, SnapKitInterface {
     
     private let viewModel = FriendsContactViewModel()
@@ -15,8 +26,7 @@ final class FriendsContactViewController: UIViewController, SnapKitInterface {
     
     // MARK: - Components
     private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "지인 선택하기", didTouchBack: { [weak self] in
-       // self?.viewModel.backButtonClicked()
-        self?.navigationController?.popToRootViewController(animated: true) // TODO: 로직 분리
+        self?.viewModel.backButtonClicked()
     })
  
     private lazy var navigationView: NavigationView = {
@@ -82,6 +92,7 @@ final class FriendsContactViewController: UIViewController, SnapKitInterface {
     
     func addComponents() {
         view.backgroundColor = .systemBackground
+        self.navigationController?.navigationBar.isHidden = true
         [navigationView, scrollView].forEach { view.addSubview($0) }
         scrollView.addSubview(containerView)
         [menuContactLabel, menuSelectLabel].forEach { menuStackView.addArrangedSubview($0)}
@@ -134,8 +145,12 @@ final class FriendsContactViewController: UIViewController, SnapKitInterface {
             .sink { [weak self] route in
                 if route == .people {
                     // TODO: 토스트 추가
-                    // API에 연락처 사람들 POST로 보내져야 함 
-                    self?.navigationController?.popViewController(animated: true)
+                    // API에 연락처 사람들 POST로 보내져야 함
+                    let viewController = route.viewController
+                    viewController.selectedIndex = 1
+                    viewController.modalPresentationStyle = .fullScreen
+                    self?.present(viewController, animated: false)
+
                 } else {
                     self?.navigationController?.pushViewController(CycleViewController(), animated: true)
                 }
@@ -157,7 +172,7 @@ extension FriendsContactViewController: UICollectionViewDataSource {
     }
 }
 
-//TODO: MultipleSelection 허용해 주어야 함
+
 extension FriendsContactViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }

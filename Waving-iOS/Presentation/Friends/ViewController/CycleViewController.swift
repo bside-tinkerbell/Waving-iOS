@@ -9,8 +9,9 @@ import UIKit
 
 final class CycleViewController: UIViewController, SnapKitInterface {
     
-    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), forwaredButtonText: "건너뛰기", title: "알림설정") { [weak self] in
-    }
+    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), forwaredButtonText: "건너뛰기", title: "알림설정", didTouchBack: { [weak self] in
+        self?.navigationController?.popToRootViewController(animated: true)
+    })
     
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()

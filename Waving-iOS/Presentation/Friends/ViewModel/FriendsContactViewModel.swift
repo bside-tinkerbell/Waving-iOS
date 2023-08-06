@@ -47,6 +47,6 @@ final class FriendsContactViewModel: FriendsContactViewModelRepresentable {
     }
     
     func backButtonClicked() {
-        Log.d("뒤로 가기 버튼 선택")
+        sendRoute.send(.people) // 뒤로 가기
     }
 }
