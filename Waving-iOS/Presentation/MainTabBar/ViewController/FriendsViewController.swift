@@ -13,11 +13,9 @@ extension FriendType {
     fileprivate var viewController: UIViewController {
         switch self {
         case .intro, .disconnect, .list:
-            return ViewController()
+            return UIViewController.init()
         case .addFriend:
             return FriendsContactViewController()
-        default:
-            return ViewController()
         }
     }
 }
@@ -53,21 +51,6 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         addComponents()
         setConstraints()
         binding()
-        
-        self.viewModel.$type
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] friendtype in
-                if let customView = friendtype?.view() {
-                    self?.innerView = customView
-                    guard let viewModel = self?.viewModel else {return}
-                    customView.setup(with: viewModel)
-                    self?.containerView.addSubview(customView)
-                    customView.snp.makeConstraints { make in
-                        make.top.leading.trailing.bottom.equalToSuperview()
-                    }
-                }
-            }
-            .store(in: &cancellable)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +92,21 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
                 self?.navigationController?.pushViewController(route.viewController, animated: true)
+            }
+            .store(in: &cancellable)
+        
+        self.viewModel.$type
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] friendtype in
+                if let customView = friendtype?.view() {
+                    self?.innerView = customView
+                    guard let viewModel = self?.viewModel else {return}
+                    customView.setup(with: viewModel)
+                    self?.containerView.addSubview(customView)
+                    customView.snp.makeConstraints { make in
+                        make.top.leading.trailing.bottom.equalToSuperview()
+                    }
+                }
             }
             .store(in: &cancellable)
     }

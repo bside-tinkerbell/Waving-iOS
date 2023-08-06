@@ -16,6 +16,7 @@
 		A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1872A6A04DD00D9F02F /* FriendAddView.swift */; };
 		A836B19B2A6CE96100D9F02F /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19A2A6CE96100D9F02F /* FriendsModel.swift */; };
 		A836B19D2A6CFB2700D9F02F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19C2A6CFB2700D9F02F /* ContactModel.swift */; };
+		A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */; };
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
@@ -137,6 +138,7 @@
 		A836B1872A6A04DD00D9F02F /* FriendAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAddView.swift; sourceTree = "<group>"; };
 		A836B19A2A6CE96100D9F02F /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
 		A836B19C2A6CFB2700D9F02F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */,
+				A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 				CED9EAB62A3C414B00BA8737 /* SignupTermsOfUseButton.swift in Sources */,
 				CEBC40112A486D33001A5934 /* TabViewCollectionViewCellModel.swift in Sources */,
 				CEBC40132A486D78001A5934 /* Array+.swift in Sources */,
+				A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
 				CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */,
 				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,

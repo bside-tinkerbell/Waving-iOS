@@ -26,8 +26,6 @@ enum FriendType {
             return FriendsListView()///지인 추가 화면
         case .addFriend: /// 지인 선택하기 화면
             return nil
-        default:
-            return nil
         }
     }
 }

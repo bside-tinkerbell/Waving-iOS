@@ -8,17 +8,21 @@
 import UIKit
 import Combine
 
-class FriendsContactViewController: UIViewController, SnapKitInterface {
+final class FriendsContactViewController: UIViewController, SnapKitInterface {
     
     private let viewModel = FriendsContactViewModel()
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Components
-    private lazy var navigationViewModel: NavigationModel = .init(title: "지인 선택하기")
-    
+    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "지인 선택하기", didTouchBack: { [weak self] in
+       // self?.viewModel.backButtonClicked()
+        self?.navigationController?.popToRootViewController(animated: true) // TODO: 로직 분리
+    })
+ 
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()
         view.setup(model: navigationViewModel)
+
         return view
     }()
     
@@ -44,7 +48,7 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
         return label
     }()
     
-    //TODO: Label이 아닌 버튼으로 바꾸기, multipleSelection 가능하도록 하기
+    //TODO: Label이 아닌 버튼으로 바꾸기
     private let menuSelectLabel: UILabel = {
        let label = UILabel()
         label.text = "전체선택"
@@ -126,7 +130,17 @@ class FriendsContactViewController: UIViewController, SnapKitInterface {
     }
     
     func binding() {
-        
+        viewModel.route
+            .sink { [weak self] route in
+                if route == .people {
+                    // TODO: 토스트 추가
+                    // API에 연락처 사람들 POST로 보내져야 함 
+                    self?.navigationController?.popViewController(animated: true)
+                } else {
+                    self?.navigationController?.pushViewController(CycleViewController(), animated: true)
+                }
+            }
+            .store(in: &cancellable)
     }
 }
 
@@ -147,11 +161,13 @@ extension FriendsContactViewController: UICollectionViewDataSource {
 extension FriendsContactViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        self.viewModel.count += 1
         cell.configUI(.checkBoxSelected)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        self.viewModel.count -= 1
         cell.configUI(.checkBoxUnselected)
     }
 }
