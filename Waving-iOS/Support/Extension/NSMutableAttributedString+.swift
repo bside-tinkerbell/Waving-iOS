@@ -25,11 +25,12 @@ public extension NSMutableAttributedString {
     }
     
     @discardableResult
-    func wv_setParagraphStyle(alignment: NSTextAlignment = .natural, lineBreakMode: NSLineBreakMode = .byWordWrapping) -> Self {
+    func wv_setParagraphStyle(alignment: NSTextAlignment = .natural, lineBreakMode: NSLineBreakMode = .byWordWrapping, lineHeightMultiple: CGFloat = 0.0) -> Self {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         paragraphStyle.lineBreakMode = lineBreakMode
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
         return self.wv_addAttributes([.paragraphStyle: paragraphStyle])
     }
 }
