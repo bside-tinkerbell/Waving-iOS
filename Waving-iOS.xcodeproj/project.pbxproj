@@ -64,6 +64,7 @@
 		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
 		CEA32DD22A3357540006FA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA32DD12A3357540006FA31 /* String+.swift */; };
+		CEA7BCB12A7F97C80000727C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */; };
 		CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */; };
 		CEB518242A654100009B88BB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518232A654100009B88BB /* NoticeTableViewCell.swift */; };
 		CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518252A65410D009B88BB /* NoticeCellModel.swift */; };
@@ -870,6 +871,7 @@
 				CEE3E7862A17A93300BC1464 /* LaunchScreen.storyboard in Resources */,
 				CE8861F12A2CB4CD00204CBA /* Pretendard-Regular.ttf in Resources */,
 				CEE3E7832A17A93300BC1464 /* Assets.xcassets in Resources */,
+				CEA7BCB12A7F97C80000727C /* Pretendard-SemiBold.ttf in Resources */,
 				CE8861F22A2CB4CF00204CBA /* Pretendard-Bold.ttf in Resources */,
 				CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */,
 			);
