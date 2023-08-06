@@ -13,7 +13,7 @@
 		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
 		A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */; };
-		A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1872A6A04DD00D9F02F /* FriendAddView.swift */; };
+		A836B1882A6A04DD00D9F02F /* FriendsAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */; };
 		A836B19B2A6CE96100D9F02F /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19A2A6CE96100D9F02F /* FriendsModel.swift */; };
 		A836B19D2A6CFB2700D9F02F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19C2A6CFB2700D9F02F /* ContactModel.swift */; };
 		A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */; };
@@ -135,7 +135,7 @@
 		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDisconnectView.swift; sourceTree = "<group>"; };
-		A836B1872A6A04DD00D9F02F /* FriendAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAddView.swift; sourceTree = "<group>"; };
+		A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAddView.swift; sourceTree = "<group>"; };
 		A836B19A2A6CE96100D9F02F /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
 		A836B19C2A6CFB2700D9F02F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */,
-				A836B1872A6A04DD00D9F02F /* FriendAddView.swift */,
+				A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */,
 				A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */,
 				A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */,
 				A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */,
@@ -910,7 +910,7 @@
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
 				CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
-				A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */,
+				A836B1882A6A04DD00D9F02F /* FriendsAddView.swift in Sources */,
 				A8C792842A4CE8570032FDFC /* SignAPI.swift in Sources */,
 				A8C7927D2A4CDD390032FDFC /* URLString.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
