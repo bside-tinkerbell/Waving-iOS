@@ -64,6 +64,10 @@
 		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
 		CEA32DD22A3357540006FA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA32DD12A3357540006FA31 /* String+.swift */; };
+		CEA7BCB12A7F97C80000727C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */; };
+		CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */; };
+		CEB518242A654100009B88BB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518232A654100009B88BB /* NoticeTableViewCell.swift */; };
+		CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518252A65410D009B88BB /* NoticeCellModel.swift */; };
 		CEBC40082A486B9D001A5934 /* TopTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */; };
 		CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC40092A486BEF001A5934 /* TabView.swift */; };
 		CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC400C2A486C32001A5934 /* TabViewStyle.swift */; };
@@ -74,6 +78,9 @@
 		CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF7E2A61147500175391 /* GreetingModel.swift */; };
 		CEC6CF812A6184A100175391 /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF802A6184A100175391 /* HomeNavigationView.swift */; };
 		CEC6CF942A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */; };
+		CEC778A72A74F42600C42A01 /* GreetingSuggestionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */; };
+		CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */; };
+		CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC778CC2A768B6000C42A01 /* UIWindow+.swift */; };
 		CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CD2A321FCE00119CE5 /* WVTextField.swift */; };
 		CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED363CF2A32227E00119CE5 /* SignDataStore.swift */; };
 		CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */; };
@@ -81,6 +88,9 @@
 		CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83AA02A2B87050031AFF0 /* LoginViewController.swift */; };
 		CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9EAB32A3C3C5700BA8737 /* SignupStepTermOfUseView.swift */; };
 		CED9EAB62A3C414B00BA8737 /* SignupTermsOfUseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9EAB52A3C414B00BA8737 /* SignupTermsOfUseButton.swift */; };
+		CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */; };
+		CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */; };
+		CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */; };
 		CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */; };
 		CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */; };
 		CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */; };
@@ -169,6 +179,9 @@
 		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		CEA32DD12A3357540006FA31 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		CEB518232A654100009B88BB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		CEB518252A65410D009B88BB /* NoticeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCellModel.swift; sourceTree = "<group>"; };
 		CEBC40072A486B9D001A5934 /* TopTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarViewController.swift; sourceTree = "<group>"; };
 		CEBC40092A486BEF001A5934 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CEBC400C2A486C32001A5934 /* TabViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewStyle.swift; sourceTree = "<group>"; };
@@ -179,6 +192,10 @@
 		CEC6CF7E2A61147500175391 /* GreetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingModel.swift; sourceTree = "<group>"; };
 		CEC6CF802A6184A100175391 /* HomeNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
 		CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingCategoryCollectionViewCell.swift; path = "Waving-iOS/Presentation/MainTabBar/View/GreetingCategoryCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCellModel.swift; sourceTree = "<group>"; };
+		CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
+		CEC778CC2A768B6000C42A01 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		CED363CD2A321FCE00119CE5 /* WVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVTextField.swift; sourceTree = "<group>"; };
 		CED363CF2A32227E00119CE5 /* SignDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDataStore.swift; sourceTree = "<group>"; };
 		CED83A8B2A2B71460031AFF0 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +203,9 @@
 		CED83AA02A2B87050031AFF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CED9EAB32A3C3C5700BA8737 /* SignupStepTermOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepTermOfUseView.swift; sourceTree = "<group>"; };
 		CED9EAB52A3C414B00BA8737 /* SignupTermsOfUseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTermsOfUseButton.swift; sourceTree = "<group>"; };
+		CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionReusableView.swift; sourceTree = "<group>"; };
+		CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderViewModel.swift; sourceTree = "<group>"; };
+		CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCategoryCellModel.swift; sourceTree = "<group>"; };
 		CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepUsernameView.swift; sourceTree = "<group>"; };
 		CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepBirthdateView.swift; sourceTree = "<group>"; };
 		CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepPhoneNumberView.swift; sourceTree = "<group>"; };
@@ -305,6 +325,7 @@
 				CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */,
 				CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */,
 				CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */,
+				CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */,
 			);
 			path = Pretendard;
 			sourceTree = "<group>";
@@ -336,6 +357,8 @@
 				CEA32DD12A3357540006FA31 /* String+.swift */,
 				A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */,
 				CEBC40122A486D78001A5934 /* Array+.swift */,
+				CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */,
+				CEC778CC2A768B6000C42A01 /* UIWindow+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -419,6 +442,7 @@
 		A8E0C0B52A23639400C8696E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CEB5181E2A6540AF009B88BB /* Notice */,
 				CE3A48A22A52E0AD00893E7E /* Main */,
 				CE9BBCDD2A2AF9DA0036E335 /* Common */,
 				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
@@ -513,6 +537,9 @@
 			isa = PBXGroup;
 			children = (
 				CE0412AD2A2359CF00C790F3 /* MainTabBarViewModel.swift */,
+				CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */,
+				CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */,
+				CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -588,6 +615,40 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		CEB5181E2A6540AF009B88BB /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				CEB518212A6540BD009B88BB /* View */,
+				CEB518202A6540B9009B88BB /* ViewModel */,
+				CEB5181F2A6540B4009B88BB /* ViewController */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		CEB5181F2A6540B4009B88BB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CEB518202A6540B9009B88BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEB518252A65410D009B88BB /* NoticeCellModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEB518212A6540BD009B88BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB518232A654100009B88BB /* NoticeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CEBC400B2A486C26001A5934 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +676,7 @@
 			children = (
 				CEC6CF932A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift */,
 				CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */,
+				CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -809,6 +871,7 @@
 				CEE3E7862A17A93300BC1464 /* LaunchScreen.storyboard in Resources */,
 				CE8861F12A2CB4CD00204CBA /* Pretendard-Regular.ttf in Resources */,
 				CEE3E7832A17A93300BC1464 /* Assets.xcassets in Resources */,
+				CEA7BCB12A7F97C80000727C /* Pretendard-SemiBold.ttf in Resources */,
 				CE8861F22A2CB4CF00204CBA /* Pretendard-Bold.ttf in Resources */,
 				CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */,
 			);
@@ -840,7 +903,9 @@
 				CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */,
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
+				CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
+				CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				A836B1882A6A04DD00D9F02F /* FriendAddView.swift in Sources */,
 				A8C792842A4CE8570032FDFC /* SignAPI.swift in Sources */,
@@ -853,8 +918,10 @@
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */,
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
+				CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
+				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				CEF31EE62A5FC74E00534D44 /* GreetingAPI.swift in Sources */,
 				A8C792802A4CE0930032FDFC /* SignTarget.swift in Sources */,
@@ -874,6 +941,7 @@
 				CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */,
 				A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */,
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
+				CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */,
 				A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */,
@@ -889,10 +957,13 @@
 				CEBC40112A486D33001A5934 /* TabViewCollectionViewCellModel.swift in Sources */,
 				CEBC40132A486D78001A5934 /* Array+.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
+				CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */,
 				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
 				CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
+				CEC778A72A74F42600C42A01 /* GreetingSuggestionCellModel.swift in Sources */,
 				A8F4DD422A4660560045C179 /* CALayer+.swift in Sources */,
+				CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */,
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CEBC400F2A486D09001A5934 /* TabViewModel.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
@@ -902,6 +973,7 @@
 				A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */,
 				CEF347EB2A5C37DB00ED012E /* GreetingTableViewCell.swift in Sources */,
 				CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */,
+				CEB518242A654100009B88BB /* NoticeTableViewCell.swift in Sources */,
 				CED363CE2A321FCE00119CE5 /* WVTextField.swift in Sources */,
 				A8C7928E2A4E5A390032FDFC /* UIApplication+.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,

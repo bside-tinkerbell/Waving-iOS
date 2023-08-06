@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: UIViewController, SnapKitInterface {
     
+    // MARK: - View Model
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
 //        self?.viewModel.didTapForwardButton()
     })
+    
+    private lazy var headerViewModels: [HomeCollectionHeaderViewModel] = [.init(title: "이런 인사는 어때요?"),
+        .init(title: "원하는 인사말을 찾아보세요.")]
+    
+    private lazy var greetingSuggestionCellModel: GreetingSuggestionCellModel = .init(title: "안녕하세요 벌써 여름이 다가오고 있네요. 잘지내시죠? 안녕하세요 벌써 여름이 다가오고 있네요. 잘지내시죠?")
+    
+    private lazy var greetingCategoryCellModels: [GreetingCategoryCellModel] = [.init(category: .type1), .init(category: .type2), .init(category: .type3), .init(category: .type4), .init(category: .type5), .init(category: .type6)]
     
     private lazy var navigationView: HomeNavigationView = {
         HomeNavigationView()
@@ -63,11 +72,9 @@ final class HomeViewController: UIViewController, SnapKitInterface {
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumInteritemSpacing = 0.0
         flowLayout.minimumLineSpacing = 0.0
-//        flowLayout.itemSize = .init(width: 100, height: 110)
         flowLayout.sectionInset = .init(top: 20, left: 20, bottom: 20, right: 20)
         flowLayout.minimumInteritemSpacing = 26
         flowLayout.minimumLineSpacing = 16
-//        flowLayout.headerReferenceSize = .init(width: self.view.frame.width, height: 70)
         
         let collectionView = UICollectionView(frame: containerView.bounds, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -162,16 +169,20 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GreetingSuggestionCollectionViewCell", for: indexPath) as! GreetingSuggestionCollectionViewCell
+            cell.setup(with: greetingSuggestionCellModel)
             return cell
         } else {
+            guard let cellModel = greetingCategoryCellModels.wv_get(index: indexPath.row) else { return UICollectionViewCell() }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GreetingCategoryCollectionViewCell", for: indexPath) as! GreetingCategoryCollectionViewCell
+            cell.setup(with: cellModel)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return .init(width: self.view.frame.width, height: 116)
+            let viewModel = greetingSuggestionCellModel
+            return viewModel.size
         } else {
             return .init(width: 100, height: 110)
         }
@@ -180,11 +191,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeCollectionHeaderView", for: indexPath)
-            headerView.backgroundColor = .green
+            guard let viewModel = headerViewModels.wv_get(index: indexPath.section) else { return UICollectionReusableView() }
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeCollectionHeaderView", for: indexPath) as! HomeCollectionHeaderView
+            headerView.setup(with: viewModel)
             return headerView
         default:
-            assert(false, "no other supplementary view")
+            return UICollectionReusableView()
         }
     }
     
@@ -196,51 +208,5 @@ extension HomeViewController: UICollectionViewDelegate {
             let width: CGFloat = collectionView.frame.width
             let height: CGFloat = 70
             return CGSize(width: width, height: height)
-    }
-}
-
-final class HomeCollectionHeaderView: UICollectionReusableView, SnapKitInterface {
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.attributedText = NSMutableAttributedString(string: "이런 인사는 어때요?")
-            .wv_setFont(.p_B(20))
-            .wv_setTextColor(.gray090)
-        return label
-    }()
-    
-    // MARK: - Initializers
-    
-    override init(frame: CGRect) {
-        
-        super.init(frame: frame)
-        
-        self.setupViews()
-     
-        addComponents()
-        setConstraints()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    // MARK: - Private
-    
-    func addComponents() {
-        addSubview(titleLabel)
-    }
-    
-    func setConstraints() {
-        titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalToSuperview().offset(26)
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.bottom.equalToSuperview().offset(-16)
-        }
-    }
-    
-    private func setupViews() {
-        self.backgroundColor = .clear
     }
 }

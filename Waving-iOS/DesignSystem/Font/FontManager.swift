@@ -15,10 +15,22 @@ struct FontManager{
         case bold = "Bold"
         case medium = "Medium"
         case regular = "Regular"
+        case semibold = "SemiBold"
     }
     
     func pretendard(_ type: Pretendard, _ size: CGFloat) -> UIFont {
         let name = "Pretendard-" + type.rawValue
+        
+        // test code
+//        if let font = UIFont(name: name, size: size) {
+//            Log.d("[jane] name: \(name), font: \(font)")
+//            return font
+//        } else {
+//            Log.d("[jane] No font found | name: \(name)")
+//            return UIFont.systemFont(ofSize: size)
+//        }
+        // end of test code
+        
         return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
     }
 }
@@ -35,5 +47,9 @@ extension UIFont {
     
     static func p_B(_ size: CGFloat) -> UIFont {
         FontManager.shared.pretendard(.bold, size)
+    }
+    
+    static func p_SB(_ size: CGFloat) -> UIFont {
+        FontManager.shared.pretendard(.semibold, size)
     }
 }

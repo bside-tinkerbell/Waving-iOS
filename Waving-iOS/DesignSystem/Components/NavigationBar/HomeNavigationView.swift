@@ -74,6 +74,4 @@ final class HomeNavigationView: UIView, SnapKitInterface {
             $0.size.equalTo(Constants.Home.rightButtonSize.width)
         }
     }
-    
-    
 }
