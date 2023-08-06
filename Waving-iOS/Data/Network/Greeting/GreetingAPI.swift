@@ -136,7 +136,19 @@ struct GreetingAPI: Networkable {
         return dict
     }()
     
-    static func getGreetingList(category: String, completion: (_ succeed: [GreetingModel]?, _ failed: Error?) -> Void) {
+    static func getRandomGreeting(completion: @escaping (_ succeed: GreetingModel?, _ failed: Error?) -> Void) {
+        makeProvider().request(.randomGreeting) { result in
+            switch ResponseData<GreetingModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
+        }
+    }
+    
+    static func getGreetingList(category: String, completion: (_ succeed: [SampleGreetingModel]?, _ failed: Error?) -> Void) {
 //        makeProvider().request(.greetings) { result in
 //            switch ResponseData<GreetingModel>.getModelResponse(result) {
 //            case .success(let model):
@@ -148,7 +160,7 @@ struct GreetingAPI: Networkable {
 //        }
 
         if let list = Self.greetingList[category] {
-            let models = list.map { GreetingModel(message: $0) }
+            let models = list.map { SampleGreetingModel(message: $0) }
             completion(models, nil)
         } else {
             makeToast()

@@ -65,6 +65,7 @@
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
 		CEA32DD22A3357540006FA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA32DD12A3357540006FA31 /* String+.swift */; };
 		CEA7BCB12A7F97C80000727C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */; };
+		CEA7BCC42A7FAAAF0000727C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7BCC32A7FAAAF0000727C /* HomeViewModel.swift */; };
 		CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */; };
 		CEB518242A654100009B88BB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518232A654100009B88BB /* NoticeTableViewCell.swift */; };
 		CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB518252A65410D009B88BB /* NoticeCellModel.swift */; };
@@ -179,6 +180,7 @@
 		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		CEA32DD12A3357540006FA31 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		CEA7BCC32A7FAAAF0000727C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CEB5181C2A653FA2009B88BB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		CEB518232A654100009B88BB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		CEB518252A65410D009B88BB /* NoticeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCellModel.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */,
 				CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */,
 				CEC778A62A74F42600C42A01 /* GreetingSuggestionCellModel.swift */,
+				CEA7BCC32A7FAAAF0000727C /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -665,8 +668,8 @@
 		CEBD75322A5EC58D00629852 /* Greeting */ = {
 			isa = PBXGroup;
 			children = (
-				CEF31EE52A5FC74E00534D44 /* GreetingAPI.swift */,
 				CEF31EE72A5FC77300534D44 /* GreetingTarget.swift */,
+				CEF31EE52A5FC74E00534D44 /* GreetingAPI.swift */,
 			);
 			path = Greeting;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				A8C8743B2A6EBF580057EEEA /* FriendsTarget.swift in Sources */,
 				CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */,
 				CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */,
+				CEA7BCC42A7FAAAF0000727C /* HomeViewModel.swift in Sources */,
 				CE0412AE2A2359CF00C790F3 /* MainTabBarViewModel.swift in Sources */,
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */,

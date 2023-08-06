@@ -8,14 +8,13 @@
 import Foundation
 import Moya
 
-
 //🔎 참고: https://github.com/Moya/Moya/blob/master/docs/Targets.md
 
 //ex) 만일 'ABC/DEF'에서 email을 get해야 한다고 가정
 /// "ABC"는 이미 URLString  파일에 위치한다면
 /// case signIn
 enum GreetingTarget {
-    case categories
+    case randomGreeting
     case greetings
 }
 
@@ -25,7 +24,7 @@ extension GreetingTarget: BaseTargetType {
     /// case .signIn:  return "/def"
     var path: String {
         switch self {
-        case .categories: return "/greetings/main"
+        case .randomGreeting: return "/greetings/main"
         case .greetings: return "/greetings/main"
         }
     }
@@ -34,7 +33,7 @@ extension GreetingTarget: BaseTargetType {
     /// .get
     var method: Moya.Method {
         switch self {
-        case .categories, .greetings: return .get
+        case .randomGreeting, .greetings: return .get
         }
     }
 
@@ -48,10 +47,8 @@ extension GreetingTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .categories, .greetings:
+        case .randomGreeting, .greetings:
             return .requestPlain
-//        case .greetings:
-//            return .requestParameters(parameters: <#T##[String : Any]#>, encoding: <#T##ParameterEncoding#>)
         }
     }
 
