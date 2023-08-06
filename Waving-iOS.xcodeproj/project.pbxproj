@@ -17,6 +17,10 @@
 		A836B19B2A6CE96100D9F02F /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19A2A6CE96100D9F02F /* FriendsModel.swift */; };
 		A836B19D2A6CFB2700D9F02F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19C2A6CFB2700D9F02F /* ContactModel.swift */; };
 		A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */; };
+		A87144DC2A8022AA00E5FCAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */; };
+		A87144DE2A8022B600E5FCAD /* FriendProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */; };
+		A87144E22A8022FF00E5FCAD /* TopProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144E12A8022FF00E5FCAD /* TopProfileView.swift */; };
+		A87144E42A80230A00E5FCAD /* BottomProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144E32A80230A00E5FCAD /* BottomProfileView.swift */; };
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
@@ -139,6 +143,10 @@
 		A836B19A2A6CE96100D9F02F /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
 		A836B19C2A6CFB2700D9F02F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
+		A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
+		A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewModel.swift; sourceTree = "<group>"; };
+		A87144E12A8022FF00E5FCAD /* TopProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopProfileView.swift; sourceTree = "<group>"; };
+		A87144E32A80230A00E5FCAD /* BottomProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomProfileView.swift; sourceTree = "<group>"; };
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -375,6 +383,41 @@
 			path = Friends;
 			sourceTree = "<group>";
 		};
+		A87144D72A80226D00E5FCAD /* FriendProfile */ = {
+			isa = PBXGroup;
+			children = (
+				A87144D82A80227D00E5FCAD /* View */,
+				A87144D92A80228400E5FCAD /* ViewModel */,
+				A87144DA2A80228900E5FCAD /* ViewController */,
+			);
+			path = FriendProfile;
+			sourceTree = "<group>";
+		};
+		A87144D82A80227D00E5FCAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A87144E12A8022FF00E5FCAD /* TopProfileView.swift */,
+				A87144E32A80230A00E5FCAD /* BottomProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A87144D92A80228400E5FCAD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A87144DA2A80228900E5FCAD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A89871A42A5B9514008F0FAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +494,7 @@
 				CE9BBCD72A297FAE0036E335 /* MainTabBar */,
 				CE9BBCD62A297FA50036E335 /* Signup */,
 				A8253D4B2A46A5CB00AE8101 /* Friends */,
+				A87144D72A80226D00E5FCAD /* FriendProfile */,
 				CE9BBCDB2A297FD90036E335 /* Etc */,
 			);
 			path = Presentation;
@@ -944,6 +988,7 @@
 				CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */,
 				A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */,
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
+				A87144E22A8022FF00E5FCAD /* TopProfileView.swift in Sources */,
 				CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */,
@@ -952,6 +997,8 @@
 				CEF2E5882A470F6300128C55 /* SignupStepCompleteView.swift in Sources */,
 				CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */,
 				CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */,
+				A87144DC2A8022AA00E5FCAD /* FriendProfileViewController.swift in Sources */,
+				A87144DE2A8022B600E5FCAD /* FriendProfileViewModel.swift in Sources */,
 				CEC6CF812A6184A100175391 /* HomeNavigationView.swift in Sources */,
 				CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */,
 				CEF31EE82A5FC77300534D44 /* GreetingTarget.swift in Sources */,
@@ -963,6 +1010,7 @@
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
 				CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */,
 				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
+				A87144E42A80230A00E5FCAD /* BottomProfileView.swift in Sources */,
 				CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,
 				CEC778A72A74F42600C42A01 /* GreetingSuggestionCellModel.swift in Sources */,
