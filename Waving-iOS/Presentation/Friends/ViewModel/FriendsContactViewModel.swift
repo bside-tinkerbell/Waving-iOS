@@ -29,7 +29,7 @@ final class FriendsContactViewModel: FriendsContactViewModelRepresentable {
     func selectFriends() {
         switch count {
         case ..<1 :
-            //TODO: 0명이라면 어떻게 처리할 건지 -> 토스트?
+            //TODO: 0명이라면 -> 버튼 비활성화 처리 필요
             return
         case 1:
             sendRoute.send(.person)
