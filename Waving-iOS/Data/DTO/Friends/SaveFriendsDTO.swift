@@ -9,7 +9,7 @@ import Foundation
 
 var personList = [PersonModel]()
 
-struct FriendsModel: Codable {
+struct SaveFriendsDTO: Codable {
     var userId: Int
     var contactId: Int
     var profileList: [PersonModel]

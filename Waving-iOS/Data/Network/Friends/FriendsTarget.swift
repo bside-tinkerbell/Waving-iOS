@@ -10,7 +10,7 @@ import Moya
 
 
 enum FriendsTarget {
-    case saveFriend(FriendsModel)
+    case saveFriend(SaveFriendsDTO)
 }
 
 extension FriendsTarget: BaseTargetType {

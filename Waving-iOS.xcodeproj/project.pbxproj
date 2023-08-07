@@ -14,8 +14,8 @@
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
 		A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */; };
 		A836B1882A6A04DD00D9F02F /* FriendsAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */; };
-		A836B19B2A6CE96100D9F02F /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19A2A6CE96100D9F02F /* FriendsModel.swift */; };
-		A836B19D2A6CFB2700D9F02F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19C2A6CFB2700D9F02F /* ContactModel.swift */; };
+		A836B19B2A6CE96100D9F02F /* SaveFriendsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19A2A6CE96100D9F02F /* SaveFriendsDTO.swift */; };
+		A836B19D2A6CFB2700D9F02F /* ContactEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19C2A6CFB2700D9F02F /* ContactEntity.swift */; };
 		A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */; };
 		A87144DC2A8022AA00E5FCAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */; };
 		A87144DE2A8022B600E5FCAD /* FriendProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */; };
@@ -39,7 +39,7 @@
 		A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7928B2A4E4E400032FDFC /* Toast.swift */; };
 		A8C7928E2A4E5A390032FDFC /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */; };
 		A8C792902A4E5F5C0032FDFC /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */; };
-		A8C874382A6EBB4C0057EEEA /* SaveFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C874372A6EBB4C0057EEEA /* SaveFriendsModel.swift */; };
+		A8C874382A6EBB4C0057EEEA /* RespondSaveFriendsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C874372A6EBB4C0057EEEA /* RespondSaveFriendsDTO.swift */; };
 		A8C8743B2A6EBF580057EEEA /* FriendsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8743A2A6EBF580057EEEA /* FriendsTarget.swift */; };
 		A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8743C2A6EBF610057EEEA /* FriendsAPI.swift */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
@@ -141,8 +141,8 @@
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDisconnectView.swift; sourceTree = "<group>"; };
 		A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAddView.swift; sourceTree = "<group>"; };
-		A836B19A2A6CE96100D9F02F /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
-		A836B19C2A6CFB2700D9F02F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		A836B19A2A6CE96100D9F02F /* SaveFriendsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsDTO.swift; sourceTree = "<group>"; };
+		A836B19C2A6CFB2700D9F02F /* ContactEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntity.swift; sourceTree = "<group>"; };
 		A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
 		A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewModel.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		A8C7928B2A4E4E400032FDFC /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
-		A8C874372A6EBB4C0057EEEA /* SaveFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsModel.swift; sourceTree = "<group>"; };
+		A8C874372A6EBB4C0057EEEA /* RespondSaveFriendsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespondSaveFriendsDTO.swift; sourceTree = "<group>"; };
 		A8C8743A2A6EBF580057EEEA /* FriendsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTarget.swift; sourceTree = "<group>"; };
 		A8C8743C2A6EBF610057EEEA /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -378,9 +378,7 @@
 		A836B1972A6CE93200D9F02F /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				A836B19A2A6CE96100D9F02F /* FriendsModel.swift */,
-				A836B19C2A6CFB2700D9F02F /* ContactModel.swift */,
-				A8C874372A6EBB4C0057EEEA /* SaveFriendsModel.swift */,
+				A836B19C2A6CFB2700D9F02F /* ContactEntity.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -461,6 +459,30 @@
 			path = Sample;
 			sourceTree = "<group>";
 		};
+		A87144FA2A8157F500E5FCAD /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				A87144FC2A815B7200E5FCAD /* Friends */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		A87144FB2A815B5E00E5FCAD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		A87144FC2A815B7200E5FCAD /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				A836B19A2A6CE96100D9F02F /* SaveFriendsDTO.swift */,
+				A8C874372A6EBB4C0057EEEA /* RespondSaveFriendsDTO.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
 		A89871A42A5B9514008F0FAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +503,8 @@
 		A8C792722A4C66640032FDFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A87144FA2A8157F500E5FCAD /* DTO */,
+				A87144FB2A815B5E00E5FCAD /* Repository */,
 				A8C792732A4C66690032FDFC /* Network */,
 			);
 			path = Data;
@@ -1027,7 +1051,7 @@
 				CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
 				A8C792902A4E5F5C0032FDFC /* BasePaddingLabel.swift in Sources */,
-				A8C874382A6EBB4C0057EEEA /* SaveFriendsModel.swift in Sources */,
+				A8C874382A6EBB4C0057EEEA /* RespondSaveFriendsDTO.swift in Sources */,
 				A8C7927B2A4CDAA40032FDFC /* BaseTargetType.swift in Sources */,
 				CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */,
 				A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */,
@@ -1076,8 +1100,8 @@
 				A8C7928E2A4E5A390032FDFC /* UIApplication+.swift in Sources */,
 				CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */,
 				A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */,
-				A836B19D2A6CFB2700D9F02F /* ContactModel.swift in Sources */,
-				A836B19B2A6CE96100D9F02F /* FriendsModel.swift in Sources */,
+				A836B19D2A6CFB2700D9F02F /* ContactEntity.swift in Sources */,
+				A836B19B2A6CE96100D9F02F /* SaveFriendsDTO.swift in Sources */,
 				CEBC40082A486B9D001A5934 /* TopTabBarViewController.swift in Sources */,
 				CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */,
 				A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */,

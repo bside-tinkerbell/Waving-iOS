@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SaveFriendsModel: Codable {
+struct RespondSaveFriendsDTO: Codable {
     var code: Int
-    var result: SaveFriendsListModel
+    var result: ResponseSaveFriendsListModel
 }
 
-struct SaveFriendsListModel: Codable {
+struct ResponseSaveFriendsListModel: Codable {
     var message: String
     var profileList: [ProfileListModel]
     

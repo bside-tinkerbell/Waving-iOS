@@ -7,9 +7,9 @@
 
 import Foundation
 
-var myContactList = [ContactModel]()
+var myContactList = [ContactEntity]()
 
-struct ContactModel {
+struct ContactEntity {
     let name: String
     let phoneNumber: String
 }
