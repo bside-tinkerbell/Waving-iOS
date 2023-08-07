@@ -10,15 +10,19 @@ import Combine
 
 final class HomeViewController: UIViewController, SnapKitInterface {
     
+    private var cancellables: [AnyCancellable] = []
+    
     // MARK: - View Model
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
 //        self?.viewModel.didTapForwardButton()
     })
     
+    private var viewModel = HomeViewModel()
+    
     private lazy var headerViewModels: [HomeCollectionHeaderViewModel] = [.init(title: "이런 인사는 어때요?"),
         .init(title: "원하는 인사말을 찾아보세요.")]
     
-    private lazy var greetingSuggestionCellModel: GreetingSuggestionCellModel = .init(title: "안녕하세요 벌써 여름이 다가오고 있네요. 잘지내시죠? 안녕하세요 벌써 여름이 다가오고 있네요. 잘지내시죠?")
+    private var greetingSuggestionCellModel: GreetingSuggestionCellModel?
     
     private lazy var greetingCategoryCellModels: [GreetingCategoryCellModel] = [.init(category: .type1), .init(category: .type2), .init(category: .type3), .init(category: .type4), .init(category: .type5), .init(category: .type6)]
     
@@ -100,6 +104,21 @@ final class HomeViewController: UIViewController, SnapKitInterface {
         setupView()
         addComponents()
         setConstraints()
+        bind()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.refresh.send()
+    }
+    
+    private func bind() {
+        viewModel.$randomGreeting
+            .sink { [weak self] in
+                guard let greeting = $0, let self else { return }
+                self.greetingSuggestionCellModel = .init(title: greeting)
+                self.collectionView.reloadData()
+            }
+            .store(in: &cancellables)
     }
     
     private func setupView() {
@@ -169,7 +188,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GreetingSuggestionCollectionViewCell", for: indexPath) as! GreetingSuggestionCollectionViewCell
-            cell.setup(with: greetingSuggestionCellModel)
+            if let greetingSuggestionCellModel {
+                cell.setup(with: greetingSuggestionCellModel)
+            }
             return cell
         } else {
             guard let cellModel = greetingCategoryCellModels.wv_get(index: indexPath.row) else { return UICollectionViewCell() }
@@ -181,7 +202,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            let viewModel = greetingSuggestionCellModel
+            guard let viewModel = greetingSuggestionCellModel else { return .zero }
             return viewModel.size
         } else {
             return .init(width: 100, height: 110)
