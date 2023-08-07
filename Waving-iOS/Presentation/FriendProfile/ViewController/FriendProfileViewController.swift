@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class FriendProfileViewController: UIViewController {
+final class FriendProfileViewController: UIViewController {
     
     private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), favoriteButtonImage: UIImage(named:"icn_favorites_off"), forwaredButtonImage: UIImage(named:"icn_edit"), title: "프로필") {[weak self] in
         Log.d("뒤로 가기")
