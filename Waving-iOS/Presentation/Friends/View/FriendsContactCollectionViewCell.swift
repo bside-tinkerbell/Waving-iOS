@@ -152,8 +152,8 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
             numberLabel.isHidden = true
             selectButton.setImage(UIImage(named: "icn_favorites_on"), for: .normal)
         case .none:
-            numberLabel.isHidden = false
-            selectButton.setImage(UIImage(named: ""), for: .normal)
+            numberLabel.isHidden = true
+            selectButton.isHidden = true
         }
     }
 }

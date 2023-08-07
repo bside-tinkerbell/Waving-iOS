@@ -16,6 +16,8 @@ extension FriendType {
             return UIViewController.init()
         case .addFriend:
             return FriendsContactViewController()
+        case .moveToProfile:
+            return FriendProfileViewController()
         }
     }
 }
@@ -59,7 +61,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         //TODO: 데이터 호출 (fetchData) 후 switch문 통해 바꾸도록 하기
         /// 데이터 있다면 .list 로
         /// 데이터 없다면 .intro가 나오도록 하기
-        self.viewModel.type = .intro
+        self.viewModel.type = .list
     }
     
     func addComponents() {
