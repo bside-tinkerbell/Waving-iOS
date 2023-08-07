@@ -438,6 +438,29 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A87144F12A8141C700E5FCAD /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		A87144F32A8146DF00E5FCAD /* Greeting */ = {
+			isa = PBXGroup;
+			children = (
+				CEC6CF7E2A61147500175391 /* GreetingModel.swift */,
+			);
+			path = Greeting;
+			sourceTree = "<group>";
+		};
+		A87144F42A8146EC00E5FCAD /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				A8C792812A4CE6D50032FDFC /* TestModel.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		A89871A42A5B9514008F0FAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +557,7 @@
 		A8E0C0B72A23641000C8696E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A82EC65F2A26340B00DABF26 /* DesignSystem */,
 				A836B1952A6CE8BE00D9F02F /* Extension */,
 				A8E0C0B82A23641F00C8696E /* Log.swift */,
 			);
@@ -543,20 +567,21 @@
 		A8E0C10B2A23678800C8696E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				A836B1972A6CE93200D9F02F /* Friends */,
-				A8E0C10C2A23679800C8696E /* Enitites */,
-				A8C792812A4CE6D50032FDFC /* TestModel.swift */,
-				CEC6CF7E2A61147500175391 /* GreetingModel.swift */,
+				A8E0C10D2A23684300C8696E /* Interface */,
+				A87144F12A8141C700E5FCAD /* UseCase */,
+				A8E0C10C2A23679800C8696E /* Entity */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		A8E0C10C2A23679800C8696E /* Enitites */ = {
+		A8E0C10C2A23679800C8696E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				A8E0C10D2A23684300C8696E /* Interface */,
+				A87144F32A8146DF00E5FCAD /* Greeting */,
+				A836B1972A6CE93200D9F02F /* Friends */,
+				A87144F42A8146EC00E5FCAD /* Sample */,
 			);
-			path = Enitites;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		A8E0C10D2A23684300C8696E /* Interface */ = {
@@ -773,13 +798,12 @@
 		CEE3E7782A17A93200BC1464 /* Waving-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A8E0C10B2A23678800C8696E /* Domain */,
+				A8E0C0B22A23636100C8696E /* Application */,
 				A8E0C0B52A23639400C8696E /* Presentation */,
+				A8E0C10B2A23678800C8696E /* Domain */,
 				A8C792722A4C66640032FDFC /* Data */,
 				A8E0C0B72A23641000C8696E /* Support */,
-				A82EC65F2A26340B00DABF26 /* DesignSystem */,
 				A8E0C0B62A2363A200C8696E /* Resources */,
-				A8E0C0B22A23636100C8696E /* Application */,
 				CEE3E7872A17A93300BC1464 /* Info.plist */,
 			);
 			path = "Waving-iOS";
