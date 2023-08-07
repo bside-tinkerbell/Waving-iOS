@@ -12,9 +12,9 @@ struct FriendsAPI: Networkable {
     
     /// - Parameter request: FriendsModel
     /// - Returns: SaveFriendsModel, Fail: Error
-    static func saveFriends(request: SaveFriendsDTO, completion: @escaping (_ succeed: RespondSaveFriendsDTO?, _ failed: Error?) -> Void) {
+    static func saveFriends(request: SaveFriendsDTO, completion: @escaping (_ succeed: SaveFriendsResponseDTO?, _ failed: Error?) -> Void) {
         makeProvider().request(.saveFriend(request), completion: { result in
-            switch ResponseData<RespondSaveFriendsDTO>.getModelResponse(result) {
+            switch ResponseData<SaveFriendsResponseDTO>.getModelResponse(result) {
             case .success(let model):
                 return completion(model, nil)
             case .failure(let error):
