@@ -24,6 +24,7 @@
 		A87144E92A809E5D00E5FCAD /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144E82A809E5D00E5FCAD /* SuggestionView.swift */; };
 		A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144EA2A809E7200E5FCAD /* FavoriteView.swift */; };
 		A87144EF2A809FCE00E5FCAD /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144EE2A809FCE00E5FCAD /* ContactListView.swift */; };
+		A87144FE2A81BC7600E5FCAD /* SaveFriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144FD2A81BC7600E5FCAD /* SaveFriendsRepository.swift */; };
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
@@ -151,6 +152,7 @@
 		A87144E82A809E5D00E5FCAD /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 		A87144EA2A809E7200E5FCAD /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		A87144EE2A809FCE00E5FCAD /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
+		A87144FD2A81BC7600E5FCAD /* SaveFriendsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsRepository.swift; sourceTree = "<group>"; };
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -303,17 +305,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A82EC65F2A26340B00DABF26 /* DesignSystem */ = {
-			isa = PBXGroup;
-			children = (
-				A8A45CBC2A4097C2001F02C7 /* Message */,
-				A82EC67B2A26407000DABF26 /* Components */,
-				A82EC6612A26344200DABF26 /* Font */,
-				A82EC6602A26343A00DABF26 /* Color */,
-			);
-			path = DesignSystem;
-			sourceTree = "<group>";
-		};
 		A82EC6602A26343A00DABF26 /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,14 +331,6 @@
 				CEC778CE2A769BF600C42A01 /* Pretendard-SemiBold.ttf */,
 			);
 			path = Pretendard;
-			sourceTree = "<group>";
-		};
-		A82EC67B2A26407000DABF26 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				A82EC67C2A26407E00DABF26 /* NavigationBar */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		A82EC67C2A26407E00DABF26 /* NavigationBar */ = {
@@ -470,6 +453,7 @@
 		A87144FB2A815B5E00E5FCAD /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A87144FD2A81BC7600E5FCAD /* SaveFriendsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -481,6 +465,31 @@
 				A8C874372A6EBB4C0057EEEA /* SaveFriendsResponseDTO.swift */,
 			);
 			path = Friends;
+			sourceTree = "<group>";
+		};
+		A87144FF2A81BE3300E5FCAD /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */,
+				A8C7928B2A4E4E400032FDFC /* Toast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		A87145002A81BE7400E5FCAD /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		A87145012A81BE7C00E5FCAD /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				CED363CD2A321FCE00119CE5 /* WVTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		A89871A42A5B9514008F0FAA /* ViewController */ = {
@@ -581,7 +590,10 @@
 		A8E0C0B72A23641000C8696E /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A82EC65F2A26340B00DABF26 /* DesignSystem */,
+				A8E0C0B62A2363A200C8696E /* Resources */,
+				A8A45CBC2A4097C2001F02C7 /* Message */,
+				A82EC6612A26344200DABF26 /* Font */,
+				A82EC6602A26343A00DABF26 /* Color */,
 				A836B1952A6CE8BE00D9F02F /* Extension */,
 				A8E0C0B82A23641F00C8696E /* Log.swift */,
 			);
@@ -723,12 +735,12 @@
 		CE9BBCDD2A2AF9DA0036E335 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CEBC400B2A486C26001A5934 /* TabView */,
-				CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */,
-				CED363CD2A321FCE00119CE5 /* WVTextField.swift */,
 				CE9BBCE22A2B17880036E335 /* DesignConstants.swift */,
-				A8C7928B2A4E4E400032FDFC /* Toast.swift */,
-				A8C7928F2A4E5F5C0032FDFC /* BasePaddingLabel.swift */,
+				A87145002A81BE7400E5FCAD /* Button */,
+				A87144FF2A81BE3300E5FCAD /* Toast */,
+				A82EC67C2A26407E00DABF26 /* NavigationBar */,
+				CEBC400B2A486C26001A5934 /* TabView */,
+				A87145012A81BE7C00E5FCAD /* TextField */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -827,7 +839,6 @@
 				A8E0C10B2A23678800C8696E /* Domain */,
 				A8C792722A4C66640032FDFC /* Data */,
 				A8E0C0B72A23641000C8696E /* Support */,
-				A8E0C0B62A2363A200C8696E /* Resources */,
 				CEE3E7872A17A93300BC1464 /* Info.plist */,
 			);
 			path = "Waving-iOS";
@@ -1032,6 +1043,7 @@
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */,
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
+				A87144FE2A81BC7600E5FCAD /* SaveFriendsRepository.swift in Sources */,
 				A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */,
 				CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
