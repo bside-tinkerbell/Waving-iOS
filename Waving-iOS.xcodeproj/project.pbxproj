@@ -425,7 +425,6 @@
 			isa = PBXGroup;
 			children = (
 				A87145022A81C1A300E5FCAD /* SaveFriendsUserCase.swift */,
-				A87145042A81C1FD00E5FCAD /* Protocol */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -494,13 +493,6 @@
 				CED363CD2A321FCE00119CE5 /* WVTextField.swift */,
 			);
 			path = TextField;
-			sourceTree = "<group>";
-		};
-		A87145042A81C1FD00E5FCAD /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		A87145052A81C82700E5FCAD /* Constants */ = {
