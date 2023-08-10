@@ -24,7 +24,6 @@
 		A87144E92A809E5D00E5FCAD /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144E82A809E5D00E5FCAD /* SuggestionView.swift */; };
 		A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144EA2A809E7200E5FCAD /* FavoriteView.swift */; };
 		A87144EF2A809FCE00E5FCAD /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144EE2A809FCE00E5FCAD /* ContactListView.swift */; };
-		A87144FE2A81BC7600E5FCAD /* SaveFriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144FD2A81BC7600E5FCAD /* SaveFriendsRepository.swift */; };
 		A87145032A81C1A300E5FCAD /* SaveFriendsUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87145022A81C1A300E5FCAD /* SaveFriendsUserCase.swift */; };
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
@@ -35,6 +34,8 @@
 		A8BF46E12A83305F00FCDD7C /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46E02A83305F00FCDD7C /* SampleViewController.swift */; };
 		A8BF46E32A83312A00FCDD7C /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46E22A83312A00FCDD7C /* SampleViewModel.swift */; };
 		A8BF46E52A8331E500FCDD7C /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46E42A8331E500FCDD7C /* SampleEntity.swift */; };
+		A8BF47572A84B26F00FCDD7C /* SampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47562A84B26F00FCDD7C /* SampleAPI.swift */; };
+		A8BF47592A84B27500FCDD7C /* SampleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47582A84B27500FCDD7C /* SampleTarget.swift */; };
 		A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C792742A4CC0060032FDFC /* Networkable.swift */; };
 		A8C792792A4CD7EF0032FDFC /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C792782A4CD7EF0032FDFC /* ResponseData.swift */; };
 		A8C7927B2A4CDAA40032FDFC /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */; };
@@ -157,7 +158,6 @@
 		A87144E82A809E5D00E5FCAD /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 		A87144EA2A809E7200E5FCAD /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		A87144EE2A809FCE00E5FCAD /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
-		A87144FD2A81BC7600E5FCAD /* SaveFriendsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsRepository.swift; sourceTree = "<group>"; };
 		A87145022A81C1A300E5FCAD /* SaveFriendsUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsUserCase.swift; sourceTree = "<group>"; };
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
@@ -168,6 +168,8 @@
 		A8BF46E02A83305F00FCDD7C /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		A8BF46E22A83312A00FCDD7C /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 		A8BF46E42A8331E500FCDD7C /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
+		A8BF47562A84B26F00FCDD7C /* SampleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleAPI.swift; path = "Waving-iOS/Data/Network/Sample/SampleAPI.swift"; sourceTree = SOURCE_ROOT; };
+		A8BF47582A84B27500FCDD7C /* SampleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleTarget.swift; path = "Waving-iOS/Data/Network/Sample/SampleTarget.swift"; sourceTree = SOURCE_ROOT; };
 		A8C792742A4CC0060032FDFC /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		A8C792782A4CD7EF0032FDFC /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
@@ -466,7 +468,6 @@
 		A87144FB2A815B5E00E5FCAD /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				A87144FD2A81BC7600E5FCAD /* SaveFriendsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -540,6 +541,15 @@
 			path = Sample;
 			sourceTree = "<group>";
 		};
+		A8BF475B2A84B30500FCDD7C /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				A8BF47582A84B27500FCDD7C /* SampleTarget.swift */,
+				A8BF47562A84B26F00FCDD7C /* SampleAPI.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		A8C792722A4C66640032FDFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +563,7 @@
 		A8C792732A4C66690032FDFC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A8BF475B2A84B30500FCDD7C /* Sample */,
 				A8C874392A6EBF490057EEEA /* Friends */,
 				CEBD75322A5EC58D00629852 /* Greeting */,
 				A8C7927E2A4CE03D0032FDFC /* Sign */,
@@ -1075,7 +1086,7 @@
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */,
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
-				A87144FE2A81BC7600E5FCAD /* SaveFriendsRepository.swift in Sources */,
+				A8BF47592A84B27500FCDD7C /* SampleTarget.swift in Sources */,
 				A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */,
 				A8BF46E52A8331E500FCDD7C /* SampleEntity.swift in Sources */,
 				CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */,
@@ -1104,6 +1115,7 @@
 				CEF347EE2A5C38BD00ED012E /* GreetingCellModel.swift in Sources */,
 				A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */,
 				CED363D02A32227E00119CE5 /* SignDataStore.swift in Sources */,
+				A8BF47572A84B26F00FCDD7C /* SampleAPI.swift in Sources */,
 				A87144E22A8022FF00E5FCAD /* TopProfileView.swift in Sources */,
 				CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
