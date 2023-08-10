@@ -36,6 +36,8 @@
 		A8BF46E52A8331E500FCDD7C /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46E42A8331E500FCDD7C /* SampleEntity.swift */; };
 		A8BF47572A84B26F00FCDD7C /* SampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47562A84B26F00FCDD7C /* SampleAPI.swift */; };
 		A8BF47592A84B27500FCDD7C /* SampleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47582A84B27500FCDD7C /* SampleTarget.swift */; };
+		A8BF47A42A850D9A00FCDD7C /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47A32A850D9A00FCDD7C /* APIEndpoint.swift */; };
+		A8BF47A62A850DB100FCDD7C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47A52A850DB100FCDD7C /* APIClient.swift */; };
 		A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C792742A4CC0060032FDFC /* Networkable.swift */; };
 		A8C792792A4CD7EF0032FDFC /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C792782A4CD7EF0032FDFC /* ResponseData.swift */; };
 		A8C7927B2A4CDAA40032FDFC /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */; };
@@ -170,6 +172,8 @@
 		A8BF46E42A8331E500FCDD7C /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
 		A8BF47562A84B26F00FCDD7C /* SampleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleAPI.swift; path = "Waving-iOS/Data/Network/Sample/SampleAPI.swift"; sourceTree = SOURCE_ROOT; };
 		A8BF47582A84B27500FCDD7C /* SampleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleTarget.swift; path = "Waving-iOS/Data/Network/Sample/SampleTarget.swift"; sourceTree = SOURCE_ROOT; };
+		A8BF47A32A850D9A00FCDD7C /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		A8BF47A52A850DB100FCDD7C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A8C792742A4CC0060032FDFC /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		A8C792782A4CD7EF0032FDFC /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
@@ -550,9 +554,19 @@
 			path = Sample;
 			sourceTree = "<group>";
 		};
+		A8BF47A22A850D7400FCDD7C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A8BF47A32A850D9A00FCDD7C /* APIEndpoint.swift */,
+				A8BF47A52A850DB100FCDD7C /* APIClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		A8C792722A4C66640032FDFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A8BF47A22A850D7400FCDD7C /* API */,
 				A87144FA2A8157F500E5FCAD /* DTO */,
 				A87144FB2A815B5E00E5FCAD /* Repository */,
 				A8C792732A4C66690032FDFC /* Network */,
@@ -1065,6 +1079,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8C8743B2A6EBF580057EEEA /* FriendsTarget.swift in Sources */,
+				A8BF47A62A850DB100FCDD7C /* APIClient.swift in Sources */,
 				CEBC400D2A486C32001A5934 /* TabViewStyle.swift in Sources */,
 				CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */,
 				CEA7BCC42A7FAAAF0000727C /* HomeViewModel.swift in Sources */,
@@ -1095,6 +1110,7 @@
 				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				CEF31EE62A5FC74E00534D44 /* GreetingAPI.swift in Sources */,
+				A8BF47A42A850D9A00FCDD7C /* APIEndpoint.swift in Sources */,
 				A8C792802A4CE0930032FDFC /* SignTarget.swift in Sources */,
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
 				A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */,
