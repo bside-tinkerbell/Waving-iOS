@@ -24,7 +24,6 @@
 		A87144E92A809E5D00E5FCAD /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144E82A809E5D00E5FCAD /* SuggestionView.swift */; };
 		A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144EA2A809E7200E5FCAD /* FavoriteView.swift */; };
 		A87144EF2A809FCE00E5FCAD /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144EE2A809FCE00E5FCAD /* ContactListView.swift */; };
-		A87145032A81C1A300E5FCAD /* SaveFriendsUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87145022A81C1A300E5FCAD /* SaveFriendsUserCase.swift */; };
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
@@ -38,6 +37,9 @@
 		A8BF47592A84B27500FCDD7C /* SampleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47582A84B27500FCDD7C /* SampleTarget.swift */; };
 		A8BF47A42A850D9A00FCDD7C /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47A32A850D9A00FCDD7C /* APIEndpoint.swift */; };
 		A8BF47A62A850DB100FCDD7C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47A52A850DB100FCDD7C /* APIClient.swift */; };
+		A8BF47A92A85325200FCDD7C /* SampleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47A82A85325200FCDD7C /* SampleDataSource.swift */; };
+		A8BF47AC2A85351500FCDD7C /* FetchSampleDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47AB2A85351500FCDD7C /* FetchSampleDataUseCase.swift */; };
+		A8BF47B02A853AE300FCDD7C /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF47AF2A853AE300FCDD7C /* SampleRepository.swift */; };
 		A8C792752A4CC0060032FDFC /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C792742A4CC0060032FDFC /* Networkable.swift */; };
 		A8C792792A4CD7EF0032FDFC /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C792782A4CD7EF0032FDFC /* ResponseData.swift */; };
 		A8C7927B2A4CDAA40032FDFC /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */; };
@@ -160,7 +162,6 @@
 		A87144E82A809E5D00E5FCAD /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 		A87144EA2A809E7200E5FCAD /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		A87144EE2A809FCE00E5FCAD /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
-		A87145022A81C1A300E5FCAD /* SaveFriendsUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsUserCase.swift; sourceTree = "<group>"; };
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -174,6 +175,9 @@
 		A8BF47582A84B27500FCDD7C /* SampleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleTarget.swift; path = "Waving-iOS/Data/Network/Sample/SampleTarget.swift"; sourceTree = SOURCE_ROOT; };
 		A8BF47A32A850D9A00FCDD7C /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		A8BF47A52A850DB100FCDD7C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A8BF47A82A85325200FCDD7C /* SampleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataSource.swift; sourceTree = "<group>"; };
+		A8BF47AB2A85351500FCDD7C /* FetchSampleDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSampleDataUseCase.swift; sourceTree = "<group>"; };
+		A8BF47AF2A853AE300FCDD7C /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
 		A8C792742A4CC0060032FDFC /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		A8C792782A4CD7EF0032FDFC /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		A8C7927A2A4CDAA40032FDFC /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
@@ -438,7 +442,7 @@
 		A87144F12A8141C700E5FCAD /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				A87145022A81C1A300E5FCAD /* SaveFriendsUserCase.swift */,
+				A8BF47AA2A8534F600FCDD7C /* Sample */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -557,10 +561,28 @@
 		A8BF47A22A850D7400FCDD7C /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A8BF47A72A85323900FCDD7C /* Sample */,
 				A8BF47A32A850D9A00FCDD7C /* APIEndpoint.swift */,
 				A8BF47A52A850DB100FCDD7C /* APIClient.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A8BF47A72A85323900FCDD7C /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				A8BF47A82A85325200FCDD7C /* SampleDataSource.swift */,
+				A8BF47AF2A853AE300FCDD7C /* SampleRepository.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		A8BF47AA2A8534F600FCDD7C /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				A8BF47AB2A85351500FCDD7C /* FetchSampleDataUseCase.swift */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 		A8C792722A4C66640032FDFC /* Data */ = {
@@ -659,7 +681,6 @@
 		A8E0C10B2A23678800C8696E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				A8E0C10D2A23684300C8696E /* Interface */,
 				A87144F12A8141C700E5FCAD /* UseCase */,
 				A8E0C10C2A23679800C8696E /* Entity */,
 			);
@@ -674,13 +695,6 @@
 				A87144F42A8146EC00E5FCAD /* Sample */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		A8E0C10D2A23684300C8696E /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interface;
 			sourceTree = "<group>";
 		};
 		CE3A48A22A52E0AD00893E7E /* Main */ = {
@@ -1100,13 +1114,16 @@
 				CEC6CF942A618F7F00175391 /* GreetingCategoryCollectionViewCell.swift in Sources */,
 				CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */,
 				CEC6CF7F2A61147500175391 /* GreetingModel.swift in Sources */,
+				A8BF47A92A85325200FCDD7C /* SampleDataSource.swift in Sources */,
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
 				A8BF47592A84B27500FCDD7C /* SampleTarget.swift in Sources */,
 				A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */,
 				A8BF46E52A8331E500FCDD7C /* SampleEntity.swift in Sources */,
 				CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */,
+				A8BF47B02A853AE300FCDD7C /* SampleRepository.swift in Sources */,
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
+				A8BF47AC2A85351500FCDD7C /* FetchSampleDataUseCase.swift in Sources */,
 				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				CEF31EE62A5FC74E00534D44 /* GreetingAPI.swift in Sources */,
@@ -1124,7 +1141,6 @@
 				CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
 				A8C792902A4E5F5C0032FDFC /* BasePaddingLabel.swift in Sources */,
-				A87145032A81C1A300E5FCAD /* SaveFriendsUserCase.swift in Sources */,
 				A8C874382A6EBB4C0057EEEA /* SaveFriendsResponseDTO.swift in Sources */,
 				A8BF46E12A83305F00FCDD7C /* SampleViewController.swift in Sources */,
 				A8C7927B2A4CDAA40032FDFC /* BaseTargetType.swift in Sources */,

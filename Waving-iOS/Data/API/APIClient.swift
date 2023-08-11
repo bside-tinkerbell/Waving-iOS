@@ -28,7 +28,7 @@ class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
             .tryMap { data, response -> Data in
                 guard let httpResponse = response as? HTTPURLResponse,
                       (200...299).contains(httpResponse.statusCode) else {
-                    throw APIError.invalidResponse 
+                    throw APIError.invalidResponse
                 }
                 return data
             }

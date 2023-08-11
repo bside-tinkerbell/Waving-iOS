@@ -6,12 +6,14 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class SampleViewController: UIViewController {
-
+    
+    var viewModel = SampleViewModel(FetchSampleDataUseCase())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
+        viewModel.fetchSample()
     }
 }
