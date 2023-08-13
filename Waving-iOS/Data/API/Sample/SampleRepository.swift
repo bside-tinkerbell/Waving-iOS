@@ -22,11 +22,11 @@ class SampleDataRepository: SampleRepositoryInterface {
     
     func fetchSampleData() -> AnyPublisher<[SampleEntity], Error> {
         return dataSource.getUsers()
-            .map({sampleResponseDTO in
+            .map { sampleResponseDTO in
                 var sampleEntities = [SampleEntity]()
                 for data in sampleResponseDTO.data { sampleEntities.append(data.toDomain()) }
                 return sampleEntities
-            })
+            }
             .eraseToAnyPublisher()
     }
 }

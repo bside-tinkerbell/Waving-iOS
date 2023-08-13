@@ -473,13 +473,6 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
-		A87144FB2A815B5E00E5FCAD /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		A87144FC2A815B7200E5FCAD /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,7 +583,6 @@
 			children = (
 				A8BF47A22A850D7400FCDD7C /* API */,
 				A87144FA2A8157F500E5FCAD /* DTO */,
-				A87144FB2A815B5E00E5FCAD /* Repository */,
 				A8C792732A4C66690032FDFC /* Network */,
 			);
 			path = Data;
