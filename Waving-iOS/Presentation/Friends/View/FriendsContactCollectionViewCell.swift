@@ -21,7 +21,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
     static let identifier = "FriendsContactCollectionViewCell"
     
     // MARK: - Model (data)
-    var contact: ContactModel {
+    var contact: ContactEntity {
         didSet {
             nameLabel.text = contact.name
             numberLabel.text = contact.phoneNumber
@@ -94,7 +94,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
 
     // MARK: - init
     override init(frame: CGRect) {
-        self.contact = ContactModel(name: "", phoneNumber: "")
+        self.contact = ContactEntity(name: "", phoneNumber: "")
         super.init(frame: frame)
         addComponents()
         setConstraints()
@@ -152,8 +152,8 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
             numberLabel.isHidden = true
             selectButton.setImage(UIImage(named: "icn_favorites_on"), for: .normal)
         case .none:
-            numberLabel.isHidden = false
-            selectButton.setImage(UIImage(named: ""), for: .normal)
+            numberLabel.isHidden = true
+            selectButton.isHidden = true
         }
     }
 }

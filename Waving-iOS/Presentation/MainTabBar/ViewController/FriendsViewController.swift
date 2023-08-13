@@ -16,6 +16,8 @@ extension FriendType {
             return UIViewController.init()
         case .addFriend:
             return FriendsContactViewController()
+        case .moveToProfile:
+            return FriendProfileViewController()
         }
     }
 }
@@ -91,7 +93,9 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         viewModel.route
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
-                self?.navigationController?.pushViewController(route.viewController, animated: true)
+                let navVC = UINavigationController(rootViewController: route.viewController)
+                navVC.modalPresentationStyle = .fullScreen
+                self?.present(navVC, animated: false)
             }
             .store(in: &cancellable)
         

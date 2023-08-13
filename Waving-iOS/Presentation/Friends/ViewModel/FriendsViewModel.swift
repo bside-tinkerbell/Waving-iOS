@@ -15,6 +15,7 @@ enum FriendType {
     case disconnect
     case list
     case addFriend
+    case moveToProfile
     
     func view() -> FriendViewRepresentable? {
         switch self {
@@ -24,7 +25,7 @@ enum FriendType {
             return FriendsDisconnectView()
         case .list: /// 지인 리스트
             return FriendsListView()///지인 추가 화면
-        case .addFriend: /// 지인 선택하기 화면
+        case .addFriend, .moveToProfile: /// 지인 선택하기 화면
             return nil
         }
     }
@@ -38,6 +39,7 @@ protocol FriendViewRepresentable where Self: UIView {
 protocol FriendsViewModelRepresentable {
     func addFriends()
     func didTapBackButton()
+    func didTapProfile()
 }
 
 class FriendsViewModel: FriendsViewModelRepresentable {
@@ -71,7 +73,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     let name = contact.familyName + contact.givenName 
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
-                    myContactList.append(ContactModel(name: name, phoneNumber: phoneNumber))
+                    myContactList.append(ContactEntity(name: name, phoneNumber: phoneNumber))
                     personList.append(PersonModel(name: name, phoneNumber: phoneNumber, contactCycle: 4))
                 })
             } catch {
@@ -89,5 +91,8 @@ class FriendsViewModel: FriendsViewModelRepresentable {
     func didTapForwardButton() {
         Log.d("플러스 버튼")
     }
-
+    
+    func didTapProfile() {
+        sendRoute.send(.moveToProfile)
+    }
 }

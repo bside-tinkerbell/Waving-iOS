@@ -1,25 +1,24 @@
 //
-//  FriendsTarget.swift
+//  SampleTarget.swift
 //  Waving-iOS
 //
-//  Created by Joy on 2023/07/24.
+//  Created by Joy on 2023/08/10.
 //
 
 import Foundation
 import Moya
 
-
-enum FriendsTarget {
-    case saveFriend(SaveFriendsDTO)
+enum SampleTarget {
+    case sample
 }
 
-extension FriendsTarget: BaseTargetType {
+extension SampleTarget: BaseTargetType {
     
     // base URL 뒤에 추가 될 Path
     /// case .signIn:  return "/def"
     var path: String {
         switch self {
-        case .saveFriend(_): return "/v1/friends/register"
+        case .sample: return "/api/users"
         }
     }
     
@@ -27,7 +26,7 @@ extension FriendsTarget: BaseTargetType {
     /// .get
     var method: Moya.Method {
         switch self {
-        case .saveFriend(_): return .post
+        case .sample: return .get
         }
     }
 
@@ -41,8 +40,7 @@ extension FriendsTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .saveFriend(let model):
-            return .requestJSONEncodable(model)
+        case .sample: return .requestPlain
         }
     }
 

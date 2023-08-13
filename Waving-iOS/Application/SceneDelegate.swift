@@ -29,6 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             window.rootViewController = UINavigationController(rootViewController: IntroViewController())
         }
+
+        
+//        window.rootViewController = SampleViewController()
         
         window.makeKeyAndVisible()
     }
