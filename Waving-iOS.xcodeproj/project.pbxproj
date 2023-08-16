@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A81DF39A2A8CFB8D00BE3EEF /* GetFriendsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DF3992A8CFB8D00BE3EEF /* GetFriendsDTO.swift */; };
 		A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */; };
 		A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */; };
 		A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */; };
@@ -145,6 +146,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A81DF3992A8CFB8D00BE3EEF /* GetFriendsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsDTO.swift; sourceTree = "<group>"; };
 		A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsIntroView.swift; sourceTree = "<group>"; };
 		A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 			children = (
 				A836B19A2A6CE96100D9F02F /* SaveFriendsDTO.swift */,
 				A8C874372A6EBB4C0057EEEA /* SaveFriendsResponseDTO.swift */,
+				A81DF3992A8CFB8D00BE3EEF /* GetFriendsDTO.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				A8BF47572A84B26F00FCDD7C /* SampleAPI.swift in Sources */,
 				A87144E22A8022FF00E5FCAD /* TopProfileView.swift in Sources */,
 				CEB518262A65410D009B88BB /* NoticeCellModel.swift in Sources */,
+				A81DF39A2A8CFB8D00BE3EEF /* GetFriendsDTO.swift in Sources */,
 				CED83A9F2A2B86F40031AFF0 /* SignupViewController.swift in Sources */,
 				CED9EAB42A3C3C5700BA8737 /* SignupStepTermOfUseView.swift in Sources */,
 				A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */,

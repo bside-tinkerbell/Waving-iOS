@@ -11,7 +11,7 @@ var personList = [PersonModel]()
 
 struct SaveFriendsDTO: Codable {
     var userId: Int
-    var contactId: Int
+    var contactId: Int // 지인 목록 API GET해 왔을 때 주어지는 값
     var profileList: [PersonModel]
     
     enum CodingKeys: String, CodingKey {
