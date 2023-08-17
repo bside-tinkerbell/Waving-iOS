@@ -71,5 +71,9 @@ struct GetFriendsProfileDTO: Codable {
     }
 }
 
-
+extension GetFriendsProfileDTO {
+    func toDomain() -> GetFriendsEntity {
+        return .init(name: name, friendProfileId: friendProfileId)
+    }
+}
 

@@ -9,5 +9,5 @@ import Foundation
 
 struct GetFriendsEntity {
     let name: String
-    let friendProfileId: String
+    let friendProfileId: Int
 }
