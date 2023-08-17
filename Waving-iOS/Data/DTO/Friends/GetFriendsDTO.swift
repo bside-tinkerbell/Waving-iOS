@@ -54,7 +54,7 @@ struct GetFriendsProfileDTO: Codable {
         case name
         case birthday
         case contactCycle = "contact_cycle"
-        case cellPhone
+        case cellPhone = "cellphone"
         case recentContactDate = "recent_contact_date"
     }
 
@@ -64,10 +64,10 @@ struct GetFriendsProfileDTO: Codable {
         self.friendProfileId = try container.decode(Int.self, forKey: .friendProfileId)
         self.isFavorite = try container.decode(Int.self, forKey: .isFavorite)
         self.name = try container.decode(String.self, forKey: .name)
-        self.birthday = try container.decode(String.self, forKey: .birthday)
+        self.birthday = (try? container.decode(String.self, forKey: .birthday)) ?? ""
         self.contactCycle = try container.decode(Int.self, forKey: .contactCycle)
         self.cellPhone = try container.decode(String.self, forKey: .cellPhone)
-        self.recentContactDate = try container.decode(String.self, forKey: .recentContactDate)
+        self.recentContactDate = (try? container.decode(String.self, forKey: .recentContactDate)) ?? ""
     }
 }
 
