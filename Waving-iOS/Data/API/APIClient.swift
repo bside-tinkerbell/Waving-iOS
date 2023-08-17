@@ -21,7 +21,6 @@ class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
         guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
             return nil
         }
-
         return httpBody
     }
     

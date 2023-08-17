@@ -9,18 +9,18 @@ import Foundation
 import Combine
 
 protocol FriendsDataUseCaseInterface {
-    func save() -> AnyPublisher<SaveFriendsResponseDTO, Error>
-    func fetch() -> AnyPublisher<GetFriendsDTO, Error>
+    func saveFriends() -> AnyPublisher<SaveFriendsResponseDTO, Error>
+    func fetchFriendsEntity() -> AnyPublisher<[GetFriendsEntity], Error>
 }
 
 final class FriendsDataUseCase: FriendsDataUseCaseInterface {
-    let apiClient = URLSessionAPIClient<FriendsEndpoint>()
+    private let repository = FriendsRepository(dataSouce: FriendsDataSource())
     
-    func save() -> AnyPublisher<SaveFriendsResponseDTO, Error> {
-        return apiClient.request(.saveFriends)
+    func saveFriends() -> AnyPublisher<SaveFriendsResponseDTO, Error> {
+        return repository.saveFriends()
     }
     
-    func fetch() -> AnyPublisher<GetFriendsDTO, Error> {
-        return apiClient.request(.getFriends)
+    func fetchFriendsEntity() -> AnyPublisher<[GetFriendsEntity], Error> {
+        return repository.fetchGetFriendsEntity()
     }
 }
