@@ -22,6 +22,7 @@
 		A83861662A8D994D00E8B609 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83861652A8D994D00E8B609 /* Encodable+.swift */; };
 		A83861692A8D9D6700E8B609 /* FriendsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83861682A8D9D6700E8B609 /* FriendsEndpoint.swift */; };
 		A838616E2A8DAE5D00E8B609 /* FriendsDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838616D2A8DAE5D00E8B609 /* FriendsDataUseCase.swift */; };
+		A83861702A8DD07C00E8B609 /* GetFriendsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838616F2A8DD07C00E8B609 /* GetFriendsEntity.swift */; };
 		A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */; };
 		A87144DC2A8022AA00E5FCAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */; };
 		A87144DE2A8022B600E5FCAD /* FriendProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */; };
@@ -166,6 +167,7 @@
 		A83861652A8D994D00E8B609 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		A83861682A8D9D6700E8B609 /* FriendsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsEndpoint.swift; sourceTree = "<group>"; };
 		A838616D2A8DAE5D00E8B609 /* FriendsDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDataUseCase.swift; sourceTree = "<group>"; };
+		A838616F2A8DD07C00E8B609 /* GetFriendsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsEntity.swift; sourceTree = "<group>"; };
 		A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
 		A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewModel.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				A836B19C2A6CFB2700D9F02F /* ContactEntity.swift */,
+				A838616F2A8DD07C00E8B609 /* GetFriendsEntity.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -1135,6 +1138,7 @@
 				A83861692A8D9D6700E8B609 /* FriendsEndpoint.swift in Sources */,
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */,
+				A83861702A8DD07C00E8B609 /* GetFriendsEntity.swift in Sources */,
 				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
 				CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
