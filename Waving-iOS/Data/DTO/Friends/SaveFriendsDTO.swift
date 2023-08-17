@@ -9,6 +9,7 @@ import Foundation
 
 var personList = [PersonModel]()
 
+// TODO: 1-Depth로 병합해도 좋을 듯
 struct SaveFriendsDTO: Codable {
     var userId: Int
     var contactId: Int // 지인 목록 API GET해 왔을 때 주어지는 값
@@ -37,26 +38,26 @@ struct SaveFriendsDTO: Codable {
 
 struct PersonModel: Codable {
     var name: String
-    var phoneNumber: String
+    var cellPhone: String
     var contactCycle: Int
 
-    
+
     enum CodingKeys: String, CodingKey {
         case name
-        case phoneNumber = "phone_number"
+        case cellPhone = "cellphone"
         case contactCycle = "contact_cycle"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
-        self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        self.cellPhone = try container.decode(String.self, forKey: .cellPhone)
         self.contactCycle = try container.decode(Int.self, forKey: .contactCycle)
     }
-    
-    init(name: String, phoneNumber: String, contactCycle: Int) {
+
+    init(name: String, cellPhone: String, contactCycle: Int) {
         self.name = name
-        self.phoneNumber = phoneNumber
+        self.cellPhone = cellPhone
         self.contactCycle = contactCycle
     }
 }

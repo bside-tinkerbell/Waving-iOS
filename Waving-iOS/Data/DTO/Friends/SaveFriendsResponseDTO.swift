@@ -35,7 +35,7 @@ struct ProfileListModel: Codable {
     var name: String
     var birthday: String
     var contactCycle: Int
-    var phoneNumber: String
+    var cellPhone: String
     var recentContactDate: String
     
     enum CodingKeys: String, CodingKey {
@@ -45,7 +45,7 @@ struct ProfileListModel: Codable {
         case name
         case birthday
         case contactCycle = "contact_cycle"
-        case phoneNumber = "phone_number"
+        case cellPhone = "cellphone"
         case recentContactDate = "recent_contact_date"
     }
     
@@ -57,7 +57,7 @@ struct ProfileListModel: Codable {
         self.name = try container.decode(String.self, forKey: .name)
         self.birthday = (try? container.decode(String.self, forKey: .birthday)) ?? ""
         self.contactCycle = (try? container.decode(Int.self, forKey: .contactCycle)) ?? 0
-        self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        self.cellPhone = try container.decode(String.self, forKey: .cellPhone)
         self.recentContactDate = (try? container.decode(String.self, forKey: .recentContactDate)) ?? ""
     }
 }
