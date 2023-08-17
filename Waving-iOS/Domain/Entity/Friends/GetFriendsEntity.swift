@@ -10,4 +10,9 @@ import Foundation
 struct GetFriendsEntity {
     let name: String
     let friendProfileId: Int
+    
+    public init(name: String, friendProfileId: Int) {
+        self.name = name
+        self.friendProfileId = friendProfileId
+    }
 }
