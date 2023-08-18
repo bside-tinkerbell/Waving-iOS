@@ -39,6 +39,7 @@ class FriendsListView: UIView, SnapKitInterface {
         backgroundColor = .systemBackground
         addSubview(scrollView)
         scrollView.addSubview(containerView)
+        containerView.backgroundColor = .systemYellow
 //        containerView.addSubview(friendscontactCollectionView)
     }
     

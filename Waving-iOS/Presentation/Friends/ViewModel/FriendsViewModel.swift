@@ -44,11 +44,18 @@ protocol FriendsViewModelRepresentable {
 
 class FriendsViewModel: FriendsViewModelRepresentable {
     @Published var type: FriendType?
+    private let useCase: FriendsDataUseCase
+    private var cancellables = Set<AnyCancellable>()
+    
     var route: AnyPublisher<FriendType, Never> {
         self.sendRoute.eraseToAnyPublisher()
     }
 
     var sendRoute: PassthroughSubject<FriendType, Never> = .init()
+    
+    init(_ useCase: FriendsDataUseCase) {
+        self.useCase = useCase
+    }
     
     func addFriends() {
         Log.d("친구 추가")
@@ -79,9 +86,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
             } catch {
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
             }
-      
         }
-        
     }
     
     func didTapBackButton() {
@@ -94,5 +99,23 @@ class FriendsViewModel: FriendsViewModelRepresentable {
     
     func didTapProfile() {
         sendRoute.send(.moveToProfile)
+    }
+    
+    public func fetchFriends() {
+        useCase.fetchFriendsEntity()
+            .sink(receiveCompletion: { completion in
+                if case .failure(let err) = completion {
+                  //TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분 필요함
+                    print(completion)
+                    self.type = .intro
+                }
+            }, receiveValue: { data in
+                self.type = .list
+                Log.i("Retrieved data of size \(data), response = \(data)")
+
+            })
+            .store(in: &cancellables)
+
+
     }
 }

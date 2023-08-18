@@ -8,7 +8,6 @@
 import UIKit
 import Combine
 
-
 extension FriendType {
     fileprivate var viewController: UIViewController {
         switch self {
@@ -22,10 +21,9 @@ extension FriendType {
     }
 }
 
-
 final class FriendsViewController: UIViewController, SnapKitInterface {
     
-    var viewModel = FriendsViewModel()
+    var viewModel = FriendsViewModel(FriendsDataUseCase())
     private var cancellable = Set<AnyCancellable>()
     
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
@@ -52,16 +50,11 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     override func viewDidLoad() {
         addComponents()
         setConstraints()
-        binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        //TODO: 데이터 호출 (fetchData) 후 switch문 통해 바꾸도록 하기
-        /// 데이터 있다면 .list 로
-        /// 데이터 없다면 .intro가 나오도록 하기
-        self.viewModel.type = .intro
+        super.viewWillAppear(animated)
+        binding()
     }
     
     func addComponents() {
@@ -90,6 +83,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     }
     
     func binding() {
+        self.viewModel.fetchFriends()
         viewModel.route
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
