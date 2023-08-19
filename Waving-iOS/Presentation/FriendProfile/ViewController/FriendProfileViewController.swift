@@ -53,6 +53,7 @@ final class FriendProfileViewController: UIViewController {
         scrollView.addSubview(containerView)
         containerView.addSubview(topView)
         topView.translatesAutoresizingMaskIntoConstraints = false
+        topView.backgroundColor = .systemBackground
     }
     
     func setConstraints() {
