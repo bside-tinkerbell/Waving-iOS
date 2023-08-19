@@ -39,6 +39,7 @@ final class FriendProfileViewController: UIViewController {
     }()
     
     private var topView: UIView = TopProfileView()
+    private var bottomView: UIView = BottomProfileView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +52,13 @@ final class FriendProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         [navigationView, scrollView].forEach { view.addSubview($0) }
         scrollView.addSubview(containerView)
-        containerView.addSubview(topView)
+        [topView, bottomView].forEach { containerView.addSubview($0) }
+        
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.backgroundColor = .systemBackground
+        
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.backgroundColor = .systemBackground
     }
     
     func setConstraints() {
@@ -78,10 +83,15 @@ final class FriendProfileViewController: UIViewController {
             topView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             topView.heightAnchor.constraint(equalToConstant: 390),
-            topView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            topView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            bottomView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 8),
+            bottomView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            bottomView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            bottomView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            bottomView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
         
-    
         let containerViewHeight = containerView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
         containerViewHeight.priority = .defaultLow
         containerViewHeight.isActive = true
