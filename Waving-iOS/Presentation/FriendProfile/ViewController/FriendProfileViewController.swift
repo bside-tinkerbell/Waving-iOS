@@ -38,6 +38,8 @@ final class FriendProfileViewController: UIViewController {
         return view
     }()
     
+    private var topView: UIView = TopProfileView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addComponents()
@@ -49,6 +51,8 @@ final class FriendProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         [navigationView, scrollView].forEach { view.addSubview($0) }
         scrollView.addSubview(containerView)
+        containerView.addSubview(topView)
+        topView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setConstraints() {
@@ -68,7 +72,15 @@ final class FriendProfileViewController: UIViewController {
             containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            topView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            topView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            topView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            topView.heightAnchor.constraint(equalToConstant: 390),
+            topView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+        
+    
         let containerViewHeight = containerView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
         containerViewHeight.priority = .defaultLow
         containerViewHeight.isActive = true
