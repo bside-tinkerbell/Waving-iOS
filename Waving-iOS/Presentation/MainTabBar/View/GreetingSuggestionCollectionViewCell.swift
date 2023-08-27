@@ -12,19 +12,7 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
     
     private var cancellables: [AnyCancellable] = []
     
-    private var viewModel: GreetingSuggestionCellModel? {
-        didSet {
-            guard let viewModel = viewModel else { return }
-            
-            self.cancellables.removeAll()
-            viewModel.$titleAttributedText
-                .sink { [weak self] in
-                    self?.titleLabel.attributedText = $0
-                }
-                .store(in: &self.cancellables)
-        }
-
-    }
+    private var viewModel: GreetingSuggestionCellModel?
     
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -78,17 +66,28 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
         super.init(frame: frame)
         
         setupView()
+        setupEvent()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         setupView()
+        setupEvent()
     }
     
     private func setupView() {
         addComponents()
         setConstraints()
+    }
+    
+    private func setupEvent() {
+        copyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCopyButton(_:))))
+    }
+    
+    @objc
+    private func didTapCopyButton(_ sender: UITapGestureRecognizer) {
+        viewModel?.didTapCopyButton.send()
     }
     
     func addComponents() {
@@ -120,5 +119,11 @@ final class GreetingSuggestionCollectionViewCell: UICollectionViewCell, SnapKitI
     
     public func setup(with viewModel: GreetingSuggestionCellModel) {
         self.viewModel = viewModel
+        
+        viewModel.$titleAttributedText
+            .sink { [weak self] in
+                self?.titleLabel.attributedText = $0
+            }
+            .store(in: &cancellables)
     }
 }

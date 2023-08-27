@@ -5,10 +5,15 @@
 //  Created by Jane Choi on 2023/07/29.
 //
 
+import Combine
 import UIKit
 
 final class GreetingSuggestionCellModel {
+    
+    private var cancellables: Set<AnyCancellable> = .init()
+    
     @Published var titleAttributedText: NSAttributedString
+    var didTapCopyButton: PassthroughSubject<Void, Never> = .init()
     
     private lazy var width: CGFloat = {
         var width: CGFloat = UIWindow.wv_windowSize.width
@@ -46,6 +51,17 @@ final class GreetingSuggestionCellModel {
             .wv_setFont(.p_R(16))
             .wv_setTextColor(.text090)
             .wv_setParagraphStyle(lineHeightMultiple: 1.26)
+        
+        bind()
+    }
+    
+    private func bind() {
+        didTapCopyButton
+            .sink { [weak self] in
+                guard let self else { return }
+                ClipboardManager.save(titleAttributedText.string)
+            }
+            .store(in: &cancellables)
     }
     
 }
