@@ -9,7 +9,8 @@ import UIKit
 
 final class SampleViewController: UIViewController {
     
-    var viewModel = SampleViewModel(FetchSampleDataUseCase())
+    //var viewModel = SampleViewModel(FetchSampleDataUseCase())
+    var viewModel = SampleViewModel(FriendsDataUseCase())
     
     override func viewDidLoad() {
         super.viewDidLoad()

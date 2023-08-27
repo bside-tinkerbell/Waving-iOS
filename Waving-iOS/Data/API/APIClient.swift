@@ -9,18 +9,27 @@ import Foundation
 import Combine
 import UIKit
 
-protocol APIClient {
+protocol APIClient { 
     associatedtype EndpointType: APIEndpoint
-    func request<T: Decodable>(_ endpoint: EndpointType) -> AnyPublisher<T, Error>
+    func request<T: Codable>(_ endpoint: EndpointType) -> AnyPublisher<T, Error>
 }
 
 class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
-    func request<T: Decodable>(_ endpoint: EndpointType) -> AnyPublisher<T, Error> {
+    
+    private func requestBodyFrom(params: [String: Any]?) -> Data? {
+        guard let params = params else { return nil }
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
+            return nil
+        }
+        return httpBody
+    }
+    
+    func request<T: Codable>(_ endpoint: EndpointType) -> AnyPublisher<T, Error> {
         let url = endpoint.baseURL.appendingPathComponent(endpoint.path)
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
-        
         endpoint.headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
+        request.httpBody = requestBodyFrom(params: endpoint.parameters)
         
         // 데이터 통신
         return URLSession.shared.dataTaskPublisher(for: request)
