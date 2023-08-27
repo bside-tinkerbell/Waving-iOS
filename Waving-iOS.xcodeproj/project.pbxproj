@@ -74,6 +74,7 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */; };
 		CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */; };
 		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
 		CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */; };
@@ -218,6 +219,7 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepEmailPasswordView.swift; sourceTree = "<group>"; };
@@ -758,6 +760,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		CE48AF2E2A9B1EFD005EF89C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		CE8316DD2A319FA0007D3327 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +961,7 @@
 				A8E0C0B52A23639400C8696E /* Presentation */,
 				A8E0C10B2A23678800C8696E /* Domain */,
 				A8C792722A4C66640032FDFC /* Data */,
+				CE48AF2E2A9B1EFD005EF89C /* Common */,
 				A8E0C0B72A23641000C8696E /* Util */,
 				CEE3E7872A17A93300BC1464 /* Info.plist */,
 			);
@@ -1182,6 +1193,7 @@
 				A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */,
 				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,
+				CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */,
 				CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */,
 				A8BF46DF2A832DF300FCDD7C /* SampleResponseDTO.swift in Sources */,
 				CEA32DD22A3357540006FA31 /* String+.swift in Sources */,
