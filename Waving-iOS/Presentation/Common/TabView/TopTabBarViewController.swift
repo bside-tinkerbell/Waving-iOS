@@ -7,14 +7,19 @@
 
 import UIKit
 
-/// 상단에 Underline Button이 Tab Bar와 같은 역할을 하고 그에 맞춰 여러 Child View Controller들을 보여주고자 할 때 상속받으면
-/// TopTabBarRepresentable 프로토콜을 따르는 Child View Controllers를 등록하기만 하면 공통으로 제공되는 UI에 자동으로 AutoLayout을 적용해주는 Container View Controller.
-/// 필수 구현 요소 : TopTabBarRepresentable 프로토콜에 있는 (NSString *)underButtonTopTabBarViewController:(UnderlineButtonTopTabBarViewController *)containerViewController title:(NSString *)title 메소드
-/// 장점 1. 구현하기 쉽다.
-/// 장점 2. Scroll View Paging이 적용된다.
-/// 장점 3. 보이지 않는 Child View Controller의 View를 미리 불러오지 않는다. ( 보이는 시점에 viewDidLoad 호출됨 )
 final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, TabViewDelegate, SnapKitInterface {
     
+    private lazy var navigationViewModel: NavigationModel = .init(title: "", didTouchForwared: {[weak self] in
+        self?.navigationController?.popToRootViewController(animated: true)
+    })
+    
+    private lazy var navigationView: NavigationView = {
+        let view = NavigationView()
+        view.setup(model: navigationViewModel)
+        
+        return view
+    }()
+
     //  Views > Top Buttons
     private lazy var tabView = TabView()
     //  Views > Contents
@@ -91,13 +96,17 @@ final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, Tab
     // MARK: - SnapKitInterface
     
     func addComponents() {
-        view.addSubview(tabView)
-        view.addSubview(scrollView)
+        [navigationView, tabView, scrollView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
+        navigationView.snp.makeConstraints {
+            $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(50)
+        }
+        
         tabView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(navigationView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(topTabBarHeight)
         }
@@ -450,18 +459,33 @@ protocol TopTabBarRepresentable: NSObjectProtocol {
 
 extension TopTabBarViewController {
     
-    static func makeGreetingListViewController() -> TopTabBarViewController {
-        // test code
-        // TODO: api 호출
-        let categoryNames = ["명언/명대사", "고마워요", "응원해요"]
-        // end of test code
+    static func makeGreetingListViewController(with greetingCategory: GreetingCategory? = nil) async -> TopTabBarViewController? {
+
+        return await withCheckedContinuation({ continuation in
+            GreetingAPI.getGreetingCategories { succeed, failed in
+                if failed != nil {
+                    continuation.resume(returning: nil)
+                    return
+                }
+                
+                guard let succeed else { return }
+                Log.d("succeed: \(succeed)")
+                
+                var categoryNames = [String]()
+                for model in succeed.result.greetingCategoryList {
+                    categoryNames.append(model.category)
+                }
+                
+                Log.d("task finished: \(categoryNames)")
+                var childViewControllers = [UIViewController & TopTabBarRepresentable]()
+                for name in categoryNames {
+                    childViewControllers.append(GreetingListViewController(categoryName: name))
+                }
+                let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
+                
+                continuation.resume(returning: topTabBarViewController)
+            }
+        })
         
-        var childViewControllers = [UIViewController & TopTabBarRepresentable]()
-        for name in categoryNames {
-            childViewControllers.append(GreetingListViewController(categoryName: name))
-        }
-        
-        let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
-        return topTabBarViewController
     }
 }

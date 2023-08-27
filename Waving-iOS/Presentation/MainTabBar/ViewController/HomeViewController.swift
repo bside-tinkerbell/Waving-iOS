@@ -230,4 +230,16 @@ extension HomeViewController: UICollectionViewDelegate {
             let height: CGFloat = 70
             return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            Task { @MainActor in
+                guard let cellModel = greetingCategoryCellModels.wv_get(index: indexPath.row),
+                      let greetingListViewController = await TopTabBarViewController.makeGreetingListViewController(with: cellModel.category) else { return }
+                
+                let navigationController = UINavigationController(rootViewController: greetingListViewController)
+                self.present(navigationController, animated: false)
+            }
+        }
+    }
 }

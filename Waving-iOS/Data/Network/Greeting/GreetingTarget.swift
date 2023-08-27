@@ -16,6 +16,7 @@ import Moya
 enum GreetingTarget {
     case randomGreeting
     case greetings
+    case greetingCategories
 }
 
 extension GreetingTarget: BaseTargetType {
@@ -26,6 +27,7 @@ extension GreetingTarget: BaseTargetType {
         switch self {
         case .randomGreeting: return "/greetings/main"
         case .greetings: return "/greetings/main"
+        case .greetingCategories: return "/greetings/main/greeting-categories"
         }
     }
     
@@ -33,7 +35,8 @@ extension GreetingTarget: BaseTargetType {
     /// .get
     var method: Moya.Method {
         switch self {
-        case .randomGreeting, .greetings: return .get
+        case .randomGreeting, .greetings, .greetingCategories:
+            return .get
         }
     }
 
@@ -47,8 +50,9 @@ extension GreetingTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .randomGreeting, .greetings:
+        case .randomGreeting, .greetings, .greetingCategories:
             return .requestPlain
+        
         }
     }
 
