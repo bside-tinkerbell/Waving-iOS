@@ -8,13 +8,28 @@
 import UIKit
 
 class BottomProfileView: UIView {
+    
+    private let memoryLabel: UILabel = {
+       let label = UILabel()
+        label.text = "추억 기록"
+        label.textColor = .text090
+        label.font = .p_B(18)
+        return label
+    }()
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // MARK: - init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(memoryLabel)
+        memoryLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(20)
+            $0.left.equalToSuperview().offset(24)
+        }
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
 }
