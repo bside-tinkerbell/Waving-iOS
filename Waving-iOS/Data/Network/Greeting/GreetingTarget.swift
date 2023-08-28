@@ -15,7 +15,8 @@ import Moya
 /// case signIn
 enum GreetingTarget {
     case randomGreeting
-    case greetings
+    case greetings(Int)
+    case greetingCategories
 }
 
 extension GreetingTarget: BaseTargetType {
@@ -24,8 +25,20 @@ extension GreetingTarget: BaseTargetType {
     /// case .signIn:  return "/def"
     var path: String {
         switch self {
-        case .randomGreeting: return "/greetings/main"
-        case .greetings: return "/greetings/main"
+        case .randomGreeting:
+            return "/greetings/main"
+        case .greetings(let categoryId):
+            return "/greetings/main/\(categoryId)"
+        case .greetingCategories:
+            return "/greetings/main/greeting-categories"
+        }
+    }
+    
+    /// parameter encoding
+    var parameterEncoding: ParameterEncoding {
+        switch self {
+        case .randomGreeting, .greetings, .greetingCategories:
+            return JSONEncoding.default
         }
     }
     
@@ -33,7 +46,8 @@ extension GreetingTarget: BaseTargetType {
     /// .get
     var method: Moya.Method {
         switch self {
-        case .randomGreeting, .greetings: return .get
+        case .randomGreeting, .greetings, .greetingCategories:
+            return .get
         }
     }
 
@@ -47,8 +61,10 @@ extension GreetingTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .randomGreeting, .greetings:
+        case .randomGreeting, .greetings, .greetingCategories:
             return .requestPlain
+        case .greetings(let param):
+            return .requestJSONEncodable(param)
         }
     }
 

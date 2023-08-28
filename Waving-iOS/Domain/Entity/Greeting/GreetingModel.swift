@@ -28,3 +28,32 @@ struct GreetingWrapperModel: Codable {
         self.greeting = try container.decode(String.self, forKey: .greeting)
     }
 }
+
+struct GreetingCategoriesModel: Codable {
+    var code: Int
+    var result: GreetingCategoryList
+}
+
+struct GreetingCategoryList: Codable {
+    var greetingCategoryList: [GreetingCategoryModel]
+    
+    enum CodingKeys: String, CodingKey {
+        case greetingCategoryList = "greeting_category_list"
+    }
+}
+
+struct GreetingCategoryModel: Codable {
+    var greetingCategoryId: Int
+    var category: String
+    
+    enum CodingKeys: String, CodingKey {
+        case greetingCategoryId = "greeting_category_id"
+        case category
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.greetingCategoryId = try container.decode(Int.self, forKey: .greetingCategoryId)
+        self.category = try container.decode(String.self, forKey: .category)
+    }
+}

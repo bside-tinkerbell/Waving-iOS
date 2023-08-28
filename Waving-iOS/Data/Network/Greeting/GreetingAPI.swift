@@ -148,6 +148,18 @@ struct GreetingAPI: Networkable {
         }
     }
     
+    static func getGreetingCategories(completion: @escaping (_ succeed: GreetingCategoriesModel?, _ failed: Error?) -> Void) {
+        makeProvider().request(.greetingCategories) { result in
+            switch ResponseData<GreetingCategoriesModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
+        }
+    }
+    
     static func getGreetingList(category: String, completion: (_ succeed: [SampleGreetingModel]?, _ failed: Error?) -> Void) {
 //        makeProvider().request(.greetings) { result in
 //            switch ResponseData<GreetingModel>.getModelResponse(result) {
