@@ -154,7 +154,6 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
         case .none:
             numberLabel.isHidden = true
             buttonView.isHidden = true
-            //selectButton.isHidden = true
         }
     }
 }

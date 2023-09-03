@@ -81,6 +81,7 @@ class FriendsViewModel: FriendsViewModelRepresentable {
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
                     myContactList.append(ContactEntity(name: name, phoneNumber: phoneNumber))
+                    useCase.saveFriends()
 //                    personList.append(PersonModel(name: name, phoneNumber: phoneNumber, contactCycle: 4))
                 })
             } catch {
