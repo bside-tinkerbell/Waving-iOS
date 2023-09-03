@@ -54,6 +54,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchData()
         binding()
     }
     
@@ -82,8 +83,11 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         }
     }
     
-    func binding() {
+    func fetchData() {
         self.viewModel.fetchFriends()
+    }
+    
+    func binding() {
         viewModel.route
             .receive(on: DispatchQueue.main)
             .sink { [weak self] route in
