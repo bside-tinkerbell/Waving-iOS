@@ -25,9 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isLoggedin = true
         if isLoggedin {
             window.rootViewController = MainTabBarController()
-//            window.rootViewController = TopTabBarViewController.makeGreetingListViewController()
         } else {
-            window.rootViewController = UINavigationController(rootViewController: IntroViewController())
+//            window.rootViewController = UINavigationController(rootViewController: IntroViewController())
         }
 
         

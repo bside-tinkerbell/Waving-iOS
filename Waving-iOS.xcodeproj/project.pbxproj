@@ -118,6 +118,7 @@
 		CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */; };
 		CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */; };
 		CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */; };
+		CEE1123D2AA48DAB006949A5 /* AuthCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */; };
 		CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */; };
 		CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */; };
 		CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */; };
@@ -263,6 +264,7 @@
 		CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionReusableView.swift; sourceTree = "<group>"; };
 		CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderViewModel.swift; sourceTree = "<group>"; };
 		CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCategoryCellModel.swift; sourceTree = "<group>"; };
+		CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCodeModel.swift; sourceTree = "<group>"; };
 		CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepUsernameView.swift; sourceTree = "<group>"; };
 		CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepBirthdateView.swift; sourceTree = "<group>"; };
 		CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepPhoneNumberView.swift; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 		A8E0C10C2A23679800C8696E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				CEE1123B2AA48DA1006949A5 /* SIgn */,
 				A87144F32A8146DF00E5FCAD /* Greeting */,
 				A836B1972A6CE93200D9F02F /* Friends */,
 				A87144F42A8146EC00E5FCAD /* Sample */,
@@ -932,6 +935,14 @@
 				CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CEE1123B2AA48DA1006949A5 /* SIgn */ = {
+			isa = PBXGroup;
+			children = (
+				CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */,
+			);
+			path = SIgn;
 			sourceTree = "<group>";
 		};
 		CEE3E76D2A17A93200BC1464 = {
@@ -1182,6 +1193,7 @@
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8BF47AC2A85351500FCDD7C /* FetchSampleDataUseCase.swift in Sources */,
+				CEE1123D2AA48DAB006949A5 /* AuthCodeModel.swift in Sources */,
 				A838616E2A8DAE5D00E8B609 /* FriendsDataUseCase.swift in Sources */,
 				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,

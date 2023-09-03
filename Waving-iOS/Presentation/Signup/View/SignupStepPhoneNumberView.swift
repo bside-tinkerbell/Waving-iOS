@@ -16,6 +16,7 @@ final class SignupStepPhoneNumberView: UIView {
         // 인증번호 요청
         Log.d("인증번호 요청")
     }
+    private var authCodeButton: WVButton?
     
     private var authCodeTextFieldContainer: SignupTextFieldContainer?
     
@@ -75,6 +76,7 @@ final class SignupStepPhoneNumberView: UIView {
         
         let authCodeRequestButtonContainerView = UIView()
         let authCodeRequestButton = WVButton()
+        authCodeButton = authCodeRequestButton
         authCodeRequestButtonContainerView.addSubview(authCodeRequestButton)
         authCodeRequestButton.setup(model: authCodeButtonModel)
         authCodeRequestButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -108,6 +110,10 @@ final class SignupStepPhoneNumberView: UIView {
         case .phoneNumber:
             phoneNumberText = text
             viewModel?.updatePhoneNumber(text)
+            if !text.isEmpty {
+                authCodeButton?.isEnabled = true
+            }
+            
         default:
             Log.d("default")
         }

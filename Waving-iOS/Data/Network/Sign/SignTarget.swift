@@ -17,6 +17,7 @@ import Moya
 enum SignTarget {
     case signIn
     case sample
+    case requestSMS(String)
 }
 
 extension SignTarget: BaseTargetType {
@@ -27,6 +28,7 @@ extension SignTarget: BaseTargetType {
         switch self {
         case .signIn: return ""
         case .sample: return "/api/users"
+        case .requestSMS: return "/v1/users/authentication"
         }
     }
     
@@ -34,7 +36,10 @@ extension SignTarget: BaseTargetType {
     /// .get
     var method: Moya.Method {
         switch self {
-        case .signIn, .sample: return .get
+        case .signIn, .sample:
+            return .get
+        case .requestSMS:
+            return .post
         }
     }
 
@@ -48,7 +53,10 @@ extension SignTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .signIn, .sample: return .requestPlain
+        case .signIn, .sample:
+            return .requestPlain
+        case .requestSMS(let cellphone):
+            return .requestParameters(parameters: ["cellphone": cellphone], encoding: URLEncoding.queryString)
         }
     }
 

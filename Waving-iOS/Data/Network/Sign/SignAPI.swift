@@ -24,4 +24,16 @@ struct SignAPI: Networkable {
             }
         }
     }
+    
+    static func requestAuthCode(cellphone: String, completion: @escaping (_ succeed: AuthCodeModel?, _ failed: Error?) -> Void) {
+        makeProvider().request(.requestSMS(cellphone)) { result in
+            switch ResponseData<AuthCodeModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
+        }
+    }
 }
