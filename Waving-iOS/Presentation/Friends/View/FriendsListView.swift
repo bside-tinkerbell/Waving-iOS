@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class FriendsListView: UIView, SnapKitInterface {
+final class FriendsListView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
     
@@ -16,14 +16,31 @@ class FriendsListView: UIView, SnapKitInterface {
     
     private lazy var containerView: UIView = {
         let view = UIView()
+        view.backgroundColor = .systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private var suggestionView: UIView? 
-    private var favoriteView: UIView?
-    private var contactListView: UIView? //UICollectionView 위치
+    private var suggestionView: UIView? //연락 한 번 해볼까요?
+    private var favoriteView: UIView? // 즐겨 찾는 지인
+    private var contactListView: UIView? // 나의 지인 목록 - UICollectionView 위치
     
+    private let titleLabel: UILabel = {
+       let label = UILabel()
+        label.text = "나의 지인 목록"
+        label.textColor = .gray090
+        label.font = .p_B(16)
+        return label
+    }()
+    
+    private lazy var friendscontactCollectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.register(FriendsContactCollectionViewCell.self, forCellWithReuseIdentifier: FriendsContactCollectionViewCell.identifier)
+
+        view.dataSource = self
+        view.delegate = self
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,7 +56,7 @@ class FriendsListView: UIView, SnapKitInterface {
         backgroundColor = .systemBackground
         addSubview(scrollView)
         scrollView.addSubview(containerView)
-//        containerView.addSubview(friendscontactCollectionView)
+        [titleLabel, friendscontactCollectionView].forEach { containerView.addSubview($0) }
     }
     
     func setConstraints() {
@@ -52,9 +69,43 @@ class FriendsListView: UIView, SnapKitInterface {
             $0.width.equalTo(scrollView)
             $0.height.equalTo(scrollView).priority(.low)
         }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(20)
+            $0.right.equalToSuperview().offset(-20)
+        }
+        
+        friendscontactCollectionView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.leading.equalTo(containerView).offset(20)
+            $0.right.equalTo(containerView).offset(-20)
+            $0.bottom.equalTo(containerView)
+        }
     }
 }
 
+extension FriendsListView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
+        cell.configUI(.none)
+        return cell
+    }
+}
+
+extension FriendsListView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = collectionView.frame.size.width
+        return CGSize(width: cellWidth, height: cellWidth/5.9)
+    }
+}
+
+
+// MARK: FriendViewRepresentable
 extension FriendsListView: FriendViewRepresentable {
     func setup(with viewModel: FriendsViewModelRepresentable) {
         self.viewModel = viewModel

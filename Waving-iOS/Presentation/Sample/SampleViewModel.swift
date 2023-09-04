@@ -41,8 +41,8 @@ final class SampleViewModel {
         }
     
         public func fetchSample() {
-            useCase.saveFriends()
-            //useCase.fetchFriendsEntity()
+            //useCase.saveFriends()
+            useCase.fetchFriendsEntity()
                 .sink(receiveCompletion: { completion in
                     if case .failure(let err) = completion {
                         Log.e("Retrieving data failed with error \(err)")
