@@ -99,7 +99,7 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
             .wv_setFont(.p_M(24))
             .wv_setTextColor(.text090)
         
-        if type == .emailPassword, type == .complete {
+        if type == .emailPassword || type == .complete {
             showPreviousButton = false
         }
     }
