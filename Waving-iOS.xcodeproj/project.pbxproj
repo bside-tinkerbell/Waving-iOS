@@ -74,6 +74,7 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */; };
 		CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */; };
 		CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */; };
 		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
@@ -220,6 +221,7 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRequestModel.swift; sourceTree = "<group>"; };
 		CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
@@ -941,6 +943,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */,
+				CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */,
 			);
 			path = SIgn;
 			sourceTree = "<group>";
@@ -1202,6 +1205,7 @@
 				A8C792802A4CE0930032FDFC /* SignTarget.swift in Sources */,
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
 				A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */,
+				CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */,
 				A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */,
 				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,

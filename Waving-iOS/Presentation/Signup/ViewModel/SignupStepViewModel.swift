@@ -81,6 +81,7 @@ protocol SignupStepViewModelRepresentable {
 }
 
 class SignupStepViewModel: SignupStepViewModelRepresentable {
+    
     let type: SignupStepType
     let textFieldTypes: [SignupTextFieldType]
     @Published var title: NSAttributedString?
@@ -121,12 +122,6 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
     
     func updatePhoneNumber(_ phoneNumber: String?) {
         SignDataStore.shared.phoneNumber = phoneNumber
-        
-        if let phoneNumber {
-            SignAPI.requestAuthCode(cellphone: phoneNumber) { succeed, failed in
-//                <#code#>
-            }
-        }
     }
 }
 
