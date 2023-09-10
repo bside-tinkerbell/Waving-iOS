@@ -23,6 +23,8 @@ final class SignupViewController: UIViewController {
     lazy private var buttonModelForNextStep = WVButtonModel(title: "next", titleColor: .text010, backgroundColor: .text090) { [weak self] in
         guard let self else { return }
 
+        self.currentSignupStepViewModel?.nextButtonAction?()
+        
         let newIndex = min(self.currentSignupStepIndex + 1, self.collectionViewCellModels.count - 1)
         self.moveToSpecificSignupStep(newIndex)
         self.currentSignupStepIndex = newIndex

@@ -78,14 +78,15 @@ protocol SignupStepViewModelRepresentable {
     func updateBirthdate(_ birthdate: String?)
     func updatePhoneNumber(_ phoneNumber: String?)
     var isNextButtonEnabled: Bool { get set }
+    var nextButtonAction: (() -> Void)? { get set }
 }
 
 class SignupStepViewModel: SignupStepViewModelRepresentable {
     
     let type: SignupStepType
     let textFieldTypes: [SignupTextFieldType]
+    var nextButtonAction: (() -> Void)?
     @Published var title: NSAttributedString?
-    var updateNextButtonEnabled: ((Bool) -> Void)?
     @Published var showPreviousButton = true
     @Published var showNextButton = true
     // TODO: test 를 위해 아래 값을 true 로 설정함

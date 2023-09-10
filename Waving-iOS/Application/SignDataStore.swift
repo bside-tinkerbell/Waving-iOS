@@ -12,7 +12,15 @@ struct SignDataStore {
     
     var phoneNumber: String? {
         didSet {
-            Log.d("phoneNumber: \(phoneNumber!)")
+            guard let phoneNumber else { return }
+            Log.d("phoneNumber: \(phoneNumber)")
+            formattedPhoneNumber = PhoneNumberFormatter.format(text: phoneNumber)
+        }
+    }
+    
+    var formattedPhoneNumber: String? {
+        didSet {
+            Log.d("formattedPhoneNumber: \(formattedPhoneNumber!)")
         }
     }
     
@@ -36,7 +44,36 @@ struct SignDataStore {
     
     var birthdate: String? {
         didSet {
-            Log.d("birthdate: \(birthdate!)")
+            guard let birthdate else { return }
+            Log.d("birthdate: \(birthdate)")
+            formattedBirthdate = BirthdateFormatter.format(text: birthdate)
         }
+    }
+    
+    var formattedBirthdate: String? {
+        didSet {
+            Log.d("formattedBirthdate: \(formattedBirthdate!)")
+        }
+    }
+}
+
+struct BirthdateFormatter {
+    
+    static let maxLength: Int = 8   // hyphen 미포함 (예. 19990101)
+    static let hyphen = "-"
+    
+    static func format(text: String) -> String {
+        var result = String(text.prefix(maxLength))
+        
+        if result.count == 8 {
+            Log.d("text length: \(result.count). result: \(text)")
+            let mutableString = NSMutableString(string: result)
+            mutableString.replaceOccurrences(of: hyphen, with: "", range: .init(location: 0, length: text.count))
+            mutableString.insert(hyphen, at: 4)
+            mutableString.insert(hyphen, at: 7)
+            return String(mutableString)
+        }
+        
+        return ""
     }
 }

@@ -17,10 +17,11 @@ final class SignupStepPhoneNumberView: UIView {
     
     var viewModel: SignupStepViewModelRepresentable?
     
-    private let authCodeButtonModel = WVButtonModel(title: "인증번호", backgroundColor: .mainButton) {
+    lazy private var authCodeRequestButtonModel = WVButtonModel(title: "인증번호", backgroundColor: .mainButton) { [weak self] in
+        guard let self, let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
+    
+        Log.d("phoneNumber: \(phoneNumber), self: \(self)")
         // 인증번호 요청
-        guard let phoneNumber = SignDataStore.shared.phoneNumber else { return }
-        
         SignAPI.requestAuthCode(cellphone: phoneNumber) { succeed, failed in
             if let failed {
                 Log.d("Auth code request failed: \(failed)")
@@ -29,26 +30,51 @@ final class SignupStepPhoneNumberView: UIView {
             
             guard let succeed else { return }
             Log.d("result: \(succeed.result)")
+            self.subStep = .confirmAuthCode
+            self.viewModel?.isNextButtonEnabled = false
         }
-
     }
     
-    private var authCodeButton: WVButton?
+    lazy private var authCodeConfirmButtonModel = WVButtonModel(title: "확인", backgroundColor: .mainButton) { [weak self] in
+        guard let self,
+              let phoneNumber = SignDataStore.shared.phoneNumber,
+              let authCode = Int(self.authCodeText) else { return }
+        
+        let formattedPhoneNumber = PhoneNumberFormatter.format(text: phoneNumber)
+        
+        // 인증번호 검증
+        SignAPI.confirmAuthCode(cellphone: formattedPhoneNumber, authCode: authCode, completion: { succeed, failed in
+            if let failed {
+                Log.d("Auth code confirm failed: \(failed)")
+                return
+            }
+            
+            guard let succeed else { return }
+            Log.d("result: \(succeed.result)")
+            self.viewModel?.isNextButtonEnabled = true
+        })
+    }
+    
+    private var authCodeRequestButton: WVButton?
+    private var authCodeConfirmButton: WVButton?
+    private var authCodeConfirmButtonContainerVier: UIView?
     
     fileprivate var authCodeTextFieldContainer: SignupTextFieldContainer?
     fileprivate var phoneNumberFieldContainer: SignupTextFieldContainer?
     
     private var phoneNumberText: String = ""
+    private var authCodeText: String = ""
     
     private var cancellables = [AnyCancellable]()
     
     private var isValidTextfieldValues: Bool {
-        let result = isValidPhoneNumber
-        return result
-    }
-    
-    private var isValidPhoneNumber: Bool {
-        !phoneNumberText.isEmpty && phoneNumberText.count > 0 && phoneNumberText.count <= PhoneNumberFormatter.phoneNumberMaxLength
+        if subStep == .requestAuthCode {
+            return !phoneNumberText.isEmpty && phoneNumberText.count > 0 && phoneNumberText.count <= PhoneNumberFormatter.phoneNumberMaxLength
+        } else if subStep == .confirmAuthCode {
+            return !authCodeText.isEmpty && authCodeText.count == 5
+        }
+        
+        return false
     }
     
     private var subStep: SubStep = .requestAuthCode
@@ -64,11 +90,13 @@ final class SignupStepPhoneNumberView: UIView {
     }
     
     private func setupView() {
-        let containerView = UIView()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(containerView)
+        let containerStackView = UIStackView()
+        containerStackView.axis = .vertical
+        containerStackView.spacing = 8
+        containerStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(containerStackView)
         
-        containerView.snp.makeConstraints { make in
+        containerStackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
@@ -78,7 +106,7 @@ final class SignupStepPhoneNumberView: UIView {
         let phoneNumberRowStackView = UIStackView()
         phoneNumberRowStackView.axis = .horizontal
         phoneNumberRowStackView.spacing = 16
-        containerView.addSubview(phoneNumberRowStackView)
+        containerStackView.addArrangedSubview(phoneNumberRowStackView)
         
         let phoneNumberFieldContainer = SignupTextFieldContainer(with: .phoneNumber)
         self.phoneNumberFieldContainer = phoneNumberFieldContainer
@@ -96,9 +124,10 @@ final class SignupStepPhoneNumberView: UIView {
         
         let authCodeRequestButtonContainerView = UIView()
         let authCodeRequestButton = WVButton()
-        authCodeButton = authCodeRequestButton
+        
+            self.authCodeRequestButton = authCodeRequestButton
         authCodeRequestButtonContainerView.addSubview(authCodeRequestButton)
-        authCodeRequestButton.setup(model: authCodeButtonModel)
+        authCodeRequestButton.setup(model: authCodeRequestButtonModel)
         authCodeRequestButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         phoneNumberRowStackView.addArrangedSubview(authCodeRequestButtonContainerView)
         authCodeRequestButtonContainerView.snp.makeConstraints { make in
@@ -111,18 +140,35 @@ final class SignupStepPhoneNumberView: UIView {
             make.trailing.equalToSuperview()
         }
         
+        let authCodeRowStackView = UIStackView()
+        authCodeRowStackView.axis = .horizontal
+        authCodeRowStackView.spacing = 16
+        containerStackView.addArrangedSubview(authCodeRowStackView)
+        
         let authCodeTextFieldContainer = SignupTextFieldContainer(with: .authCode)
         self.authCodeTextFieldContainer = authCodeTextFieldContainer
         authCodeTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
         authCodeTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        containerView.addSubview(authCodeTextFieldContainer)
-        authCodeTextFieldContainer.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberRowStackView.snp.bottom)
+        authCodeRowStackView.addArrangedSubview(authCodeTextFieldContainer)
+        
+        let authCodeConfirmButtonContainerView = UIView()
+        let authCodeConfirmButton = WVButton()
+        
+        self.authCodeConfirmButton = authCodeConfirmButton
+        self.authCodeConfirmButtonContainerVier = authCodeConfirmButtonContainerView
+        authCodeConfirmButtonContainerView.addSubview(authCodeConfirmButton)
+        authCodeConfirmButton.setup(model: authCodeConfirmButtonModel)
+        authCodeConfirmButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        authCodeRowStackView.addArrangedSubview(authCodeConfirmButtonContainerView)
+        authCodeConfirmButtonContainerView.snp.makeConstraints { make in
+            make.width.equalTo(90)
+        }
+        authCodeConfirmButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().priority(.low)
+            make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
         }
-
     }
     
     @objc
@@ -131,18 +177,13 @@ final class SignupStepPhoneNumberView: UIView {
         
         switch textField.type {
         case .phoneNumber:
-            let formattedPhoneNumber = PhoneNumberFormatter.format(text: text)
-            textField.text = formattedPhoneNumber
             phoneNumberText = text
             viewModel?.updatePhoneNumber(text)
+            viewModel?.isNextButtonEnabled = isValidTextfieldValues
+        case .authCode:
+            authCodeText = text
         default:
             Log.d("default")
-        }
-        
-        if subStep == .requestAuthCode {
-            viewModel?.isNextButtonEnabled = isValidTextfieldValues
-        } else {
-            
         }
     }
 }
@@ -164,19 +205,18 @@ struct PhoneNumberFormatter {
     static let hyphen = "-"
     
     static func format(text: String) -> String {
-        if (text.count == 3 && text == phoneNumberRequiredString) {
-            return text + hyphen
-        }
         
-        if text.count == 12 {
+        if text.count == 10 {
+            Log.d("text length: \(text.count). text: \(text)")
             let mutablePhoneNumber = NSMutableString(string: text)
             mutablePhoneNumber.replaceOccurrences(of: hyphen, with: "", range: .init(location: 0, length: text.count))
             mutablePhoneNumber.insert(hyphen, at: 3)
-            mutablePhoneNumber.insert(hyphen, at: 8)
+            mutablePhoneNumber.insert(hyphen, at: 7)
             return String(mutablePhoneNumber)
         }
         
-        if text.count == 13 {
+        if text.count == 11 {
+            Log.d("text length: \(text.count). text: \(text)")
             let mutablePhoneNumber = NSMutableString(string: text)
             mutablePhoneNumber.replaceOccurrences(of: hyphen, with: "", range: .init(location: 0, length: text.count))
             mutablePhoneNumber.insert(hyphen, at: 3)

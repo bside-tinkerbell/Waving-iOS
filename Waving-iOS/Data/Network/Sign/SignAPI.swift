@@ -28,9 +28,9 @@ struct SignAPI: Networkable {
     /// 가입 인증코드 요청
     /// - Parameters:
     ///   - cellphone: 인증코드를 받을 휴대폰 번호
-    static func requestAuthCode(cellphone: String, completion: @escaping (_ succeed: AuthCodeModel?, _ failed: Error?) -> Void) {
+    static func requestAuthCode(cellphone: String, completion: @escaping (_ succeed: ResponseModel?, _ failed: Error?) -> Void) {
         makeProvider().request(.requestSMS(cellphone)) { result in
-            switch ResponseData<AuthCodeModel>.getModelResponse(result) {
+            switch ResponseData<ResponseModel>.getModelResponse(result) {
             case .success(let model):
                 return completion(model, nil)
             case .failure(let error):
@@ -42,10 +42,11 @@ struct SignAPI: Networkable {
     
     /// 가입 인증코드 확인
     /// - Parameters:
-    ///   - cellphone: 인증코드를 받을 휴대폰 번호
-    static func confirmAuthCode(cellphone: String, authCode: Int, completion: @escaping (_ succeed: AuthCodeModel?, _ failed: Error?) -> Void) {
+    ///   - cellphone: 가입할 휴대폰 번호
+    ///   - authCode: 인증코드
+    static func confirmAuthCode(cellphone: String, authCode: Int, completion: @escaping (_ succeed: ResponseModel?, _ failed: Error?) -> Void) {
         makeProvider().request(.confirmAuthCode(cellphone, authCode)) { result in
-            switch ResponseData<AuthCodeModel>.getModelResponse(result) {
+            switch ResponseData<ResponseModel>.getModelResponse(result) {
             case .success(let model):
                 return completion(model, nil)
             case .failure(let error):
@@ -57,10 +58,10 @@ struct SignAPI: Networkable {
     
     /// 가입 요청
     /// - Parameters:
-    ///   - cellphone: 인증코드를 받을 휴대폰 번호
-    static func confirmAuthCode(model: SignRequestModel, authCode: Int, completion: @escaping (_ succeed: AuthCodeModel?, _ failed: Error?) -> Void) {
+    ///   - model: 가입 파라미터를 담은 모델
+    static func signup(model: SignRequestModel, completion: @escaping (_ succeed: ResponseModel?, _ failed: Error?) -> Void) {
         makeProvider().request(.signup(model)) { result in
-            switch ResponseData<AuthCodeModel>.getModelResponse(result) {
+            switch ResponseData<ResponseModel>.getModelResponse(result) {
             case .success(let model):
                 return completion(model, nil)
             case .failure(let error):
