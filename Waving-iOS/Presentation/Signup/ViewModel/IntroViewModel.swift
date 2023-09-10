@@ -24,13 +24,6 @@ final class IntroViewModel {
     func signup() {
         Log.d("가입")
         sendRoute.send(.signupView)
-
-        SignAPI.getDataList { succeed, failed in
-            if((succeed?.data?.count ?? 0) != 0) {
-                guard let item = succeed else { return }
-                Log.i(item)
-            }
-        }
     }
     
     func login() {

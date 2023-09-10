@@ -74,6 +74,7 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */; };
 		CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */; };
 		CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */; };
 		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
@@ -118,6 +119,7 @@
 		CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */; };
 		CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */; };
 		CEDC679B2A6CA7EA009D37AE /* GreetingCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */; };
+		CEE1123D2AA48DAB006949A5 /* AuthCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */; };
 		CEE16BFC2A3482C2003EC97E /* SignupStepUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */; };
 		CEE16BFE2A3484DF003EC97E /* SignupStepBirthdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */; };
 		CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */; };
@@ -219,6 +221,7 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRequestModel.swift; sourceTree = "<group>"; };
 		CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 		CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionReusableView.swift; sourceTree = "<group>"; };
 		CEDC67872A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderViewModel.swift; sourceTree = "<group>"; };
 		CEDC679A2A6CA7E9009D37AE /* GreetingCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCategoryCellModel.swift; sourceTree = "<group>"; };
+		CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCodeModel.swift; sourceTree = "<group>"; };
 		CEE16BFB2A3482C2003EC97E /* SignupStepUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepUsernameView.swift; sourceTree = "<group>"; };
 		CEE16BFD2A3484DF003EC97E /* SignupStepBirthdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepBirthdateView.swift; sourceTree = "<group>"; };
 		CEE16BFF2A34867C003EC97E /* SignupStepPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepPhoneNumberView.swift; sourceTree = "<group>"; };
@@ -735,6 +739,7 @@
 		A8E0C10C2A23679800C8696E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				CEE1123B2AA48DA1006949A5 /* SIgn */,
 				A87144F32A8146DF00E5FCAD /* Greeting */,
 				A836B1972A6CE93200D9F02F /* Friends */,
 				A87144F42A8146EC00E5FCAD /* Sample */,
@@ -932,6 +937,15 @@
 				CEDC67852A6C94BC009D37AE /* HomeCollectionReusableView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CEE1123B2AA48DA1006949A5 /* SIgn */ = {
+			isa = PBXGroup;
+			children = (
+				CEE1123C2AA48DAB006949A5 /* AuthCodeModel.swift */,
+				CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */,
+			);
+			path = SIgn;
 			sourceTree = "<group>";
 		};
 		CEE3E76D2A17A93200BC1464 = {
@@ -1182,6 +1196,7 @@
 				CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */,
 				CEE3E77A2A17A93200BC1464 /* AppDelegate.swift in Sources */,
 				A8BF47AC2A85351500FCDD7C /* FetchSampleDataUseCase.swift in Sources */,
+				CEE1123D2AA48DAB006949A5 /* AuthCodeModel.swift in Sources */,
 				A838616E2A8DAE5D00E8B609 /* FriendsDataUseCase.swift in Sources */,
 				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
@@ -1190,6 +1205,7 @@
 				A8C792802A4CE0930032FDFC /* SignTarget.swift in Sources */,
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
 				A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */,
+				CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */,
 				A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */,
 				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,

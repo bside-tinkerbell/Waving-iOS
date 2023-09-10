@@ -48,7 +48,7 @@ class Toast: UIView, SnapKitInterface {
     
     func actions() {
         UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {self.toastLabel.alpha = 0.0}) { _ in
-            self.toastLabel.removeFromSuperview()
+            self.removeFromSuperview()
         }
     }
 }
