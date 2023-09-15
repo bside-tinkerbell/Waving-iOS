@@ -20,6 +20,7 @@ enum SignTarget {
     case requestSMS(String)
     case confirmAuthCode(String, Int)
     case signup(SignRequestModel)
+    case login(LoginRequestModel)
 }
 
 extension SignTarget: BaseTargetType {
@@ -33,6 +34,7 @@ extension SignTarget: BaseTargetType {
         case .requestSMS: return "/v1/users/authentication"
         case .confirmAuthCode: return "/v1/users/authentication-confirm"
         case .signup: return "/v1/users/join"
+        case .login: return "/v1/auth/login"
         }
     }
     
@@ -42,7 +44,7 @@ extension SignTarget: BaseTargetType {
         switch self {
         case .signIn, .sample:
             return .get
-        case .requestSMS, .confirmAuthCode, .signup:
+        case .requestSMS, .confirmAuthCode, .signup, .login:
             return .post
         }
     }
@@ -71,6 +73,10 @@ extension SignTarget: BaseTargetType {
                                          "name": model.name,
                                          "birthday": model.birthday,
                                          "cellphone": model.cellphone]
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .login(let model):
+            let params: [String: Any] = ["username": model.email,
+                                         "password": model.password]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
     }

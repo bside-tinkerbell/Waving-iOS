@@ -7,23 +7,121 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+final class LoginViewController: UIViewController, SnapKitInterface {
+    
+    private let viewModel = LoginViewModel()
+    
+    lazy private var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy private var textFieldStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        return stackView
+    }()
+    
+    lazy private var emailTextFieldContainer: SignupTextFieldContainer = {
+        let textField = SignupTextFieldContainer(with: .email)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    lazy private var passwordTextFieldContainer: SignupTextFieldContainer = {
+        let textField = SignupTextFieldContainer(with: .password)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    lazy private var doneButtonModel = WVButtonModel(title: "확인", isEnabled: false, titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+        self?.viewModel.login()
+    }
+    
+    lazy private var doneButton: WVButton = {
+        let button = WVButton()
+        button.setup(model: doneButtonModel)
+        return button
+    }()
+    
+    private var emailText: String = ""
+    private var passwordText: String = ""
+    
+    private var isValidEmail: Bool {
+        !emailText.isEmpty
+    }
+    
+    private var isValidPassword: Bool {
+        !passwordText.isEmpty && passwordText.count > 7
+    }
+    
+    private var isDoneButtonEnabled: Bool {
+        isValidEmail && isValidPassword
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .cyan
+        view.backgroundColor = .white
+        
+        setupView()
+        addComponents()
+        setConstraints()
+        binding()
     }
     
+    private func setupView() {
+        emailTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        
+        passwordTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    @objc
+    private func textFieldDidChange(_ textField: WVTextField) {
+        guard let text = textField.text else { return }
+        
+        switch textField.type {
+        case .email:
+            emailText = text
+            viewModel.updateEmail(text)
+        case .password:
+            passwordText = text
+            viewModel.updatePassword(text)
+        default:
+            Log.d("default")
+        }
+        
+        doneButton.isEnabled = isDoneButtonEnabled
+    }
+    
+    func addComponents() {
+        [containerView].forEach { view.addSubview($0) }
+        [textFieldStackView].forEach { containerView.addSubview($0) }
+        [emailTextFieldContainer, passwordTextFieldContainer, doneButton].forEach { textFieldStackView.addArrangedSubview($0) }
+    }
+    
+    func setConstraints() {
+        containerView.snp.makeConstraints {
+            $0.leading.trailing.top.bottom.equalToSuperview()
+        }
+        
+        textFieldStackView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.centerY.equalToSuperview()
+        }
+    }
+    
+    private func binding() {
+//        viewModel.route
+//            .sink { [weak self] route in
+//                self?.navigationController?.pushViewController(route.viewController, animated: true)
+//            }
+//            .store(in: &cancellable)
+    }
 
 }

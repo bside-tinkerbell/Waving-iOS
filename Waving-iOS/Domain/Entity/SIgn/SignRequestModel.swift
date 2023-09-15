@@ -22,8 +22,14 @@ struct SignRequestModel: Codable {
     let gatherAgree: Int
     let email: String
     let password: String
+    /// 0: 아이디, 비번으로 로그인, 1: 소셜로그인
     let loginType: Int
     let name: String
     let birthday: String
     let cellphone: String
+}
+
+struct LoginRequestModel: Codable {
+    let email: String
+    let password: String
 }

@@ -23,6 +23,8 @@ final class SignupViewController: UIViewController {
     lazy private var buttonModelForNextStep = WVButtonModel(title: "next", titleColor: .text010, backgroundColor: .text090) { [weak self] in
         guard let self else { return }
 
+        self.currentSignupStepViewModel?.nextButtonAction?()
+        
         let newIndex = min(self.currentSignupStepIndex + 1, self.collectionViewCellModels.count - 1)
         self.moveToSpecificSignupStep(newIndex)
         self.currentSignupStepIndex = newIndex
@@ -138,6 +140,12 @@ final class SignupViewController: UIViewController {
     }
     
     private func bind() {
+        currentSignupStepViewModel?.route
+            .sink { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            .store(in: &cancellables)
+        
         currentSignupStepViewModel?.$showPreviousButton
             .sink { [weak self] show in
                 guard let self else { return }

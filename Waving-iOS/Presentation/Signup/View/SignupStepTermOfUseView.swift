@@ -36,12 +36,26 @@ final class SignupStepTermOfUseView: UIView, SnapKitInterface {
         return labelContainerView
     }()
     
-    private lazy var firstButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 이용약관(만 14세 이상 이용가능)")
-    private lazy var secondButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 개인정보 수집 및 이용")
+    private lazy var firstButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 이용약관(만 14세 이상 이용가능)") { [weak self] _ in
+        guard let self else { return }
+        
+        let isNextButtonEnabled = self.firstButtonModel.isSelected && self.secondButtonModel.isSelected
+        self.viewModel?.isNextButtonEnabled = isNextButtonEnabled
+    }
+    
+    private lazy var secondButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 개인정보 수집 및 이용") { [weak self] _ in
+        guard let self else { return }
+        
+        let isNextButtonEnabled = self.firstButtonModel.isSelected && self.secondButtonModel.isSelected
+        self.viewModel?.isNextButtonEnabled = isNextButtonEnabled
+    }
+
     private lazy var agreeAllButtonModel: SignupTermsOfUseButtonModel = .init(title: "약관 전체동의", showBottomSeparator: true, didTouchUpInside: { [weak self] _ in
         guard let self else { return }
         self.firstButtonModel.isSelected = !self.firstButtonModel.isSelected
         self.secondButtonModel.isSelected = !self.secondButtonModel.isSelected
+        
+        self.viewModel?.isNextButtonEnabled = true
     })
     
     private lazy var firstButton: SignupTermsOfUseButton = {
@@ -91,10 +105,36 @@ final class SignupStepTermOfUseView: UIView, SnapKitInterface {
             $0.trailing.equalToSuperview().offset(-20)
         }
     }
+    
+    func signup() {
+        guard let email = SignDataStore.shared.email,
+              let password = SignDataStore.shared.password,
+              let username = SignDataStore.shared.username,
+              let birthday = SignDataStore.shared.formattedBirthdate,
+              let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
+        
+        let signRequestModel = SignRequestModel(gatherAgree: 1, email: email, password: password, loginType: 0, name: username, birthday: birthday, cellphone: phoneNumber)
+        
+        SignAPI.signup(model: signRequestModel) { succeed, failed in
+            if failed != nil {
+                Log.d("sign up failed")
+                return
+            }
+            
+            guard let succeed else { return }
+            Log.d("signup succeeded: \(succeed.result)")
+        }
+    }
 }
 
 extension SignupStepTermOfUseView: SignupStepViewRepresentable {
     func setup(with viewModel: SignupStepViewModelRepresentable) {
         self.viewModel = viewModel
+        
+        self.viewModel?.isNextButtonEnabled = false
+        self.viewModel?.nextButtonAction = { [weak self] in
+            guard let self else { return }
+            self.signup()
+        }
     }
 }
