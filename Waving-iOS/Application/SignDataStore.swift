@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct LoginDataStore {
+    static var shared = LoginDataStore()
+    
+    var userId: Int?
+    var accessToken: String?
+    var refreshToken: String?
+}
 struct SignDataStore {
     static var shared = SignDataStore()
     
@@ -63,17 +70,15 @@ struct BirthdateFormatter {
     static let hyphen = "-"
     
     static func format(text: String) -> String {
-        var result = String(text.prefix(maxLength))
+        guard text.count >= 8 else { return text }
         
-        if result.count == 8 {
-            Log.d("text length: \(result.count). result: \(text)")
-            let mutableString = NSMutableString(string: result)
-            mutableString.replaceOccurrences(of: hyphen, with: "", range: .init(location: 0, length: text.count))
-            mutableString.insert(hyphen, at: 4)
-            mutableString.insert(hyphen, at: 7)
-            return String(mutableString)
-        }
+        let result = String(text.prefix(maxLength))
         
-        return ""
+        Log.d("text length: \(result.count). result: \(text)")
+        let mutableString = NSMutableString(string: result)
+        mutableString.replaceOccurrences(of: hyphen, with: "", range: .init(location: 0, length: text.count))
+        mutableString.insert(hyphen, at: 4)
+        mutableString.insert(hyphen, at: 7)
+        return String(mutableString)
     }
 }

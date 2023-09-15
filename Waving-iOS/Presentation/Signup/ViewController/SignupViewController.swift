@@ -140,6 +140,12 @@ final class SignupViewController: UIViewController {
     }
     
     private func bind() {
+        currentSignupStepViewModel?.route
+            .sink { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            .store(in: &cancellables)
+        
         currentSignupStepViewModel?.$showPreviousButton
             .sink { [weak self] show in
                 guard let self else { return }

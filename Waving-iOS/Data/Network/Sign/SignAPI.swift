@@ -70,6 +70,21 @@ struct SignAPI: Networkable {
             }
         }
     }
+    
+    /// 로그인 요청
+    /// - Parameters:
+    ///   - model: 로그인 파라미터를 담은 모델
+    static func login(model: LoginRequestModel, completion: @escaping (_ succeed: LoginResponseModel?, _ failed: Error?) -> Void) {
+        makeProvider().request(.login(model)) { result in
+            switch ResponseData<LoginResponseModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
+        }
+    }
 
 }
 

@@ -79,6 +79,7 @@ protocol SignupStepViewModelRepresentable {
     func updatePhoneNumber(_ phoneNumber: String?)
     var isNextButtonEnabled: Bool { get set }
     var nextButtonAction: (() -> Void)? { get set }
+    var route: AnyPublisher<Void, Never> { get }
 }
 
 class SignupStepViewModel: SignupStepViewModelRepresentable {
@@ -91,6 +92,12 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
     @Published var showNextButton = true
     // TODO: test 를 위해 아래 값을 true 로 설정함
     @Published var isNextButtonEnabled: Bool = true
+    
+    var route: AnyPublisher<Void, Never> {
+        self.sendRoute.eraseToAnyPublisher()
+    }
+    
+    var sendRoute: PassthroughSubject<Void, Never> = .init()
     
     init(type: SignupStepType) {
         self.type = type

@@ -28,3 +28,8 @@ struct SignRequestModel: Codable {
     let birthday: String
     let cellphone: String
 }
+
+struct LoginRequestModel: Codable {
+    let email: String
+    let password: String
+}
