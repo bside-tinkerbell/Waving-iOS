@@ -68,17 +68,28 @@ struct BirthdateFormatter {
     
     static let maxLength: Int = 8   // hyphen 미포함 (예. 19990101)
     static let hyphen = "-"
+    static let birthdateRegex = #"^\d{4}-\d{2}-\d{2}$"#
     
     static func format(text: String) -> String {
-        guard text.count >= 8 else { return text }
+        guard text.count >= 8, !BirthdateFormatter.isValidBirthdate(text) else { return text }
         
-        let result = String(text.prefix(maxLength))
-        
-        Log.d("text length: \(result.count). result: \(text)")
-        let mutableString = NSMutableString(string: result)
+        Log.d("text length: \(text.count). result: \(text)")
+        let mutableString = NSMutableString(string: text)
         mutableString.replaceOccurrences(of: hyphen, with: "", range: .init(location: 0, length: text.count))
         mutableString.insert(hyphen, at: 4)
         mutableString.insert(hyphen, at: 7)
-        return String(mutableString)
+        
+        let result = String(mutableString)
+        if BirthdateFormatter.isValidBirthdate(result) {
+            return result
+        }
+        
+        fatalError("birthdate \(text) is invalid")
+    }
+
+    static func isValidBirthdate(_ input: String) -> Bool {
+        let regex = try! NSRegularExpression(pattern: Self.birthdateRegex)
+        let range = NSRange(location: 0, length: input.utf16.count)
+        return regex.firstMatch(in: input, options: [], range: range) != nil
     }
 }

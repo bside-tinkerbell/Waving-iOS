@@ -32,5 +32,15 @@ final class Waving_iOSTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    func testIsValidBirthdate_Valid() {
+        let validBirthdate = "1990-12-31"
+        XCTAssertTrue(BirthdateFormatter.isValidBirthdate(validBirthdate))
+    }
+    
+    func testIsValidBirthdate_Invalid() {
+        let invalidBirthdate = "1990-12-31-Invalid"
+        XCTAssertFalse(BirthdateFormatter.isValidBirthdate(invalidBirthdate))
+    }
+    
 }
