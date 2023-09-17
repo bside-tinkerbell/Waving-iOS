@@ -9,13 +9,24 @@ import Foundation
 
 struct LoginResponseModel: Codable {
     let code: Int
-    let result: TokenModel
+    let result: TokenWrapperModel
+}
+
+struct TokenWrapperModel: Codable {
+    let token: TokenModel
 }
 
 struct TokenModel: Codable {
     let id: Int
     let accessToken: String
     let refreshToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+    }
+    
 }
 
 /*
