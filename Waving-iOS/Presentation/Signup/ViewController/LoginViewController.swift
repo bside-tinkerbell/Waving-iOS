@@ -5,9 +5,12 @@
 //  Created by Jane Choi on 2023/06/03.
 //
 
+import Combine
 import UIKit
 
 final class LoginViewController: UIViewController, SnapKitInterface {
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     private let viewModel = LoginViewModel()
     
@@ -67,17 +70,9 @@ final class LoginViewController: UIViewController, SnapKitInterface {
         
         view.backgroundColor = .white
         
-        setupView()
         addComponents()
         setConstraints()
         binding()
-    }
-    
-    private func setupView() {
-        emailTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        
-        passwordTextFieldContainer.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-
     }
     
     @objc
@@ -122,6 +117,29 @@ final class LoginViewController: UIViewController, SnapKitInterface {
 //                self?.navigationController?.pushViewController(route.viewController, animated: true)
 //            }
 //            .store(in: &cancellable)
+        
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: emailTextFieldContainer.textField)
+            .dropFirst()
+            .map { ($0.object as? UITextField)?.text ?? "" }
+            .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
+            .sink { [weak self] in
+                guard let self else { return }
+                emailText = $0
+                viewModel.emailPublisher.send($0)
+                doneButton.isEnabled = isDoneButtonEnabled
+            }
+            .store(in: &cancellables)
+        
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: passwordTextFieldContainer.textField)
+            .dropFirst()
+            .map { ($0.object as? UITextField)?.text ?? "" }
+            .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
+            .sink { [weak self] in
+                guard let self else { return }
+                passwordText = $0
+                viewModel.passwordPublisher.send($0)
+                doneButton.isEnabled = isDoneButtonEnabled
+            }
+            .store(in: &cancellables)
     }
-
 }

@@ -17,13 +17,11 @@ final class SignupStepBirthdateView: UIView {
     private var cancellables = [AnyCancellable]()
     
     private var isValidTextfieldValues: Bool {
-        let result = isValidBirthdate
-        Log.d("result: \(result)")
-        return result
+        isValidBirthdate
     }
     
     private var isValidBirthdate: Bool {
-        !birthdateText.isEmpty && birthdateText.count > 0 && birthdateText.count < 9
+        !birthdateText.isEmpty && BirthdateFormatter.isValidBirthdate(birthdateText)
     }
     
     override init(frame: CGRect) {
@@ -67,7 +65,6 @@ final class SignupStepBirthdateView: UIView {
         switch textField.type {
         case .birthdate:
             birthdateText = text
-            viewModel?.updateBirthdate(text)
         default:
             Log.d("default")
         }
@@ -79,6 +76,11 @@ final class SignupStepBirthdateView: UIView {
 extension SignupStepBirthdateView: SignupStepViewRepresentable {
     func setup(with viewModel: SignupStepViewModelRepresentable) {
         self.viewModel = viewModel
+        
+        self.viewModel?.nextButtonAction = { [weak self] in
+            guard let self else { return }
+            self.viewModel?.updateBirthdate(self.birthdateText)
+        }
     }
 }
 

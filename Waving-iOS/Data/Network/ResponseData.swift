@@ -17,6 +17,16 @@ struct ResponseData<Model: Codable> {
                 let model = try JSONDecoder().decode(Model.self, from: response.data)
                 return .success(model)
             } catch {
+                if let keyNotFound = error as? DecodingError {
+                    switch keyNotFound {
+                    case .keyNotFound(let key, _):
+                        print("Key '\(key.stringValue)' not found.")
+                    default:
+                        print("Decoding error: \(error.localizedDescription)")
+                    }
+                } else {
+                    print("Decoding error: \(error.localizedDescription)")
+                }
                 return .failure(error)
             }
         case .failure(let error):
