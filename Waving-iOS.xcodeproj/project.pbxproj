@@ -87,6 +87,7 @@
 		CE8861F02A2CB4CB00204CBA /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */; };
 		CE8861F12A2CB4CD00204CBA /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */; };
 		CE8861F22A2CB4CF00204CBA /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */; };
+		CE8F114B2AC3043B0069D158 /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F114A2AC3043B0069D158 /* SignUpResponseModel.swift */; };
 		CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */; };
 		CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */; };
 		CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE02A2B0F270036E335 /* UIColor+.swift */; };
@@ -236,6 +237,7 @@
 		CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
 		CE8861EE2A2CB16300204CBA /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
 		CE8861EF2A2CB16400204CBA /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		CE8F114A2AC3043B0069D158 /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
 		CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVButton.swift; sourceTree = "<group>"; };
 		CE9BBCE02A2B0F270036E335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -950,6 +952,7 @@
 				CEE1123C2AA48DAB006949A5 /* ResponseModel.swift */,
 				CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */,
 				CE778B642AB3F5DB001DBF51 /* LoginResponseModel.swift */,
+				CE8F114A2AC3043B0069D158 /* SignUpResponseModel.swift */,
 			);
 			path = SIgn;
 			sourceTree = "<group>";
@@ -1184,6 +1187,7 @@
 				A8BF46E32A83312A00FCDD7C /* SampleViewModel.swift in Sources */,
 				A8C7927D2A4CDD390032FDFC /* URLString.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
+				CE8F114B2AC3043B0069D158 /* SignUpResponseModel.swift in Sources */,
 				CEF347C62A5BF5A800ED012E /* GreetingListViewController.swift in Sources */,
 				A8C792822A4CE6D60032FDFC /* TestModel.swift in Sources */,
 				A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */,
