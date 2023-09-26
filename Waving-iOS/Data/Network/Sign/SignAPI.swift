@@ -59,9 +59,10 @@ struct SignAPI: Networkable {
     /// 가입 요청
     /// - Parameters:
     ///   - model: 가입 파라미터를 담은 모델
-    static func signup(model: SignRequestModel, completion: @escaping (_ succeed: ResponseModel?, _ failed: Error?) -> Void) {
+    static func signup(model: SignRequestModel, completion: @escaping (_ succeed: SignUpResponseModel?, _ failed: Error?) -> Void) {
         makeProvider().request(.signup(model)) { result in
-            switch ResponseData<ResponseModel>.getModelResponse(result) {
+            Log.d("result: \(result)")
+            switch ResponseData<SignUpResponseModel>.getModelResponse(result) {
             case .success(let model):
                 return completion(model, nil)
             case .failure(let error):
