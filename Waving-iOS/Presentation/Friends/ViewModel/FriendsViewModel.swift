@@ -42,8 +42,10 @@ protocol FriendsViewModelRepresentable {
     func didTapProfile()
 }
 
-class FriendsViewModel: FriendsViewModelRepresentable {
+final class FriendsViewModel: FriendsViewModelRepresentable {
     @Published var type: FriendType?
+    @Published public var friendsList: [GetFriendsEntity] = []
+    
     private let useCase: FriendsDataUseCase
     private var cancellables = Set<AnyCancellable>()
     
