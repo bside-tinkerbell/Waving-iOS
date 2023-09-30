@@ -12,7 +12,7 @@ var saveContactList = [ContactEntity]()
 
 struct ContactEntity {
     let name: String
-    let phoneNumber: String
+    let cellphone: String
     let contactCycle: Int = 2
 }
 
