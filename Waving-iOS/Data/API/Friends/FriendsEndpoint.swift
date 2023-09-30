@@ -44,10 +44,9 @@ enum FriendsEndpoint: APIEndpoint {
     var parameters: [String: Any]? {
         switch self {
         case .saveFriends:
-           // let saveFriendsDTO = SaveFriendsDTO(userId: 16, contactId: 22, profileList: [PersonModel(name: "가나다", cellPhone: "010-1234-5678", contactCycle: 2)]) //TODO: API 작동 실험용
-            
-            let saveFriendsDTO = SaveFriendsDTO(userId: LoginDataStore.shared.userId!, contactId: 22, profileList: [PersonModel(name: "가나다", cellPhone: "010-1234-5678", contactCycle: 2)]) //TODO: 뒤에 들어가는 사람 목록 바꿔야 함
-            
+            //let saveFriendsDTO = SaveFriendsDTO(userId: 16, contactId: 22, profileList: [PersonModel(name: "가나다", cellPhone: "010-1234-5678", contactCycle: 2)])
+             let saveFriendsDTO = SaveFriendsDTO(userId: LoginDataStore.shared.userId!, contactId: SaveContactEntity.shared.contactId, profileList: saveContactList)
+                     
             return saveFriendsDTO.asDictionary
         case .getFriends:
             return nil

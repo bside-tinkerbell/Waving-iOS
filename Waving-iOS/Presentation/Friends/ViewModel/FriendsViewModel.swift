@@ -71,10 +71,13 @@ final class FriendsViewModel {
                     self.friendsList = []
                 }
             } receiveValue: { getFriendsEntity in
-                self.type = .list
+                SaveContactEntity.shared.contactId = getFriendsEntity[0].contactId
+                self.type = .intro
                 self.friendsList = getFriendsEntity
+    
             }
             .store(in: &cancellables)
+    
    }
 }
 
@@ -103,7 +106,7 @@ extension FriendsViewModel: FriendsViewModelRepresentable {
                     let name = contact.familyName + contact.givenName
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
-                    myContactList.append(ContactEntity(name: name, phoneNumber: phoneNumber))
+                    myContactList.append(ContactEntity(name: name, cellphone: phoneNumber))
                     useCase.saveFriends()
                 })
             } catch {
