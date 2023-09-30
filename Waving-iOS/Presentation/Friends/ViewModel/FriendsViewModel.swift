@@ -61,19 +61,20 @@ final class FriendsViewModel {
     
     public func fetchFriends() {
         useCase.fetchFriendsEntity()
-            .sink(receiveCompletion: { completion in
-                if case .failure(let err) = completion {
-                  //TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분이 필요함
-                    self.type = .intro
+            .sink {
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(_):
+                    self.type = .intro//TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분이 필요함
+                    self.friendsList = []
                 }
-            }, receiveValue: { data in
+            } receiveValue: { getFriendsEntity in
                 self.type = .list
-                //Log.i("Retrieved data of size \(data), response = \(data)")
-                self.friendsList = data
-                print(self.friendsList)
-            })
+                self.friendsList = getFriendsEntity
+            }
             .store(in: &cancellables)
-    }
+   }
 }
 
 
