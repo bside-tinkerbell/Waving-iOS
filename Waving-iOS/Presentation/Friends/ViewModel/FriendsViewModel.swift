@@ -42,7 +42,7 @@ protocol FriendsViewModelRepresentable {
     func didTapProfile()
 }
 
-final class FriendsViewModel: FriendsViewModelRepresentable {
+final class FriendsViewModel {
     @Published var type: FriendType?
     @Published public var friendsList: [GetFriendsEntity] = []
     
@@ -59,6 +59,25 @@ final class FriendsViewModel: FriendsViewModelRepresentable {
         self.useCase = useCase
     }
     
+    public func fetchFriends() {
+        useCase.fetchFriendsEntity()
+            .sink(receiveCompletion: { completion in
+                if case .failure(let err) = completion {
+                  //TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분이 필요함
+                    self.type = .intro
+                }
+            }, receiveValue: { data in
+                self.type = .list
+                //Log.i("Retrieved data of size \(data), response = \(data)")
+                self.friendsList = data
+                print(self.friendsList)
+            })
+            .store(in: &cancellables)
+    }
+}
+
+
+extension FriendsViewModel: FriendsViewModelRepresentable {
     func addFriends() {
         Log.d("친구 추가")
         
@@ -79,12 +98,11 @@ final class FriendsViewModel: FriendsViewModelRepresentable {
 
             do {
                 try store.enumerateContacts(with: fetchRequest, usingBlock: { contact, result in
-                    let name = contact.familyName + contact.givenName 
+                    let name = contact.familyName + contact.givenName
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
                     myContactList.append(ContactEntity(name: name, phoneNumber: phoneNumber))
                     useCase.saveFriends()
-//                    personList.append(PersonModel(name: name, phoneNumber: phoneNumber, contactCycle: 4))
                 })
             } catch {
                 Log.e("연락처를 가져올 수 없습니다 화면으로 이동하기")
@@ -102,23 +120,5 @@ final class FriendsViewModel: FriendsViewModelRepresentable {
     
     func didTapProfile() {
         sendRoute.send(.moveToProfile)
-    }
-    
-    public func fetchFriends() {
-        useCase.fetchFriendsEntity()
-            .sink(receiveCompletion: { completion in
-                if case .failure(let err) = completion {
-                  //TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분 필요함
-                    print(completion)
-                    self.type = .intro
-                }
-            }, receiveValue: { data in
-                self.type = .list
-                Log.i("Retrieved data of size \(data), response = \(data)")
-
-            })
-            .store(in: &cancellables)
-
-
     }
 }
