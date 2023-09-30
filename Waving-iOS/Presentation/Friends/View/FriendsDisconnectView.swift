@@ -89,7 +89,7 @@ class FriendsDisconnectView: UIView, SnapKitInterface {
 }
 
 extension FriendsDisconnectView: FriendViewRepresentable {
-    func setup(with viewModel: FriendsViewModelRepresentable) {
+    func setup(with viewModel: FriendsViewModelRepresentable, with friendsList: [GetFriendsEntity]) {
         self.viewModel = viewModel
     }
 }

@@ -31,9 +31,9 @@ enum FriendType {
     }
 }
 
-
+// MARK: - Protocol
 protocol FriendViewRepresentable where Self: UIView {
-    func setup(with viewModel: FriendsViewModelRepresentable)
+    func setup(with viewModel: FriendsViewModelRepresentable, with friendsList: [GetFriendsEntity])
 }
 
 protocol FriendsViewModelRepresentable {
@@ -42,6 +42,7 @@ protocol FriendsViewModelRepresentable {
     func didTapProfile()
 }
 
+// MARK: - Class
 final class FriendsViewModel {
     @Published var type: FriendType?
     @Published public var friendsList: [GetFriendsEntity] = []
@@ -122,4 +123,5 @@ extension FriendsViewModel: FriendsViewModelRepresentable {
     func didTapProfile() {
         sendRoute.send(.moveToProfile)
     }
+
 }

@@ -28,6 +28,12 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
         }
     }
     
+    var friendsList: GetFriendsEntity {
+        didSet {
+            nameLabel.text = friendsList.name
+        }
+    }
+    
     
     // MARK: - Components
     /// 전체 컨테이너
@@ -95,6 +101,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
     // MARK: - init
     override init(frame: CGRect) {
         self.contact = ContactEntity(name: "", phoneNumber: "")
+        self.friendsList = GetFriendsEntity(name: "", friendProfileId: 0)
         super.init(frame: frame)
         addComponents()
         setConstraints()

@@ -99,7 +99,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
 }
 
 extension FriendsIntroView: FriendViewRepresentable {
-    func setup(with viewModel: FriendsViewModelRepresentable) {
+    func setup(with viewModel: FriendsViewModelRepresentable, with friendsList: [GetFriendsEntity]) {
         self.viewModel = viewModel
     }
 }

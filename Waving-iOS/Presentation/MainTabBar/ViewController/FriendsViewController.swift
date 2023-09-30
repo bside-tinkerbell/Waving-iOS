@@ -24,6 +24,7 @@ extension FriendType {
 final class FriendsViewController: UIViewController, SnapKitInterface {
     
     var viewModel = FriendsViewModel(FriendsDataUseCase())
+    var friendsList: [GetFriendsEntity] = []
     private var cancellable = Set<AnyCancellable>()
     
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
@@ -100,10 +101,19 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         self.viewModel.$type
             .receive(on: DispatchQueue.main)
             .sink { [weak self] friendtype in
+
                 if let customView = friendtype?.view() {
+                    self?.viewModel.$friendsList
+                        .sink { [weak self] friendsList in
+                            self?.friendsList = friendsList
+                        }
+                    
                     self?.innerView = customView
                     guard let viewModel = self?.viewModel else {return}
-                    customView.setup(with: viewModel)
+                    guard let friendsList = self?.friendsList else {return}
+
+                    customView.setup(with: viewModel, with: friendsList)
+                    
                     self?.containerView.addSubview(customView)
                     customView.snp.makeConstraints { make in
                         make.top.leading.trailing.bottom.equalToSuperview()
@@ -111,5 +121,6 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
                 }
             }
             .store(in: &cancellable)
+
     }
 }

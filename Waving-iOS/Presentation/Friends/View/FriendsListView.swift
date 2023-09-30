@@ -11,6 +11,7 @@ import Combine
 final class FriendsListView: UIView, SnapKitInterface {
     
     var viewModel: FriendsViewModelRepresentable?
+    private var friendsList = [GetFriendsEntity]()
     
     let scrollView = UIScrollView()
     
@@ -39,6 +40,7 @@ final class FriendsListView: UIView, SnapKitInterface {
 
         view.dataSource = self
         view.delegate = self
+      
         return view
     }()
     
@@ -50,6 +52,7 @@ final class FriendsListView: UIView, SnapKitInterface {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     func addComponents() {
@@ -57,6 +60,7 @@ final class FriendsListView: UIView, SnapKitInterface {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
         [titleLabel, friendscontactCollectionView].forEach { containerView.addSubview($0) }
+        
     }
     
     func setConstraints() {
@@ -87,12 +91,13 @@ final class FriendsListView: UIView, SnapKitInterface {
 
 extension FriendsListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return self.friendsList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsContactCollectionViewCell.identifier, for: indexPath) as? FriendsContactCollectionViewCell else { fatalError() }
-        cell.configUI(.none)
+        cell.friendsList = friendsList[indexPath.row]
+        cell.configUI(.none) 
         return cell
     }
 }
@@ -107,8 +112,9 @@ extension FriendsListView: UICollectionViewDelegateFlowLayout {
 
 // MARK: FriendViewRepresentable
 extension FriendsListView: FriendViewRepresentable {
-    func setup(with viewModel: FriendsViewModelRepresentable) {
+    func setup(with viewModel: FriendsViewModelRepresentable, with friendsList: [GetFriendsEntity]) {
         self.viewModel = viewModel
+        self.friendsList = friendsList
     }
 }
 
