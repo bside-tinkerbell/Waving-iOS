@@ -21,8 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        // TODO: 로그인 여부 판단 로직 구현
-        let isLoggedin = false
+        
+        NotificationCenter.default.addObserver(forName: .userDidLogin, object: nil, queue: nil) { [weak self] _ in
+            self?.didLogin()
+        }
+        
+        let isLoggedin = true
         if isLoggedin {
             window.rootViewController = MainTabBarController()
         } else {
@@ -66,3 +70,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    private func didLogin(notificationResponse response: UNNotificationResponse? = nil) {
+    }
+}

@@ -21,7 +21,8 @@ extension Networkable {
     static func makeProvider() -> MoyaProvider<Target> {
         /// access token 세팅
         let authPlugin = AccessTokenPlugin { _ in
-            return "bear-access-token-sample" //TODO: 바꾸기
+            guard let accessToken = LoginDataStore.shared.accessToken else { return "bear-access-token-sample" }
+            return accessToken
         }
 
       /// plugin객체를 주입하여 provider 객체 생성

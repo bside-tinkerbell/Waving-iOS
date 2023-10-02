@@ -20,8 +20,8 @@ enum FriendsEndpoint: APIEndpoint {
         case .saveFriends:
             return "/v1/friends/register"
         case .getFriends:
-            //return "/v1/friends/list/16" //TODO: 임의적(맨 뒤 user_id 들어가야 함)
-            return "/v1/friends/list/" + "\(LoginDataStore.shared.userId!)"
+            return "/v1/friends/list/16" //TODO: 임의적(맨 뒤 user_id 들어가야 함)
+//            return "/v1/friends/list/" + "\(LoginDataStore.shared.userId!)"
         }
     }
     
