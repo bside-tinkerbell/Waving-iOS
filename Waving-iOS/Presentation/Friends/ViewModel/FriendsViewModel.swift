@@ -72,7 +72,7 @@ final class FriendsViewModel {
                 }
             } receiveValue: { getFriendsEntity in
                 SaveContactEntity.shared.contactId = getFriendsEntity[0].contactId
-                self.type = .intro
+                self.type = .list
                 self.friendsList = getFriendsEntity
     
             }
