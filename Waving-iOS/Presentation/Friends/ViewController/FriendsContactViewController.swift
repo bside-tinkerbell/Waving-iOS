@@ -79,7 +79,8 @@ final class FriendsContactViewController: UIViewController, SnapKitInterface {
     }()
     
     let friendSelectionButton = WVButton()
-    private lazy var friendSelectionButtonViewModel = WVButtonModel(title: "총 0 명 선택", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    //TODO: 1.0.0을 위해 "총 0 명 선택"이 아닌 "선택" 으로 잠시 변경함
+    private lazy var friendSelectionButtonViewModel = WVButtonModel(title: "선택", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
         self?.viewModel.selectFriends()
     }
     
