@@ -24,7 +24,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
     var contact: ContactEntity {
         didSet {
             nameLabel.text = contact.name
-            numberLabel.text = contact.cellphone
+            numberLabel.text = contact.cellPhone
         }
     }
     
@@ -100,7 +100,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
 
     // MARK: - init
     override init(frame: CGRect) {
-        self.contact = ContactEntity(name: "", cellphone: "")
+        self.contact = ContactEntity(name: "", cellPhone: "", contactCycle: 2)
         self.friendsList = GetFriendsEntity(name: "", contactId: 0)
         super.init(frame: frame)
         addComponents()
