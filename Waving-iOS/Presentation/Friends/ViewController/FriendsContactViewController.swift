@@ -21,7 +21,7 @@ extension ContactType {
 
 final class FriendsContactViewController: UIViewController, SnapKitInterface {
     
-    private let viewModel = FriendsContactViewModel()
+    private let viewModel = FriendsContactViewModel(FriendsDataUseCase())
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Components
@@ -79,7 +79,8 @@ final class FriendsContactViewController: UIViewController, SnapKitInterface {
     }()
     
     let friendSelectionButton = WVButton()
-    private lazy var friendSelectionButtonViewModel = WVButtonModel(title: "총 0 명 선택", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    //TODO: 1.0.0을 위해 "총 0 명 선택"이 아닌 "선택" 으로 잠시 변경함
+    private lazy var friendSelectionButtonViewModel = WVButtonModel(title: "선택", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
         self?.viewModel.selectFriends()
     }
     
@@ -176,12 +177,15 @@ extension FriendsContactViewController: UICollectionViewDataSource {
 extension FriendsContactViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        saveContactList.append(myContactList[indexPath.row])
         self.viewModel.count += 1
         cell.configUI(.checkBoxSelected)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        let index = saveContactList.indices.filter({ saveContactList[$0].cellPhone == myContactList[indexPath.row].cellPhone}).first
+        saveContactList.remove(at: index!)
         self.viewModel.count -= 1
         cell.configUI(.checkBoxUnselected)
     }

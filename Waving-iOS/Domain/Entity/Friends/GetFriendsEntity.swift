@@ -8,11 +8,12 @@
 import Foundation
 
 struct GetFriendsEntity {
-    let name: String
-    let friendProfileId: Int
     
-    public init(name: String, friendProfileId: Int) {
+    let name: String
+    let contactId: Int
+    
+    public init(name: String, contactId: Int) {
         self.name = name
-        self.friendProfileId = friendProfileId
+        self.contactId = contactId
     }
 }
