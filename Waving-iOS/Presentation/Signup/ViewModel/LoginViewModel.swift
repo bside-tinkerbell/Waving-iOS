@@ -62,6 +62,8 @@ class LoginViewModel {
             LoginDataStore.shared.userId = tokenModel.id
             LoginDataStore.shared.accessToken = tokenModel.accessToken
             LoginDataStore.shared.refreshToken = tokenModel.refreshToken
+            
+            NotificationCenter.default.post(name: .userDidLogin, object: nil)
         }
     }
     

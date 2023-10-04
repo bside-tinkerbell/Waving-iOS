@@ -86,6 +86,20 @@ struct SignAPI: Networkable {
             }
         }
     }
+    
+    /// 로그아웃 요청
+    static func logout(completion: @escaping (_ succeed: ResponseModel?, _ failed: Error?) -> Void) {
+        
+        makeProvider().request(.logout) { result in
+            switch ResponseData<ResponseModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
+        }
+    }
 
 }
 
