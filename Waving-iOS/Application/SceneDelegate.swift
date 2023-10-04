@@ -21,17 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        // TODO: 로그인 여부 판단 로직 구현
-        let isLoggedin = false
-        if isLoggedin {
-            window.rootViewController = MainTabBarController()
-        } else {
-            window.rootViewController = UINavigationController(rootViewController: IntroViewController())
+        NotificationCenter.default.addObserver(forName: .userDidLogin, object: nil, queue: nil) { [weak self] _ in
+            Log.d("user did login")
+            self?.didLogin()
         }
-
         
-//        window.rootViewController = SampleViewController()
+        NotificationCenter.default.addObserver(forName: .userDidLogout, object: nil, queue: nil) { [weak self] _ in
+            Log.d("user did logout")
+            self?.didLogout()
+        }
         
+        window.rootViewController = UINavigationController(rootViewController: IntroViewController())
         window.makeKeyAndVisible()
     }
 
@@ -66,3 +66,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    private func didLogin(notificationResponse response: UNNotificationResponse? = nil) {
+        guard let window else { return }
+        Log.d("didLogin called")
+        window.rootViewController = MainTabBarController()
+    }
+    
+    private func didLogout(notificationResponse response: UNNotificationResponse? = nil) {
+        guard let window else { return }
+        Log.d("didLogout called")
+        window.rootViewController = UINavigationController(rootViewController: IntroViewController())
+    }
+}

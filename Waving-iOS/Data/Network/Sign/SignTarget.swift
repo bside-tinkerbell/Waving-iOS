@@ -21,9 +21,10 @@ enum SignTarget {
     case confirmAuthCode(String, Int)
     case signup(SignRequestModel)
     case login(LoginRequestModel)
+    case logout
 }
 
-extension SignTarget: BaseTargetType {
+extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
     
     // base URL 뒤에 추가 될 Path
     /// case .signIn:  return "/def"
@@ -35,6 +36,7 @@ extension SignTarget: BaseTargetType {
         case .confirmAuthCode: return "/v1/users/authentication-confirm"
         case .signup: return "/v1/users/join"
         case .login: return "/v1/auth/login"
+        case .logout: return "/v1/auth/logout"
         }
     }
     
@@ -46,6 +48,8 @@ extension SignTarget: BaseTargetType {
             return .get
         case .requestSMS, .confirmAuthCode, .signup, .login:
             return .post
+        case .logout:
+            return .patch
         }
     }
 
@@ -59,7 +63,7 @@ extension SignTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .signIn, .sample:
+        case .signIn, .sample, .logout:
             return .requestPlain
         case .requestSMS(let cellphone):
             return .requestParameters(parameters: ["cellphone": cellphone], encoding: JSONEncoding.default)
@@ -78,6 +82,15 @@ extension SignTarget: BaseTargetType {
             let params: [String: Any] = ["username": model.email,
                                          "password": model.password]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        }
+    }
+    
+    var authorizationType: Moya.AuthorizationType? {
+        switch self {
+        case .signup, .signIn:
+            return .none
+        default:
+            return .bearer
         }
     }
 }

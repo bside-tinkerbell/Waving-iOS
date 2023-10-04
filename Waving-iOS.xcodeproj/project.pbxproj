@@ -82,6 +82,7 @@
 		CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */; };
 		CE778B632AB3F4A2001DBF51 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE778B622AB3F4A2001DBF51 /* LoginViewModel.swift */; };
 		CE778B652AB3F5DB001DBF51 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE778B642AB3F5DB001DBF51 /* LoginResponseModel.swift */; };
+		CE7FE9D52AC94A52004887FC /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FE9D42AC94A52004887FC /* Notification+.swift */; };
 		CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8316DB2A318449007D3327 /* SignupStepViewModel.swift */; };
 		CE8316DF2A319FB8007D3327 /* SignupStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */; };
 		CE8861F02A2CB4CB00204CBA /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */; };
@@ -232,6 +233,7 @@
 		CE67983B2A31F2500078F43C /* SignupTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextFieldContainer.swift; sourceTree = "<group>"; };
 		CE778B622AB3F4A2001DBF51 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE778B642AB3F5DB001DBF51 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		CE7FE9D42AC94A52004887FC /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		CE8316DB2A318449007D3327 /* SignupStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepViewModel.swift; sourceTree = "<group>"; };
 		CE8316DE2A319FB8007D3327 /* SignupStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE8861ED2A2CB15300204CBA /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				CEBC40122A486D78001A5934 /* Array+.swift */,
 				CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */,
 				CEC778CC2A768B6000C42A01 /* UIWindow+.swift */,
+				CE7FE9D42AC94A52004887FC /* Notification+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1270,6 +1273,7 @@
 				A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */,
 				CEBC400F2A486D09001A5934 /* TabViewModel.swift in Sources */,
 				CE8316DC2A318449007D3327 /* SignupStepViewModel.swift in Sources */,
+				CE7FE9D52AC94A52004887FC /* Notification+.swift in Sources */,
 				A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */,
 				A8F4DD442A4660640045C179 /* UITabBar+.swift in Sources */,
 				A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */,
