@@ -14,7 +14,7 @@ final class FriendProfileViewController: UIViewController {
         Log.d("뒤로 가기")
     } didTouchFavorite: { [weak self] in
         Log.d("즐겨찾기")
-    } didTouchForwared: { [weak self] in
+    } didTouchForward: { [weak self] in
         Log.d("편집")
     }
 

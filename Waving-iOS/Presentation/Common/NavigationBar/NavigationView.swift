@@ -166,7 +166,7 @@ final class NavigationModel: NSObject {
         title: String,
         didTouchBack: (() -> Void)? = nil,
         didTouchFavorite: (() -> Void)? = nil,
-        didTouchForwared: (() -> Void)? = nil) {
+        didTouchForward: (() -> Void)? = nil) {
         
         self.backButtonImage = backButtonImage
         self.favoriteButtonImage = favoriteButtonImage
@@ -175,6 +175,6 @@ final class NavigationModel: NSObject {
         self.title = title
         self.didTouchBack = didTouchBack
         self.didTouchFavorite = didTouchFavorite
-        self.didTouchForward = didTouchForwared
+        self.didTouchForward = didTouchForward
     }
 }
