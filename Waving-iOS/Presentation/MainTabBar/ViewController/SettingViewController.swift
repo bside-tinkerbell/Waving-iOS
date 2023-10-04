@@ -85,8 +85,6 @@ extension SettingViewController {
         }
         
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Item> { [weak self] (cell, indexPath, item) in
-            guard let self = self else { return }
-            
             var content = cell.defaultContentConfiguration()
             content.text = item.title
             cell.contentConfiguration = content
@@ -125,11 +123,13 @@ final class SettingViewModel {
     func logout() {
         SignAPI.logout { succeed, failed in
             if failed != nil {
-                Log.d("logout failed: \(failed)")
+                Log.d("logout failed: \(String(describing: failed))")
                 return
             }
             
-                Log.d("logout succeeded: \(succeed)")
+            Log.d("logout succeeded: \(String(describing: succeed))")
+            
+            NotificationCenter.default.post(name: .userDidLogout, object: nil)
         }
     }
 }
