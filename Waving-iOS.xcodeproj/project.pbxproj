@@ -74,7 +74,6 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
-		CE0E86EC2AC7E662004ABD72 /* ConferenceVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E86EB2AC7E662004ABD72 /* ConferenceVideoController.swift */; };
 		CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */; };
 		CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */; };
 		CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */; };
@@ -226,7 +225,6 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		CE0E86EB2AC7E662004ABD72 /* ConferenceVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceVideoController.swift; sourceTree = "<group>"; };
 		CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRequestModel.swift; sourceTree = "<group>"; };
 		CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -839,7 +837,6 @@
 				CE0412B02A23640500C790F3 /* HomeViewController.swift */,
 				CE0412B22A23642200C790F3 /* FriendsViewController.swift */,
 				CE0412B42A23643400C790F3 /* SettingViewController.swift */,
-				CE0E86EB2AC7E662004ABD72 /* ConferenceVideoController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1206,7 +1203,6 @@
 				CEBC40152A486F55001A5934 /* TabViewCollectionViewCell.swift in Sources */,
 				A8BF47592A84B27500FCDD7C /* SampleTarget.swift in Sources */,
 				A87144EB2A809E7200E5FCAD /* FavoriteView.swift in Sources */,
-				CE0E86EC2AC7E662004ABD72 /* ConferenceVideoController.swift in Sources */,
 				A8BF46E52A8331E500FCDD7C /* SampleEntity.swift in Sources */,
 				A83861722A8DD2DF00E8B609 /* FriendsDataSource.swift in Sources */,
 				CEDC67882A6C95B1009D37AE /* HomeCollectionHeaderViewModel.swift in Sources */,
