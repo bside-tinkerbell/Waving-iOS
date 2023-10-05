@@ -9,7 +9,7 @@ import UIKit
 
 final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, TabViewDelegate, SnapKitInterface {
     
-    private lazy var navigationViewModel: NavigationModel = .init(title: "", didTouchForwared: {[weak self] in
+    private lazy var navigationViewModel: NavigationModel = .init(title: "", didTouchForward: {[weak self] in
         self?.navigationController?.popToRootViewController(animated: true)
     })
     

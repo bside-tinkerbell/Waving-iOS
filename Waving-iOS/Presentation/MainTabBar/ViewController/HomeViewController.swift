@@ -13,7 +13,7 @@ final class HomeViewController: UIViewController, SnapKitInterface {
     private var cancellables: [AnyCancellable] = []
     
     // MARK: - View Model
-    private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
+    private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForward: {[weak self] in
 //        self?.viewModel.didTapForwardButton()
     })
     

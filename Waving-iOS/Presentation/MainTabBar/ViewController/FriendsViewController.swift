@@ -27,7 +27,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     var friendsList: [GetFriendsEntity] = []
     private var cancellable = Set<AnyCancellable>()
     
-    private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForwared: {[weak self] in
+    private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: "icn_plus"), title: "나의 지인", didTouchForward: {[weak self] in
         self?.viewModel.didTapForwardButton()
     })
     
