@@ -84,7 +84,7 @@ protocol SignupStepViewModelRepresentable {
 
 class SignupStepViewModel: SignupStepViewModelRepresentable {
     
-    let type: SignupStepType
+    @Published var type: SignupStepType
     let textFieldTypes: [SignupTextFieldType]
     var nextButtonAction: (() -> Void)?
     @Published var title: NSAttributedString?

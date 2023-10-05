@@ -88,6 +88,8 @@ final class SignupViewController: UIViewController {
         }
     }
     
+    private lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    
     init() {
         self.collectionViewCellModels = [.init(type: .emailPassword),
                                          .init(type: .username),
@@ -118,6 +120,8 @@ final class SignupViewController: UIViewController {
     }
     
     private func setupView() {
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
         view.backgroundColor = .white
         
         view.addSubview(buttonContainerView)
@@ -139,7 +143,21 @@ final class SignupViewController: UIViewController {
         collectionView.register(SignupStepCollectionViewCell.self, forCellWithReuseIdentifier: "SignupStepCollectionViewCell")
     }
     
+    @objc
+    private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     private func bind() {
+        currentSignupStepViewModel?.$type
+            .sink { [weak self] type in
+                guard let self else { return }
+                if type == .termsOfUse {
+                    view.removeGestureRecognizer(tapGestureRecognizer)
+                }
+            }
+            .store(in: &cancellables)
+        
         currentSignupStepViewModel?.route
             .sink { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
