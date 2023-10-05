@@ -99,15 +99,12 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
             .store(in: &cancellable)
         
         self.viewModel.$type
+            .combineLatest(viewModel.$friendsList)
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] friendtype in
+            .sink { [weak self] friendtype, friendsList in
 
                 if let customView = friendtype?.view() {
-                    self?.viewModel.$friendsList
-                        .sink { [weak self] friendsList in
-                            self?.friendsList = friendsList
-                        }
-                    
+                    self?.friendsList = friendsList
                     self?.innerView = customView
                     guard let viewModel = self?.viewModel else {return}
                     guard let friendsList = self?.friendsList else {return}
