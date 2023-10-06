@@ -30,7 +30,7 @@ enum SignupStepType: Int {
         case .termsOfUse:
             return "이용 약관에\n동의해주세요."
         case .complete:
-            return "회원가입이 완료 됐습니다\n만나서 반가워요 👋🏻"
+            return ""
         }
     }
     
@@ -84,7 +84,7 @@ protocol SignupStepViewModelRepresentable {
 
 class SignupStepViewModel: SignupStepViewModelRepresentable {
     
-    let type: SignupStepType
+    @Published var type: SignupStepType
     let textFieldTypes: [SignupTextFieldType]
     var nextButtonAction: (() -> Void)?
     @Published var title: NSAttributedString?

@@ -40,7 +40,7 @@ final class LoginViewController: UIViewController, SnapKitInterface {
         return textField
     }()
     
-    lazy private var doneButtonModel = WVButtonModel(title: "확인", isEnabled: false, titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    lazy private var doneButtonModel = WVButtonModel(title: "로그인", isEnabled: false, titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
         self?.viewModel.login()
     }
     
@@ -70,9 +70,21 @@ final class LoginViewController: UIViewController, SnapKitInterface {
         
         view.backgroundColor = .white
         
+        setupView()
         addComponents()
         setConstraints()
         binding()
+    }
+    
+    private func setupView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc
+    private func dismissKeyboard() {
+        Log.d("dismissKeyboard called")
+        view.endEditing(true)
     }
     
     @objc
