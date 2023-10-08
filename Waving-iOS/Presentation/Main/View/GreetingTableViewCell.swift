@@ -114,10 +114,10 @@ extension GreetingTableViewCell: SnapKitInterface {
         containerView.addSubview(mainLabel)
         containerView.addSubview(buttonStackView)
         
-        buttonStackView.addArrangedSubview(favoriteButton)
+//        buttonStackView.addArrangedSubview(favoriteButton)
         buttonStackView.addArrangedSubview(paddingView)
         buttonStackView.addArrangedSubview(copyButton)
-        buttonStackView.addArrangedSubview(shareButton)
+//        buttonStackView.addArrangedSubview(shareButton)
     }
     
     func setConstraints() {
