@@ -160,23 +160,23 @@ struct GreetingAPI: Networkable {
         }
     }
     
-    static func getGreetingList(category: String, completion: (_ succeed: [SampleGreetingModel]?, _ failed: Error?) -> Void) {
-//        makeProvider().request(.greetings) { result in
-//            switch ResponseData<GreetingModel>.getModelResponse(result) {
-//            case .success(let model):
-//                return completion(model, nil)
-//            case .failure(let error):
-//                makeToast()
-//                return completion(nil, error)
-//            }
-//        }
-
-        if let list = Self.greetingList[category] {
-            let models = list.map { SampleGreetingModel(message: $0) }
-            completion(models, nil)
-        } else {
-            makeToast()
-            completion(nil, nil)
+    static func getGreetingList(categoryId: Int, completion: @escaping (_ succeed: GreetingListModel?, _ failed: Error?) -> Void) {
+        makeProvider().request(.greetings(categoryId)) { result in
+            switch ResponseData<GreetingListModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
         }
+
+//        if let list = Self.greetingList[category] {
+//            let models = list.map { SampleGreetingModel(message: $0) }
+//            completion(models, nil)
+//        } else {
+//            makeToast()
+//            completion(nil, nil)
+//        }
     }
 }

@@ -61,10 +61,8 @@ extension GreetingTarget: BaseTargetType {
     /// .plain request
     var task: Task {
         switch self {
-        case .randomGreeting, .greetingCategories:
+        case .randomGreeting, .greetingCategories, .greetings:
             return .requestPlain
-        case .greetings(let param):
-            return .requestJSONEncodable(param)
         }
     }
 

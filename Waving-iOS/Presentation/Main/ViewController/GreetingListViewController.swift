@@ -48,7 +48,7 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
         
         // TODO: 카테고리 별 인사말 목록 api 호출
         
-        GreetingAPI.getGreetingList(category: category.title) { [weak self] succeed, failed in
+        GreetingAPI.getGreetingList(categoryId: category.greetingCategoryId) { [weak self] succeed, failed in
             if failed != nil {
                 Log.d("failed")
                 return
@@ -56,7 +56,8 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
             
             guard let succeed, let self else { return }
             
-            self.cellModels = succeed.compactMap { GreetingCellModel(title: $0.message, categoryId: 0, greetingId: 0) }
+            cellModels = succeed.result.greetingList.compactMap { GreetingCellModel(title: $0.greeting, categoryId: $0.greetingCategoryId) }
+            tableView.reloadData()
         }
 
         // end of test code
