@@ -53,7 +53,7 @@ final class HomeNavigationView: UIView, SnapKitInterface {
         
         buttonStackView.addArrangedSubview(logoButton)
         buttonStackView.addArrangedSubview(paddingView)
-        buttonStackView.addArrangedSubview(rightButton)
+//        buttonStackView.addArrangedSubview(rightButton)
     }
     
     func setConstraints() {
@@ -69,9 +69,9 @@ final class HomeNavigationView: UIView, SnapKitInterface {
             $0.height.equalTo(Constants.Home.logoSize.height)
         }
         
-        rightButton.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo(Constants.Home.rightButtonSize.width)
-        }
+//        rightButton.snp.makeConstraints {
+//            $0.centerY.equalToSuperview()
+//            $0.size.equalTo(Constants.Home.rightButtonSize.width)
+//        }
     }
 }
