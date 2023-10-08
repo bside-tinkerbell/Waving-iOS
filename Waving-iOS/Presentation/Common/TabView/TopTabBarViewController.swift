@@ -28,11 +28,11 @@ final class TopTabBarViewController: UIViewController, UIScrollViewDelegate, Tab
     var topTabBarHeight: CGFloat = 0.0
     
     /** Objc Interface */
-    @objc
+    
     func setInitiallyHideTopButtons(_ hidden: Bool) {
         self.initiallyHideTopButtons = hidden
     }
-    @objc
+    
     func setSelectedPageIndex(_ index: Int) {
         self.selectedPageIndex = index
     }
@@ -459,33 +459,14 @@ protocol TopTabBarRepresentable: NSObjectProtocol {
 
 extension TopTabBarViewController {
     
-    static func makeGreetingListViewController(with greetingCategory: GreetingCategory? = nil) async -> TopTabBarViewController? {
-
-        return await withCheckedContinuation({ continuation in
-            GreetingAPI.getGreetingCategories { succeed, failed in
-                if failed != nil {
-                    continuation.resume(returning: nil)
-                    return
-                }
-                
-                guard let succeed else { return }
-                Log.d("succeed: \(succeed)")
-                
-                var categoryNames = [String]()
-                for model in succeed.result.greetingCategoryList {
-                    categoryNames.append(model.category)
-                }
-                
-                Log.d("task finished: \(categoryNames)")
-                var childViewControllers = [UIViewController & TopTabBarRepresentable]()
-                for name in categoryNames {
-                    childViewControllers.append(GreetingListViewController(categoryName: name))
-                }
-                let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
-                
-                continuation.resume(returning: topTabBarViewController)
-            }
-        })
+    static func makeGreetingListViewController(with categories: [GreetingCategory], selectedIndex: Int = 0) async -> TopTabBarViewController? {
         
+        var childViewControllers = [UIViewController & TopTabBarRepresentable]()
+        for each in categories {
+            childViewControllers.append(GreetingListViewController(category: each))
+        }
+        let topTabBarViewController = TopTabBarViewController(childViewControllers: childViewControllers)
+        topTabBarViewController.setSelectedPageIndex(selectedIndex)
+        return topTabBarViewController
     }
 }

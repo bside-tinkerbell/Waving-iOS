@@ -9,7 +9,7 @@ import UIKit
 
 final class GreetingListViewController: UIViewController, SnapKitInterface {
     
-    let categoryName: String
+    let category: GreetingCategory
     
     // MARK: - Views
     private lazy var tableView: UITableView = {
@@ -25,8 +25,8 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
     private var cellModels: [GreetingCellModel] = []
     
     // MARK: - Init
-    init(categoryName: String) {
-        self.categoryName = categoryName
+    init(category: GreetingCategory) {
+        self.category = category
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,7 +48,7 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
         
         // TODO: 카테고리 별 인사말 목록 api 호출
         
-        GreetingAPI.getGreetingList(category: categoryName) { [weak self] succeed, failed in
+        GreetingAPI.getGreetingList(category: category.title) { [weak self] succeed, failed in
             if failed != nil {
                 Log.d("failed")
                 return
@@ -101,10 +101,10 @@ extension GreetingListViewController: UITableViewDataSource {
 extension GreetingListViewController: TopTabBarRepresentable {
     
     func underlineButtonTopTabBarTitle() -> String {
-        categoryName
+        category.title
     }
     
     func parentViewNavigationTitle() -> String {
-        categoryName
+        category.title
     }
 }

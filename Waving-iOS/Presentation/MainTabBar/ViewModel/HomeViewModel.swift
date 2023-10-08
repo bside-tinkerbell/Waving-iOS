@@ -16,6 +16,7 @@ final class HomeViewModel {
     let refresh = PassthroughSubject<Void, Never>.init()
     
     @Published var randomGreeting: String?
+    @Published var categories: [GreetingCategory]?
     
     /// initializer
     init() {
@@ -30,8 +31,26 @@ final class HomeViewModel {
                 return
             }
             
-            guard let succeed else { return }
-            self?.randomGreeting = succeed.result.greeting
+            guard let self, let succeed else { return }
+            randomGreeting = succeed.result.greeting
+        }
+        
+        GreetingAPI.getGreetingCategories { [weak self] succeed, failed in
+            if let failed {
+                Log.d("failed: \(failed)")
+                return
+            }
+            
+            guard let self, let succeed else { return }
+            
+            categories = succeed.result.greetingCategoryList.compactMap { model in
+                for each in GreetingCategory.allCases {
+                    if model.greetingCategoryId == each.greetingCategoryId {
+                        return each
+                    }
+                }
+                return nil
+            }
         }
     }
     
