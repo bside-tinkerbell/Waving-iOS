@@ -24,7 +24,8 @@ final class HomeViewController: UIViewController, SnapKitInterface {
     
     private var greetingSuggestionCellModel: GreetingSuggestionCellModel?
     
-    private lazy var greetingCategoryCellModels: [GreetingCategoryCellModel] = [.init(category: .type1), .init(category: .type2), .init(category: .type3), .init(category: .type4), .init(category: .type5), .init(category: .type6)]
+    private var categories = [GreetingCategory]()
+    private var greetingCategoryCellModels = [GreetingCategoryCellModel]()
     
     private lazy var navigationView: HomeNavigationView = {
         HomeNavigationView()
@@ -113,10 +114,17 @@ final class HomeViewController: UIViewController, SnapKitInterface {
     
     private func bind() {
         viewModel.$randomGreeting
+            .combineLatest(viewModel.$categories)
             .sink { [weak self] in
-                guard let greeting = $0, let self else { return }
-                self.greetingSuggestionCellModel = .init(title: greeting)
-                self.collectionView.reloadData()
+                guard let self, let randomGreeting = $0, let categories = $1 else { return }
+                
+                self.categories = categories
+                greetingSuggestionCellModel = .init(title: randomGreeting)
+                greetingCategoryCellModels = categories.compactMap { each in
+                    GreetingCategoryCellModel(category: each)
+                }
+                
+                collectionView.reloadData()
             }
             .store(in: &cancellables)
     }
@@ -181,7 +189,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if section == 0 {
             return 1
         } else {
-            return 6
+            return greetingCategoryCellModels.count
         }
     }
     
@@ -235,7 +243,7 @@ extension HomeViewController: UICollectionViewDelegate {
         if indexPath.section == 1 {
             Task { @MainActor in
                 guard let cellModel = greetingCategoryCellModels.wv_get(index: indexPath.row),
-                      let greetingListViewController = await TopTabBarViewController.makeGreetingListViewController(with: cellModel.category) else { return }
+                      let greetingListViewController = await TopTabBarViewController.makeGreetingListViewController(with: categories, selectedIndex: indexPath.item) else { return }
                 
                 let navigationController = UINavigationController(rootViewController: greetingListViewController)
                 self.present(navigationController, animated: false)

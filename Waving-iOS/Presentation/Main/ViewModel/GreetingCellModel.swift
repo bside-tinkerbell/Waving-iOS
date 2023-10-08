@@ -10,13 +10,11 @@ import Foundation
 final class GreetingCellModel {
     @Published var greeting: NSAttributedString
     var categoryId: Int
-    var greetingId: Int
     
-    init(title: String, categoryId: Int, greetingId: Int) {
+    init(title: String, categoryId: Int) {
         self.greeting = NSMutableAttributedString(string: title)
             .wv_setFont(.p_M(20))
             .wv_setTextColor(.gray090)
         self.categoryId = categoryId
-        self.greetingId = greetingId
     }
 }
