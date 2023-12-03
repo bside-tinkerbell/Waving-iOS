@@ -97,10 +97,7 @@ final class GreetingTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        // test code
-//        contentView.backgroundColor = .green
-//        buttonStackView.backgroundColor = .yellow
-        // end of test code
+        selectionStyle = .none
     }
     
     private func setupEvent() {
