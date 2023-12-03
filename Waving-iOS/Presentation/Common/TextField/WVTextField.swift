@@ -58,6 +58,7 @@ final class WVTextField: UITextField {
             if type == .password || type == .passwordConfirm {
                 isSecureTextEntry = true
                 textContentType = .password
+                autocorrectionType = .no
             }
         }
     }
