@@ -73,6 +73,7 @@ final class GreetingTableViewCell: UITableViewCell {
             guard let viewModel = viewModel else { return }
             
             self.cancellables.removeAll()
+            
             viewModel.$greeting
                 .sink { [weak self] in
                     self?.mainLabel.attributedText = $0
@@ -86,6 +87,7 @@ final class GreetingTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupView()
+        setupEvent()
         addComponents()
         setConstraints()
     }
@@ -101,8 +103,17 @@ final class GreetingTableViewCell: UITableViewCell {
         // end of test code
     }
     
+    private func setupEvent() {
+        copyButton.addTarget(self, action: #selector(copyString), for: .touchUpInside)
+    }
+    
     public func setup(with viewModel: GreetingCellModel) {
         self.viewModel = viewModel
+    }
+    
+    @objc
+    private func copyString() {
+        viewModel?.didTapCopyButton.send()
     }
 }
 
