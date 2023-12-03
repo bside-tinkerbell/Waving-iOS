@@ -22,6 +22,7 @@ enum SignTarget {
     case signup(SignRequestModel)
     case login(LoginRequestModel)
     case logout
+    case delete(userId: Int)
 }
 
 extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
@@ -59,6 +60,8 @@ extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
             return .post
         case .logout:
             return .patch
+        case .delete:
+            return .delete
         }
     }
 
@@ -72,7 +75,7 @@ extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
     /// .plain request
     var task: Task {
         switch self {
-        case .signIn, .sample, .logout:
+        case .signIn, .sample, .logout, .delete:
             return .requestPlain
         case .requestSMS(let cellphone):
             return .requestParameters(parameters: ["cellphone": cellphone], encoding: JSONEncoding.default)

@@ -102,8 +102,10 @@ extension SettingViewController {
         // initial data
         var snapshot = NSDiffableDataSourceSnapshot<Int, Item>()
         snapshot.appendSections([0])
-        let item = Item(title: "로그아웃")
-        snapshot.appendItems([item])
+        
+        let logout = Item(title: "로그아웃")
+        let delete = Item(title: "회원탈퇴")
+        snapshot.appendItems([logout, delete])
         dataSource.apply(snapshot)
     }
 }
@@ -114,7 +116,11 @@ extension SettingViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: false)
         
         if indexPath.row == 0 {
+            // 로그아웃
             viewModel.logout()
+        } else if indexPath.row == 1 {
+            // 회원탈퇴
+            viewModel.deleteAccount()
         }
     }
 }
@@ -128,6 +134,20 @@ final class SettingViewModel {
             }
             
             Log.d("logout succeeded: \(String(describing: succeed))")
+            
+            NotificationCenter.default.post(name: .userDidLogout, object: nil)
+        }
+    }
+    
+    func deleteAccount() {
+        guard let userId = LoginDataStore.shared.userId else { return }
+        SignAPI.delete(userId: userId) { succeed, failed in
+            if failed != nil {
+                Log.d("delete failed: \(String(describing: failed))")
+                return
+            }
+            
+            Log.d("delete succeeded: \(String(describing: succeed))")
             
             NotificationCenter.default.post(name: .userDidLogout, object: nil)
         }
