@@ -30,13 +30,22 @@ extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
     /// case .signIn:  return "/def"
     var path: String {
         switch self {
-        case .signIn: return ""
-        case .sample: return "/api/users"
-        case .requestSMS: return "/v1/users/authentication"
-        case .confirmAuthCode: return "/v1/users/authentication-confirm"
-        case .signup: return "/v1/users/join"
-        case .login: return "/v1/auth/login"
-        case .logout: return "/v1/auth/logout"
+        case .signIn: 
+            return ""
+        case .sample: 
+            return "/api/users"
+        case .requestSMS: 
+            return "/v1/users/authentication"
+        case .confirmAuthCode: 
+            return "/v1/users/authentication-confirm"
+        case .signup: 
+            return "/v1/users/join"
+        case .login: 
+            return "/v1/auth/login"
+        case .logout: 
+            return "/v1/auth/logout"
+        case .delete(let userId): 
+            return "/v1/users/\(userId)"
         }
     }
     
