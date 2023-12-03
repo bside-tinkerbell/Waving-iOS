@@ -76,6 +76,7 @@
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
 		CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */; };
 		CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */; };
+		CE5FDE992B1C606100D61D72 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FDE982B1C606100D61D72 /* UIAlertController+.swift */; };
 		CE66AF012A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */; };
 		CE6798382A31E3DE0078F43C /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */; };
 		CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */; };
@@ -227,6 +228,7 @@
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRequestModel.swift; sourceTree = "<group>"; };
 		CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
+		CE5FDE982B1C606100D61D72 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		CE66AF002A63C69A001B7C96 /* GreetingSuggestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSuggestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		CE6798392A31F20A0078F43C /* SignupStepEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStepEmailPasswordView.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				CEC778CA2A768A8100C42A01 /* NSAttributedString+.swift */,
 				CEC778CC2A768B6000C42A01 /* UIWindow+.swift */,
 				CE7FE9D42AC94A52004887FC /* Notification+.swift */,
+				CE5FDE982B1C606100D61D72 /* UIAlertController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
 				A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */,
 				CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */,
+				CE5FDE992B1C606100D61D72 /* UIAlertController+.swift in Sources */,
 				A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */,
 				CED83A8C2A2B71460031AFF0 /* IntroViewModel.swift in Sources */,
 				A8E0C0B92A23641F00C8696E /* Log.swift in Sources */,

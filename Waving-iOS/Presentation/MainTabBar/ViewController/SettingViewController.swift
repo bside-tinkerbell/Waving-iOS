@@ -120,7 +120,16 @@ extension SettingViewController: UICollectionViewDelegate {
             viewModel.logout()
         } else if indexPath.row == 1 {
             // 회원탈퇴
-            viewModel.deleteAccount()
+            
+            let okActionTuple = UIAlertActionTuple(title: AlertData.oKTitle, handler: { [weak self] _ in
+                guard let self else { return }
+                viewModel.deleteAccount()
+            })
+            let cancelActionTuple = UIAlertActionTuple(title: AlertData.cancelTitle, handler: nil)
+            
+            let alertData = AlertData(on: self, title: "탈퇴하시겠습니까?", defaultActionTuples: [okActionTuple], cancelActionTuple: cancelActionTuple)
+            UIAlertController.wv_presentAlert(with: alertData)
+            
         }
     }
 }
