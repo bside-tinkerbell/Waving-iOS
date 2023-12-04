@@ -123,6 +123,13 @@ final class SignupStepTermOfUseView: UIView, SnapKitInterface {
             
             guard let succeed else { return }
             Log.d("signup succeeded: \(succeed.result)")
+            let userJoinResult = succeed.result.userJoinResult
+
+            Log.d("user_id: \(userJoinResult.id), access_token: \(userJoinResult.accessToken), refresh_token: \(userJoinResult.refreshToken)")
+            
+            LoginDataStore.shared.userId = userJoinResult.id
+            LoginDataStore.shared.accessToken = userJoinResult.accessToken
+            LoginDataStore.shared.refreshToken = userJoinResult.refreshToken
         }
     }
 }

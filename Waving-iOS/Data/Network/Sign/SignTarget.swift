@@ -22,6 +22,7 @@ enum SignTarget {
     case signup(SignRequestModel)
     case login(LoginRequestModel)
     case logout
+    case delete(userId: Int)
 }
 
 extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
@@ -30,13 +31,22 @@ extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
     /// case .signIn:  return "/def"
     var path: String {
         switch self {
-        case .signIn: return ""
-        case .sample: return "/api/users"
-        case .requestSMS: return "/v1/users/authentication"
-        case .confirmAuthCode: return "/v1/users/authentication-confirm"
-        case .signup: return "/v1/users/join"
-        case .login: return "/v1/auth/login"
-        case .logout: return "/v1/auth/logout"
+        case .signIn: 
+            return ""
+        case .sample: 
+            return "/api/users"
+        case .requestSMS: 
+            return "/v1/users/authentication"
+        case .confirmAuthCode: 
+            return "/v1/users/authentication-confirm"
+        case .signup: 
+            return "/v1/users/join"
+        case .login: 
+            return "/v1/auth/login"
+        case .logout: 
+            return "/v1/auth/logout"
+        case .delete(let userId): 
+            return "/v1/users/\(userId)"
         }
     }
     
@@ -50,6 +60,8 @@ extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
             return .post
         case .logout:
             return .patch
+        case .delete:
+            return .delete
         }
     }
 
@@ -63,7 +75,7 @@ extension SignTarget: BaseTargetType, AccessTokenAuthorizable {
     /// .plain request
     var task: Task {
         switch self {
-        case .signIn, .sample, .logout:
+        case .signIn, .sample, .logout, .delete:
             return .requestPlain
         case .requestSMS(let cellphone):
             return .requestParameters(parameters: ["cellphone": cellphone], encoding: JSONEncoding.default)

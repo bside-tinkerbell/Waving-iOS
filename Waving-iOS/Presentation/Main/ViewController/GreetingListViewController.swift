@@ -44,10 +44,6 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
     }
     
     private func setup() {
-        // test code
-        
-        // TODO: 카테고리 별 인사말 목록 api 호출
-        
         GreetingAPI.getGreetingList(categoryId: category.greetingCategoryId) { [weak self] succeed, failed in
             if failed != nil {
                 Log.d("failed")
@@ -60,8 +56,6 @@ final class GreetingListViewController: UIViewController, SnapKitInterface {
             tableView.reloadData()
         }
 
-        // end of test code
-        
         tableView.separatorStyle = .none
         tableView.register(GreetingTableViewCell.self, forCellReuseIdentifier: "GreetingTableViewCell")
     }

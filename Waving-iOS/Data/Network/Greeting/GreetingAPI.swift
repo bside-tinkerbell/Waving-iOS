@@ -170,13 +170,5 @@ struct GreetingAPI: Networkable {
                 return completion(nil, error)
             }
         }
-
-//        if let list = Self.greetingList[category] {
-//            let models = list.map { SampleGreetingModel(message: $0) }
-//            completion(models, nil)
-//        } else {
-//            makeToast()
-//            completion(nil, nil)
-//        }
     }
 }

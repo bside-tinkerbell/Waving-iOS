@@ -100,6 +100,19 @@ struct SignAPI: Networkable {
             }
         }
     }
+    
+    /// 탈퇴 요청
+    static func delete(userId: Int, completion: @escaping (_ succeed: ResponseModel?, _ failed: Error?) -> Void) {
+        makeProvider().request(.delete(userId: userId)) { result in
+            switch ResponseData<ResponseModel>.getModelResponse(result) {
+            case .success(let model):
+                return completion(model, nil)
+            case .failure(let error):
+                makeToast()
+                return completion(nil, error)
+            }
+        }
+    }
 
 }
 
