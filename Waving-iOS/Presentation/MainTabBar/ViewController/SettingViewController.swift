@@ -45,6 +45,7 @@ final class SettingViewController: UIViewController, SnapKitInterface {
     }
     
     private func setupView() {
+        overrideUserInterfaceStyle = .light
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.isHidden = true
     }

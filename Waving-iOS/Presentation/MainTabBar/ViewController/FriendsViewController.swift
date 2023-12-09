@@ -62,6 +62,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     }
     
     func addComponents() {
+        overrideUserInterfaceStyle = .light
         view.backgroundColor = .systemBackground
         self.navigationController?.navigationBar.isHidden = true
         [navigationView, scrollView].forEach { view.addSubview($0) }
