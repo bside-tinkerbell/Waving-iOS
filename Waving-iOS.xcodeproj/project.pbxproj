@@ -74,6 +74,8 @@
 		CE0412B12A23640500C790F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B02A23640500C790F3 /* HomeViewController.swift */; };
 		CE0412B32A23642200C790F3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B22A23642200C790F3 /* FriendsViewController.swift */; };
 		CE0412B52A23643400C790F3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0412B42A23643400C790F3 /* SettingViewController.swift */; };
+		CE0C1FF42B24809F005373F0 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE0C1FF32B24809F005373F0 /* PhoneNumberKit */; };
+		CE0C1FF62B24813E005373F0 /* PhoneNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C1FF52B24813E005373F0 /* PhoneNumberManager.swift */; };
 		CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */; };
 		CE48AF302A9B1F10005EF89C /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */; };
 		CE5FDE992B1C606100D61D72 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FDE982B1C606100D61D72 /* UIAlertController+.swift */; };
@@ -226,6 +228,7 @@
 		CE0412B02A23640500C790F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE0412B22A23642200C790F3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		CE0412B42A23643400C790F3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE0C1FF52B24813E005373F0 /* PhoneNumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberManager.swift; sourceTree = "<group>"; };
 		CE25D48F2AAD45F600E95733 /* SignRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRequestModel.swift; sourceTree = "<group>"; };
 		CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		CE5FDE982B1C606100D61D72 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E0C10A2A23669A00C8696E /* Moya in Frameworks */,
+				CE0C1FF42B24809F005373F0 /* PhoneNumberKit in Frameworks */,
 				A8E0C0F12A2365B500C8696E /* Then in Frameworks */,
 				A8E0C0F42A2365E000C8696E /* SnapKit in Frameworks */,
 			);
@@ -781,6 +785,7 @@
 			isa = PBXGroup;
 			children = (
 				CE48AF2F2A9B1F10005EF89C /* ClipboardManager.swift */,
+				CE0C1FF52B24813E005373F0 /* PhoneNumberManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1050,6 +1055,7 @@
 				A8E0C0F02A2365B500C8696E /* Then */,
 				A8E0C0F32A2365E000C8696E /* SnapKit */,
 				A8E0C1092A23669A00C8696E /* Moya */,
+				CE0C1FF32B24809F005373F0 /* PhoneNumberKit */,
 			);
 			productName = "Waving-iOS";
 			productReference = CEE3E7762A17A93200BC1464 /* Waving-iOS.app */;
@@ -1127,6 +1133,7 @@
 				A8E0C0EF2A2365B500C8696E /* XCRemoteSwiftPackageReference "Then" */,
 				A8E0C0F22A2365E000C8696E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A8E0C1082A23669A00C8696E /* XCRemoteSwiftPackageReference "Moya" */,
+				CE0C1FF22B24809F005373F0 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 			);
 			productRefGroup = CEE3E7772A17A93200BC1464 /* Products */;
 			projectDirPath = "";
@@ -1193,6 +1200,7 @@
 				A8BF46E32A83312A00FCDD7C /* SampleViewModel.swift in Sources */,
 				A8C7927D2A4CDD390032FDFC /* URLString.swift in Sources */,
 				CEE3E77E2A17A93200BC1464 /* ViewController.swift in Sources */,
+				CE0C1FF62B24813E005373F0 /* PhoneNumberManager.swift in Sources */,
 				CE8F114B2AC3043B0069D158 /* SignUpResponseModel.swift in Sources */,
 				CEF347C62A5BF5A800ED012E /* GreetingListViewController.swift in Sources */,
 				A8C792822A4CE6D60032FDFC /* TestModel.swift in Sources */,
@@ -1654,6 +1662,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		CE0C1FF22B24809F005373F0 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.7.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1671,6 +1687,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A8E0C1082A23669A00C8696E /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		CE0C1FF32B24809F005373F0 /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE0C1FF22B24809F005373F0 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
