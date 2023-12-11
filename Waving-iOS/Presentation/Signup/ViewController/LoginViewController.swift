@@ -83,7 +83,6 @@ final class LoginViewController: UIViewController, SnapKitInterface {
     
     @objc
     private func dismissKeyboard() {
-        Log.d("dismissKeyboard called")
         view.endEditing(true)
     }
     
