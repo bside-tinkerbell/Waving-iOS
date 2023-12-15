@@ -1,5 +1,5 @@
 ---
-name: "\U0001F4CC Issue Template"
+name: "\U0001F49B Issue Template \U0001F49B "
 about: 이슈를 생성해 주세요
 title: "[FEAT/FIX/REFACTOR/STYLE/DOCS/TEST/CHORE] 제목"
 labels: ''
