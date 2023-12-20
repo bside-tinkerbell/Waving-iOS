@@ -91,7 +91,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     
     private let cycleInputLabel: UILabel = { // TODO: picker바꾸기
        let label = UILabel()
-        label.text = "연락 주기를 설정해 주세요."
+        label.text = "반복주기 2주마다"
         label.textColor = .text030
         label.font = .p_R(18)
         return label
@@ -112,7 +112,7 @@ final class TopProfileView: UIView, SnapKitInterface {
         addSubview(containerView)
         [profileContainerView, nameLabel, contactButton, birthdayContainerView, cycleContainerView].forEach { containerView.addArrangedSubview($0) }
         profileContainerView.addSubview(profileImage)
-        [birthdayLabel, birthdayInputLabel].forEach { birthdayContainerView.addArrangedSubview($0) }
+        //[birthdayLabel, birthdayInputLabel].forEach { birthdayContainerView.addArrangedSubview($0) }
         [cycleLabel, cycleInputLabel].forEach { cycleContainerView.addArrangedSubview($0) }
     }
     

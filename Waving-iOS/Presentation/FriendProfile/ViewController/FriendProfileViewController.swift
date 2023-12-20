@@ -10,13 +10,17 @@ import Combine
 
 final class FriendProfileViewController: UIViewController {
     
-    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), favoriteButtonImage: UIImage(named:"icn_favorites_off"), forwaredButtonImage: UIImage(named:"icn_edit"), title: "프로필") {[weak self] in
+//    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), favoriteButtonImage: UIImage(named:"icn_favorites_off"), forwaredButtonImage: UIImage(named:"icn_edit"), title: "프로필") {[weak self] in
+//        Log.d("뒤로 가기")
+//    } didTouchFavorite: { [weak self] in
+//        Log.d("즐겨찾기")
+//    } didTouchForward: { [weak self] in
+//        Log.d("편집")
+//    }
+    
+    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "프로필", didTouchForward:  {[weak self] in
         Log.d("뒤로 가기")
-    } didTouchFavorite: { [weak self] in
-        Log.d("즐겨찾기")
-    } didTouchForward: { [weak self] in
-        Log.d("편집")
-    }
+    })
 
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()
