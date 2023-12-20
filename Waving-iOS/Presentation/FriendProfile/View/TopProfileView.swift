@@ -91,7 +91,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     
     private let cycleInputLabel: UILabel = { // TODO: picker바꾸기
        let label = UILabel()
-        label.text = "연락 주기를 을 설정해 주세요."
+        label.text = "연락 주기를 설정해 주세요."
         label.textColor = .text030
         label.font = .p_R(18)
         return label
