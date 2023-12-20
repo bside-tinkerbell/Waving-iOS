@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self?.didLogout()
         }
         
-        window.rootViewController = UINavigationController(rootViewController: IntroViewController())
+//        window.rootViewController = UINavigationController(rootViewController: IntroViewController())
+        window.rootViewController = UINavigationController(rootViewController: FriendProfileViewController())
         window.makeKeyAndVisible()
     }
 
