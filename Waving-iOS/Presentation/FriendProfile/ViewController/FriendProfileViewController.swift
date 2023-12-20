@@ -18,10 +18,12 @@ final class FriendProfileViewController: UIViewController {
 //        Log.d("편집")
 //    }
     
-    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "프로필", didTouchForward:  {[weak self] in
+    private lazy var navigationViewModel: NavigationModel = .init(backButtonImage: UIImage(named: "icn_back"), title: "프로필", didTouchBack: {[weak self] in
         Log.d("뒤로 가기")
+        //self?.navigationController?.popToRootViewController(animated: false)
+        self?.dismiss(animated: false)
     })
-
+    
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()
         view.setup(model: navigationViewModel)
