@@ -102,6 +102,12 @@ extension FriendsListView: UICollectionViewDataSource {
     }
 }
 
+extension FriendsListView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.viewModel?.didTapProfile()
+    }
+}
+
 extension FriendsListView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.frame.size.width
