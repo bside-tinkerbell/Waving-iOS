@@ -32,7 +32,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "이름 텍스트 전체 노출"
+        label.text = GetFriendsProfileEntity.shared.name
         label.textColor = .text090
         label.font = .p_B(20)
         return label
