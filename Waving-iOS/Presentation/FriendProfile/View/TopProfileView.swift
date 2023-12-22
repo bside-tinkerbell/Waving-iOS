@@ -9,6 +9,7 @@ import UIKit
 
 final class TopProfileView: UIView, SnapKitInterface {
 
+    var viewModel = FriendProfileViewModel()
     // MARK: - Components
     private lazy var containerView: UIStackView = {
        let stackView = UIStackView()
@@ -38,7 +39,7 @@ final class TopProfileView: UIView, SnapKitInterface {
         return label
     }()
     
-    private let contactButton: UIButton = {
+    let contactButton: UIButton = {
        let button = UIButton()
         button.setTitleColor(.text090, for: .normal)
         button.setTitle("연락하기", for: .normal)
@@ -102,6 +103,7 @@ final class TopProfileView: UIView, SnapKitInterface {
         super.init(frame: frame)
         addComponents()
         setConstraints()
+        binding()
     }
     
     required init?(coder: NSCoder) {
@@ -141,5 +143,14 @@ final class TopProfileView: UIView, SnapKitInterface {
         contactButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
+    }
+    
+    func binding() {
+        contactButton.addTarget(self, action: #selector(didTapCall), for: .touchUpInside)
+    }
+    
+    @objc
+    func didTapCall(){
+        viewModel.call()
     }
 }
