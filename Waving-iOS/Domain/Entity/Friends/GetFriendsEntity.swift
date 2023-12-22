@@ -11,9 +11,13 @@ struct GetFriendsEntity {
     
     let name: String
     let contactId: Int
+    let friendProfileId: Int
+    let cellPhone: String
     
-    public init(name: String, contactId: Int) {
+    public init(name: String, contactId: Int, friendProfileId: Int, cellPhone: String) {
         self.name = name
         self.contactId = contactId
+        self.friendProfileId = friendProfileId
+        self.cellPhone = cellPhone
     }
 }

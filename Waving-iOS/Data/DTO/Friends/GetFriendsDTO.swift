@@ -73,7 +73,7 @@ struct GetFriendsProfileDTO: Codable {
 
 extension GetFriendsProfileDTO {
     func toDomain() -> GetFriendsEntity {
-        return .init(name: name, contactId: contactId)
+        return .init(name: name, contactId: contactId, friendProfileId: friendProfileId, cellPhone: cellPhone)
     }
 }
 

@@ -102,7 +102,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
     // MARK: - init
     override init(frame: CGRect) {
         self.contact = ContactEntity(name: "", cellPhone: "", contactCycle: 2)
-        self.friendsList = GetFriendsEntity(name: "", contactId: 0)
+        self.friendsList = GetFriendsEntity(name: "", contactId: 0, friendProfileId: 0, cellPhone: "")
         super.init(frame: frame)
         addComponents()
         setConstraints()
