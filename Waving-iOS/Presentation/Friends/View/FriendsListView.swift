@@ -104,7 +104,9 @@ extension FriendsListView: UICollectionViewDataSource {
 
 extension FriendsListView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
         self.viewModel?.didTapProfile()
+        Log.v(friendsList[indexPath.row])
     }
 }
 

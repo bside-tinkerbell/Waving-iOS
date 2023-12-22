@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+// TODO: cell 모델로 바꾸는 게 좋아 보임
 enum CellState {
     case checkBoxSelected
     case checkBoxUnselected
