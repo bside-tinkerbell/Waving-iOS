@@ -106,7 +106,10 @@ extension FriendsListView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
         self.viewModel?.didTapProfile()
-        Log.v(friendsList[indexPath.row])
+        GetFriendsProfileEntity.shared.name = friendsList[indexPath.row].name
+        GetFriendsProfileEntity.shared.contactId = friendsList[indexPath.row].contactId
+        GetFriendsProfileEntity.shared.friendProfileId = friendsList[indexPath.row].friendProfileId
+        GetFriendsProfileEntity.shared.cellPhone = friendsList[indexPath.row].cellPhone
     }
 }
 

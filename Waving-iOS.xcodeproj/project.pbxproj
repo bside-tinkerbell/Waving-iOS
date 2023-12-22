@@ -62,6 +62,7 @@
 		A8C874382A6EBB4C0057EEEA /* SaveFriendsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C874372A6EBB4C0057EEEA /* SaveFriendsResponseDTO.swift */; };
 		A8C8743B2A6EBF580057EEEA /* FriendsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8743A2A6EBF580057EEEA /* FriendsTarget.swift */; };
 		A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8743C2A6EBF610057EEEA /* FriendsAPI.swift */; };
+		A8D7C8D12B3573C1000DCBAC /* GetFriendsProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D7C8D02B3573C1000DCBAC /* GetFriendsProfileEntity.swift */; };
 		A8E0C0B92A23641F00C8696E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0C0B82A23641F00C8696E /* Log.swift */; };
 		A8E0C0F12A2365B500C8696E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0F02A2365B500C8696E /* Then */; };
 		A8E0C0F42A2365E000C8696E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A8E0C0F32A2365E000C8696E /* SnapKit */; };
@@ -217,6 +218,7 @@
 		A8C874372A6EBB4C0057EEEA /* SaveFriendsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsResponseDTO.swift; sourceTree = "<group>"; };
 		A8C8743A2A6EBF580057EEEA /* FriendsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTarget.swift; sourceTree = "<group>"; };
 		A8C8743C2A6EBF610057EEEA /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
+		A8D7C8D02B3573C1000DCBAC /* GetFriendsProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsProfileEntity.swift; sourceTree = "<group>"; };
 		A8E0C0B82A23641F00C8696E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A8E0C10E2A23685C00C8696E /* SnapKitInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitInterface.swift; sourceTree = "<group>"; };
 		A8F4DD412A4660560045C179 /* CALayer+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			children = (
 				A836B19C2A6CFB2700D9F02F /* ContactEntity.swift */,
 				A838616F2A8DD07C00E8B609 /* GetFriendsEntity.swift */,
+				A8D7C8D02B3573C1000DCBAC /* GetFriendsProfileEntity.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -1222,6 +1225,7 @@
 				A8C792802A4CE0930032FDFC /* SignTarget.swift in Sources */,
 				CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */,
 				A8C8743D2A6EBF610057EEEA /* FriendsAPI.swift in Sources */,
+				A8D7C8D12B3573C1000DCBAC /* GetFriendsProfileEntity.swift in Sources */,
 				CE25D4902AAD45F600E95733 /* SignRequestModel.swift in Sources */,
 				CE5FDE992B1C606100D61D72 /* UIAlertController+.swift in Sources */,
 				A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */,

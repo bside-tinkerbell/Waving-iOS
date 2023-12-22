@@ -45,7 +45,6 @@ enum FriendsEndpoint: APIEndpoint {
         switch self {
         case .saveFriends:
              let saveFriendsDTO = SaveFriendsDTO(userId: LoginDataStore.shared.userId!, contactId: SaveContactEntity.shared.contactId, profileList: saveContactList)
-            //let saveFriendsDTO = SaveFriendsDTO(userId: 16, contactId: 22, profileList: saveContactList)
             return saveFriendsDTO.asDictionary
         case .getFriends:
             return nil
