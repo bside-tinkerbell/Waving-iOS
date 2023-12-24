@@ -9,6 +9,7 @@ import UIKit
 
 final class TopProfileView: UIView, SnapKitInterface {
 
+    var viewModel = FriendProfileViewModel()
     // MARK: - Components
     private lazy var containerView: UIStackView = {
        let stackView = UIStackView()
@@ -32,13 +33,13 @@ final class TopProfileView: UIView, SnapKitInterface {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "이름 텍스트 전체 노출"
+        label.text = GetFriendsProfileEntity.shared.name
         label.textColor = .text090
         label.font = .p_B(20)
         return label
     }()
     
-    private let contactButton: UIButton = {
+    let contactButton: UIButton = {
        let button = UIButton()
         button.setTitleColor(.text090, for: .normal)
         button.setTitle("연락하기", for: .normal)
@@ -91,7 +92,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     
     private let cycleInputLabel: UILabel = { // TODO: picker바꾸기
        let label = UILabel()
-        label.text = "연락 주기를 을 설정해 주세요."
+        label.text = "반복주기 2주마다"
         label.textColor = .text030
         label.font = .p_R(18)
         return label
@@ -102,6 +103,7 @@ final class TopProfileView: UIView, SnapKitInterface {
         super.init(frame: frame)
         addComponents()
         setConstraints()
+        binding()
     }
     
     required init?(coder: NSCoder) {
@@ -112,7 +114,7 @@ final class TopProfileView: UIView, SnapKitInterface {
         addSubview(containerView)
         [profileContainerView, nameLabel, contactButton, birthdayContainerView, cycleContainerView].forEach { containerView.addArrangedSubview($0) }
         profileContainerView.addSubview(profileImage)
-        [birthdayLabel, birthdayInputLabel].forEach { birthdayContainerView.addArrangedSubview($0) }
+        //[birthdayLabel, birthdayInputLabel].forEach { birthdayContainerView.addArrangedSubview($0) }
         [cycleLabel, cycleInputLabel].forEach { cycleContainerView.addArrangedSubview($0) }
     }
     
@@ -141,5 +143,14 @@ final class TopProfileView: UIView, SnapKitInterface {
         contactButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
+    }
+    
+    func binding() {
+        contactButton.addTarget(self, action: #selector(didTapCall), for: .touchUpInside)
+    }
+    
+    @objc
+    func didTapCall(){
+        viewModel.call()
     }
 }

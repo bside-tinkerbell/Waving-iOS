@@ -127,5 +127,4 @@ extension FriendsViewModel: FriendsViewModelRepresentable {
     func didTapProfile() {
         sendRoute.send(.moveToProfile)
     }
-
 }

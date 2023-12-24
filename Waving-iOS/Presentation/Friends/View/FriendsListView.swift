@@ -102,6 +102,17 @@ extension FriendsListView: UICollectionViewDataSource {
     }
 }
 
+extension FriendsListView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? FriendsContactCollectionViewCell else { return }
+        self.viewModel?.didTapProfile()
+        GetFriendsProfileEntity.shared.name = friendsList[indexPath.row].name
+        GetFriendsProfileEntity.shared.contactId = friendsList[indexPath.row].contactId
+        GetFriendsProfileEntity.shared.friendProfileId = friendsList[indexPath.row].friendProfileId
+        GetFriendsProfileEntity.shared.cellPhone = friendsList[indexPath.row].cellPhone
+    }
+}
+
 extension FriendsListView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.frame.size.width

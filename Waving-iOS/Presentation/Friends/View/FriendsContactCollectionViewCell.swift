@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+// TODO: cell 모델로 바꾸는 게 좋아 보임
 enum CellState {
     case checkBoxSelected
     case checkBoxUnselected
@@ -101,7 +102,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
     // MARK: - init
     override init(frame: CGRect) {
         self.contact = ContactEntity(name: "", cellPhone: "", contactCycle: 2)
-        self.friendsList = GetFriendsEntity(name: "", contactId: 0)
+        self.friendsList = GetFriendsEntity(name: "", contactId: 0, friendProfileId: 0, cellPhone: "")
         super.init(frame: frame)
         addComponents()
         setConstraints()

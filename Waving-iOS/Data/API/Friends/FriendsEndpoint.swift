@@ -20,8 +20,8 @@ enum FriendsEndpoint: APIEndpoint {
         case .saveFriends:
             return "/v1/friends/register"
         case .getFriends:
-           // return "/v1/friends/list/16" //TODO: 임의적(맨 뒤 user_id 들어가야 함)
-           return "/v1/friends/list/" + "\(LoginDataStore.shared.userId!)"
+            let userId = LoginDataStore.shared.userId ?? 36
+           return "/v1/friends/list/" + "\(userId)"
         }
     }
     
@@ -45,7 +45,6 @@ enum FriendsEndpoint: APIEndpoint {
         switch self {
         case .saveFriends:
              let saveFriendsDTO = SaveFriendsDTO(userId: LoginDataStore.shared.userId!, contactId: SaveContactEntity.shared.contactId, profileList: saveContactList)
-            //let saveFriendsDTO = SaveFriendsDTO(userId: 16, contactId: 22, profileList: saveContactList)
             return saveFriendsDTO.asDictionary
         case .getFriends:
             return nil
