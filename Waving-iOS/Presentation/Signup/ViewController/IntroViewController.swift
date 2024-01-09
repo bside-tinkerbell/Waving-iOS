@@ -31,6 +31,10 @@ final class IntroViewController: UIViewController {
         self?.viewModel.login()
     }
     
+    private lazy var tourButtonViewModel = WVButtonModel(title: "게스트로 둘러 보기", titleColor: .Text.text090, backgroundColor: .Button.mainButton, borderColor: .Border.gray) { [weak self] in
+        Log.i("게스트로 둘러 보기")
+    }
+    
     private let logoStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -116,10 +120,12 @@ final class IntroViewController: UIViewController {
         
         let loginButton = WVButton()
         loginButton.setup(model: loginButtonViewModel)
+        
+        let tourButton = WVButton()
+        tourButton.setup(model: tourButtonViewModel)
 
         buttonStackView.spacing = Constants.Intro.buttonSpacing
-        buttonStackView.addArrangedSubview(signupButton)
-        buttonStackView.addArrangedSubview(loginButton)
+        [signupButton, loginButton, tourButton].forEach{ buttonStackView.addArrangedSubview($0) }
     }
     
     private func binding() {
