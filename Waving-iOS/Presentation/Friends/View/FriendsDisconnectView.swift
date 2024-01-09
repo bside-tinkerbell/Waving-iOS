@@ -40,7 +40,7 @@ class FriendsDisconnectView: UIView, SnapKitInterface {
     }()
     
     let friendsAddButton = WVButton()
-    private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
         self?.viewModel?.addFriends()
     }
     

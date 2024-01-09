@@ -132,7 +132,7 @@ final class CycleViewController: UIViewController, SnapKitInterface {
     }()
 
     private let completedButton = WVButton()
-    private lazy var completedButtonViewModel = WVButtonModel(title: "완료", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    private lazy var completedButtonViewModel = WVButtonModel(title: "완료", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
       
     }
     

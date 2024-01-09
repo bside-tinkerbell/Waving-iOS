@@ -40,7 +40,7 @@ final class LoginViewController: UIViewController, SnapKitInterface {
         return textField
     }()
     
-    lazy private var doneButtonModel = WVButtonModel(title: "로그인", isEnabled: false, titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    lazy private var doneButtonModel = WVButtonModel(title: "로그인", isEnabled: false, titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
         self?.viewModel.login()
     }
     

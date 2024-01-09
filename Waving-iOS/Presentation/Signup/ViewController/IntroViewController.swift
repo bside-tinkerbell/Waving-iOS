@@ -23,11 +23,11 @@ final class IntroViewController: UIViewController {
     
     private let viewModel = IntroViewModel()
     
-    private lazy var signupButtonViewModel = WVButtonModel(title: "가입하기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    private lazy var signupButtonViewModel = WVButtonModel(title: "가입하기", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
         self?.viewModel.signup()
     }
 
-    private lazy var loginButtonViewModel = WVButtonModel(title: "이메일로 로그인", titleColor: .Text.text090, backgroundColor: .clear, borderColor: .Border.gray) { [weak self] in
+    private lazy var loginButtonViewModel = WVButtonModel(title: "이메일로 로그인", titleColor: .Text.text090, backgroundColor: .white, borderColor: .Border.gray) { [weak self] in
         self?.viewModel.login()
     }
     

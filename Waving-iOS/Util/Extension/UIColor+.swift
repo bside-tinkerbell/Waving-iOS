@@ -46,9 +46,12 @@ extension UIColor {
     }
     
     enum Button {
-        static let blackBackground = UIColor.black
+        
         /// #323232
+        static var mainBlackButton: UIColor { return #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1) }
+        /// #CFCFCF
         static var mainButton: UIColor { return #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1) }
+ 
     }
     
     // MARK: - Gray Scale
