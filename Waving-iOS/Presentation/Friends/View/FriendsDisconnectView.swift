@@ -35,7 +35,7 @@ class FriendsDisconnectView: UIView, SnapKitInterface {
         label.textAlignment = .center 
         label.attributedText = NSMutableAttributedString(string: "연락처를 가져올 수 없습니다.\n[설정] > [연락처 허용]을 해주세요.")
             .wv_setFont(.p_R(16))
-            .wv_setTextColor(.text050)
+            .wv_setTextColor(.Text.text050)
         return label
     }()
     

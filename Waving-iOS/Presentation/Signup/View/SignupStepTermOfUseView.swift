@@ -22,7 +22,7 @@ final class SignupStepTermOfUseView: UIView, SnapKitInterface {
         let labelContainerView = UIView()
         let label = UILabel().then {
             $0.font = .p_R(18)
-            $0.textColor = .text090
+            $0.textColor = .Text.text090
             $0.numberOfLines = 1
             $0.text = "이용 약관에 동의해주세요."
         }

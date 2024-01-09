@@ -119,7 +119,7 @@ final class WVButtonModel: NSObject {
     public init(title: String? = "Done",
                 isEnabled: Bool = true,
                 titleColor: UIColor = .white,
-                backgroundColor: UIColor = .mainButton,
+                backgroundColor: UIColor = .Button.mainButton,
                 font: UIFont = .p_R(18),
 //                width: CGFloat = Constants.Intro.loginButtonWidth,
                 height: CGFloat = Constants.Intro.loginButtonHeight,

@@ -49,7 +49,7 @@ final class GreetingSuggestionCellModel {
     init(title: String) {
         self.titleAttributedText = NSMutableAttributedString(string: title)
             .wv_setFont(.p_R(16))
-            .wv_setTextColor(.text090)
+            .wv_setTextColor(.Text.text090)
             .wv_setParagraphStyle(lineHeightMultiple: 1.26)
         
         bind()

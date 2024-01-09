@@ -51,7 +51,7 @@ final class SignupTextFieldContainer: UIView {
         titleLabelContainerView = labelContainerView
         let label = UILabel().then {
             $0.font = .p_R(18)
-            $0.textColor = .text090
+            $0.textColor = .Text.text090
             $0.numberOfLines = 1
         }
         titleLabel = label
@@ -66,7 +66,7 @@ final class SignupTextFieldContainer: UIView {
         
         self.textField = {
             let textField = WVTextField()
-            textField.textColor = .text090
+            textField.textColor = .Text.text090
             textField.font = .p_R(18)
             textField.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview(textField)
@@ -76,7 +76,7 @@ final class SignupTextFieldContainer: UIView {
         
         self.bottomSeparator = {
             let view = UIView()
-            view.backgroundColor = .text090
+            view.backgroundColor = .Text.text090
             view.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(view)
             
@@ -106,7 +106,7 @@ final class SignupTextFieldContainer: UIView {
         self.$isWarning
             .sink { [weak self] in
                 guard let self else { return }
-                let color: UIColor = $0 ? .caution050 : .gray090
+                let color: UIColor = $0 ? .Text.caution050 : .gray090
                 self.textField.textColor = color
                 self.bottomSeparator.backgroundColor = color
             }
