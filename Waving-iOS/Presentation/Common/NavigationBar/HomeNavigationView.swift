@@ -64,11 +64,11 @@ final class HomeNavigationView: UIView, SnapKitInterface {
             $0.height.equalTo(Constants.Navi.defaultHeight)
         }
         
-        logoButton.snp.makeConstraints {
-            $0.width.equalTo(Constants.Home.logoSize.width)
-            $0.height.equalTo(Constants.Home.logoSize.height)
-        }
-        
+//        logoButton.snp.makeConstraints {
+//            $0.width.equalTo(Constants.Home.logoSize.width)
+//            $0.height.equalTo(Constants.Home.logoSize.height)
+//        }
+//        
 //        rightButton.snp.makeConstraints {
 //            $0.centerY.equalToSuperview()
 //            $0.size.equalTo(Constants.Home.rightButtonSize.width)
