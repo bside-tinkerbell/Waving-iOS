@@ -36,6 +36,7 @@ final class IntroViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.backgroundColor = .Main.main050
         stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -93,21 +94,20 @@ final class IntroViewController: UIViewController {
             logoImageView.image = image
         }
         imageContainerView.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.centerX.equalToSuperview()
-        }
+        logoImageView.snp.makeConstraints { $0.top.bottom.centerX.equalToSuperview() }
         
         let logoLabel = UILabel()
         logoLabel.textColor = .Text.black
-        logoLabel.text = "waving"
-        logoLabel.font = .p_M(40)
+        logoLabel.text = "연락이 망설여진다면,"
+        logoLabel.font = .p_M(16)
         logoLabel.textAlignment = .center
-        
         logoStackView.alignment = .center
-        logoStackView.addArrangedSubview(imageContainerView)
-        logoStackView.addArrangedSubview(logoLabel)
+        
+        let textContainerView = UIView()
+        let textImageView = UIImageView(image: UIImage(named: "img_logo"))
+        textContainerView.addSubview(textImageView)
+        textImageView.snp.makeConstraints { $0.top.bottom.centerX.equalToSuperview() }
+        [imageContainerView, logoLabel, textContainerView].forEach{logoStackView.addArrangedSubview($0)}
     }
     
     private func setupButtons() {
