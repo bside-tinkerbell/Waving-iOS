@@ -10,8 +10,8 @@ import UIKit
 extension UIColor {
     
     enum Main {
-        /// #FADC5A
-        static var main050: UIColor { return #colorLiteral(red: 0.9803921569, green: 0.862745098, blue: 0.3529411765, alpha: 1) }
+        /// #F8D749
+        static var main050: UIColor { return #colorLiteral(red: 0.9725490196, green: 0.8431372549, blue: 0.2862745098, alpha: 1) }
         /// #F8D749
         static var main090: UIColor { return #colorLiteral(red: 0.9802921414, green: 0.8646150231, blue: 0.3539540768, alpha: 1) }
         /// #FFFAD9
