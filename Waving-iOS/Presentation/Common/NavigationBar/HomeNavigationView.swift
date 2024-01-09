@@ -9,7 +9,6 @@ import UIKit
 
 final class HomeNavigationView: UIView, SnapKitInterface {
     
-    
     // MARK: - View
     private lazy var logoButton: UIButton = {
         let button = UIButton()
@@ -50,10 +49,7 @@ final class HomeNavigationView: UIView, SnapKitInterface {
     
     func addComponents() {
         addSubview(buttonStackView)
-        
-        buttonStackView.addArrangedSubview(logoButton)
-        buttonStackView.addArrangedSubview(paddingView)
-//        buttonStackView.addArrangedSubview(rightButton)
+        [logoButton, paddingView].forEach { buttonStackView.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -63,15 +59,5 @@ final class HomeNavigationView: UIView, SnapKitInterface {
             $0.top.equalToSuperview()
             $0.height.equalTo(Constants.Navi.defaultHeight)
         }
-        
-//        logoButton.snp.makeConstraints {
-//            $0.width.equalTo(Constants.Home.logoSize.width)
-//            $0.height.equalTo(Constants.Home.logoSize.height)
-//        }
-//        
-//        rightButton.snp.makeConstraints {
-//            $0.centerY.equalToSuperview()
-//            $0.size.equalTo(Constants.Home.rightButtonSize.width)
-//        }
     }
 }
