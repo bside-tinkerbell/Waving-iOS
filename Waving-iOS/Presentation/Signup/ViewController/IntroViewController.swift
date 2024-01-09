@@ -15,6 +15,8 @@ extension IntroRoute {
             return SignupViewController()
         case .loginView:
             return LoginViewController()
+        case .mainTabView:
+            return MainTabBarController()
         }
     }
 }
@@ -32,7 +34,7 @@ final class IntroViewController: UIViewController {
     }
     
     private lazy var tourButtonViewModel = WVButtonModel(title: "게스트로 둘러 보기", titleColor: .Text.text090, backgroundColor: .Button.mainButton, borderColor: .Border.gray) { [weak self] in
-        Log.i("게스트로 둘러 보기")
+        self?.viewModel.tour()
     }
     
     private let logoStackView = {
