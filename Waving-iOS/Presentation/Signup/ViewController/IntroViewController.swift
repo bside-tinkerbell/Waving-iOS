@@ -34,6 +34,7 @@ final class IntroViewController: UIViewController {
     private let logoStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = .Main.main050
         stackView.axis = .vertical
         return stackView
     }()
