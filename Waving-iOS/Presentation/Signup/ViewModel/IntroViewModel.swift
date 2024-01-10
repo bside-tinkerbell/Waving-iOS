@@ -11,6 +11,7 @@ import Combine
 enum IntroRoute {
     case signupView
     case loginView
+    case mainTabView
 }
 
 final class IntroViewModel {
@@ -29,5 +30,10 @@ final class IntroViewModel {
     func login() {
         Log.d("로그인")
         sendRoute.send(.loginView)
+    }
+    
+    func tour() {
+        Log.d("둘러보기")
+        sendRoute.send(.mainTabView)
     }
 }

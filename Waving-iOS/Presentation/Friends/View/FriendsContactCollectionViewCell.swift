@@ -74,7 +74,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
         label.numberOfLines = 0
         label.font = .p_R(16)
         label.textAlignment = .left
-        label.textColor = .text090
+        label.textColor = .Text.text090
         return label
     }()
     
@@ -83,7 +83,7 @@ class FriendsContactCollectionViewCell: UICollectionViewCell, SnapKitInterface {
         label.text = "010-8699-7777"
         label.font = .p_R(12)
         label.textAlignment = .left
-        label.textColor = .text030
+        label.textColor = .Text.text030
         return label
     }()
     
