@@ -34,13 +34,10 @@ extension Networkable {
         lazy var toastModel: ToastModel = .init(title: ToastMessage.networkError.rawValue)
         toast.setupView(model: toastModel)
 
-        if let vc = UIApplication.getMostTopViewController() {
-            if let navi = vc.navigationController {
-                navi.view.addSubview(toast)
-                toast.snp.makeConstraints { make in
-                    make.edges.equalToSuperview()
-                }
-            }
-        }
+        guard let vc = UIApplication.getMostTopViewController() else {return}
+        guard let navi = vc.navigationController else {return}
+        
+        navi.view.addSubview(toast)
+        toast.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 }
