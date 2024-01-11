@@ -31,6 +31,9 @@ extension Networkable {
     
     static func makeToast() {
         let toast = Toast()
+        lazy var toastModel: ToastModel = .init(title: ToastMessage.networkError.rawValue)
+        toast.setupView(model: toastModel)
+
         if let vc = UIApplication.getMostTopViewController() {
             if let navi = vc.navigationController {
                 navi.view.addSubview(toast)
