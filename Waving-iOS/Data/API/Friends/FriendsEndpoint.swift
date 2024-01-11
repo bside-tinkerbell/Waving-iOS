@@ -20,7 +20,7 @@ enum FriendsEndpoint: APIEndpoint {
         case .saveFriends:
             return "/v1/friends/register"
         case .getFriends:
-            let userId = LoginDataStore.shared.userId ?? 0
+            let userId = LoginDataStore.shared.userId ?? 40
            return "/v1/friends/list/" + "\(userId)"
         }
     }
