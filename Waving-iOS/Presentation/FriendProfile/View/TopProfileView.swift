@@ -151,6 +151,21 @@ final class TopProfileView: UIView, SnapKitInterface {
     
     @objc
     func didTapCall(){
-        viewModel.call()
+        guard let userId = LoginDataStore.shared.userId else { return }
+        
+        if userId == 40 {
+            let toast = Toast()
+            lazy var toastModel: ToastModel = .init(title: ToastMessage.signInMessage.rawValue)
+            toast.setupView(model: toastModel)
+
+            guard let vc = UIApplication.getMostTopViewController() else {return}
+            guard let navi = vc.navigationController else {return}
+            
+            navi.view.addSubview(toast)
+            toast.snp.makeConstraints { $0.edges.equalToSuperview() }
+        } else {
+            viewModel.call()
+        }
+    
     }
 }
