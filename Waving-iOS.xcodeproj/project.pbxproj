@@ -13,7 +13,7 @@
 		A8253D542A46A77A00AE8101 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */; };
 		A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */; };
 		A8253D5C2A46E1C000AE8101 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */; };
-		A82EC6632A2634B500DABF26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* Colors.swift */; };
+		A82EC6632A2634B500DABF26 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6622A2634B500DABF26 /* UIColor+.swift */; };
 		A82EC67A2A263D1800DABF26 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EC6792A263D1800DABF26 /* FontManager.swift */; };
 		A836B1862A69D21300D9F02F /* FriendsDisconnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */; };
 		A836B1882A6A04DD00D9F02F /* FriendsAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */; };
@@ -95,7 +95,6 @@
 		CE8F114B2AC3043B0069D158 /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F114A2AC3043B0069D158 /* SignUpResponseModel.swift */; };
 		CE9BBCD32A297F7D0036E335 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */; };
 		CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */; };
-		CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE02A2B0F270036E335 /* UIColor+.swift */; };
 		CE9BBCE32A2B17880036E335 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BBCE22A2B17880036E335 /* DesignConstants.swift */; };
 		CE9BBCE52A2B1E490036E335 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BBCE42A2B1E490036E335 /* Color.xcassets */; };
 		CEA32DD22A3357540006FA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA32DD12A3357540006FA31 /* String+.swift */; };
@@ -171,7 +170,7 @@
 		A8253D532A46A77A00AE8101 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		A8253D592A46E1AB00AE8101 /* FriendsIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsIntroView.swift; sourceTree = "<group>"; };
 		A8253D5B2A46E1C000AE8101 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
-		A82EC6622A2634B500DABF26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A82EC6622A2634B500DABF26 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A82EC6792A263D1800DABF26 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A836B1852A69D21300D9F02F /* FriendsDisconnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDisconnectView.swift; sourceTree = "<group>"; };
 		A836B1872A6A04DD00D9F02F /* FriendsAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAddView.swift; sourceTree = "<group>"; };
@@ -249,7 +248,6 @@
 		CE8F114A2AC3043B0069D158 /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
 		CE9BBCD22A297F7D0036E335 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		CE9BBCDE2A2AFA3B0036E335 /* WVButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVButton.swift; sourceTree = "<group>"; };
-		CE9BBCE02A2B0F270036E335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		CE9BBCE22A2B17880036E335 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
 		CE9BBCE42A2B1E490036E335 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		CEA32DD12A3357540006FA31 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -373,14 +371,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A82EC6602A26343A00DABF26 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				A82EC6622A2634B500DABF26 /* Colors.swift */,
-			);
-			path = Color;
-			sourceTree = "<group>";
-		};
 		A82EC6612A26344200DABF26 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,9 +403,9 @@
 		A836B1952A6CE8BE00D9F02F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A82EC6622A2634B500DABF26 /* UIColor+.swift */,
 				A8F4DD432A4660640045C179 /* UITabBar+.swift */,
 				A8F4DD412A4660560045C179 /* CALayer+.swift */,
-				CE9BBCE02A2B0F270036E335 /* UIColor+.swift */,
 				CE6798372A31E3DE0078F43C /* NSMutableAttributedString+.swift */,
 				CEA32DD12A3357540006FA31 /* String+.swift */,
 				A8C7928D2A4E5A390032FDFC /* UIApplication+.swift */,
@@ -739,7 +729,6 @@
 			children = (
 				A8E0C0B62A2363A200C8696E /* Resources */,
 				A82EC6612A26344200DABF26 /* Font */,
-				A82EC6602A26343A00DABF26 /* Color */,
 				A836B1952A6CE8BE00D9F02F /* Extension */,
 				A8E0C0B82A23641F00C8696E /* Log.swift */,
 			);
@@ -1195,7 +1184,7 @@
 				A8C7928C2A4E4E400032FDFC /* Toast.swift in Sources */,
 				CEDC67862A6C94BC009D37AE /* HomeCollectionReusableView.swift in Sources */,
 				A83861702A8DD07C00E8B609 /* GetFriendsEntity.swift in Sources */,
-				A82EC6632A2634B500DABF26 /* Colors.swift in Sources */,
+				A82EC6632A2634B500DABF26 /* UIColor+.swift in Sources */,
 				CEC778CB2A768A8100C42A01 /* NSAttributedString+.swift in Sources */,
 				CEE16C002A34867C003EC97E /* SignupStepPhoneNumberView.swift in Sources */,
 				A836B1882A6A04DD00D9F02F /* FriendsAddView.swift in Sources */,
@@ -1279,7 +1268,6 @@
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
 				A83861662A8D994D00E8B609 /* Encodable+.swift in Sources */,
 				CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */,
-				CE9BBCE12A2B0F270036E335 /* UIColor+.swift in Sources */,
 				A87144E42A80230A00E5FCAD /* BottomProfileView.swift in Sources */,
 				CEBC400A2A486BEF001A5934 /* TabView.swift in Sources */,
 				CE0412AB2A23552200C790F3 /* MainTabBarController.swift in Sources */,

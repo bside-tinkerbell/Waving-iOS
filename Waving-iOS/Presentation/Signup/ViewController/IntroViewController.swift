@@ -15,6 +15,8 @@ extension IntroRoute {
             return SignupViewController()
         case .loginView:
             return LoginViewController()
+        case .mainTabView:
+            return MainTabBarController()
         }
     }
 }
@@ -23,18 +25,24 @@ final class IntroViewController: UIViewController {
     
     private let viewModel = IntroViewModel()
     
-    private lazy var signupButtonViewModel = WVButtonModel(title: "가입하기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    private lazy var signupButtonViewModel = WVButtonModel(title: "가입하기", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
         self?.viewModel.signup()
     }
 
-    private lazy var loginButtonViewModel = WVButtonModel(title: "이메일로 로그인", titleColor: .text090, backgroundColor: .clear, borderColor: .Border.gray) { [weak self] in
+    private lazy var loginButtonViewModel = WVButtonModel(title: "이메일로 로그인", titleColor: .Text.text090, backgroundColor: .white, borderColor: .Border.gray) { [weak self] in
         self?.viewModel.login()
+    }
+    
+    private lazy var tourButtonViewModel = WVButtonModel(title: "게스트로 둘러 보기", titleColor: .Text.text090, backgroundColor: .Button.mainButton, borderColor: .Border.gray) { [weak self] in
+        self?.viewModel.tour()
     }
     
     private let logoStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = .Main.main050
         stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -49,13 +57,12 @@ final class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
         binding()
     }
     
     private func setupView() {
-        view.backgroundColor = .Background.white
+        view.backgroundColor = .Main.main050
         
         setupLogo()
         setupButtons()
@@ -93,21 +100,20 @@ final class IntroViewController: UIViewController {
             logoImageView.image = image
         }
         imageContainerView.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.centerX.equalToSuperview()
-        }
+        logoImageView.snp.makeConstraints { $0.top.bottom.centerX.equalToSuperview() }
         
         let logoLabel = UILabel()
         logoLabel.textColor = .Text.black
-        logoLabel.text = "waving"
-        logoLabel.font = .p_M(40)
+        logoLabel.text = "연락이 망설여진다면,"
+        logoLabel.font = .p_M(16)
         logoLabel.textAlignment = .center
-        
         logoStackView.alignment = .center
-        logoStackView.addArrangedSubview(imageContainerView)
-        logoStackView.addArrangedSubview(logoLabel)
+        
+        let textContainerView = UIView()
+        let textImageView = UIImageView(image: UIImage(named: "img_logo"))
+        textContainerView.addSubview(textImageView)
+        textImageView.snp.makeConstraints { $0.top.bottom.centerX.equalToSuperview() }
+        [imageContainerView, logoLabel, textContainerView].forEach{logoStackView.addArrangedSubview($0)}
     }
     
     private func setupButtons() {
@@ -116,10 +122,12 @@ final class IntroViewController: UIViewController {
         
         let loginButton = WVButton()
         loginButton.setup(model: loginButtonViewModel)
+        
+        let tourButton = WVButton()
+        tourButton.setup(model: tourButtonViewModel)
 
         buttonStackView.spacing = Constants.Intro.buttonSpacing
-        buttonStackView.addArrangedSubview(signupButton)
-        buttonStackView.addArrangedSubview(loginButton)
+        [signupButton, loginButton, tourButton].forEach{ buttonStackView.addArrangedSubview($0) }
     }
     
     private func binding() {

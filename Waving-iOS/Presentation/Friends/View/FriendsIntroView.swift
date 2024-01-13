@@ -35,7 +35,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
         label.numberOfLines = 0
         label.attributedText = NSMutableAttributedString(string: "소중한 지인과의 연락을 기록하고,\n상황에 맞는 인사말을 추천해드려요.")
             .wv_setFont(.p_R(16))
-            .wv_setTextColor(.text050)
+            .wv_setTextColor(.Text.text050)
         return label
     }()
     
@@ -47,7 +47,7 @@ class FriendsIntroView: UIView, SnapKitInterface {
     }()
     
     let friendsAddButton = WVButton()
-    private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
         self?.viewModel?.addFriends()
     }
     

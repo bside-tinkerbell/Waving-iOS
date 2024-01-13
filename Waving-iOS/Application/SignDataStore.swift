@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct LoginDataStore {
+class LoginDataStore {
     static var shared = LoginDataStore()
     
-    var userId: Int?
+    var userId: Int? = 40
     var accessToken: String?
     var refreshToken: String?
 }
-struct SignDataStore {
+class SignDataStore {
     static var shared = SignDataStore()
     
     var phoneNumber: String? {

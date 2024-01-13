@@ -52,7 +52,7 @@ final class CycleViewController: UIViewController, SnapKitInterface {
         label.numberOfLines = 0
         label.text = "연락 주기는 나의 지인 페이지에서\n변경할 수 있어요."
         label.font = .p_R(16)
-        label.textColor = .text050
+        label.textColor = .Text.text050
         return label
     }()
     
@@ -84,7 +84,7 @@ final class CycleViewController: UIViewController, SnapKitInterface {
     private lazy var cycleNumStackView: UIStackView = { //TODO: GestureRecognizer 추가 필요
         let numStackView = UIStackView()
         numStackView.layer.cornerRadius = 8
-        numStackView.backgroundColor = .main010
+        numStackView.backgroundColor = .Main.main010
         numStackView.alignment = .center
         numStackView.snp.makeConstraints {
             $0.width.equalTo(147)
@@ -95,7 +95,7 @@ final class CycleViewController: UIViewController, SnapKitInterface {
     private let cycleNumLabel: UILabel = {
         let label = UILabel()
         label.text = "2"
-        label.textColor = .text090
+        label.textColor = .Text.text090
         label.font = .p_B(20)
         label.textAlignment = .center
         return label
@@ -132,7 +132,7 @@ final class CycleViewController: UIViewController, SnapKitInterface {
     }()
 
     private let completedButton = WVButton()
-    private lazy var completedButtonViewModel = WVButtonModel(title: "완료", titleColor: .Text.white, backgroundColor: .Button.blackBackground) { [weak self] in
+    private lazy var completedButtonViewModel = WVButtonModel(title: "완료", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
       
     }
     

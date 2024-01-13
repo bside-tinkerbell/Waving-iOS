@@ -12,7 +12,7 @@ class BottomProfileView: UIView {
     private let memoryLabel: UILabel = {
        let label = UILabel()
         label.text = "추억 기록"
-        label.textColor = .text090
+        label.textColor = .Text.text090
         label.font = .p_B(18)
         return label
     }()

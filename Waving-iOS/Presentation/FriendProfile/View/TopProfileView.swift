@@ -34,18 +34,18 @@ final class TopProfileView: UIView, SnapKitInterface {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = GetFriendsProfileEntity.shared.name
-        label.textColor = .text090
+        label.textColor = .Text.text090
         label.font = .p_B(20)
         return label
     }()
     
     let contactButton: UIButton = {
        let button = UIButton()
-        button.setTitleColor(.text090, for: .normal)
+        button.setTitleColor(.Text.text090, for: .normal)
         button.setTitle("연락하기", for: .normal)
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.text090.cgColor
+        button.layer.borderColor = UIColor.Text.text090.cgColor
         return button
     }()
     
@@ -60,7 +60,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     private let birthdayLabel: UILabel = {
        let label = UILabel()
         label.text = "생일"
-        label.textColor = .text090
+        label.textColor = .Text.text090
         label.font = .p_B(18)
         return label
     }()
@@ -68,7 +68,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     private let birthdayInputLabel: UILabel = { // TODO: picker바꾸기
        let label = UILabel()
         label.text = "생일을 입력해 주세요."
-        label.textColor = .text030
+        label.textColor = .Text.text030
         label.font = .p_R(18)
         return label
     }()
@@ -85,7 +85,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     private let cycleLabel: UILabel = {
        let label = UILabel()
         label.text = "연락주기"
-        label.textColor = .text090
+        label.textColor = .Text.text090
         label.font = .p_B(18)
         return label
     }()
@@ -93,7 +93,7 @@ final class TopProfileView: UIView, SnapKitInterface {
     private let cycleInputLabel: UILabel = { // TODO: picker바꾸기
        let label = UILabel()
         label.text = "반복주기 2주마다"
-        label.textColor = .text030
+        label.textColor = .Text.text030
         label.font = .p_R(18)
         return label
     }()
@@ -151,6 +151,21 @@ final class TopProfileView: UIView, SnapKitInterface {
     
     @objc
     func didTapCall(){
-        viewModel.call()
+        guard let userId = LoginDataStore.shared.userId else { return }
+        
+        if userId == 40 {
+            let toast = Toast()
+            lazy var toastModel: ToastModel = .init(title: ToastMessage.signInMessage.rawValue)
+            toast.setupView(model: toastModel)
+
+            guard let vc = UIApplication.getMostTopViewController() else {return}
+            guard let navi = vc.navigationController else {return}
+            
+            navi.view.addSubview(toast)
+            toast.snp.makeConstraints { $0.edges.equalToSuperview() }
+        } else {
+            viewModel.call()
+        }
+    
     }
 }

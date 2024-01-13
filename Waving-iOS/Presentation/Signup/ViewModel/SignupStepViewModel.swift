@@ -104,7 +104,7 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
         self.textFieldTypes = type.textFieldTypes
         self.title = NSMutableAttributedString(string: type.title)
             .wv_setFont(.p_M(24))
-            .wv_setTextColor(.text090)
+            .wv_setTextColor(.Text.text090)
         
         if type == .emailPassword || type == .complete {
             showPreviousButton = false

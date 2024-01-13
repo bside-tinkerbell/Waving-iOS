@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GetFriendsProfileEntity {
+class GetFriendsProfileEntity {
     static var shared = GetFriendsProfileEntity()
     
     var name: String? {
