@@ -242,8 +242,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             Task { @MainActor in
-                guard let cellModel = greetingCategoryCellModels.wv_get(index: indexPath.row),
-                      let greetingListViewController = await TopTabBarViewController.makeGreetingListViewController(with: categories, selectedIndex: indexPath.item) else { return }
+                guard let greetingListViewController = await TopTabBarViewController.makeGreetingListViewController(with: categories, selectedIndex: indexPath.item) else { return }
                 
                 let navigationController = UINavigationController(rootViewController: greetingListViewController)
                 self.present(navigationController, animated: false)

@@ -107,7 +107,6 @@ extension FriendsViewModel: FriendsViewModelRepresentable {
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
                     let formattedPhoneNumber = PhoneNumberManager.format(phoneNumber)
-                    Log.d("[jane] phoneNumber: \(formattedPhoneNumber)")
                     myContactList.append(ContactEntity(name: name, cellPhone: phoneNumber, contactCycle: 2))
                 })
             } catch {

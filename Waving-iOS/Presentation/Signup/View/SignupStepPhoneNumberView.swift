@@ -9,6 +9,10 @@ import UIKit
 import Combine
 
 final class SignupStepPhoneNumberView: UIView {
+    /// 앱 심사 리뷰어에게 제공하는 휴대폰 번호
+    private static let phoneNumberForReviewer: String = "010-0000-0000"
+    /// 앱 심사 리뷰어에게 제공하는 인증코드
+    private static let authCodeForReviewer: String = "00000"
     
     private enum SubStep: Int {
         case requestAuthCode
@@ -21,6 +25,15 @@ final class SignupStepPhoneNumberView: UIView {
         guard let self, let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
     
         Log.d("phoneNumber: \(phoneNumber), self: \(self)")
+        
+        // 앱 심사 리뷰어를 위한 코드
+        if phoneNumber == Self.phoneNumberForReviewer {
+            Log.d("Phone number for reviewer: \(phoneNumber)")
+            self.subStep = .confirmAuthCode
+            self.viewModel?.isNextButtonEnabled = false
+            return
+        }
+        
         // 인증번호 요청
         SignAPI.requestAuthCode(cellphone: phoneNumber) { succeed, failed in
             if let failed {
@@ -41,6 +54,14 @@ final class SignupStepPhoneNumberView: UIView {
               let authCode = Int(self.authCodeText) else { return }
         
         let formattedPhoneNumber = PhoneNumberFormatter.format(text: phoneNumber)
+        
+        // 앱 심사 리뷰어를 위한 코드
+        if phoneNumber == Self.phoneNumberForReviewer, authCodeText == Self.authCodeForReviewer {
+            Log.d("Auth code for reviewer: \(authCodeText)")
+            self.subStep = .confirmAuthCode
+            self.viewModel?.isNextButtonEnabled = true
+            return
+        }
         
         // 인증번호 검증
         SignAPI.confirmAuthCode(cellphone: formattedPhoneNumber, authCode: authCode, completion: { succeed, failed in
