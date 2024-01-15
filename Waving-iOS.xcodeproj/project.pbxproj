@@ -1468,6 +1468,7 @@
 				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Waving-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Waving;
 				INFOPLIST_KEY_NSContactsUsageDescription = "이 앱은 내 주변 소중한 인연들을 관리하기 위해 연락처 연동을 필요로 합니다. 연락처 연동을 허용하시겠습니까? ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1496,6 +1497,7 @@
 				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Waving-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Waving;
 				INFOPLIST_KEY_NSContactsUsageDescription = "이 앱은 내 주변 소중한 인연들을 관리하기 위해 연락처 연동을 필요로 합니다. 연락처 연동을 허용하시겠습니까? ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
