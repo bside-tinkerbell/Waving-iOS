@@ -21,7 +21,7 @@ final class SignupStepPhoneNumberView: UIView {
     
     var viewModel: SignupStepViewModelRepresentable?
     
-    lazy private var authCodeRequestButtonModel = WVButtonModel(title: "인증번호", backgroundColor: .Button.mainButton) { [weak self] in
+    lazy private var authCodeRequestButtonModel = WVButtonModel(title: "인증번호", backgroundColor: .Button.mainBlackButton) { [weak self] in
         guard let self, let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
     
         Log.d("phoneNumber: \(phoneNumber), self: \(self)")
@@ -48,7 +48,7 @@ final class SignupStepPhoneNumberView: UIView {
         }
     }
     
-    lazy private var authCodeConfirmButtonModel = WVButtonModel(title: "확인", backgroundColor: .Button.mainButton) { [weak self] in
+    lazy private var authCodeConfirmButtonModel = WVButtonModel(title: "확인", backgroundColor: .Button.mainBlackButton) { [weak self] in
         guard let self,
               let phoneNumber = SignDataStore.shared.phoneNumber,
               let authCode = Int(self.authCodeText) else { return }
