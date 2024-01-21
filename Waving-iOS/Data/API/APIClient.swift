@@ -14,7 +14,7 @@ protocol APIClient {
     func request<T: Codable>(_ endpoint: EndpointType) -> AnyPublisher<T, Error>
 }
 
-class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
+final class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
     
     private func requestBodyFrom(params: [String: Any]?) -> Data? {
         guard let params = params else { return nil }
@@ -35,11 +35,17 @@ class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      (200...299).contains(httpResponse.statusCode) else {
-                    throw APIError.invalidResponse // TODO: 400과 500대 에러 나누기
+                guard let httpResponse = response as? HTTPURLResponse else { throw APIError.invalidResponse }
+                switch httpResponse.statusCode {
+                case 200..<300:
+                    return data
+                case 400..<500:
+                    throw APIError.clientError
+                case 500..<600:
+                    throw APIError.serverError
+                default:
+                    throw APIError.invalidData
                 }
-                return data
             }
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()

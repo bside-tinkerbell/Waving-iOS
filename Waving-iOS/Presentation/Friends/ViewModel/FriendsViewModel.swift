@@ -86,7 +86,7 @@ extension FriendsViewModel: FriendsViewModelRepresentable {
     func addFriends() {
         Log.d("친구 추가")
         
-        Task.init {
+        Task {
             await fetchAllContacts()
              if type == .addFriend {
                  sendRoute.send(.addFriend)

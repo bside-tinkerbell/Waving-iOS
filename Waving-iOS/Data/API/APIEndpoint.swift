@@ -23,10 +23,10 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-enum APIError: Error {
+enum APIError: String, Error {
     case invalidResponse
     case invalidData
-    case serverError
-    case clientError
+    case clientError = "클라이언트 에러"//400대 에러
+    case serverError = "서버 에러"// 500대 에러
 }
 
