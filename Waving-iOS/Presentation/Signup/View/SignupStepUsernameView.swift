@@ -20,8 +20,15 @@ final class SignupStepUsernameView: UIView {
         isValidUsername
     }
     
+    /// to validate a username with at least 2 characters including English and Korean
     private var isValidUsername: Bool {
-        !usernameText.isEmpty && usernameText.count > 1 && usernameText.count < 9
+        guard !usernameText.isEmpty && usernameText.count > 1 && usernameText.count < 9 else { return false }
+        
+        let usernameRegex = "^[a-zA-Z가-힣]{2,}$"
+        let usernameTest = NSPredicate(format: "SELF MATCHES %@", usernameRegex)
+        let result = usernameTest.evaluate(with: usernameText)
+        Log.d("userNameTest: \(result), text: \(usernameText)")
+        return result
     }
     
     override init(frame: CGRect) {
@@ -81,7 +88,7 @@ final class SignupStepUsernameView: UIView {
             Log.d("default")
         }
         
-        viewModel?.isNextButtonEnabled = true
+        viewModel?.isNextButtonEnabled = isValidTextfieldValues
     }
 }
 
