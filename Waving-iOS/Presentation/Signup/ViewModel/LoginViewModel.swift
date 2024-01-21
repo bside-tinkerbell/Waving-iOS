@@ -27,9 +27,7 @@ class LoginViewModel {
     }
     
     private func bind() {
-        // Combine debounce and receive on the main thread to store data with a 1-second delay
         emailPublisher
-            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
             .sink { [weak self] text in
                 guard let self else { return }
                 updateEmail(text)
@@ -37,7 +35,6 @@ class LoginViewModel {
             .store(in: &cancellables)
         
         passwordPublisher
-            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
             .sink { [weak self] text in
                 guard let self else { return }
                 updatePassword(text)
