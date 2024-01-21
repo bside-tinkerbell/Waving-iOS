@@ -38,7 +38,7 @@ enum SignupTextFieldType {
         case .email:
             return "ex) waving@naver.com"
         case .passwordConfirm:
-            return "비밀번호를 다시 입력해 주세요."
+            return "비밀번호를 다시 한번 입력해주세요."
         case .username:
             return "실명을 입력해주세요.(2~8자)"
         case .birthdate:
