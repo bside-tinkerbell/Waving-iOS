@@ -32,7 +32,7 @@ final class SignupStepEmailPasswordView: UIView {
     }
     
     private var isValidPassword: Bool {
-        passwordText.count > 5
+        passwordText == passwordConfirmText && passwordText.isValidPassword 
     }
     
     override init(frame: CGRect) {
@@ -95,17 +95,6 @@ final class SignupStepEmailPasswordView: UIView {
             make.trailing.equalToSuperview()
         }
         
-//        let textLabel = UILabel()
-//        textLabel.text = "영문/숫자/특수문자 2가지 이상 조합하세요.(8~20자)"
-//        textLabel.numberOfLines = 0
-//        textLabel.textColor = .gray030
-//        textLabel.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.addSubview(textLabel)
-//        textLabel.snp.makeConstraints {
-//            $0.top.equalTo(passwordConfirmTextFieldContainer.snp.bottom).offset(10)
-//            $0.leading.trailing.equalToSuperview()
-//            $0.bottom.equalToSuperview()
-//        }
     }
     
     private func bind() {
