@@ -21,7 +21,7 @@ final class SignupStepPhoneNumberView: UIView {
     
     var viewModel: SignupStepViewModelRepresentable?
     
-    lazy private var authCodeRequestButtonModel = WVButtonModel(title: "인증번호", backgroundColor: .Button.mainBlackButton) { [weak self] in
+    lazy private var authCodeRequestButtonModel = WVButtonModel(title: "인증번호", isEnabled: false, backgroundColor: .Button.mainBlackButton) { [weak self] in
         guard let self, let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
     
         Log.d("phoneNumber: \(phoneNumber), self: \(self)")
@@ -29,26 +29,30 @@ final class SignupStepPhoneNumberView: UIView {
         // 앱 심사 리뷰어를 위한 코드
         if phoneNumber == Self.phoneNumberForReviewer {
             Log.d("Phone number for reviewer: \(phoneNumber)")
+            phoneNumberFieldContainer?.textField.isEnabled = false
+            authCodeRequestButton?.isEnabled = false
             self.subStep = .confirmAuthCode
             self.viewModel?.isNextButtonEnabled = false
             return
         }
         
         // 인증번호 요청
-        SignAPI.requestAuthCode(cellphone: phoneNumber) { succeed, failed in
+        SignAPI.requestAuthCode(cellphone: phoneNumber) { [weak self] succeed, failed in
             if let failed {
                 Log.d("Auth code request failed: \(failed)")
                 return
             }
             
-            guard let succeed else { return }
+            guard let self, let succeed else { return }
             Log.d("result: \(succeed.result)")
-            self.subStep = .confirmAuthCode
-            self.viewModel?.isNextButtonEnabled = false
+            phoneNumberFieldContainer?.textField.isEnabled = false
+            authCodeRequestButton?.isEnabled = false
+            subStep = .confirmAuthCode
+            viewModel?.isNextButtonEnabled = false
         }
     }
     
-    lazy private var authCodeConfirmButtonModel = WVButtonModel(title: "확인", backgroundColor: .Button.mainBlackButton) { [weak self] in
+    lazy private var authCodeConfirmButtonModel = WVButtonModel(title: "확인", isEnabled: false, backgroundColor: .Button.mainBlackButton) { [weak self] in
         guard let self,
               let phoneNumber = SignDataStore.shared.phoneNumber,
               let authCode = Int(self.authCodeText) else { return }
@@ -56,10 +60,11 @@ final class SignupStepPhoneNumberView: UIView {
         let formattedPhoneNumber = PhoneNumberFormatter.format(text: phoneNumber)
         
         // 앱 심사 리뷰어를 위한 코드
-        if phoneNumber == Self.phoneNumberForReviewer, authCodeText == Self.authCodeForReviewer {
+        if phoneNumber == Self.phoneNumberForReviewer {
             Log.d("Auth code for reviewer: \(authCodeText)")
-            self.subStep = .confirmAuthCode
-            self.viewModel?.isNextButtonEnabled = true
+            if authCodeText == Self.authCodeForReviewer {
+                self.viewModel?.isNextButtonEnabled = true
+            }
             return
         }
         
@@ -88,14 +93,22 @@ final class SignupStepPhoneNumberView: UIView {
     
     private var cancellables = [AnyCancellable]()
     
-    private var isValidTextfieldValues: Bool {
+    private func isValidText(_ text: String) -> Bool {
         if subStep == .requestAuthCode {
-            return !phoneNumberText.isEmpty && phoneNumberText.count > 0 && phoneNumberText.count <= PhoneNumberFormatter.phoneNumberMaxLength
+            return !text.isEmpty && text.count > 0 && text.count <= PhoneNumberFormatter.phoneNumberMaxLength && isValidPhoneNumber(phoneNumber: text)
         } else if subStep == .confirmAuthCode {
-            return !authCodeText.isEmpty && authCodeText.count == 5
+            return !text.isEmpty && text.count == 5
         }
         
         return false
+    }
+    
+    private func isValidPhoneNumber(phoneNumber: String) -> Bool {
+        let phoneRegex = #"^010-\d{3,4}-\d{4}$"#
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        let result = phoneTest.evaluate(with: phoneNumber)
+        Log.d("isValidPhoneNumber: \(result)")
+        return result
     }
     
     private var subStep: SubStep = .requestAuthCode
@@ -146,7 +159,7 @@ final class SignupStepPhoneNumberView: UIView {
         let authCodeRequestButtonContainerView = UIView()
         let authCodeRequestButton = WVButton()
         
-            self.authCodeRequestButton = authCodeRequestButton
+        self.authCodeRequestButton = authCodeRequestButton
         authCodeRequestButtonContainerView.addSubview(authCodeRequestButton)
         authCodeRequestButton.setup(model: authCodeRequestButtonModel)
         authCodeRequestButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -195,14 +208,16 @@ final class SignupStepPhoneNumberView: UIView {
     @objc
     private func textFieldDidChange(_ textField: WVTextField) {
         guard let text = textField.text else { return }
+        let isValid = isValidText(text)
         
         switch textField.type {
         case .phoneNumber:
             phoneNumberText = text
             viewModel?.updatePhoneNumber(text)
-            viewModel?.isNextButtonEnabled = isValidTextfieldValues
+            authCodeRequestButton?.isEnabled = isValid
         case .authCode:
             authCodeText = text
+            authCodeConfirmButton?.isEnabled = isValid
         default:
             Log.d("default")
         }

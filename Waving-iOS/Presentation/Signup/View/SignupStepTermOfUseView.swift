@@ -38,24 +38,26 @@ final class SignupStepTermOfUseView: UIView, SnapKitInterface {
     
     private lazy var firstButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 이용약관(만 14세 이상 이용가능)") { [weak self] _ in
         guard let self else { return }
-        
+        firstButtonModel.isSelected = !self.firstButtonModel.isSelected
         let isNextButtonEnabled = self.firstButtonModel.isSelected && self.secondButtonModel.isSelected
-        self.viewModel?.isNextButtonEnabled = isNextButtonEnabled
+        viewModel?.isNextButtonEnabled = isNextButtonEnabled
+        agreeAllButtonModel.isSelected = isNextButtonEnabled
     }
     
     private lazy var secondButtonModel: SignupTermsOfUseButtonModel = .init(title: "[필수] 개인정보 수집 및 이용") { [weak self] _ in
         guard let self else { return }
-        
+        secondButtonModel.isSelected = !self.secondButtonModel.isSelected
         let isNextButtonEnabled = self.firstButtonModel.isSelected && self.secondButtonModel.isSelected
-        self.viewModel?.isNextButtonEnabled = isNextButtonEnabled
+        viewModel?.isNextButtonEnabled = isNextButtonEnabled
+        agreeAllButtonModel.isSelected = isNextButtonEnabled
     }
 
     private lazy var agreeAllButtonModel: SignupTermsOfUseButtonModel = .init(title: "약관 전체동의", showBottomSeparator: true, didTouchUpInside: { [weak self] _ in
         guard let self else { return }
-        self.firstButtonModel.isSelected = !self.firstButtonModel.isSelected
-        self.secondButtonModel.isSelected = !self.secondButtonModel.isSelected
+        firstButtonModel.isSelected = !self.firstButtonModel.isSelected
+        secondButtonModel.isSelected = !self.secondButtonModel.isSelected
         
-        self.viewModel?.isNextButtonEnabled = true
+        viewModel?.isNextButtonEnabled = firstButtonModel.isSelected && secondButtonModel.isSelected
     })
     
     private lazy var firstButton: SignupTermsOfUseButton = {
