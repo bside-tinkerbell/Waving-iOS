@@ -25,6 +25,7 @@
 		A83861702A8DD07C00E8B609 /* GetFriendsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838616F2A8DD07C00E8B609 /* GetFriendsEntity.swift */; };
 		A83861722A8DD2DF00E8B609 /* FriendsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83861712A8DD2DF00E8B609 /* FriendsDataSource.swift */; };
 		A83861742A8DD35A00E8B609 /* FriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83861732A8DD35A00E8B609 /* FriendsRepository.swift */; };
+		A8658B232B5CBE55006D382D /* SignupError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8658B222B5CBE55006D382D /* SignupError.swift */; };
 		A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */; };
 		A87144DC2A8022AA00E5FCAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */; };
 		A87144DE2A8022B600E5FCAD /* FriendProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */; };
@@ -36,7 +37,6 @@
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
-		A8A45CBE2A409856001F02C7 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */; };
 		A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CBF2A409B75001F02C7 /* NavigationView.swift */; };
 		A8BF46DF2A832DF300FCDD7C /* SampleResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46DE2A832DF300FCDD7C /* SampleResponseDTO.swift */; };
 		A8BF46E12A83305F00FCDD7C /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46E02A83305F00FCDD7C /* SampleViewController.swift */; };
@@ -182,6 +182,7 @@
 		A838616F2A8DD07C00E8B609 /* GetFriendsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsEntity.swift; sourceTree = "<group>"; };
 		A83861712A8DD2DF00E8B609 /* FriendsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDataSource.swift; sourceTree = "<group>"; };
 		A83861732A8DD35A00E8B609 /* FriendsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRepository.swift; sourceTree = "<group>"; };
+		A8658B222B5CBE55006D382D /* SignupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupError.swift; sourceTree = "<group>"; };
 		A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
 		A87144DB2A8022AA00E5FCAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		A87144DD2A8022B600E5FCAD /* FriendProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewModel.swift; sourceTree = "<group>"; };
@@ -193,7 +194,6 @@
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
-		A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A8A45CBF2A409B75001F02C7 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		A8BF46DE2A832DF300FCDD7C /* SampleResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseDTO.swift; sourceTree = "<group>"; };
 		A8BF46E02A83305F00FCDD7C /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
@@ -573,8 +573,8 @@
 		A87145052A81C82700E5FCAD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				A8A45CBD2A409856001F02C7 /* ErrorMessage.swift */,
 				CE9BBCE22A2B17880036E335 /* DesignConstants.swift */,
+				A8658B222B5CBE55006D382D /* SignupError.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1232,7 +1232,6 @@
 				CE67983A2A31F20A0078F43C /* SignupStepEmailPasswordView.swift in Sources */,
 				A8BF46DF2A832DF300FCDD7C /* SampleResponseDTO.swift in Sources */,
 				CEA32DD22A3357540006FA31 /* String+.swift in Sources */,
-				A8A45CBE2A409856001F02C7 /* ErrorMessage.swift in Sources */,
 				CE9BBCDF2A2AFA3B0036E335 /* WVButton.swift in Sources */,
 				CEE3E77C2A17A93200BC1464 /* SceneDelegate.swift in Sources */,
 				A8C792902A4E5F5C0032FDFC /* BasePaddingLabel.swift in Sources */,
@@ -1266,6 +1265,7 @@
 				A87144BE2A7E39EE00E5FCAD /* CycleViewController.swift in Sources */,
 				A87144EF2A809FCE00E5FCAD /* ContactListView.swift in Sources */,
 				CED83AA12A2B87050031AFF0 /* LoginViewController.swift in Sources */,
+				A8658B232B5CBE55006D382D /* SignupError.swift in Sources */,
 				A83861662A8D994D00E8B609 /* Encodable+.swift in Sources */,
 				CEC778CD2A768B6000C42A01 /* UIWindow+.swift in Sources */,
 				A87144E42A80230A00E5FCAD /* BottomProfileView.swift in Sources */,

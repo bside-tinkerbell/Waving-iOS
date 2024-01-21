@@ -64,16 +64,16 @@ final class SignupStepUsernameView: UIView {
             make.trailing.equalToSuperview()
         }
         
-        let textLabel = UILabel()
-        textLabel.text = "2~8자 사이로 입력하세요."
-        textLabel.textColor = .gray030
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(textLabel)
-        textLabel.snp.makeConstraints {
-            $0.top.equalTo(usernameFieldContainer.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
+//        let textLabel = UILabel()
+//        textLabel.text = "2~8자 사이로 입력하세요."
+//        textLabel.textColor = .gray030
+//        textLabel.translatesAutoresizingMaskIntoConstraints = false
+//        containerView.addSubview(textLabel)
+//        textLabel.snp.makeConstraints {
+//            $0.top.equalTo(usernameFieldContainer.snp.bottom).offset(10)
+//            $0.leading.trailing.equalToSuperview()
+//            $0.bottom.equalToSuperview()
+//        }
     }
     
     @objc
