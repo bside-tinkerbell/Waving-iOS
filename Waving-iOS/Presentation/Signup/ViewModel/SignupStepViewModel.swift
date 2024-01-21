@@ -90,8 +90,7 @@ class SignupStepViewModel: SignupStepViewModelRepresentable {
     @Published var title: NSAttributedString?
     @Published var showPreviousButton = true
     @Published var showNextButton = true
-    // TODO: test 를 위해 아래 값을 true 로 설정함
-    @Published var isNextButtonEnabled: Bool = true
+    @Published var isNextButtonEnabled: Bool = false
     
     var route: AnyPublisher<Void, Never> {
         self.sendRoute.eraseToAnyPublisher()

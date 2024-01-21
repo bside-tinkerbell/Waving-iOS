@@ -13,14 +13,14 @@ final class SignupViewController: UIViewController {
     private var buttonForPreviousStep: WVButton?
     private var buttonForNextStep: WVButton?
     
-    lazy private var buttonModelForPreviousStep = WVButtonModel(title: "prev", borderColor: .Border.gray) { [weak self] in
+    lazy private var buttonModelForPreviousStep = WVButtonModel(title: "이전", borderColor: .Border.gray) { [weak self] in
         guard let self else { return }
         let newIndex = max(self.currentSignupStepIndex - 1, 0)
         self.moveToSpecificSignupStep(newIndex)
         self.currentSignupStepIndex = newIndex
     }
     
-    lazy private var buttonModelForNextStep = WVButtonModel(title: "next", titleColor: .Text.text010, backgroundColor: .Text.text090) { [weak self] in
+    lazy private var buttonModelForNextStep = WVButtonModel(title: "다음", titleColor: .Text.text010, backgroundColor: .Text.text090) { [weak self] in
         guard let self else { return }
 
         self.currentSignupStepViewModel?.nextButtonAction?()
@@ -139,7 +139,6 @@ final class SignupViewController: UIViewController {
             make.bottom.equalTo(buttonContainerView.snp_topMargin)
         }
         
-        // test code
         collectionView.register(SignupStepCollectionViewCell.self, forCellWithReuseIdentifier: "SignupStepCollectionViewCell")
     }
     
