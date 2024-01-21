@@ -42,5 +42,25 @@ final class Waving_iOSTests: XCTestCase {
         let invalidBirthdate = "1990-12-31-Invalid"
         XCTAssertFalse(BirthdateFormatter.isValidBirthdate(invalidBirthdate))
     }
+
+    func testIsValidUsername_Valid() {
+        let usernameText = "aa"
+        let lengthTest: Bool = !usernameText.isEmpty && usernameText.count > 1 && usernameText.count < 9
+        
+        let usernameRegex = "^[a-zA-Z가-힣]{2,}$"
+        let usernameTest = NSPredicate(format: "SELF MATCHES %@", usernameRegex)
+        let result = usernameTest.evaluate(with: usernameText) && lengthTest
+        XCTAssertTrue(result)
+    }
+    
+    func testIsValidUsername_Invalid() {
+        let usernameText = "Q"
+        let lengthTest: Bool = !usernameText.isEmpty && usernameText.count > 1 && usernameText.count < 9
+        
+        let usernameRegex = "^[a-zA-Z가-힣]{2,}$"
+        let usernameTest = NSPredicate(format: "SELF MATCHES %@", usernameRegex)
+        let result = usernameTest.evaluate(with: usernameText) && lengthTest
+        XCTAssertFalse(result)
+    }
     
 }
