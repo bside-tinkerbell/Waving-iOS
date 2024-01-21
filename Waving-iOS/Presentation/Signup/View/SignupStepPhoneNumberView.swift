@@ -95,20 +95,12 @@ final class SignupStepPhoneNumberView: UIView {
     
     private func isValidText(_ text: String) -> Bool {
         if subStep == .requestAuthCode {
-            return !text.isEmpty && text.count > 0 && text.count <= PhoneNumberFormatter.phoneNumberMaxLength && isValidPhoneNumber(phoneNumber: text)
+            return !text.isEmpty && text.count > 0 && text.count <= PhoneNumberFormatter.phoneNumberMaxLength && text.isValidPhoneNumber
         } else if subStep == .confirmAuthCode {
             return !text.isEmpty && text.count == 5
         }
         
         return false
-    }
-    
-    private func isValidPhoneNumber(phoneNumber: String) -> Bool {
-        let phoneRegex = #"^010-\d{3,4}-\d{4}$"#
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-        let result = phoneTest.evaluate(with: phoneNumber)
-        Log.d("isValidPhoneNumber: \(result)")
-        return result
     }
     
     private var subStep: SubStep = .requestAuthCode
