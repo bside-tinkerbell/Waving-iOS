@@ -24,11 +24,7 @@ final class SignupStepUsernameView: UIView {
     private var isValidUsername: Bool {
         guard !usernameText.isEmpty && usernameText.count > 1 && usernameText.count < 9 else { return false }
         
-        let usernameRegex = "^[a-zA-Z가-힣]{2,}$"
-        let usernameTest = NSPredicate(format: "SELF MATCHES %@", usernameRegex)
-        let result = usernameTest.evaluate(with: usernameText)
-        Log.d("userNameTest: \(result), text: \(usernameText)")
-        return result
+        return usernameText.isValidUsername
     }
     
     override init(frame: CGRect) {
