@@ -10,7 +10,7 @@ import Foundation
 class LoginDataStore {
     static var shared = LoginDataStore()
     
-    var userId: Int? = 40
+    var userId: Int? 
     var accessToken: String?
     var refreshToken: String?
 }

@@ -48,7 +48,19 @@ class FriendsIntroView: UIView, SnapKitInterface {
     
     let friendsAddButton = WVButton()
     private lazy var friendAddButtonViewModel = WVButtonModel(title: "지인 불러오기", titleColor: .Text.white, backgroundColor: .Button.mainBlackButton) { [weak self] in
-        self?.viewModel?.addFriends()
+        if LoginDataStore.shared.userId != nil {
+            self?.viewModel?.addFriends()
+        } else {
+            let toast = Toast()
+            lazy var toastModel: ToastModel = .init(title: ToastMessage.signInMessage.rawValue)
+            toast.setupView(model: toastModel)
+            
+            guard let vc = UIApplication.getMostTopViewController() else {return}
+            guard let navi = vc.navigationController else {return}
+            
+            navi.view.addSubview(toast)
+            toast.snp.makeConstraints { $0.edges.equalToSuperview() }
+        }
     }
     
     override init(frame: CGRect) {

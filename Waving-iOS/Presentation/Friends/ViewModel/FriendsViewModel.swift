@@ -67,7 +67,7 @@ final class FriendsViewModel {
                 case .finished:
                     break
                 case .failure(_):
-                    self.type = .intro//TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분이 필요함
+                    self.type = .intro
                     self.friendsList = []
                 }
             } receiveValue: { getFriendsEntity in
@@ -106,7 +106,6 @@ extension FriendsViewModel: FriendsViewModelRepresentable {
                     let name = contact.familyName + contact.givenName
                     let phoneNumber = contact.phoneNumbers.filter { $0.label == CNLabelPhoneNumberMobile }.map { $0.value.stringValue }.joined(separator:"")
                     type = .addFriend
-                    let formattedPhoneNumber = PhoneNumberManager.format(phoneNumber)
                     myContactList.append(ContactEntity(name: name, cellPhone: phoneNumber, contactCycle: 2))
                 })
             } catch {
