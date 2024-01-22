@@ -99,7 +99,7 @@ final class SignupStepCompleteView: UIView, SnapKitInterface {
 extension SignupStepCompleteView: SignupStepViewRepresentable {
     func setup(with viewModel: SignupStepViewModelRepresentable) {
         self.viewModel = viewModel
-        
+        self.viewModel?.isNextButtonEnabled = true
         self.viewModel?.nextButtonAction = {
             NotificationCenter.default.post(name: .userDidLogin, object: nil)
         }
