@@ -143,6 +143,9 @@ final class SettingViewModel {
                 return
             }
             
+            LoginDataStore.shared.userId = nil
+            LoginDataStore.shared.accessToken = ""
+            LoginDataStore.shared.refreshToken = ""
             Log.d("logout succeeded: \(String(describing: succeed))")
             
             NotificationCenter.default.post(name: .userDidLogout, object: nil)
@@ -156,6 +159,10 @@ final class SettingViewModel {
                 Log.d("delete failed: \(String(describing: failed))")
                 return
             }
+            
+            LoginDataStore.shared.userId = nil
+            LoginDataStore.shared.accessToken = ""
+            LoginDataStore.shared.refreshToken = ""
             
             Log.d("delete succeeded: \(String(describing: succeed))")
             
