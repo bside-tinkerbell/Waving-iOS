@@ -67,7 +67,7 @@ final class FriendsViewModel {
                 case .finished:
                     break
                 case .failure(_):
-                    self.type = .intro//TODO: 서버 끊겼을 때와 진짜 데이터 없을 때의 구분이 필요함
+                    self.type = .intro
                     self.friendsList = []
                 }
             } receiveValue: { getFriendsEntity in
