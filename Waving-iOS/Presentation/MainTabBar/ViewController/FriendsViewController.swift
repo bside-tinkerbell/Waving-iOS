@@ -27,11 +27,9 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     var friendsList: [GetFriendsEntity] = []
     private var cancellable = Set<AnyCancellable>()
     
-    //TODO: 업로드용
     private lazy var navigationViewModel: NavigationModel = .init(forwaredButtonImage: UIImage(named: ""), title: "나의 지인", didTouchForward: {[weak self] in
         self?.viewModel.didTapForwardButton()
     })
-    
     
     private lazy var navigationView: NavigationView = {
         let view = NavigationView()
@@ -48,7 +46,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         return view
     }()
     
-    private var innerView: UIView?
+    private var innerView: FriendViewRepresentable?
     
     override func viewDidLoad() {
         addComponents()
@@ -59,6 +57,10 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         super.viewWillAppear(animated)
         fetchData()
         binding()
+    }
+    
+    deinit {
+        innerView?.removeFromSuperview()
     }
     
     func addComponents() {
@@ -109,12 +111,12 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
                     self?.innerView = customView
                     guard let viewModel = self?.viewModel else {return}
                     guard let friendsList = self?.friendsList else {return}
-
-                    customView.setup(with: viewModel, with: friendsList)
-                    
-                    self?.containerView.addSubview(customView)
-                    customView.snp.makeConstraints { make in
-                        make.top.leading.trailing.bottom.equalToSuperview()
+                    guard let innerView = self?.innerView else {return}
+                  
+                    innerView.setup(with: viewModel, with: friendsList)
+                    self?.containerView.addSubview(innerView)
+                    innerView.snp.makeConstraints {
+                        $0.top.leading.trailing.bottom.equalToSuperview()
                     }
                 }
             }
