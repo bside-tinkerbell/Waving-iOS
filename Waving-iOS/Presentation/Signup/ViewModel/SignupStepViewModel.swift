@@ -24,7 +24,7 @@ enum SignupStepType: Int {
         case .username:
             return "사용하실 이름을\n입력해주세요."
         case .birthdate:
-            return "생년월일을\n입력해주세요."
+            return "[선택사항] 생년월일을\n입력해주세요."
         case .phoneNumber:
             return "전화번호를\n입력해주세요."
         case .termsOfUse:
