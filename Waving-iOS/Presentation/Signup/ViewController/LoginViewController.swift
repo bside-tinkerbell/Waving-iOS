@@ -142,7 +142,6 @@ final class LoginViewController: UIViewController, SnapKitInterface {
         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: passwordTextFieldContainer.textField)
             .dropFirst()
             .map { ($0.object as? UITextField)?.text ?? "" }
-            .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
             .sink { [weak self] in
                 guard let self else { return }
                 passwordText = $0
