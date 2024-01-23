@@ -86,24 +86,6 @@ final class LoginViewController: UIViewController, SnapKitInterface {
         view.endEditing(true)
     }
     
-    @objc
-    private func textFieldDidChange(_ textField: WVTextField) {
-        guard let text = textField.text else { return }
-        
-        switch textField.type {
-        case .email:
-            emailText = text
-            viewModel.updateEmail(text)
-        case .password:
-            passwordText = text
-            viewModel.updatePassword(text)
-        default:
-            Log.d("default")
-        }
-        
-        doneButton.isEnabled = isDoneButtonEnabled
-    }
-    
     func addComponents() {
         [containerView].forEach { view.addSubview($0) }
         [textFieldStackView].forEach { containerView.addSubview($0) }
@@ -140,7 +122,6 @@ final class LoginViewController: UIViewController, SnapKitInterface {
             .store(in: &cancellables)
         
         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: passwordTextFieldContainer.textField)
-            .dropFirst()
             .map { ($0.object as? UITextField)?.text ?? "" }
             .sink { [weak self] in
                 guard let self else { return }
