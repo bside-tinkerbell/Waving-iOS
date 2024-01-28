@@ -14,7 +14,7 @@
 <br/>
 
 # 🛠️ 기술 스택
-<img width="80" src="https://img.shields.io/badge/IOS-14.0%2B-silver"> <img width="80" src="https://img.shields.io/badge/Xcode-15.0-blue">
+<img width="80" src="https://img.shields.io/badge/iOS-14.0%2B-silver"> <img width="80" src="https://img.shields.io/badge/Xcode-15.0-blue">
 |분류|사용한 기술|
 |:--|:------|
 |Architecture|Clean Architecture, MVVM|
