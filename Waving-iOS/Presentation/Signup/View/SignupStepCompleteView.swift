@@ -94,11 +94,43 @@ final class SignupStepCompleteView: UIView, SnapKitInterface {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    
+    func signup() {
+        guard let email = SignDataStore.shared.email,
+              let password = SignDataStore.shared.password,
+              let username = SignDataStore.shared.username,
+              let birthday = SignDataStore.shared.formattedBirthdate,
+              let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
+        
+        let signRequestModel = SignRequestModel(gatherAgree: 1, email: email, password: password, loginType: 0, name: username, birthday: "2000-01-01", cellphone: phoneNumber)
+        
+        SignAPI.signup(model: signRequestModel) { succeed, failed in
+            if failed != nil {
+                Log.d("sign up failed")
+                return
+            }
+            
+            guard let succeed else { return }
+            Log.d("signup succeeded: \(succeed.result)")
+            let userJoinResult = succeed.result.userJoinResult
+
+            Log.d("user_id: \(userJoinResult.id), access_token: \(userJoinResult.accessToken), refresh_token: \(userJoinResult.refreshToken)")
+            
+            LoginDataStore.shared.userId = userJoinResult.id
+            LoginDataStore.shared.accessToken = userJoinResult.accessToken
+            LoginDataStore.shared.refreshToken = userJoinResult.refreshToken
+        }
+    }
 }
 
 extension SignupStepCompleteView: SignupStepViewRepresentable {
     func setup(with viewModel: SignupStepViewModelRepresentable) {
         self.viewModel = viewModel
+        //===나중에 바꿔야 함
+        SignDataStore.shared.formattedBirthdate = "2000-01-01"
+        self.signup()
+        //======
         self.viewModel?.isNextButtonEnabled = true
         self.viewModel?.nextButtonAction = {
             NotificationCenter.default.post(name: .userDidLogin, object: nil)

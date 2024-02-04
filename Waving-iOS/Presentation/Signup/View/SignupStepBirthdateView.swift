@@ -20,21 +20,9 @@ final class SignupStepBirthdateView: UIView {
         isValidBirthdate
     }
     
-    private let textLabel: UILabel = {
-       let label = UILabel()
-        label.textColor = .red
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.text = """
-                    만약 본인의 생년월일을 제공하고 싶지 않다면
-                    위의 입력칸에 1990-01-01이라고 써주세요
-                    (‼️제발 형식 지켜주세요‼️)
-                    """
-        return label
-    }()
-    
     private var isValidBirthdate: Bool {
-        !birthdateText.isEmpty && BirthdateFormatter.isValidBirthdate(birthdateText)
+        //!birthdateText.isEmpty &&
+        BirthdateFormatter.isValidBirthdate(birthdateText)
     }
     
     override init(frame: CGRect) {
@@ -48,10 +36,6 @@ final class SignupStepBirthdateView: UIView {
     }
     
     private func setupView() {
-        addSubview(textLabel)
-        textLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)
@@ -73,6 +57,7 @@ final class SignupStepBirthdateView: UIView {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        viewModel?.isNextButtonEnabled = isValidTextfieldValues
     }
     
     @objc
@@ -85,8 +70,6 @@ final class SignupStepBirthdateView: UIView {
         default:
             Log.d("default")
         }
-        
-        viewModel?.isNextButtonEnabled = isValidTextfieldValues
     }
 }
 

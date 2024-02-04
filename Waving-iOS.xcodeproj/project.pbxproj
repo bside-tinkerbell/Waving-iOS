@@ -37,6 +37,8 @@
 		A89871AA2A5B9576008F0FAA /* FriendsContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */; };
 		A89871B02A5D8069008F0FAA /* FriendsContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */; };
 		A89871B22A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */; };
+		A899619F2B63FABA002C0E9A /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899619E2B63FABA002C0E9A /* PrivacyPolicy.swift */; };
+		A89961A12B63FB77002C0E9A /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89961A02B63FB77002C0E9A /* TermsOfService.swift */; };
 		A8A45CC02A409B75001F02C7 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A45CBF2A409B75001F02C7 /* NavigationView.swift */; };
 		A8BF46DF2A832DF300FCDD7C /* SampleResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46DE2A832DF300FCDD7C /* SampleResponseDTO.swift */; };
 		A8BF46E12A83305F00FCDD7C /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BF46E02A83305F00FCDD7C /* SampleViewController.swift */; };
@@ -194,6 +196,8 @@
 		A89871A92A5B9576008F0FAA /* FriendsContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewController.swift; sourceTree = "<group>"; };
 		A89871AF2A5D8069008F0FAA /* FriendsContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactViewModel.swift; sourceTree = "<group>"; };
 		A89871B12A5DB865008F0FAA /* FriendsContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContactCollectionViewCell.swift; sourceTree = "<group>"; };
+		A899619E2B63FABA002C0E9A /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
+		A89961A02B63FB77002C0E9A /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
 		A8A45CBF2A409B75001F02C7 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		A8BF46DE2A832DF300FCDD7C /* SampleResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseDTO.swift; sourceTree = "<group>"; };
 		A8BF46E02A83305F00FCDD7C /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 		A87144FA2A8157F500E5FCAD /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				A899619D2B63F8DC002C0E9A /* SignUp */,
 				A8BF46DA2A832CE900FCDD7C /* Sample */,
 				A81DF39B2A8D08FA00BE3EEF /* FriendProfile */,
 				A87144FC2A815B7200E5FCAD /* Friends */,
@@ -586,6 +591,15 @@
 				A87144BD2A7E39EE00E5FCAD /* CycleViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A899619D2B63F8DC002C0E9A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A899619E2B63FABA002C0E9A /* PrivacyPolicy.swift */,
+				A89961A02B63FB77002C0E9A /* TermsOfService.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		A8BF46D92A832CDD00FCDD7C /* Sample */ = {
@@ -1215,6 +1229,7 @@
 				A8BF47AC2A85351500FCDD7C /* FetchSampleDataUseCase.swift in Sources */,
 				CEE1123D2AA48DAB006949A5 /* ResponseModel.swift in Sources */,
 				A838616E2A8DAE5D00E8B609 /* FriendsDataUseCase.swift in Sources */,
+				A899619F2B63FABA002C0E9A /* PrivacyPolicy.swift in Sources */,
 				CEB5181D2A653FA2009B88BB /* NoticeViewController.swift in Sources */,
 				A8E0C10F2A23685C00C8696E /* SnapKitInterface.swift in Sources */,
 				CEF31EE62A5FC74E00534D44 /* GreetingAPI.swift in Sources */,
@@ -1293,6 +1308,7 @@
 				A8253D5A2A46E1AB00AE8101 /* FriendsIntroView.swift in Sources */,
 				A836B19D2A6CFB2700D9F02F /* ContactEntity.swift in Sources */,
 				A836B19B2A6CE96100D9F02F /* SaveFriendsDTO.swift in Sources */,
+				A89961A12B63FB77002C0E9A /* TermsOfService.swift in Sources */,
 				A81DF3A62A8D387700BE3EEF /* UserEndPoint.swift in Sources */,
 				CEBC40082A486B9D001A5934 /* TopTabBarViewController.swift in Sources */,
 				CE67983C2A31F2500078F43C /* SignupTextFieldContainer.swift in Sources */,

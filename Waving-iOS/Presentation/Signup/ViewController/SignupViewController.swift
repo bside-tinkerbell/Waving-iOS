@@ -93,9 +93,9 @@ final class SignupViewController: UIViewController {
     init() {
         self.collectionViewCellModels = [.init(type: .emailPassword),
                                          .init(type: .username),
-                                         .init(type: .birthdate),
+                                         //.init(type: .birthdate),
                                          .init(type: .phoneNumber),
-                                         .init(type: .termsOfUse),
+                                         //.init(type: .termsOfUse),
                                          .init(type: .complete)]
         self.currentSignupStepViewModel = self.collectionViewCellModels.first
         
