@@ -100,9 +100,8 @@ final class SignupStepCompleteView: UIView, SnapKitInterface {
         guard let email = SignDataStore.shared.email,
               let password = SignDataStore.shared.password,
               let username = SignDataStore.shared.username,
-              let birthday = SignDataStore.shared.formattedBirthdate,
               let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
-        
+        Log.d("하이")
         let signRequestModel = SignRequestModel(gatherAgree: 1, email: email, password: password, loginType: 0, name: username, birthday: "2000-01-01", cellphone: phoneNumber)
         
         SignAPI.signup(model: signRequestModel) { succeed, failed in
@@ -127,12 +126,9 @@ final class SignupStepCompleteView: UIView, SnapKitInterface {
 extension SignupStepCompleteView: SignupStepViewRepresentable {
     func setup(with viewModel: SignupStepViewModelRepresentable) {
         self.viewModel = viewModel
-        //===나중에 바꿔야 함
-        SignDataStore.shared.formattedBirthdate = "2000-01-01"
-        self.signup()
-        //======
         self.viewModel?.isNextButtonEnabled = true
         self.viewModel?.nextButtonAction = {
+            self.signup()
             NotificationCenter.default.post(name: .userDidLogin, object: nil)
         }
     }
