@@ -101,7 +101,6 @@ final class SignupStepCompleteView: UIView, SnapKitInterface {
               let password = SignDataStore.shared.password,
               let username = SignDataStore.shared.username,
               let phoneNumber = SignDataStore.shared.formattedPhoneNumber else { return }
-        Log.d("하이")
         let signRequestModel = SignRequestModel(gatherAgree: 1, email: email, password: password, loginType: 0, name: username, birthday: "2000-01-01", cellphone: phoneNumber)
         
         SignAPI.signup(model: signRequestModel) { succeed, failed in
