@@ -34,8 +34,8 @@
 
 
 # 👥 구성원(Team Members)
-총 6명으로 구성된 팀으로, 기획자 2명(1명, 기획자 겸 PM), 디자이너 2명, 개발자 4명(iOS 2명, 백엔드 2명) 으로 구성된 팀입니다. <br/>
-(This project was composed of 6 members, including two planners(one of whom also serves as the PM), 2 designers, and 4 developers(2 of them are iOS developers, and the other 2 are backend developers).
+총 8명으로 구성된 팀으로, 기획자 2명(1명, 기획자 겸 PM), 디자이너 2명, 개발자 4명(iOS 2명, 백엔드 2명) 으로 구성된 팀입니다. <br/>
+(This project was composed of 8 members, including two planners(one of whom also serves as the PM), 2 designers, and 4 developers(2 of them are iOS developers, and the other 2 are backend developers).
 
 | 👩🏻‍💻 박지영(JiYoung Park) | 👩🏻‍💻 최재은(Jane Choi) |
 |:---------:|:---------:|
