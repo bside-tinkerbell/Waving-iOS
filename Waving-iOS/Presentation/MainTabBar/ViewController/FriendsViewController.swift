@@ -46,7 +46,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         return view
     }()
     
-    private var innerView: FriendViewRepresentable?
+    private weak var innerView: FriendViewRepresentable?
     
     override func viewDidLoad() {
         addComponents()
@@ -59,7 +59,7 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
         binding()
     }
     
-    deinit {
+    override func viewDidDisappear(_ animated: Bool) {
         innerView?.removeFromSuperview()
     }
     

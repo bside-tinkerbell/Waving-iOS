@@ -10,7 +10,7 @@ import Combine
 
 final class FriendsListView: UIView, SnapKitInterface {
     
-    var viewModel: FriendsViewModelRepresentable?
+    weak var viewModel: FriendsViewModelRepresentable?
     private var friendsList = [GetFriendsEntity]()
     
     let scrollView = UIScrollView()

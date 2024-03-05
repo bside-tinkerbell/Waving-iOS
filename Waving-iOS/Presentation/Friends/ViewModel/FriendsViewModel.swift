@@ -36,7 +36,7 @@ protocol FriendViewRepresentable where Self: UIView {
     func setup(with viewModel: FriendsViewModelRepresentable, with friendsList: [GetFriendsEntity])
 }
 
-protocol FriendsViewModelRepresentable {
+protocol FriendsViewModelRepresentable: AnyObject {
     func addFriends()
     func didTapBackButton()
     func didTapProfile()
