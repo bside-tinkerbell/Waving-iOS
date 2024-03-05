@@ -51,16 +51,16 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
     override func viewDidLoad() {
         addComponents()
         setConstraints()
+        binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchData()
-        binding()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        innerView?.removeFromSuperview()
+        containerView.subviews.forEach { $0.removeFromSuperview() }
     }
     
     func addComponents() {
@@ -121,6 +121,5 @@ final class FriendsViewController: UIViewController, SnapKitInterface {
                 }
             }
             .store(in: &cancellable)
-
     }
 }
