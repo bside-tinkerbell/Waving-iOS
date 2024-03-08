@@ -8,9 +8,9 @@
 import UIKit
 import Combine
 
-class FriendsIntroView: UIView, SnapKitInterface {
+final class FriendsIntroView: UIView, SnapKitInterface {
     
-    var viewModel: FriendsViewModelRepresentable?
+    weak var viewModel: FriendsViewModelRepresentable?
     
     private let containerView: UIView = {
         let view = UIView()

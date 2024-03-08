@@ -9,9 +9,9 @@
 import UIKit
 import Combine
 
-class FriendsDisconnectView: UIView, SnapKitInterface {
+final class FriendsDisconnectView: UIView, SnapKitInterface {
     
-    var viewModel: FriendsViewModelRepresentable?
+    weak var viewModel: FriendsViewModelRepresentable?
     
     private let containerView: UIView = {
         let view = UIView()
